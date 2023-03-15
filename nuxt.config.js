@@ -33,11 +33,11 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/ymapPlugin.js',  mode: 'client' },
-    { src: '~/plugins/auth.js',  mode: 'client' },
-    { src: '~/plugins/validation.js',  mode: 'client' },
-    { src: '~/plugins/vuetify.js',  mode: 'client' },
-    { src: '~/plugins/vue-infinite-scroll.js',  mode: 'client', ssr: false },
+    { src: '~/plugins/ymapPlugin.js', mode: 'client' },
+    { src: '~/plugins/auth.js', mode: 'client' },
+    { src: '~/plugins/validation.js', mode: 'client' },
+    { src: '~/plugins/vuetify.js', mode: 'client' },
+    { src: '~/plugins/vue-infinite-scroll.js', mode: 'client', ssr: false },
     { src: '~/plugins/socket', ssr: false, },
     { src: '~/plugins/platformDetection', ssr: false, },
   ],
@@ -69,7 +69,10 @@ export default {
   },
 
   router: {
-    middleware: ['check_auth', 'access_rights'],
+    middleware: [
+      // 'check_auth',
+      // 'access_rights',
+    ],
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
