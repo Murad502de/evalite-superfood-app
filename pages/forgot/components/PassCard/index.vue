@@ -6,17 +6,37 @@ v-card.forgot-pass-card(elevation="3", outlined, width="360")
       v-model="email",
       :rules="emailRules",
       :disabled="loading",
-      label="E-mail",
+      label="Введите новый пароль",
       required,
       outlined
     )
+
+    v-text-field(
+      v-model="email",
+      :rules="emailRules",
+      :disabled="loading",
+      label="Введите новый пароль повторно",
+      required,
+      outlined
+    )
+
+    .forgot-pass-card__info
+      span Требования к паролю:
+      br
+      span длина — не менее 8 символов;
+      br
+      span заглавные буквы;
+      br
+      span строчные буквы;
+      br
+      span цифры или специальные символы: %, #, $ и другие.
 
     v-btn.forgot-pass-card__btn(
       :disabled="!valid && !loading",
       :loading="loading",
       color="#0082DE",
       @click="forgot"
-    ) отправить код
+    ) обновить пароль
 </template>
 
 <script src="./passCard.js" />

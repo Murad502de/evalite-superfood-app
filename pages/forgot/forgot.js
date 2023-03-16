@@ -13,7 +13,7 @@ export default {
   props: {},
   data() {
     return {
-      step: 2,
+      step: 3,
       emailCardLoading: false,
     };
   },
