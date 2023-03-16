@@ -1,8 +1,22 @@
 export default {
   components: {},
 
-  props: {},
-  data: () => ({}),
+  props: {
+    loading: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  data() {
+    return {
+      valid: true,
+      email: '',
+      emailRules: [
+        v => !!v || 'Данное поле обязательно к заполнению',
+        v => /.+@.+\..+/.test(v) || 'E-mail некорректный',
+      ],
+    };
+  },
   computed: {},
 
   watch: {},
@@ -10,6 +24,14 @@ export default {
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
+    sendCodeToEmail() {
+      console.debug("pages/forgot/methods/sendCodeToEmail/isValid", this.$refs.form.validate()); //DELETE
+
+      if (this.$refs.form.validate()) {
+        this.$emit('sendCodeToEmail');
+      }
+    },
+
     /* HELPERS */
     /* ACTIONS */
   },

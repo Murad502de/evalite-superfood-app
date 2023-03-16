@@ -1,22 +1,20 @@
+import EmailCard from "./components/EmailCard";
+import ConfirmCard from "./components/ConfirmCard";
+import PassCard from "./components/PassCard";
+
 export default {
   layout: "empty",
-  components: {},
+  components: {
+    EmailCard,
+    ConfirmCard,
+    PassCard,
+  },
 
   props: {},
   data() {
     return {
-      valid: true,
-      loading: false,
-      forgotFailed: false,
-      password: '',
-      passwordRules: [
-        v => !!v || 'Данное поле обязательно к заполнению'
-      ],
-      email: '',
-      emailRules: [
-        v => !!v || 'Данное поле обязательно к заполнению',
-        v => /.+@.+\..+/.test(v) || 'E-mail некорректный',
-      ]
+      step: 2,
+      emailCardLoading: false,
     };
   },
   computed: {},
@@ -39,20 +37,23 @@ export default {
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
-    forgot() {
-      console.debug("pages/forgot/methods/forgot/isValid", this.$refs.form.validate()); //DELETE
+    sendCodeToEmail() {
+      console.debug("pages/forgot/methods/sendCodeToEmail"); //DELETE
 
-      if (this.$refs.form.validate()) {
-        this.loading = true;
+      this.emailCardLoading = true;
 
-        setTimeout(() => {
-          console.debug("pages/forgot/methods/forgot/setTimeout"); //DELETE
+      setTimeout(() => {
+        console.debug("pages/forgot/methods/sendCodeToEmail/setTimeout"); //DELETE
 
-          this.loading = false;
-          this.forgotFailed = true;
-        }, 5000);
-      }
-
+        this.emailCardLoading = false;
+        this.step = 2;
+      }, 5000);
+    },
+    sendCodeToConfirm() {
+      console.debug("pages/forgot/methods/sendCodeToConfirm"); //DELETE
+    },
+    updatePassword() {
+      console.debug("pages/forgot/methods/updatePassword"); //DELETE
     },
 
     /* HELPERS */
