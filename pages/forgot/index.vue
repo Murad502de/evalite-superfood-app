@@ -8,6 +8,7 @@
   )
   ConfirmCard(
     v-if="step === 2",
+    :email="email"
     @sendCodeToConfirm="sendCodeToConfirm",
     @sendCodeToEmail="sendCodeToEmail"
   )

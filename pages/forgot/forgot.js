@@ -14,6 +14,7 @@ export default {
   data() {
     return {
       step: 1,
+      email: '',
       emailCardLoading: false,
     };
   },
@@ -37,9 +38,10 @@ export default {
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
-    sendCodeToEmail() {
-      console.debug("pages/forgot/methods/sendCodeToEmail"); //DELETE
+    sendCodeToEmail(email) {
+      console.debug("pages/forgot/methods/sendCodeToEmail/email", email); //DELETE
 
+      this.email = email;
       this.emailCardLoading = true;
 
       setTimeout(() => {

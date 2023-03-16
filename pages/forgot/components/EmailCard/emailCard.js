@@ -28,7 +28,7 @@ export default {
       console.debug("pages/forgot/methods/sendCodeToEmail/isValid", this.$refs.form.validate()); //DELETE
 
       if (this.$refs.form.validate()) {
-        this.$emit('sendCodeToEmail');
+        this.$emit('sendCodeToEmail', this.email);
       }
     },
 
