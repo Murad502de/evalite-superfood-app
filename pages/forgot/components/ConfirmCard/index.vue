@@ -6,21 +6,28 @@ v-card.forgot-confirm-card(elevation="3", outlined, width="360")
     v-model="valid",
     lazy-validation
   )
-    v-card-subtitle.forgot-confirm-card__info Письмо с кодом отправлено на test@gmail.com
+    v-card-subtitle.forgot-confirm-card__info Письмо с кодом отправлено на {{ email }}
 
-    v-otp-input.forgot-confirm-card__code-input(length="4", type="number")
+    v-otp-input.forgot-confirm-card__code-input(
+      type="number",
+      :length="codeLength",
+      v-model="code",
+      :disabled="sendCodeLoading || confirmCodeLoading"
+    )
 
     v-btn.forgot-confirm-card__btn.forgot-confirm-card__btn--confirm(
-      :disabled="!valid && !loading",
-      :loading="loading",
-      color="#0082DE",
+      :disabled="!isConfirmCodeActive || sendCodeLoading",
+      :loading="confirmCodeLoading",
+      color="#0082DE"
+      @click="sendCodeToConfirm"
     ) отправить код
 
     v-btn.forgot-confirm-card__btn.forgot-confirm-card__btn--send-code(
-      outlined
-      :disabled="!loading",
-      :loading="loading",
-    ) отправить повторно через 30 сек
+      outlined,
+      :disabled="!isSendCodeActive || confirmCodeLoading",
+      :loading="sendCodeLoading"
+      @click="sendCodeToEmail"
+    ) {{ sendCodeTitle }}
 </template>
 
 <script src="./confirmCard.js" />

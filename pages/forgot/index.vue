@@ -4,13 +4,15 @@
   EmailCard(
     v-if="step === 1",
     :loading="emailCardLoading",
-    @sendCodeToEmail="sendCodeToEmail"
+    @sendCodeToEmail="emailCardSendCodeToEmail"
   )
   ConfirmCard(
     v-if="step === 2",
     :email="email"
-    @sendCodeToConfirm="sendCodeToConfirm",
-    @sendCodeToEmail="sendCodeToEmail"
+    :confirmCodeLoading="confirnCardConfirmCodeLoading"
+    :sendCodeLoading="confirnCardSendCodeLoading"
+    @sendCodeToConfirm="confirmCardSendCodeToConfirm",
+    @sendCodeToEmail="confirmCardSendCodeToEmail"
   )
   PassCard(v-if="step === 3", @updatePassword="updatePassword")
 </template>

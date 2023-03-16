@@ -16,6 +16,8 @@ export default {
       step: 1,
       email: '',
       emailCardLoading: false,
+      confirnCardConfirmCodeLoading: false,
+      confirnCardSendCodeLoading: false,
     };
   },
   computed: {},
@@ -38,28 +40,52 @@ export default {
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
-    sendCodeToEmail(email) {
-      console.debug("pages/forgot/methods/sendCodeToEmail/email", email); //DELETE
+    async emailCardSendCodeToEmail(email) {
+      console.debug("pages/forgot/methods/emailCardSendCodeToEmail/email", email); //DELETE
 
-      this.email = email;
+      await this.sendCodeToEmail(email);
+
       this.emailCardLoading = true;
 
       setTimeout(() => {
         console.debug("pages/forgot/methods/sendCodeToEmail/setTimeout"); //DELETE
 
-        this.emailCardLoading = false;
         this.step = 2;
-      }, 5000);
+        this.emailCardLoading = false;
+      }, 3000);
     },
-    sendCodeToConfirm() {
-      console.debug("pages/forgot/methods/sendCodeToConfirm"); //DELETE
+    async confirmCardSendCodeToConfirm(code) {
+      console.debug("pages/forgot/methods/confirmCardSendCodeToConfirm/code", code); //DELETE
+
+      this.confirnCardConfirmCodeLoading = true;
+
+      setTimeout(() => {
+        this.step = 3;
+        this.confirnCardConfirmCodeLoading = false;
+      }, 3000);
     },
-    updatePassword() {
+    async confirmCardSendCodeToEmail(email) {
+      console.debug("pages/forgot/methods/confirmCardSendCodeToEmail/email"); //DELETE
+
+      await this.sendCodeToEmail(email);
+
+      this.confirnCardSendCodeLoading = true;
+
+      setTimeout(() => {
+        this.confirnCardSendCodeLoading = false;
+      }, 3000);
+    },
+    async updatePassword() {
       console.debug("pages/forgot/methods/updatePassword"); //DELETE
     },
 
     /* HELPERS */
     /* ACTIONS */
+    async sendCodeToEmail(email) {
+      console.debug("pages/forgot/methods/sendCodeToEmail/email", email); //DELETE
+
+      this.email = email;
+    },
   },
 
   created() {
