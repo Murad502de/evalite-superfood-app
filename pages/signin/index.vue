@@ -38,10 +38,14 @@
       ) войти в систему
 
   .signin__actions
-    v-card-subtitle.signin__actions-item.signin__actions-item--forgot Забыли пароль? &nbsp;
+    v-card-subtitle.signin__actions-item.signin__actions-item--forgot(
+      @click="redirectTo('forgot')"
+    ) Забыли пароль? &nbsp;
       span.signin__actions-item--restore Восстановить
 
-    v-card-subtitle.signin__actions-item.signin__actions-item--signup Регистрация
+    v-card-subtitle.signin__actions-item.signin__actions-item--signup(
+      @click="redirectTo('signup')"
+    ) Регистрация
 </template>
 
 <script src="./signin.js" />

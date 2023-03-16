@@ -39,6 +39,9 @@ export default {
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
+    redirectTo(to) {
+      this.$router.push({name: to});
+    },
     signin() {
       console.debug("pages/signin/methods/signin/isValid", this.$refs.form.validate()); //DELETE
 
