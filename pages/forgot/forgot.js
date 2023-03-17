@@ -13,7 +13,7 @@ export default {
   props: {},
   data() {
     return {
-      step: 3,
+      step: 1,
       email: '',
       emailCardLoading: false,
       confirnCardConfirmCodeLoading: false,
@@ -83,6 +83,7 @@ export default {
 
       setTimeout(() => {
         this.passCardUpdatePassLoading = false;
+        this.$router.push({name: 'signin'});
       }, 3000);
     },
 
