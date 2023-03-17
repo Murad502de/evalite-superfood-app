@@ -8,13 +8,17 @@
   )
   ConfirmCard(
     v-if="step === 2",
-    :email="email"
-    :confirmCodeLoading="confirnCardConfirmCodeLoading"
-    :sendCodeLoading="confirnCardSendCodeLoading"
+    :email="email",
+    :confirmCodeLoading="confirnCardConfirmCodeLoading",
+    :sendCodeLoading="confirnCardSendCodeLoading",
     @sendCodeToConfirm="confirmCardSendCodeToConfirm",
     @sendCodeToEmail="confirmCardSendCodeToEmail"
   )
-  PassCard(v-if="step === 3", @updatePassword="updatePassword")
+  PassCard(
+    v-if="step === 3",
+    :loading="passCardUpdatePassLoading",
+    @updatePassword="updatePassword"
+  )
 </template>
 
 <script src="./forgot.js" />

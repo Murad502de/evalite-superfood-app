@@ -13,11 +13,12 @@ export default {
   props: {},
   data() {
     return {
-      step: 1,
+      step: 3,
       email: '',
       emailCardLoading: false,
       confirnCardConfirmCodeLoading: false,
       confirnCardSendCodeLoading: false,
+      passCardUpdatePassLoading: false,
     };
   },
   computed: {},
@@ -75,8 +76,14 @@ export default {
         this.confirnCardSendCodeLoading = false;
       }, 3000);
     },
-    async updatePassword() {
-      console.debug("pages/forgot/methods/updatePassword"); //DELETE
+    async updatePassword(password) {
+      console.debug("pages/forgot/methods/updatePassword/password", password); //DELETE
+
+      this.passCardUpdatePassLoading = true;
+
+      setTimeout(() => {
+        this.passCardUpdatePassLoading = false;
+      }, 3000);
     },
 
     /* HELPERS */
