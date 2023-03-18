@@ -1,0 +1,18 @@
+.app-bar-empty {
+  box-sizing: border-box;
+  background: #0082DE;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+
+  &__title {
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 32px;
+    font-weight: bold;
+  }
+}

@@ -1,10 +1,5 @@
-import AppBarEmpty from '@/components/AppBarEmpty';
-
 export default {
-  layout: "empty",
-  components: {
-    AppBarEmpty,
-  },
+  components: {},
 
   props: {},
   data: () => ({}),
@@ -20,9 +15,9 @@ export default {
   },
 
   created() {
-    console.debug("pages/signup/created"); //DELETE
+    console.debug("pages/AppBarEmpty/created"); //DELETE
   },
   mounted() {
-    console.debug("pages/signup/mounted"); //DELETE
+    console.debug("pages/AppBarEmpty/mounted"); //DELETE
   },
 }

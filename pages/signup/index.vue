@@ -1,5 +1,6 @@
 <template lang="pug">
-.signup signup
+.signup
+  AppBarEmpty
 </template>
 
 <script src="./signup.js" />
