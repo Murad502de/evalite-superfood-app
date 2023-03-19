@@ -1,1 +1,37 @@
-.signup {}
+.signup {
+  &__steps {
+    box-sizing: border-box;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    &--container {
+      max-width: 560px;
+      width: 100%;
+    }
+
+    &--actions {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      margin-top: 40px;
+
+      &__prev,
+      &__next {
+        font-weight: 700;
+        font-size: 14px;
+      }
+
+      &__prev {
+        color: #263043 !important;
+      }
+
+      &__next {
+        margin-top: 12px;
+        color: #FFFFFF !important;
+      }
+    }
+  }
+}

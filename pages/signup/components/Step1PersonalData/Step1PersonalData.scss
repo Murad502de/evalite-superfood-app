@@ -1,0 +1,12 @@
+.signup-step1-personal-data {
+  &__title {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 46px;
+    color: #263043;
+
+    @media screen and (max-width: 768px) {
+      font-size: 36px;
+    }
+  }
+}
