@@ -1,0 +1,17 @@
+.app-stepper-progress-step {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: none;
+  letter-spacing: normal;
+  opacity: .5;
+
+  &_active {
+    opacity: 1;
+  }
+}

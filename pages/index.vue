@@ -1,21 +1,21 @@
 <template lang="pug">
 .rq-home
-  component(:is="getComponent(user.type)")
+  //- component(:is="getComponent(user.type)")
 </template>
 
 <script>
 import { mapGetters, } from 'vuex';
-import superManager from '@/components/pages/home/superManager';
-import manager from '@/components/pages/home/manager';
-import dispatcher from '@/components/pages/home/dispatcher';
-import executor from '@/components/pages/home/executor';
+// import superManager from '@/components/pages/home/superManager';
+// import manager from '@/components/pages/home/manager';
+// import dispatcher from '@/components/pages/home/dispatcher';
+// import executor from '@/components/pages/home/executor';
 
 export default {
   components: {
-    superManager,
-    manager,
-    dispatcher,
-    executor,
+    // superManager,
+    // manager,
+    // dispatcher,
+    // executor,
   },
 
   props: {},

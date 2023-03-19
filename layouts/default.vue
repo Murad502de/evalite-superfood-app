@@ -3,38 +3,38 @@
   v-app(app)
     v-main
       v-container
-        v-navigation-drawer(
-          width="98"
-          color="blue"
-          app
-          mobile-breakpoint="769"
-        )
-          div(class="wrapper-main-menu d-flex flex-column justify-space-between")
-            Navbar
-            Settingsnav
+        //- v-navigation-drawer(
+        //-   width="98"
+        //-   color="blue"
+        //-   app
+        //-   mobile-breakpoint="769"
+        //- )
+        //-   div(class="wrapper-main-menu d-flex flex-column justify-space-between")
+        //-     Navbar
+        //-     Settingsnav
         .ruqi__wrapper
-          Topbar(v-if="isSmallScreen || isLargeScreen || isExtraLargeScreen")
-          mAppbar(v-if="isMobile || isTablet")
+          //- Topbar(v-if="isSmallScreen || isLargeScreen || isExtraLargeScreen")
+          //- mAppbar(v-if="isMobile || isTablet")
 
           .content
             Nuxt
-            Alert(:requestSuccess="requestSuccess")
+          //-   Alert(:requestSuccess="requestSuccess")
 
-          Bottombar.ruqi__mbottombar(v-if="isMobile || isTablet")
+          //- Bottombar.ruqi__mbottombar(v-if="isMobile || isTablet")
 </template>
 
 <script>
 import { mapActions } from "vuex";
-import Topbar from '@/components/Topbar/index.vue';
-import Bottombar from '@/components/Navigation/mobile/Bottombar';
-import mAppbar from '@/components/Navigation/mobile/Appbar';
+// import Topbar from '@/components/Topbar/index.vue';
+// import Bottombar from '@/components/Navigation/mobile/Bottombar';
+// import mAppbar from '@/components/Navigation/mobile/Appbar';
 
 export default {
   name: "default",
   components: {
-    Topbar,
-    Bottombar,
-    mAppbar,
+    // Topbar,
+    // Bottombar,
+    // mAppbar,
   },
 
   data() {

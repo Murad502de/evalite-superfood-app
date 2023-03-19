@@ -1,6 +1,7 @@
 <template lang="pug">
 .signup
   AppBarEmpty
+  AppStepperProgress(:steps="steps")
 </template>
 
 <script src="./signup.js" />
