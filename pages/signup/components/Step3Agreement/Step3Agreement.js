@@ -1,5 +1,9 @@
+import EarthLogo from '@/assets/svg/earth.svg';
+
 export default {
-  components: {},
+  components: {
+    EarthLogo,
+  },
 
   props: {},
   data: () => ({}),

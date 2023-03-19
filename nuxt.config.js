@@ -55,6 +55,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/vuetify',
     'nuxt-route-meta',
+    'nuxt-svg-loader',
   ],
 
   vuetify: {

@@ -1,5 +1,8 @@
 <template lang="pug">
 .signup-step1-agreement
+  .signup-step1-agreement__logo
+    EarthLogo
+    
   .signup-step1-agreement__title Электронный документооборот
 </template>
 
