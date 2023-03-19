@@ -1,5 +1,6 @@
 <template lang="pug">
-.signup-step1-personal-data Step2Pass
+.signup-step1-pass
+  .signup-step1-pass__title Введите пароль
 </template>
 
 <script src="./Step2Pass.js" />

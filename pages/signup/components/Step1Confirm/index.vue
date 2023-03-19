@@ -1,5 +1,6 @@
 <template lang="pug">
-.signup-step1-personal-data Step1Confirm
+.signup-step1-confirm
+  .signup-step1-confirm__title Введите код из E-mail
 </template>
 
 <script src="./Step1Confirm.js" />

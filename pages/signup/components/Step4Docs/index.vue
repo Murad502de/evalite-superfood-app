@@ -1,5 +1,6 @@
 <template lang="pug">
-.signup-step1-personal-data Step4Docs
+.signup-step1-docs
+  .signup-step1-docs__title Загрузка документов
 </template>
 
 <script src="./Step4Docs.js" />
