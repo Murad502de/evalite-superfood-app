@@ -15,9 +15,9 @@ export default {
   },
 
   created() {
-    console.debug("pages/AppBarEmpty/created"); //DELETE
+    console.debug("components/AppBarEmpty/created"); //DELETE
   },
   mounted() {
-    console.debug("pages/AppBarEmpty/mounted"); //DELETE
+    console.debug("components/AppBarEmpty/mounted"); //DELETE
   },
 }
