@@ -11,5 +11,5 @@
   )
 </template>
 
-<script src="./AppStepperProgressStep.js" />
-<style lang="scss" src="./AppStepperProgressStep.scss" />
+<script src="./AppStepperProgressDesktopStep.js" />
+<style lang="scss" src="./AppStepperProgressDesktopStep.scss" />

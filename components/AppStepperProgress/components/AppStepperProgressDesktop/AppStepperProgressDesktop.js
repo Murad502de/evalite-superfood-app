@@ -1,10 +1,8 @@
-import AppStepperProgressDesktop from './components/AppStepperProgressDesktop';
-import AppStepperProgressMobile from './components/AppStepperProgressMobile';
+import AppStepperProgressDesktopStep from '../AppStepperProgressDesktopStep';
 
 export default {
   components: {
-    AppStepperProgressDesktop,
-    AppStepperProgressMobile,
+    AppStepperProgressDesktopStep,
   },
 
   props: {
@@ -39,9 +37,9 @@ export default {
   },
 
   created() {
-    console.debug("pages/AppStepperProgress/created"); //DELETE
+    console.debug("components/AppStepperProgress/created"); //DELETE
   },
   mounted() {
-    console.debug("pages/AppStepperProgress/mounted"); //DELETE
+    console.debug("components/AppStepperProgress/mounted"); //DELETE
   },
 }
