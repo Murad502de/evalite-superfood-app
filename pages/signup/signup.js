@@ -75,7 +75,7 @@ export default {
         {
           title: 'Шаг 11',
           name: 'Личные данные',
-          progress: 10,
+          progress: 45,
           active: true,
         },
         {

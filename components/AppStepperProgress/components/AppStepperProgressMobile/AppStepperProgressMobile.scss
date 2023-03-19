@@ -1,1 +1,39 @@
-.app-stepper-progress-mobile {}
+.app-stepper-progress-mobile {
+  box-sizing: border-box;
+  padding: 20px 16px 40px 16px;
+
+  &--tabs {
+    margin-top: 20px;
+
+    .v-tabs-bar {
+      height: 4px;
+    }
+  }
+
+  &__active-step {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+
+    &--title,
+    &--name {
+      color: #263043;
+    }
+
+    &--title {
+      opacity: 0.7;
+    }
+  }
+
+  &__step {
+    &_active {
+      opacity: 1 !important;
+    }
+  }
+
+  .v-slide-group__prev {
+    display: none !important;
+  }
+}

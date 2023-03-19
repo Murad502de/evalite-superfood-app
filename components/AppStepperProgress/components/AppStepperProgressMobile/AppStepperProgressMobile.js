@@ -1,11 +1,31 @@
 export default {
   components: {},
 
-  props: {},
+  props: {
+    /*
+      example: [{
+        title: <string>,
+        name: <string>,
+        progress: <number>,
+      }]
+     */
+    steps: {
+      type: Array,
+      default: () => ([]),
+    },
+    activeStepIndex: {
+      type: Number,
+      default: 0,
+    },
+  },
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    activeStep() {
+      return this.steps[this.activeStepIndex];
+    },
+  },
 
   watch: {},
   methods: {
