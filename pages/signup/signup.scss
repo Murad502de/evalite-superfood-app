@@ -1,7 +1,7 @@
 .signup {
   &__steps {
     box-sizing: border-box;
-    padding: 0 16px;
+    padding: 40px 16px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -19,12 +19,14 @@
       margin-top: 40px;
 
       &__prev,
-      &__next {
+      &__next,
+      &__send-code {
         font-weight: 700;
         font-size: 14px;
       }
 
-      &__prev {
+      &__prev,
+      &__send-code {
         color: #263043 !important;
       }
 

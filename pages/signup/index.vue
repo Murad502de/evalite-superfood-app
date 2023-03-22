@@ -10,7 +10,7 @@
           Step1PersonalData
 
         v-window-item
-          Step1Confirm
+          Step1Confirm(:email="'test@mai.com'" :disabled="false" @startTimer="startConfirmTimer")
 
         v-window-item
           Step2Pass
@@ -28,6 +28,12 @@
           color="#F2F6F9",
           @click="prev"
         ) Назад
+        v-btn.signup__steps--actions__send-code(
+          v-if="onboarding === 1",
+          :elevation="0",
+          :disabled="!isConfirmSendCodeActive"
+          color="#F2F6F9"
+        ) {{ confirmSendCodeTitle }}
         v-btn.signup__steps--actions__next(
           :elevation="0",
           color="#0082DE",

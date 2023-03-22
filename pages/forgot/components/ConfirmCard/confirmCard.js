@@ -42,7 +42,7 @@ export default {
       if (!newVal) {
         clearInterval(this.timer);
       }
-    }
+    },
   },
   methods: {
     /* GETTERS */

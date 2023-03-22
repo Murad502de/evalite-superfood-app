@@ -21,8 +21,10 @@ export default {
   props: {},
   data() {
     return {
-      onboarding: 0,
+      onboarding: 1,
       formsCount: 5,
+      confirmTimerCount: 30,
+      confirmTimer: null,
       steps: [
         {
           title: 'Шаг 1',
@@ -118,9 +120,24 @@ export default {
       ],
     };
   },
-  computed: {},
+  computed: {
+    confirmSendCodeTitle() {
+      return this.confirmTimerCount
+        ? `Отправить повторно через ${this.confirmTimerCount} сек`
+        : 'Отправить повторно';
+    },
+    isConfirmSendCodeActive() {
+      return !this.confirmTimerCount;
+    },
+  },
 
-  watch: {},
+  watch: {
+    confirmTimerCount(newVal) {
+      if (!newVal) {
+        clearInterval(this.confirmTimer);
+      }
+    },
+  },
   methods: {
     /* GETTERS */
     /* SETTERS */
@@ -134,6 +151,13 @@ export default {
       this.onboarding = this.onboarding - 1 < 0
         ? this.length - 1
         : this.onboarding - 1;
+    },
+    startConfirmTimer() {
+      clearInterval(this.confirmTimer);
+
+      this.confirmTimer = setInterval(() => {
+        this.confirmTimerCount--;
+      }, 1000);
     },
 
     /* HELPERS */
