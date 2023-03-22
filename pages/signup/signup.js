@@ -21,7 +21,7 @@ export default {
   props: {},
   data() {
     return {
-      onboarding: 1,
+      onboarding: 2,
       formsCount: 5,
       confirmTimerCount: 30,
       confirmTimer: null,
