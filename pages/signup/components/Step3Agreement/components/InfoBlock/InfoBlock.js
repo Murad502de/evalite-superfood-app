@@ -1,18 +1,26 @@
+import Time from '@/assets/svg/time.svg';
+import Docs from '@/assets/svg/docs.svg';
+import Hand from '@/assets/svg/hand.svg';
+
 export default {
-  components: {},
+  components: {
+    Time,
+    Docs,
+    Hand,
+  },
 
   props: {
     icon: {
       type: String,
-      required: true,
+      // required: true,
     },
     title: {
       type: String,
-      required: true,
+      // required: true,
     },
     text: {
       type: String,
-      required: true,
+      // required: true,
     },
   },
   data() {
@@ -23,12 +31,32 @@ export default {
   watch: {},
   methods: {
     /* GETTERS */
+    getIconCmpName({ name, }) {
+      if (!name) return null;
+
+      switch (name.toLowerCase()) {
+        case 'time':
+          return 'Time';
+
+        case 'docs':
+          return 'Docs';
+
+        case 'hand':
+          return 'Hand';
+
+        default:
+          return null;
+      }
+    },
+
     /* SETTERS */
     /* HANDLERS */
     /* HELPERS */
     /* ACTIONS */
   },
 
-  created() { },
+  created() {
+    console.debug('QWERTYUIO test'); //DELETE
+  },
   mounted() { },
 };

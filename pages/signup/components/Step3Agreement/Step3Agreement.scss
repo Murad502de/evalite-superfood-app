@@ -1,19 +1,43 @@
+@import '@/styles/vars.scss';
+
 .signup-step1-agreement {
   &__logo {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
+    color: #263043;
   }
 
   &__title {
     font-weight: 700;
     font-size: 44px;
     line-height: 46px;
-    color: #263043;
+    color: inherit;
 
     @media screen and (max-width: 768px) {
       font-size: 36px;
+    }
+  }
+
+  &__info {
+    color: inherit;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 24px;
+  }
+
+  &__info-blocks {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 47% 47%;
+    gap: 24px 32px;
+  }
+
+  @media screen and (max-width: $screen-xsm) {
+    &__info-blocks {
+      grid-template-columns: 100%;
     }
   }
 }

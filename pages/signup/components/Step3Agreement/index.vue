@@ -4,12 +4,15 @@
     EarthLogo
 
   .signup-step1-agreement__title Электронный документооборот
-  .signup-step1-agreement__info Система ruqi.ru использует электроный документооборот, это эффективный способ подписывать документы и быстро получать оплату. Мы бесплатно храним ваши документы на нескольких серверах,которые надежно защищены от взлома.
+  .signup-step1-agreement__info Система Evalite использует электроный документооборот, это эффективный способ подписывать документы и быстро получать оплату. Мы бесплатно храним ваши документы,которые надежно защищены от взлома.
 
   .signup-step1-agreement__info-blocks
     InfoBlock.signup-step1-agreement__info-block(
-      v-for="(infoBlock, index) in infoBlocks"
-      :key="index"
+      v-for="(infoBlock, index) in infoBlocks",
+      :key="index",
+      :icon="infoBlock.icon",
+      :title="infoBlock.title",
+      :text="infoBlock.text"
     )
 </template>
 

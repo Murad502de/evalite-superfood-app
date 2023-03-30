@@ -4,7 +4,7 @@ import InfoBlock from './components/InfoBlock';
 export default {
   components: {
     EarthLogo,
-    InfoBlock
+    InfoBlock,
   },
 
   props: {},

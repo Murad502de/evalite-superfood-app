@@ -5,6 +5,7 @@ import Step1Confirm from './components/Step1Confirm';
 import Step2Pass from './components/Step2Pass';
 import Step3Agreement from './components/Step3Agreement';
 import Step4Docs from './components/Step4Docs';
+import Pdf from '@/assets/svg/pdf.svg';
 
 export default {
   layout: "empty",
@@ -16,6 +17,7 @@ export default {
     Step2Pass,
     Step3Agreement,
     Step4Docs,
+    Pdf,
   },
 
   props: {},
@@ -118,6 +120,11 @@ export default {
           progress: 20,
         },
       ],
+
+      //text-data
+      actionsStep3Title: 'Согласие на использование электронного документооборота',
+      actionsStep3Text: 'Нажимая кнопку "Принимаю условия", Вы соглашаетесь с условиями использования Ваших данных в обмене документами с системой Evalite.',
+      actionsStep3AgreementTitle: 'Cоглашение на обмен персональными данными и документами посредством ЭЦП',
     };
   },
   computed: {
@@ -128,6 +135,13 @@ export default {
     },
     isConfirmSendCodeActive() {
       return !this.confirmTimerCount;
+    },
+    nextBtnTitle() {
+      if (this.onboarding === 3) {
+        return 'принимаю условия';
+      }
+
+      return 'Далее'
     },
   },
 
