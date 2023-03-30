@@ -9,4 +9,37 @@
       font-size: 36px;
     }
   }
+
+  &-form {
+    margin-top: 24px;
+
+    &-passport {
+      &__title {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 28px;
+        color: #263043;
+      }
+
+      &__info {
+        margin-top: 40px;
+      }
+
+      &__info {
+        &--row {}
+
+        &--series {}
+
+        &--number {}
+
+        &--issue-date {}
+
+        &--validity {}
+
+        &--issued-by {}
+
+        &--division-code {}
+      }
+    }
+  }
 }
