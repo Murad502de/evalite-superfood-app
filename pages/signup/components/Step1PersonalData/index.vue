@@ -60,6 +60,15 @@
       required,
       outlined
     )
+
+    v-text-field(
+      v-model="thirdName",
+      :rules="thirdNameRules",
+      :disabled="loading",
+      label="Телефон",
+      required,
+      outlined
+    )
 </template>
 
 <script src="./Step1PersonalData.js" />
