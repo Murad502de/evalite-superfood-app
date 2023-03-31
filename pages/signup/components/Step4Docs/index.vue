@@ -74,9 +74,26 @@
           )
 
       .signup-step1-docs-form-passport__media
-        .signup-step1-docs-form-passport__title Фото паспорта основной разворот (стр. 1-2)
-        .signup-step1-docs-form-passport__title Фото паспорта разворот прописка (стр. 3-4)
-        .signup-step1-docs-form-passport__title Фото с паспортом
+        .signup-step1-docs-form-passport__spread-main
+          .signup-step1-docs-form-passport__title Фото паспорта основной разворот (стр. 1-2)
+
+          AppFormMedia
+            template(v-slot:stub-img)
+              PassportSpreadMainSvg
+
+        .signup-step1-docs-form-passport__spread-registration
+          .signup-step1-docs-form-passport__title Фото паспорта разворот прописка (стр. 3-4)
+
+          AppFormMedia
+            template(v-slot:stub-img)
+              PassportSpreadRegistrationSvg
+
+        .signup-step1-docs-form-passport__passport-verification
+          .signup-step1-docs-form-passport__title Фото с паспортом
+
+          AppFormMedia
+            template(v-slot:stub-img)
+              PassportSpreadVerificationSvg
 </template>
 
 <script src="./Step4Docs.js" />
