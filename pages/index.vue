@@ -1,5 +1,5 @@
 <template lang="pug">
-.rq-home
+.rq-home Home Page
   //- component(:is="getComponent(user.type)")
 </template>
 
