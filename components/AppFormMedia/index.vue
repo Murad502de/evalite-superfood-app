@@ -5,7 +5,7 @@
     .app-form-media__mobile
 
     .app-form-media-file
-      .app-form-media-file__name name
+      .app-form-media-file__name Образец
 
       .app-form-media-file__stub
         slot(name="stub-img")

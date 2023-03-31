@@ -40,6 +40,16 @@
 
         &--division-code {}
       }
+
+      &__media {
+        &-info {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 20px;
+          color: #263043;
+          margin-top: 16px;
+        }
+      }
     }
   }
 }
