@@ -1,7 +1,10 @@
 <template lang="pug">
 .signup-step1-confirm
   .signup-step1-confirm__title Введите код из E-mail
-  .signup-step1-confirm__info Письмо с кодом отправлено на {{ email }}
+  .signup-step1-confirm__info
+    span.signup-step1-confirm__info-text Письмо с кодом отправлено на &nbsp;
+    span.signup-step1-confirm__info-email {{ email }}
+
   v-otp-input.signup-step1-confirm__code-input(
     type="number",
     :length="codeLength",
