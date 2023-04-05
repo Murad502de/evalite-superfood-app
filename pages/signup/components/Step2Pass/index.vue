@@ -1,6 +1,8 @@
 <template lang="pug">
 .signup-step1-pass
-  .signup-step1-pass__title Введите пароль
+  .signup-step1-pass__title {{ title }}
+  .signup-step1-pass__title-sub {{ subTitle }}
+
   v-form.signup-step1-pass__form(ref="form", v-model="valid", lazy-validation)
     v-text-field(
       v-model="password",
@@ -9,7 +11,7 @@
       @click:append="showPass = !showPass",
       :rules="passwordRules",
       :disabled="loading",
-      label="Введите новый пароль",
+      :label="passInputLabel",
       required,
       outlined
     )
@@ -21,21 +23,21 @@
       @click:append="showPass1 = !showPass1",
       :rules="passwordRules",
       :disabled="loading",
-      label="Введите новый пароль повторно",
+      :label="passInputAgainLabel",
       required,
       outlined
     )
 
     .signup-step1-pass__info
-      span Требования к паролю:
+      span {{ passRequirementsTitle }}
       br
-      span длина — не менее 8 символов;
+      span {{ passLengthTitle }}
       br
-      span заглавные буквы;
+      span {{ passCapitalLettersTitle }}
       br
-      span строчные буквы;
+      span {{ passLowerCaseTitle }}
       br
-      span цифры или специальные символы: %, #, $ и другие.
+      span {{ passOtherSymbolsTitle }}
 </template>
 
 <script src="./Step2Pass.js" />
