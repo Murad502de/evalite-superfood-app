@@ -1,8 +1,10 @@
 import AppButton from '@/components/AppButton/AppButton.vue';
+import FileIconSvg from '@/assets/svg/file.svg';
 
 export default {
   components: {
     AppButton,
+    FileIconSvg,
   },
 
   props: {},
