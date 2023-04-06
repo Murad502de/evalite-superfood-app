@@ -23,6 +23,30 @@
     flex-wrap: nowrap;
     align-items: center;
 
+    &__name,
+    &__delete {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 125%;
+      user-select: none;
+    }
+
+    &__name {
+      color: #263043;
+      opacity: 0.6;
+    }
+
+    &__delete {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+
+      color: #EB4D3D;
+      cursor: pointer;
+    }
+
     &__stub {}
   }
 
