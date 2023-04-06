@@ -1,12 +1,8 @@
-import AppButton from '@/components/AppButton/AppButton.vue';
-
 export default {
-  components: {
-    AppButton,
-  },
+  components: {},
 
   props: {},
-  data() { },
+  data: () => ({}),
   computed: {},
 
   watch: {},
@@ -18,6 +14,6 @@ export default {
     /* ACTIONS */
   },
 
-  created() { },
-  mounted() { },
+  created() {},
+  mounted() {},
 }

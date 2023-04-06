@@ -4,7 +4,7 @@ import Step1PersonalData from './components/Step1PersonalData';
 import Step1Confirm from './components/Step1Confirm';
 import Step2Pass from './components/Step2Pass';
 import Step3Agreement from './components/Step3Agreement';
-import Step4Docs from './components/Step4Docs';
+import Step4Docs from './components/Step4Docs/Step4Docs.vue';
 import Pdf from '@/assets/svg/pdf.svg';
 
 export default {

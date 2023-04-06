@@ -1,5 +1,7 @@
 <template lang="pug">
-.app-upload-file AppUploadFile
+.app-upload-file
+  div AppUploadFile
+  AppButton
 </template>
 
 <script src="./AppUploadFile.js" />

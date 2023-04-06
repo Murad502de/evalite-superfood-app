@@ -1,8 +1,14 @@
+import AppFormMediaDesktop from './components/AppFormMediaDesktop/AppFormMediaDesktop.vue';
+import AppFormMediaMobile from './components/AppFormMediaMobile/AppFormMediaMobile.vue';
+
 export default {
-  components: {},
+  components: {
+    AppFormMediaDesktop,
+    AppFormMediaMobile,
+  },
 
   props: {},
-  data: () => ({}),
+  data() { },
   computed: {},
 
   watch: {},

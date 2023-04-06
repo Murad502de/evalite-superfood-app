@@ -1,12 +1,12 @@
-import AppButton from '@/components/AppButton/AppButton.vue';
+import AppUploadFile from '@/components/AppUploadFile/AppUploadFile.vue';
 
 export default {
   components: {
-    AppButton,
+    AppUploadFile,
   },
 
   props: {},
-  data() { },
+  data: () => ({}),
   computed: {},
 
   watch: {},
