@@ -19,6 +19,7 @@ export default {
         fontSize: '14px',
         lineHeight: '125%',
         letterSpacing: 'unset',
+        borderRadius: '8px',
       },
     }
   },

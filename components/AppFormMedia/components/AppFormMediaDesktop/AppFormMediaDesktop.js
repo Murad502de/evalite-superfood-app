@@ -8,7 +8,11 @@ export default {
   },
 
   props: {},
-  data: () => ({}),
+  data() {
+    return {
+      title: 'или загрузите',
+    };
+  },
   computed: {},
 
   watch: {},
