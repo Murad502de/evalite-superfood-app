@@ -1,5 +1,5 @@
 <template lang="pug">
-v-btn.app-button
+v-btn.app-button(:color="color", :style="{ ...defaultStyle, ...style }")
   slot
 </template>
 

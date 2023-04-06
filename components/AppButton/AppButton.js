@@ -1,8 +1,27 @@
 export default {
   components: {},
 
-  props: {},
-  data: () => ({}),
+  props: {
+    color: {
+      type: String,
+      default: '#0082DE',
+    },
+    style: {
+      type: Object,
+      default: {},
+    },
+  },
+  data() {
+    return {
+      defaultStyle: {
+        color: '#FFFFFF',
+        fontWeight: '700',
+        fontSize: '14px',
+        lineHeight: '125%',
+        letterSpacing: 'unset',
+      },
+    }
+  },
   computed: {},
 
   watch: {},
@@ -14,6 +33,6 @@ export default {
     /* ACTIONS */
   },
 
-  created() {},
-  mounted() {},
+  created() { },
+  mounted() { },
 }
