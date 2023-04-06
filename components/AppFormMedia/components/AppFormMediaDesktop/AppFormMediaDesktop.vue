@@ -1,6 +1,7 @@
 <template lang="pug">
 .app-form-media-desktop
   div AppFormMediaDesktop
+  AppUploadFileDrop
   AppUploadFile
 </template>
 
