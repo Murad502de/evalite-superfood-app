@@ -1,7 +1,6 @@
 <template lang="pug">
 .app-upload-file
-  div AppUploadFile
-  AppButton
+  AppButton загрузить из файла
 </template>
 
 <script src="./AppUploadFile.js" />

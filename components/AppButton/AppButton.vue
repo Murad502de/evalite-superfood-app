@@ -1,5 +1,6 @@
 <template lang="pug">
-.app-button AppButton
+v-btn.app-button
+  slot
 </template>
 
 <script src="./AppButton.js" />
