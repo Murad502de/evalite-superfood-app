@@ -9,7 +9,9 @@
     align-items: center;
   }
 
-  &__desktop {}
+  &__desktop {
+    width: 100%;
+  }
 
   &__mobile {
     display: none;

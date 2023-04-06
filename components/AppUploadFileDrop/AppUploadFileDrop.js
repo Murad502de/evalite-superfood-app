@@ -1,5 +1,9 @@
+import DropIconSvg from '@/assets/svg/upload.svg';
+
 export default {
-  components: {},
+  components: {
+    DropIconSvg,
+  },
 
   props: {},
   data() { },
