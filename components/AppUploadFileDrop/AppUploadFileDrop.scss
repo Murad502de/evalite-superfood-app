@@ -21,4 +21,9 @@
     margin-top: 16px;
     user-select: none;
   }
+
+  &__icon,
+  &__title {
+    pointer-events: none;
+  }
 }

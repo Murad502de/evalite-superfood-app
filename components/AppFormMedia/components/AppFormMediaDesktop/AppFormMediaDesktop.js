@@ -11,6 +11,7 @@ export default {
   data() {
     return {
       title: 'или загрузите',
+      media: null,
     };
   },
   computed: {},

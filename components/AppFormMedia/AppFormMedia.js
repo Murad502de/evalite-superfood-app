@@ -10,7 +10,11 @@ export default {
   },
 
   props: {},
-  data() { },
+  data() {
+    return {
+      media: null,
+    };
+  },
   computed: {},
 
   watch: {},
