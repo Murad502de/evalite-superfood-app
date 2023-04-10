@@ -11,6 +11,7 @@
 
   &__desktop {
     width: 100%;
+    margin-bottom: 34px;
   }
 
   &__mobile {
@@ -22,7 +23,7 @@
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
-    height: 318px;
+    height: 342px;
 
     &__name,
     &__delete {
