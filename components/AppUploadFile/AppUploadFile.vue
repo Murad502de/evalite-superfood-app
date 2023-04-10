@@ -1,12 +1,18 @@
 <template lang="pug">
-AppButton.app-upload-file(
-  :disabled="disabled",
-  :class="{ 'app-upload-file_disabled': disabled }",
-)
-  label.app-upload-file--label
+.app-upload-file
+  AppButton.app-upload-file__container(
+    :disabled="disabled",
+    :class="{ 'app-upload-file_disabled': disabled }",
+    @click="selectFile"
+  )
     FileIconSvg.app-upload-file--icon
     .app-upload-file--title загрузить из файла
-    input.app-upload-file__input(ref="input", type="file" @change="selectFile")
+
+  input.app-upload-file__input(
+    ref="input",
+    type="file",
+    @change="selectedFile"
+  )
 </template>
 
 <script src="./AppUploadFile.js" />

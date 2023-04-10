@@ -24,6 +24,11 @@ export default {
     /* SETTERS */
     /* HANDLERS */
     selectFile(e) {
+      console.debug('selectFile'); //DELETE
+
+      this.$refs.input.click();
+    },
+    selectedFile(e) {
       this.$emit('upload', e.target.files[0]);
       this.inputReset();
     },
