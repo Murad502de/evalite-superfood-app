@@ -2,11 +2,11 @@
 .app-form-media
   .app-form-media__container
     AppFormMediaDesktop.app-form-media__desktop(
-      :disabled="!!mediaUrl",
+      :disabled="disabled",
       @upload="upload"
     )
     AppFormMediaMobile.app-form-media__mobile(
-      :disabled="!!mediaUrl",
+      :disabled="disabled",
       @upload="upload"
     )
 

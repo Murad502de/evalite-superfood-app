@@ -10,10 +10,6 @@ export default {
   },
 
   props: {
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
     mediaUrl: {
       type: String,
       default: null,
@@ -28,7 +24,11 @@ export default {
       uploadedFileUrl: null,
     };
   },
-  computed: {},
+  computed: {
+    disabled() {
+      return !!this.mediaUrl;
+    },
+  },
 
   watch: {},
   methods: {
