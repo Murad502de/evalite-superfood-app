@@ -1,5 +1,5 @@
 <template lang="pug">
-AppButton.app-upload-file
+AppButton.app-upload-file(:disabled="disabled" :class="{ 'app-upload-file_disabled': disabled }")
   FileIconSvg.app-upload-file--icon
   .app-upload-file--title загрузить из файла
 </template>

@@ -7,7 +7,12 @@ export default {
     FileIconSvg,
   },
 
-  props: {},
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() { },
   computed: {},
 

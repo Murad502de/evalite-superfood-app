@@ -12,7 +12,11 @@ export default {
   },
 
   props: {},
-  data: () => ({}),
+  data() {
+    return {
+      disabled: false,
+    };
+  },
   computed: {},
 
   watch: {},

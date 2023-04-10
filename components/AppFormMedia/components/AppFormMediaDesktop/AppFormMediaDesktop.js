@@ -7,7 +7,12 @@ export default {
     AppUploadFile,
   },
 
-  props: {},
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       title: 'или загрузите',

@@ -9,7 +9,12 @@ export default {
     TrashIconSvg,
   },
 
-  props: {},
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       media: null,

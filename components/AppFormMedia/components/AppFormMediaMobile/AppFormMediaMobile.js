@@ -1,7 +1,12 @@
 export default {
   components: {},
 
-  props: {},
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data: () => ({}),
   computed: {},
 
@@ -14,6 +19,6 @@ export default {
     /* ACTIONS */
   },
 
-  created() {},
-  mounted() {},
+  created() { },
+  mounted() { },
 }

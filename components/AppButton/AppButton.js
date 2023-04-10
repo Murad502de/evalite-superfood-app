@@ -6,6 +6,10 @@ export default {
       type: String,
       default: '#0082DE',
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
     style: {
       type: Object,
       default: {},

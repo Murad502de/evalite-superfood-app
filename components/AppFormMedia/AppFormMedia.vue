@@ -1,8 +1,8 @@
 <template lang="pug">
 .app-form-media
   .app-form-media__container
-    AppFormMediaDesktop.app-form-media__desktop
-    AppFormMediaMobile.app-form-media__mobile
+    AppFormMediaDesktop.app-form-media__desktop(:disabled="disabled")
+    AppFormMediaMobile.app-form-media__mobile(:disabled="disabled")
 
     .app-form-media-file
       .app-form-media-file__name Образец
