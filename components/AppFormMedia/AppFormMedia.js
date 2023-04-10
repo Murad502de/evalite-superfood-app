@@ -10,11 +10,11 @@ export default {
   },
 
   props: {
-    mediaUrl: {
+    mediaName: {
       type: String,
       default: null,
     },
-    mediaName: {
+    mediaUrl: {
       type: String,
       default: null,
     },

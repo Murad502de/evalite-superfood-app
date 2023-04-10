@@ -79,9 +79,9 @@
           .signup-step1-docs-form-passport__media-info На фотографии должны быть отчетливо видны серия, номер, основные данные, фотография. В поле зрения не должны попадать пальцы и посторонние предметы.
 
           AppFormMedia(
-            :disabled="disabled",
-            :file="mainSpreadFile",
-            @upload="uploadMainSpread"
+            :mediaName="mainSpreadMediaName",
+            :mediaUrl="mainSpreadMediaUrl",
+            @upload="uploadMainSpread",
             @delete="deleteMainSpread"
           )
             template(v-slot:stub-img)
