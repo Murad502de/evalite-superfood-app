@@ -91,7 +91,12 @@
           .signup-step1-docs-form-passport__title Фото паспорта разворот прописка (стр. 3-4)
           .signup-step1-docs-form-passport__media-info На фотографии должны быть отчетливо видны серия, номер, основные данные, фотография. В поле зрения не должны попадать пальцы и посторонние предметы.
 
-          AppFormMedia
+          AppFormMedia(
+            :mediaName="registrationSpreadMediaName",
+            :mediaUrl="registrationSpreadMediaUrl",
+            @upload="uploadRegistrationSpread",
+            @delete="deleteRegistrationSpread"
+          )
             template(v-slot:stub-img)
               PassportSpreadRegistrationSvg
 
@@ -99,7 +104,12 @@
           .signup-step1-docs-form-passport__title Фото с паспортом
           .signup-step1-docs-form-passport__media-info На фотографии должны быть отчетливо видны серия, номер, основные данные, фотография. В поле зрения не должны попадать пальцы и посторонние предметы.
 
-          AppFormMedia
+          AppFormMedia(
+            :mediaName="verificationSpreadMediaName",
+            :mediaUrl="verificationSpreadMediaUrl",
+            @upload="uploadVerificationSpread",
+            @delete="deleteVerificationSpread"
+          )
             template(v-slot:stub-img)
               PassportSpreadVerificationSvg
 </template>

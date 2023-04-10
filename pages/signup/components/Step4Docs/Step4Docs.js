@@ -31,8 +31,15 @@ export default {
       passIssuedByRules: [],
       passDepartmentCode: '',
       passDepartmentCodeRules: [],
+      mainSpreadMediaFile: null,
       mainSpreadMediaName: null,
       mainSpreadMediaUrl: null,
+      registrationSpreadMediaFile: null,
+      registrationSpreadMediaName: null,
+      registrationSpreadMediaUrl: null,
+      verificationSpreadMediaFile: null,
+      verificationSpreadMediaName: null,
+      verificationSpreadMediaUrl: null,
     };
   },
   computed: {},
@@ -43,16 +50,40 @@ export default {
     /* SETTERS */
     /* HANDLERS */
     uploadMainSpread(file = null) {
-      console.debug('Step4Docs/handlers/uploadMainSpread', file); //DELETE
-
       //TODO call validate service
 
+      this.mainSpreadMediaFile = file;
       this.mainSpreadMediaName = file.name;
       this.mainSpreadMediaUrl = createUploadedFileUrl(file);
     },
     deleteMainSpread() {
+      this.mainSpreadMediaFile = null;
       this.mainSpreadMediaName = null;
       this.mainSpreadMediaUrl = null;
+    },
+    uploadRegistrationSpread(file = null) {
+      //TODO call validate service
+
+      this.registrationSpreadMediaFile = file;
+      this.registrationSpreadMediaName = file.name;
+      this.registrationSpreadMediaUrl = createUploadedFileUrl(file);
+    },
+    deleteRegistrationSpread() {
+      this.registrationSpreadMediaFile = null;
+      this.registrationSpreadMediaName = null;
+      this.registrationSpreadMediaUrl = null;
+    },
+    uploadVerificationSpread(file = null) {
+      //TODO call validate service
+
+      this.verificationSpreadMediaFile = file;
+      this.verificationSpreadMediaName = file.name;
+      this.verificationSpreadMediaUrl = createUploadedFileUrl(file);
+    },
+    deleteVerificationSpread() {
+      this.verificationSpreadMediaFile = null;
+      this.verificationSpreadMediaName = null;
+      this.verificationSpreadMediaUrl = null;
     },
 
     /* HELPERS */
