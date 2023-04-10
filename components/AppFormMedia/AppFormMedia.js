@@ -14,10 +14,18 @@ export default {
       type: Boolean,
       default: false,
     },
+    mediaUrl: {
+      type: String,
+      default: null,
+    },
+    mediaName: {
+      type: String,
+      default: null,
+    },
   },
   data() {
     return {
-      media: null,
+      uploadedFileUrl: null,
     };
   },
   computed: {},
@@ -27,6 +35,13 @@ export default {
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
+    upload(file) {
+      this.$emit('upload', file);
+    },
+    deleteFile() {
+      this.$emit('delete');
+    },
+
     /* HELPERS */
     /* ACTIONS */
   },

@@ -41,8 +41,7 @@ export default {
     drop(e) {
       if (this.disabled) return;
 
-      console.debug('AppUploadFileDrop/handlers/drop/e', e); //DELETE
-      console.debug('AppUploadFileDrop/handlers/drop/files', [...e.dataTransfer.files]); //DELETE
+      this.$emit('upload', [...e.dataTransfer.files][0]);
 
       this.drag = false;
     },

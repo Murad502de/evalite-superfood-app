@@ -10,9 +10,9 @@ export default {
       type: Boolean,
       default: false,
     },
-    style: {
+    styles: {
       type: Object,
-      default: {},
+      default: () => ({}),
     },
   },
   data() {

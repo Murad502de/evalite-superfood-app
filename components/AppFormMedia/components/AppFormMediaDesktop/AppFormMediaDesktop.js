@@ -17,6 +17,7 @@ export default {
     return {
       title: 'или загрузите',
       media: null,
+      file: null,
     };
   },
   computed: {},
@@ -26,6 +27,10 @@ export default {
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
+    upload(file = null) {
+      this.$emit('upload', file);
+    },
+
     /* HELPERS */
     /* ACTIONS */
   },

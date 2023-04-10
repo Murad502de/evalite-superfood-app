@@ -15,6 +15,7 @@ export default {
   data() {
     return {
       disabled: false,
+      mainSpreadFile: null,
     };
   },
   computed: {},
@@ -24,6 +25,15 @@ export default {
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
+    uploadMainSpread(file = null) {
+      console.debug('Step4Docs/handlers/uploadMainSpread', file); //DELETE
+
+      this.mainSpreadFile = file;
+    },
+    deleteMainSpread() {
+      this.mainSpreadFile = null;
+    },
+
     /* HELPERS */
     /* ACTIONS */
   },
