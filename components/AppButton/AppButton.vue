@@ -2,7 +2,8 @@
 v-btn.app-button(
   :color="color",
   :disabled="disabled",
-  :style="{ ...defaultStyle, ...styles }"
+  :style="{ ...defaultStyle, ...styles }",
+  @click="click"
 )
   slot
 </template>

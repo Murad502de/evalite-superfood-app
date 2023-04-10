@@ -1,6 +1,18 @@
 .app-upload-file {
   width: 100%;
 
+  &--label {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__input {
+    display: none;
+  }
+
   &_disabled &--icon {
 
     path:nth-child(1),

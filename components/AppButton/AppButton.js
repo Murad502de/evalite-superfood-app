@@ -34,6 +34,10 @@ export default {
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
+    click() {
+      this.$emit('click');
+    },
+
     /* HELPERS */
     /* ACTIONS */
   },

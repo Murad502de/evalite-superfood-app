@@ -23,7 +23,16 @@ export default {
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
+    selectFile(e) {
+      this.$emit('upload', e.target.files[0]);
+      this.inputReset();
+    },
+
     /* HELPERS */
+    inputReset() {
+      this.$refs.input.value = null;
+    },
+
     /* ACTIONS */
   },
 
