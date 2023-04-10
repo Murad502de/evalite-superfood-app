@@ -14,8 +14,25 @@ export default {
   props: {},
   data() {
     return {
-      disabled: false,
+      disabled: false, //DELETE
+
+      valid: true,
+      loading: false,
       mainSpreadFile: null,
+      passFullName: '',
+      passFullNameRules: [],
+      passSeries: '',
+      passSeriesRules: [],
+      passNumber: '',
+      passNumberRules: [],
+      passIssueDate: '',
+      passIssueDateRules: [],
+      passValidity: '',
+      passValidityRules: [],
+      passIssuedBy: '',
+      passIssuedByRules: [],
+      passDepartmentCode: '',
+      passDepartmentCodeRules: [],
     };
   },
   computed: {},

@@ -8,8 +8,8 @@
       .signup-step1-docs-form-passport__info
         .signup-step1-docs-form-passport__info--row
           v-text-field(
-            v-model="secondName",
-            :rules="secondNameRules",
+            v-model="passFullName",
+            :rules="passFullNameRules",
             :disabled="loading",
             label="ФИО в паспорте",
             required,
@@ -18,8 +18,8 @@
 
         .signup-step1-docs-form-passport__info--row
           v-text-field.signup-step1-docs-form-passport__info--series(
-            v-model="secondName",
-            :rules="secondNameRules",
+            v-model="passSeries",
+            :rules="passSeriesRules",
             :disabled="loading",
             label="Серия",
             required,
@@ -27,8 +27,8 @@
           )
 
           v-text-field.signup-step1-docs-form-passport__info--number(
-            v-model="secondName",
-            :rules="secondNameRules",
+            v-model="passNumber",
+            :rules="passNumberRules",
             :disabled="loading",
             label="Номер",
             required,
@@ -36,8 +36,8 @@
           )
 
           v-text-field.signup-step1-docs-form-passport__info--issue-date(
-            v-model="secondName",
-            :rules="secondNameRules",
+            v-model="passIssueDate",
+            :rules="passIssueDateRules",
             :disabled="loading",
             label="Дата выдачи",
             required,
@@ -45,8 +45,8 @@
           )
 
           v-text-field.signup-step1-docs-form-passport__info--validity(
-            v-model="secondName",
-            :rules="secondNameRules",
+            v-model="passValidity",
+            :rules="passValidityRules",
             :disabled="loading",
             label="Срок действия",
             required,
@@ -55,8 +55,8 @@
 
         .signup-step1-docs-form-passport__info--row
           v-text-field.signup-step1-docs-form-passport__info--issued-by(
-            v-model="secondName",
-            :rules="secondNameRules",
+            v-model="passIssuedBy",
+            :rules="passIssuedByRules",
             :disabled="loading",
             label="Кем выдан",
             required,
@@ -65,8 +65,8 @@
 
         .signup-step1-docs-form-passport__info--row
           v-text-field.signup-step1-docs-form-passport__info--division-code(
-            v-model="secondName",
-            :rules="secondNameRules",
+            v-model="passDepartmentCode",
+            :rules="passDepartmentCodeRules",
             :disabled="loading",
             label="Код подразделения",
             required,
