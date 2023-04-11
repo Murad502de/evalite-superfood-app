@@ -21,7 +21,7 @@ export default {
   },
   data() {
     return {
-      uploadedFileUrl: null,
+      mediaNameDefault: 'Образец',
     };
   },
   computed: {

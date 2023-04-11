@@ -1,5 +1,11 @@
+import AppUploadFile from '@/components/AppUploadFile/AppUploadFile.vue';
+import AppUploadFileCamera from '@/components/AppUploadFileCamera/AppUploadFileCamera.vue';
+
 export default {
-  components: {},
+  components: {
+    AppUploadFile,
+    AppUploadFileCamera,
+  },
 
   props: {
     disabled: {
@@ -15,6 +21,9 @@ export default {
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
+    upload(file = null) {
+      this.$emit('upload', file);
+    },
     /* HELPERS */
     /* ACTIONS */
   },

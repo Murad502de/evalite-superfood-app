@@ -11,7 +11,7 @@
     )
 
     .app-form-media-file
-      .app-form-media-file__name {{ mediaName || "Образец" }}
+      .app-form-media-file__name {{ mediaName || mediaNameDefault }}
 
       .app-form-media-file__media(v-show="!mediaUrl")
         slot(name="stub-img")
