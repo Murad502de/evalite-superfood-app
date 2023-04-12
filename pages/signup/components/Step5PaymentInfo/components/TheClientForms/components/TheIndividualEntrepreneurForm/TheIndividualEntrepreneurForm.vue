@@ -69,8 +69,8 @@ v-form.the-individual-entrepreneur-form(
     outlined
   )
   v-text-field(
-    v-model="BankCorrespondentAccount",
-    :rules="BankCorrespondentAccountRules",
+    v-model="bankCorrespondentAccount",
+    :rules="bankCorrespondentAccountRules",
     :disabled="loading",
     label="Корреспондентский счет банка",
     required,

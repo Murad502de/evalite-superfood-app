@@ -22,8 +22,8 @@ export default {
       bankInnRules: [],
       bankBic: null,
       bankBicRules: [],
-      BankCorrespondentAccount: null,
-      BankCorrespondentAccountRules: [],
+      bankCorrespondentAccount: null,
+      bankCorrespondentAccountRules: [],
       bankLegalAddress: null,
       bankLegalAddressRules: [],
     };
