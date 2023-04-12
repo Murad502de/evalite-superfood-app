@@ -3,7 +3,30 @@ export default {
 
   props: {},
   data() {
-    return {};
+    return {
+      valid: true,
+      loading: false,
+      ieFullName: null,
+      ieFullNameRules: [],
+      organizationLegalAddress: null,
+      organizationLegalAddressRules: [],
+      inn: null,
+      innRules: [],
+      ogrn: null,
+      ogrnRules: [],
+      transactionAccount: null,
+      transactionAccountRules: [],
+      bank: null,
+      bankRules: [],
+      bankInn: null,
+      bankInnRules: [],
+      bankBic: null,
+      bankBicRules: [],
+      BankCorrespondentAccount: null,
+      BankCorrespondentAccountRules: [],
+      bankLegalAddress: null,
+      bankLegalAddressRules: [],
+    };
   },
   computed: {},
 
