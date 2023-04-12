@@ -1,11 +1,5 @@
-import TheInstructions from './components/TheInstructions/TheInstructions.vue';
-import TheClientForms from './components/TheClientForms/TheClientForms.vue';
-
 export default {
-  components: {
-    TheInstructions,
-    TheClientForms,
-  },
+  components: {},
 
   props: {},
   data() {
