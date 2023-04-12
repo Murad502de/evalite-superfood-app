@@ -52,6 +52,8 @@ export default {
     uploadMainSpread(file = null) {
       //TODO call validate service
 
+      console.debug(file); //DELETE
+
       this.mainSpreadMediaFile = file;
       this.mainSpreadMediaName = file.name;
       this.mainSpreadMediaUrl = createUploadedFileUrl(file);

@@ -25,6 +25,9 @@
         v-window-item
           Step4Docs
 
+        v-window-item
+          Step5PaymentInfo
+
       .signup__steps--actions(
         :class="{ 'signup__steps--actions_step-3': onboarding === 3 }"
       )

@@ -1,0 +1,64 @@
+.signup-step5-payment-info--instructions {
+  box-sizing: border-box;
+  background: #F4F4F4;
+  border-radius: 16px;
+  color: #263043;
+  padding: 16px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+
+  &__column {
+    &-left {
+      box-sizing: border-box;
+      padding-top: 2px;
+    }
+
+    &-right {}
+  }
+
+  &__icon {}
+
+  &__title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  &__info {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 16px;
+  }
+
+  &__items {
+    margin-top: 16px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    color: #0082DE;
+    margin-top: 8px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &-title {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 18px;
+      margin-left: 6px;
+    }
+  }
+}

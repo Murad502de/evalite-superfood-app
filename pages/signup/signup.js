@@ -5,6 +5,7 @@ import Step1Confirm from './components/Step1Confirm';
 import Step2Pass from './components/Step2Pass';
 import Step3Agreement from './components/Step3Agreement';
 import Step4Docs from './components/Step4Docs/Step4Docs.vue';
+import Step5PaymentInfo from './components/Step5PaymentInfo/Step5PaymentInfo.vue';
 import Pdf from '@/assets/svg/pdf.svg';
 
 export default {
@@ -17,13 +18,14 @@ export default {
     Step2Pass,
     Step3Agreement,
     Step4Docs,
+    Step5PaymentInfo,
     Pdf,
   },
 
   props: {},
   data() {
     return {
-      onboarding: 4,
+      onboarding: 5,
       formsCount: 5,
       confirmTimerCount: 30,
       confirmTimer: null,

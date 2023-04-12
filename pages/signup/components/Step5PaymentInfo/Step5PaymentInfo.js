@@ -1,8 +1,14 @@
+import TheInstructions from './components/TheInstructions/TheInstructions.vue';
+
 export default {
-  components: {},
+  components: {
+    TheInstructions,
+  },
 
   props: {},
-  data() { },
+  data() {
+    return {};
+  },
   computed: {},
 
   watch: {},

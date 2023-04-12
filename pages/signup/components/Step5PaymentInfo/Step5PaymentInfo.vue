@@ -1,6 +1,8 @@
 <template lang="pug">
 .signup-step5-payment-info
   .signup-step5-payment-info__title Платежная информация
+
+  TheInstructions.signup-step5-payment-info__the-instructions
 </template>
 
 <script src="./Step5PaymentInfo.js" />
