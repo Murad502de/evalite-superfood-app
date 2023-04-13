@@ -1,0 +1,21 @@
+.the-client-forms {
+  .the-self-employed-form {
+    &--certificate {
+      font-size: 16px;
+      color: #263043;
+
+      &__title {
+        font-weight: 700;
+        line-height: 125%;
+      }
+
+      &__info {
+        font-weight: 400;
+        line-height: 20px;
+        margin-top: 16px;
+      }
+
+      &__file {}
+    }
+  }
+}

@@ -56,6 +56,17 @@ v-form.the-self-employed-form(ref="form", v-model="valid", lazy-validation)
     required,
     outlined
   )
+
+  .the-self-employed-form--certificate
+    .the-self-employed-form--certificate__title Подтверждающий документ НПД (форма КНД 1122035)
+    .the-self-employed-form--certificate__info Загрузите документ в формате .pdf
+    AppFormMediaDoc.the-self-employed-form--certificate__file(
+      :type="'pdf'",
+      :mediaName="confirmDocName",
+      :mediaUrl="confirmDocUrl",
+      @upload="uploadConfirmDoc",
+      @delete="deleteConfirmDoc"
+    )
 </template>
 
 <script src="./TheSelfEmployedForm.js" />
