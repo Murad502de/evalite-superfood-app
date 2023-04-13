@@ -1,0 +1,20 @@
+.the-client-forms {
+  .the-individual-entrepreneur-form {
+    &--certificate {
+      font-size: 16px;
+      color: #263043;
+
+      &__title {
+        font-weight: 700;
+        line-height: 125%;
+      }
+
+      &__info {
+        font-weight: 400;
+        line-height: 20px;
+      }
+
+      &__file {}
+    }
+  }
+}

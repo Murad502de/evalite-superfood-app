@@ -85,13 +85,16 @@ v-form.the-individual-entrepreneur-form(
     outlined
   )
 
-  AppFormMediaDoc(
-    :type="'pdf'"
-    :mediaName="confirmDocName",
-    :mediaUrl="confirmDocUrl",
-    @upload="uploadConfirmDoc",
-    @delete="deleteConfirmDoc"
-  )
+  .the-individual-entrepreneur-form--certificate
+    .the-individual-entrepreneur-form--certificate__title Подтверждающий документ ЕГРИП
+    .the-individual-entrepreneur-form--certificate__info Загрузите документ в формате .pdf
+    AppFormMediaDoc.the-individual-entrepreneur-form--certificate__file(
+      :type="'pdf'",
+      :mediaName="confirmDocName",
+      :mediaUrl="confirmDocUrl",
+      @upload="uploadConfirmDoc",
+      @delete="deleteConfirmDoc"
+    )
 </template>
 
 <script src="./TheIndividualEntrepreneurForm.js" />
