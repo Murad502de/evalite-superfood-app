@@ -84,6 +84,14 @@ v-form.the-individual-entrepreneur-form(
     required,
     outlined
   )
+
+  AppFormMediaDoc(
+    :type="'pdf'"
+    :mediaName="confirmDocName",
+    :mediaUrl="confirmDocUrl",
+    @upload="uploadConfirmDoc",
+    @delete="deleteConfirmDoc"
+  )
 </template>
 
 <script src="./TheIndividualEntrepreneurForm.js" />

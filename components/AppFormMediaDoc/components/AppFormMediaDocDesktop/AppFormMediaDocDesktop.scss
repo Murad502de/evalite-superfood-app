@@ -1,0 +1,19 @@
+.app-form-media-desktop {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  &__title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #9398A1;
+    margin: 16px 0;
+    user-select: none;
+  }
+
+  &__file {
+    max-width: 306px;
+  }
+}

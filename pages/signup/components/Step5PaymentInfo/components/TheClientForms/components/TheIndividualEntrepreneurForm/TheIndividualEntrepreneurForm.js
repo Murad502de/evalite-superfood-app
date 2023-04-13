@@ -1,5 +1,10 @@
+import AppFormMediaDoc from '@/components/AppFormMediaDoc/AppFormMediaDoc.vue';
+import { createUploadedFileUrl } from '@/utils/file.js';
+
 export default {
-  components: {},
+  components: {
+    AppFormMediaDoc,
+  },
 
   props: {},
   data() {
@@ -26,6 +31,9 @@ export default {
       bankCorrespondentAccountRules: [],
       bankLegalAddress: null,
       bankLegalAddressRules: [],
+      confirmDocFile: '',
+      confirmDocName: '',
+      confirmDocUrl: '',
     };
   },
   computed: {},
@@ -35,6 +43,21 @@ export default {
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
+    uploadConfirmDoc(file = null) {
+      //TODO call validate service
+
+      console.debug(file); //DELETE
+
+      this.confirmDocFile = file;
+      this.confirmDocName = file.name;
+      this.confirmDocUrl = createUploadedFileUrl(file);
+    },
+    deleteConfirmDoc() {
+      this.confirmDocFile = null;
+      this.confirmDocName = null;
+      this.confirmDocUrl = null;
+    },
+
     /* HELPERS */
     /* ACTIONS */
   },

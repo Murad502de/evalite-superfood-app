@@ -1,0 +1,25 @@
+.app-form-media-mobile {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  &__title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 125%;
+    color: #263043;
+  }
+
+  &__files {
+    margin-top: 32px;
+  }
+
+  &__file {
+    margin-top: 14px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
