@@ -1,12 +1,8 @@
 <template lang="pug">
-.app-form-media-mobile
-  .app-form-media-mobile__title Загрузите документ
-  .app-form-media-mobile__files
-    AppUploadFileCamera.app-form-media-mobile__file(
-      :disabled="disabled",
-      @upload="upload"
-    )
-    AppUploadFile.app-form-media-mobile__file(
+.app-form-media-doc-mobile
+  .app-form-media-doc-mobile__title Загрузите документ
+  .app-form-media-doc-mobile__files
+    AppUploadFile.app-form-media-doc-mobile__file(
       :disabled="disabled",
       @upload="upload"
     )
