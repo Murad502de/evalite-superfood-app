@@ -1,3 +1,109 @@
 .signup {
-  .steps {}
+  .steps {
+    &__wrapper {
+      box-sizing: border-box;
+      padding: 40px 16px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+    }
+
+    &--progress {}
+
+    &--container {
+      max-width: 560px;
+      width: 100%;
+    }
+
+    &--actions {
+      color: #263043;
+      box-sizing: border-box;
+      margin-top: 40px;
+
+      &_step-3 {
+        background: #F5F7F9;
+        border-radius: 16px;
+        padding: 24px;
+      }
+
+      &-step-3 {
+        font-size: 14px;
+        line-height: 18px;
+
+        &__title {
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 28px;
+        }
+
+        &__text {
+          margin-top: 16px;
+          font-weight: 400;
+        }
+
+        &__agreement {
+          margin-top: 16px;
+          cursor: pointer;
+
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: flex-start;
+          align-items: center;
+
+          &-icon {}
+
+          &-title {
+            font-weight: 600;
+            font-size: 13px;
+            line-height: 18px;
+            color: #0082DE;
+            margin-left: 8px;
+          }
+        }
+      }
+
+      &-btns {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+
+        &_step-3 {
+          flex-direction: column-reverse;
+          margin-top: 14px;
+        }
+      }
+
+      &-btn {
+        margin-top: 12px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &_step-3 {
+          &:first-child {
+            margin-top: 12px;
+          }
+        }
+      }
+
+      &__prev,
+      &__next,
+      &__send-code {
+        font-weight: 700;
+        font-size: 14px;
+      }
+
+      &__prev,
+      &__send-code {
+        color: #263043 !important;
+      }
+
+      &__next {
+        color: #FFFFFF !important;
+      }
+    }
+  }
 }
