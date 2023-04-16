@@ -24,9 +24,9 @@ export default {
     return {};
   },
   computed: {
-    // activeTab() {
-    //   return;
-    // },
+    activeStepIndex() {
+      return this.steps.findIndex(step => step.active);
+    },
   },
 
   watch: {},

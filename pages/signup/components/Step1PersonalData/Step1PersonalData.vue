@@ -37,15 +37,15 @@
       v-model="gender",
       :rules="genderRules",
       :disabled="loading",
-      :items="['муж', 'жен']"
+      :items="['муж', 'жен']",
       label="Пол",
       required,
       outlined
     )
 
     v-text-field(
-      v-model="thirdName",
-      :rules="thirdNameRules",
+      v-model="birthday",
+      :rules="birthdayRules",
       :disabled="loading",
       label="Дата рождения",
       required,
@@ -53,8 +53,8 @@
     )
 
     v-text-field(
-      v-model="thirdName",
-      :rules="thirdNameRules",
+      v-model="email",
+      :rules="emailRules",
       :disabled="loading",
       label="E-mail",
       required,
@@ -62,8 +62,8 @@
     )
 
     v-text-field(
-      v-model="thirdName",
-      :rules="thirdNameRules",
+      v-model="phone",
+      :rules="phoneRules",
       :disabled="loading",
       label="Телефон",
       required,

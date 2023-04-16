@@ -17,6 +17,10 @@ export default {
       type: Array,
       default: () => ([]),
     },
+    activeStepIndex: {
+      type: Number,
+      default: 0,
+    },
   },
   data() {
     return {};

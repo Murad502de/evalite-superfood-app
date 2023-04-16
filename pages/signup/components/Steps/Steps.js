@@ -1,11 +1,12 @@
 import AppStepperProgress from '@/components/AppStepperProgress';
-import Step1PersonalData from '../Step1PersonalData';
-import Step1Confirm from '../Step1Confirm';
+import Pdf from '@/assets/svg/pdf.svg';
+import Step1PersonalData from '../Step1PersonalData/Step1PersonalData.vue';
+import Step1Confirm from '../Step1Confirm/Step1Confirm.vue';
 import Step2Pass from '../Step2Pass';
 import Step3Agreement from '../Step3Agreement';
 import Step4Docs from '../Step4Docs/Step4Docs.vue';
 import Step5PaymentInfo from '../Step5PaymentInfo/Step5PaymentInfo.vue';
-import Pdf from '@/assets/svg/pdf.svg';
+import steps from './shared/steps';
 
 export default {
   components: {
@@ -23,103 +24,16 @@ export default {
   data() {
     return {
       length: 6,
-      onboarding: 5,
+      onboarding: 0,
       formsCount: 5,
       confirmTimerCount: 30,
       confirmTimer: null,
-      steps: [
-        {
-          title: 'Шаг 1',
-          name: 'Личные данные',
-          progress: 10,
-        },
-        {
-          title: 'Шаг 2',
-          name: 'Создание пароля',
-          progress: 15,
-        },
-        {
-          title: 'Шаг 3',
-          name: 'Соглашение ЭДО',
-          progress: 20,
-        },
-        {
-          title: 'Шаг 1',
-          name: 'Личные данные',
-          progress: 10,
-        },
-        {
-          title: 'Шаг 2',
-          name: 'Создание пароля',
-          progress: 15,
-        },
-        {
-          title: 'Шаг 3',
-          name: 'Соглашение ЭДО',
-          progress: 20,
-        },
-        {
-          title: 'Шаг 1',
-          name: 'Личные данные',
-          progress: 10,
-        },
-        {
-          title: 'Шаг 2',
-          name: 'Создание пароля',
-          progress: 15,
-        },
-        {
-          title: 'Шаг 3',
-          name: 'Соглашение ЭДО',
-          progress: 20,
-        },
-        {
-          title: 'Шаг 1',
-          name: 'Личные данные',
-          progress: 10,
-        },
-        {
-          title: 'Шаг 2',
-          name: 'Создание пароля',
-          progress: 15,
-        },
-        {
-          title: 'Шаг 3',
-          name: 'Соглашение ЭДО',
-          progress: 20,
-        },
-        {
-          title: 'Шаг 11',
-          name: 'Личные данные',
-          progress: 45,
-          active: true,
-        },
-        {
-          title: 'Шаг 2',
-          name: 'Создание пароля',
-          progress: 15,
-        },
-        {
-          title: 'Шаг 3',
-          name: 'Соглашение ЭДО',
-          progress: 20,
-        },
-        {
-          title: 'Шаг 1',
-          name: 'Личные данные',
-          progress: 10,
-        },
-        {
-          title: 'Шаг 2',
-          name: 'Создание пароля',
-          progress: 15,
-        },
-        {
-          title: 'Шаг 3',
-          name: 'Соглашение ЭДО',
-          progress: 20,
-        },
-      ],
+      step1PersonalDataProgress: 0,
+      step1ConfirmProgress: 0,
+      step2PassProgress: 0,
+      step3AgreementProgress: 0,
+      step4DocsProgress: 0,
+      step5PaymentInfoProgress: 0,
 
       //text-data
       actionsStep3Title: 'Согласие на использование электронного документооборота',
@@ -143,6 +57,13 @@ export default {
 
       return 'Далее'
     },
+    steps() {
+      return steps.map((step, index) => ({
+        ...step,
+        progress: this.getStepProgress(index),
+        active: this.getStepActiveStatus(index),
+      }));
+    },
   },
 
   watch: {
@@ -154,6 +75,39 @@ export default {
   },
   methods: {
     /* GETTERS */
+    getStepProgress(index = null) {
+      switch (index) {
+        case 0:
+          return this.step1PersonalDataProgress + this.step1ConfirmProgress;
+
+        default:
+          return 0;
+      }
+    },
+    getStepActiveStatus(index = null) {
+      if (index === 0 && (this.onboarding === 0 || this.onboarding === 1)) {
+        return true;
+      }
+
+      if (index === 1 && this.onboarding === 2) {
+        return true;
+      }
+
+      if (index === 2 && this.onboarding === 3) {
+        return true;
+      }
+
+      if (index === 3 && this.onboarding === 4) {
+        return true;
+      }
+
+      if (index === 4 && this.onboarding === 5) {
+        return true;
+      }
+
+      return false;
+    },
+
     /* SETTERS */
     /* HANDLERS */
     next() {

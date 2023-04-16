@@ -6,12 +6,17 @@
     .steps--container
       v-window.steps--forms(v-model="onboarding")
         v-window-item
-          Step1PersonalData
+          Step1PersonalData(
+            :progress="step1PersonalDataProgress",
+            @update:progress="(newValue) => (step1PersonalDataProgress = newValue)"
+          )
 
         v-window-item
           Step1Confirm(
             :email="'test@mai.com'",
             :disabled="false",
+            :progress="step1ConfirmProgress",
+            @update:progress="(newValue) => (step1ConfirmProgress = newValue)",
             @startTimer="startConfirmTimer"
           )
 

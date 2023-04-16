@@ -10,6 +10,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    progress: {
+      type: Number,
+      default: 0,
+    },
   },
   data() {
     return {
@@ -21,9 +25,22 @@ export default {
     isConfirmCodeActive() {
       return this.code.length === this.codeLength
     },
+    computedProgress() {
+      let progress = 0;
+
+      if (this.code.length) {
+        progress += 10;
+      }
+
+      return progress;
+    },
   },
 
-  watch: {},
+  watch: {
+    computedProgress(newVal) {
+      this.$emit('update:progress', newVal);
+    },
+  },
   methods: {
     /* GETTERS */
     /* SETTERS */
