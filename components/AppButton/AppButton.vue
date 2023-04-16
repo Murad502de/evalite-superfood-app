@@ -5,6 +5,7 @@ v-btn.app-button(
   :style="{ ...defaultStyle, ...styles }",
   :outlined="outlined",
   :elevation="elevation"
+  :loading="loading"
   @click="click"
 )
   slot

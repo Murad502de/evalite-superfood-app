@@ -20,11 +20,10 @@
           :loading="loading",
           :styles="{ ...btnStyles }",
           color="#0082DE",
-          @click="signin"
+          @click="next"
         ) {{ continueBtnTitle }}
         AppButton.start--form__signin(
-          :disabled="!valid && !loading",
-          :loading="loading",
+          :disabled="loading",
           :styles="{ ...btnStyles, ...signinBtnStyles }",
           :outlined="true"
           color="#F2F6F9",

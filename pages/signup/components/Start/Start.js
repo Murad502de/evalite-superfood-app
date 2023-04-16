@@ -15,7 +15,9 @@ export default {
       title: 'Стать партнёром',
       subTitle: 'EVALITE - это игры, сервисы, продукты и комьюнити людей для ускорения, облегчения и снижения затрат на саморазвитие.',
       code: null,
-      codeRules: [],
+      codeRules: [
+        v => !!v || 'Данное поле обязательно к заполнению'
+      ],
       btnStyles: {
         height: '48px',
       },
@@ -34,6 +36,22 @@ export default {
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
+    next() {
+      if (this.$refs.form.validate()) {
+        this.loading = true;
+
+        setTimeout(() => {
+          this.loading = false;
+          // this.signinFailed = true;
+
+          this.$emit('next');
+        }, 5000);
+      }
+    },
+    signin() {
+      this.$router.push({ name: 'signin' });
+    },
+
     /* HELPERS */
     /* ACTIONS */
   },
