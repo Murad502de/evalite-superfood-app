@@ -34,6 +34,10 @@ export default {
     },
     /* HANDLERS */
     /* HELPERS */
+    redirectTo(to) {
+      this.$router.push({ name: to });
+    },
+
     /* ACTIONS */
   },
 

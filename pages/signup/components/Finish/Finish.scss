@@ -1,3 +1,63 @@
+@import '@/styles/vars.scss';
+
 .signup {
-  .finish {}
+  .finish {
+    &__container {
+      box-sizing: border-box;
+      max-width: 560px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: center;
+      margin: 0 auto;
+      padding: 64px 0;
+      user-select: none;
+      color: #263043;
+    }
+
+    &__title,
+    &__sub-title {
+      width: 100%;
+    }
+
+    &__title {
+      font-weight: 700;
+      font-size: 44px;
+      line-height: 46px;
+      margin-top: 36px;
+    }
+
+    &__sub-title {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 28px;
+      margin-top: 24px;
+    }
+
+    &__continue {
+      margin-top: 32px;
+      width: 100%;
+    }
+
+    @media screen and (max-width: $screen-sm) {
+      &__container {
+        max-width: 344px;
+      }
+
+      &__title {
+        font-size: 30px;
+        line-height: 46px;
+      }
+
+      &__sub-title {
+        font-size: 16px;
+        line-height: 24px;
+        margin-top: 16px;
+      }
+
+      &--form {
+        margin-top: 40px;
+      }
+    }
+  }
 }

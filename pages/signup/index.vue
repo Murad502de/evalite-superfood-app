@@ -6,7 +6,10 @@
     @next="setActiveSection(activeSections.steps)"
   )
   Steps.signup--steps(v-if="activeSection === activeSections.steps")
-  Finish.signup--finish(v-if="activeSection === activeSections.finish")
+  Finish.signup--finish(
+    v-if="activeSection === activeSections.finish",
+    @next="redirectTo('index')"
+  )
 </template>
 
 <script src="./signup.js" />
