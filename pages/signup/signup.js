@@ -42,11 +42,7 @@ export default {
   },
 
   created() {
-    console.debug("pages/signup/created"); //DELETE
-
-    this.setActiveSection(activeSections.start);
+    this.setActiveSection(activeSections.steps);
   },
-  mounted() {
-    console.debug("pages/signup/mounted"); //DELETE
-  },
+  mounted() {},
 }

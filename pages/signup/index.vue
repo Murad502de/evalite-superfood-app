@@ -5,7 +5,10 @@
     v-if="activeSection === activeSections.start",
     @next="setActiveSection(activeSections.steps)"
   )
-  Steps.signup--steps(v-if="activeSection === activeSections.steps")
+  Steps.signup--steps(
+    v-if="activeSection === activeSections.steps",
+    @next="setActiveSection(activeSections.finish)"
+  )
   Finish.signup--finish(
     v-if="activeSection === activeSections.finish",
     @next="redirectTo('index')"

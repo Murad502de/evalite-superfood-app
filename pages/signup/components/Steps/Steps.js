@@ -22,6 +22,7 @@ export default {
   props: {},
   data() {
     return {
+      length: 6,
       onboarding: 5,
       formsCount: 5,
       confirmTimerCount: 30,
@@ -156,9 +157,13 @@ export default {
     /* SETTERS */
     /* HANDLERS */
     next() {
-      this.onboarding = this.onboarding + 1 === this.length
-        ? 0
-        : this.onboarding + 1;
+      if (this.onboarding + 1 === this.length) {
+        this.onboarding = 0;
+
+        this.$emit('next');
+      } else {
+        this.onboarding++;
+      }
     },
     prev() {
       this.onboarding = this.onboarding - 1 < 0
@@ -177,10 +182,6 @@ export default {
     /* ACTIONS */
   },
 
-  created() {
-    console.debug("pages/signup/Steps/created"); //DELETE
-  },
-  mounted() {
-    console.debug("pages/signup/Steps/mounted"); //DELETE
-  },
+  created() { },
+  mounted() { },
 }
