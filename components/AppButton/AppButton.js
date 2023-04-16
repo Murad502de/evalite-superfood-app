@@ -14,6 +14,14 @@ export default {
       type: Object,
       default: () => ({}),
     },
+    outlined: {
+      type: Boolean,
+      default: false,
+    },
+    elevation: {
+      type: Number,
+      default: 0,
+    },
   },
   data() {
     return {

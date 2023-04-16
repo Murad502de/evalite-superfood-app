@@ -1,7 +1,9 @@
 <template lang="pug">
 .signup
-  AppBarEmpty
-  Steps.signup--steps
+  AppBarEmpty.signup--app-bar-empty
+  Start.signup--start(v-if="activeSection === activeSections.start")
+  Steps.signup--steps(v-if="activeSection === activeSections.steps")
+  Finish.signup--finish(v-if="activeSection === activeSections.finish")
 </template>
 
 <script src="./signup.js" />

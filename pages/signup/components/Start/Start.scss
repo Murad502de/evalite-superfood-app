@@ -1,3 +1,84 @@
+@import '@/styles/vars.scss';
+
 .signup {
-  .start {}
+  .start {
+    &__container {
+      box-sizing: border-box;
+      max-width: 560px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: center;
+      margin: 0 auto;
+      padding: 64px 0;
+    }
+
+    &__title {
+      font-weight: 700;
+      font-size: 44px;
+      line-height: 46px;
+      margin-top: 36px;
+    }
+
+    &__sub-title {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 28px;
+      color: #8692A6;
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    &--form {
+      width: 100%;
+      max-width: 460px;
+      margin-top: 56px;
+
+      &__actions {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+
+        &-info {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 28px;
+          color: #263043;
+          opacity: 0.4;
+          margin-top: 24px;
+        }
+      }
+
+      &__continue,
+      &__signin {
+        width: 100%;
+      }
+
+      &__signin {
+        margin-top: 16px;
+      }
+    }
+
+    @media screen and (max-width: $screen-sm) {
+      &__container {
+        max-width: 344px;
+      }
+
+      &__title {
+        font-size: 36px;
+        line-height: 46px;
+      }
+
+      &__sub-title {
+        font-size: 16px;
+        line-height: 24px;
+        margin-top: 16px;
+      }
+
+      &--form {
+        margin-top: 40px;
+      }
+    }
+  }
 }

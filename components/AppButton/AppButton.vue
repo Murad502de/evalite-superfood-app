@@ -3,6 +3,8 @@ v-btn.app-button(
   :color="color",
   :disabled="disabled",
   :style="{ ...defaultStyle, ...styles }",
+  :outlined="outlined",
+  :elevation="elevation"
   @click="click"
 )
   slot
