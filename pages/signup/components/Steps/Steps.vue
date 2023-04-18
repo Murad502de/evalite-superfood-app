@@ -7,7 +7,6 @@
       v-window.steps--forms(v-model="onboarding")
         v-window-item
           Step1PersonalData(
-            :progress="step1PersonalDataProgress",
             @update:progress="(newValue) => (step1PersonalDataProgress = newValue)"
           )
 
@@ -15,22 +14,27 @@
           Step1Confirm(
             :email="'test@mai.com'",
             :disabled="false",
-            :progress="step1ConfirmProgress",
             @update:progress="(newValue) => (step1ConfirmProgress = newValue)",
             @startTimer="startConfirmTimer"
           )
 
         v-window-item
-          Step2Pass
+          Step2Pass(
+            @update:progress="(newValue) => (step2PassProgress = newValue)"
+          )
 
         v-window-item
           Step3Agreement
 
         v-window-item
-          Step4Docs
+          Step4Docs(
+            @update:progress="(newValue) => (step4DocsProgress = newValue)"
+          )
 
         v-window-item
-          Step5PaymentInfo
+          Step5PaymentInfo(
+            @update:progress="(newValue) => (step5PaymentInfoProgress = newValue)"
+          )
 
       .steps--actions(
         :class="{ 'signup__steps--actions_step-3': onboarding === 3 }"

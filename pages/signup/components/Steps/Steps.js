@@ -2,8 +2,8 @@ import AppStepperProgress from '@/components/AppStepperProgress';
 import Pdf from '@/assets/svg/pdf.svg';
 import Step1PersonalData from '../Step1PersonalData/Step1PersonalData.vue';
 import Step1Confirm from '../Step1Confirm/Step1Confirm.vue';
-import Step2Pass from '../Step2Pass';
-import Step3Agreement from '../Step3Agreement';
+import Step2Pass from '../Step2Pass/Step2Pass.vue';
+import Step3Agreement from '../Step3Agreement/Step3Agreement.vue';
 import Step4Docs from '../Step4Docs/Step4Docs.vue';
 import Step5PaymentInfo from '../Step5PaymentInfo/Step5PaymentInfo.vue';
 import steps from './shared/steps';
@@ -80,6 +80,18 @@ export default {
         case 0:
           return this.step1PersonalDataProgress + this.step1ConfirmProgress;
 
+        case 1:
+          return this.step2PassProgress;
+
+        case 2:
+          return this.step3AgreementProgress;
+
+        case 3:
+          return this.step4DocsProgress;
+
+        case 4:
+          return this.step5PaymentInfoProgress;
+
         default:
           return 0;
       }
@@ -111,6 +123,10 @@ export default {
     /* SETTERS */
     /* HANDLERS */
     next() {
+      if (this.onboarding === 3) {
+        this.step3AgreementProgress = 100;
+      }
+
       if (this.onboarding + 1 === this.length) {
         this.onboarding = 0;
 

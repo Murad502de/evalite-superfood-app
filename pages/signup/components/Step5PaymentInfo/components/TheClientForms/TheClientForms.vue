@@ -6,10 +6,14 @@
 
   v-window.the-client-forms__forms(v-model="tab")
     v-window-item.the-client-forms__form
-      TheIndividualEntrepreneurForm
+      TheIndividualEntrepreneurForm(
+        @update:progress="(newValue) => (entrepreneurFormProgress = newValue)"
+      )
 
     v-window-item.the-client-forms__form
-      TheSelfEmployedForm
+      TheSelfEmployedForm(
+        @update:progress="(newValue) => (selfEmployedFormProgress = newValue)"
+      )
 </template>
 
 <script src="./TheClientForms.js" />

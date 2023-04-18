@@ -4,6 +4,14 @@ export default {
   props: {},
   data() {
     return {
+      valid: true,
+      password: '',
+      passwordRules: [],
+      password1: '',
+      password1Rules: [],
+      showPass: false,
+      showPass1: false,
+      loading: false,
       title: 'Введите пароль',
       subTitle: 'Придумайте пароль, соответствующий требованиям ниже.',
       passInputLabel: 'Введите новый пароль',
@@ -15,9 +23,26 @@ export default {
       passOtherSymbolsTitle: 'цифры или специальные символы: %, #, $ и другие.'
     };
   },
-  computed: {},
+  computed: {
+    computedProgress() {
+      let progress = 0;
 
-  watch: {},
+      if (this.password.length) {
+        progress += 50;
+      }
+      if (this.password1.length) {
+        progress += 50;
+      }
+
+      return progress;
+    },
+  },
+
+  watch: {
+    computedProgress(newVal) {
+      this.$emit('update:progress', newVal);
+    },
+  },
   methods: {
     /* GETTERS */
     /* SETTERS */

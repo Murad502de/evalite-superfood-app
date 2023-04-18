@@ -7,13 +7,24 @@ export default {
     TheClientForms,
   },
 
-  props: {},
+  props: {
+    progress: {
+      type: Number,
+      default: 0,
+    },
+  },
   data() {
-    return {};
+    return {
+      theClientFormsProgress: 0,
+    };
   },
   computed: {},
 
-  watch: {},
+  watch: {
+    theClientFormsProgress(newVal) {
+      this.$emit('update:progress', newVal);
+    },
+  },
   methods: {
     /* GETTERS */
     /* SETTERS */

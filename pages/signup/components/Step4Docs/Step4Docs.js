@@ -42,9 +42,50 @@ export default {
       verificationSpreadMediaUrl: null,
     };
   },
-  computed: {},
+  computed: {
+    computedProgress() {
+      let progress = 0;
 
-  watch: {},
+      if (this.passFullName.length) {
+        progress += 10;
+      }
+      if (this.passSeries.length) {
+        progress += 10;
+      }
+      if (this.passNumber.length) {
+        progress += 10;
+      }
+      if (this.passIssueDate.length) {
+        progress += 10;
+      }
+      if (this.passValidity.length) {
+        progress += 10;
+      }
+      if (this.passIssuedBy.length) {
+        progress += 10;
+      }
+      if (this.passDepartmentCode.length) {
+        progress += 10;
+      }
+      if (this.mainSpreadMediaFile) {
+        progress += 10;
+      }
+      if (this.registrationSpreadMediaFile) {
+        progress += 10;
+      }
+      if (this.verificationSpreadMediaFile) {
+        progress += 10;
+      }
+
+      return progress;
+    },
+  },
+
+  watch: {
+    computedProgress(newVal) {
+      this.$emit('update:progress', newVal);
+    },
+  },
   methods: {
     /* GETTERS */
     /* SETTERS */

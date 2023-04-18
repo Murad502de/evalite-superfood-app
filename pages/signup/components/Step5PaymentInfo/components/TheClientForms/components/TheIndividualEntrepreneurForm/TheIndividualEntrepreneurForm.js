@@ -11,34 +11,78 @@ export default {
     return {
       valid: true,
       loading: false,
-      ieFullName: null,
+      ieFullName: '',
       ieFullNameRules: [],
-      organizationLegalAddress: null,
+      organizationLegalAddress: '',
       organizationLegalAddressRules: [],
-      inn: null,
+      inn: '',
       innRules: [],
-      ogrn: null,
+      ogrn: '',
       ogrnRules: [],
-      transactionAccount: null,
+      transactionAccount: '',
       transactionAccountRules: [],
-      bank: null,
+      bank: '',
       bankRules: [],
-      bankInn: null,
+      bankInn: '',
       bankInnRules: [],
-      bankBic: null,
+      bankBic: '',
       bankBicRules: [],
-      bankCorrespondentAccount: null,
+      bankCorrespondentAccount: '',
       bankCorrespondentAccountRules: [],
-      bankLegalAddress: null,
+      bankLegalAddress: '',
       bankLegalAddressRules: [],
-      confirmDocFile: '',
+      confirmDocFile: null,
       confirmDocName: '',
       confirmDocUrl: '',
     };
   },
-  computed: {},
+  computed: {
+    computedProgress() {
+      let progress = 0;
 
-  watch: {},
+      if (this.ieFullName.length) {
+        progress += 10;
+      }
+      if (this.organizationLegalAddress.length) {
+        progress += 10;
+      }
+      if (this.inn.length) {
+        progress += 10;
+      }
+      if (this.ogrn.length) {
+        progress += 10;
+      }
+      if (this.transactionAccount.length) {
+        progress += 10;
+      }
+      if (this.bank.length) {
+        progress += 10;
+      }
+      if (this.bankInn.length) {
+        progress += 10;
+      }
+      if (this.bankBic.length) {
+        progress += 10;
+      }
+      if (this.bankCorrespondentAccount.length) {
+        progress += 10;
+      }
+      if (this.bankLegalAddress.length) {
+        progress += 5;
+      }
+      if (this.confirmDocFile) {
+        progress += 5;
+      }
+
+      return progress;
+    },
+  },
+
+  watch: {
+    computedProgress(newVal) {
+      this.$emit('update:progress', newVal);
+    },
+  },
   methods: {
     /* GETTERS */
     /* SETTERS */

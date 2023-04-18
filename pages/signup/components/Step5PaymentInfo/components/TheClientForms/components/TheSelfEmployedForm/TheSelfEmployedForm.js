@@ -11,28 +11,63 @@ export default {
     return {
       valid: true,
       loading: false,
-      seFullName: null,
+      seFullName: '',
       seFullNameRules: [],
-      transactionAccount: null,
+      transactionAccount: '',
       transactionAccountRules: [],
-      seBank: null,
+      seBank: '',
       seBankRules: [],
-      bic: null,
+      bic: '',
       bicRules: [],
-      correspondentAccount: null,
+      correspondentAccount: '',
       correspondentAccountRules: [],
-      bankInn: null,
+      bankInn: '',
       bankInnRules: [],
-      bankKpp: null,
+      bankKpp: '',
       bankKppRules: [],
-      confirmDocFile: '',
+      confirmDocFile: null,
       confirmDocName: '',
       confirmDocUrl: '',
     };
   },
-  computed: {},
+  computed: {
+    computedProgress() {
+      let progress = 0;
 
-  watch: {},
+      if (this.seFullName.length) {
+        progress += 10;
+      }
+      if (this.transactionAccount.length) {
+        progress += 10;
+      }
+      if (this.seBank.length) {
+        progress += 10;
+      }
+      if (this.bic.length) {
+        progress += 10;
+      }
+      if (this.correspondentAccount.length) {
+        progress += 10;
+      }
+      if (this.bankInn.length) {
+        progress += 10;
+      }
+      if (this.bankKpp.length) {
+        progress += 10;
+      }
+      if (this.confirmDocFile) {
+        progress += 30;
+      }
+
+      return progress;
+    },
+  },
+
+  watch: {
+    computedProgress(newVal) {
+      this.$emit('update:progress', newVal);
+    },
+  },
   methods: {
     /* GETTERS */
     /* SETTERS */
@@ -51,7 +86,7 @@ export default {
       this.confirmDocName = null;
       this.confirmDocUrl = null;
     },
-    
+
     /* HELPERS */
     /* ACTIONS */
   },
