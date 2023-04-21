@@ -118,19 +118,14 @@ export default {
   },
 
   async created() {
-    this.$platformDetection.initPlatforms({ width: Number(window.outerWidth) });
-    this.$platformDetection.onSubscribe();
-    await this.$socket.setQuery({
-      ...this.$socket.query,
-      token: JSON.parse(localStorage.getItem('ruqi_auth_data')).token,
-    });
-    this.$socket.connect();
+    // this.$platformDetection.initPlatforms({ width: Number(window.outerWidth) });
+    // this.$platformDetection.onSubscribe();
   },
   mounted() { },
   beforeUnmount() {
     console.debug("beforeUnmount");
 
-    this.$platformDetection.offSubscribe();
+    // this.$platformDetection.offSubscribe();
   },
 };
 </script>

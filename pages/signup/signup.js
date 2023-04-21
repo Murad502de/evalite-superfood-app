@@ -44,5 +44,5 @@ export default {
   created() {
     this.setActiveSection(activeSections.steps);
   },
-  mounted() {},
+  mounted() { },
 }
