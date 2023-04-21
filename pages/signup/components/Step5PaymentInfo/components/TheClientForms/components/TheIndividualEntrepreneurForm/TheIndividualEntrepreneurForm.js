@@ -1,3 +1,4 @@
+import { mapActions, mapGetters, } from 'vuex';
 import AppFormMediaDoc from '@/components/AppFormMediaDoc/AppFormMediaDoc.vue';
 import { createUploadedFileUrl } from '@/utils/file.js';
 
@@ -37,6 +38,7 @@ export default {
     };
   },
   computed: {
+    ...mapGetters('userSignupStore', ['userSignupData']), //DELETE
     computedProgress() {
       let progress = 0;
 
@@ -82,8 +84,42 @@ export default {
     computedProgress(newVal) {
       this.$emit('update:progress', newVal);
     },
+    ieFullName(newVal) {
+      this.setUserSignupData({ ie_full_name: newVal });
+    },
+    organizationLegalAddress(newVal) {
+      this.setUserSignupData({ ie_organization_legal_address: newVal });
+    },
+    inn(newVal) {
+      this.setUserSignupData({ ie_inn: newVal });
+    },
+    ogrn(newVal) {
+      this.setUserSignupData({ ie_ogrn: newVal });
+    },
+    transactionAccount(newVal) {
+      this.setUserSignupData({ ie_transaction_account: newVal });
+    },
+    bank(newVal) {
+      this.setUserSignupData({ ie_bank: newVal });
+    },
+    bankInn(newVal) {
+      this.setUserSignupData({ ie_bank_inn: newVal });
+    },
+    bankBic(newVal) {
+      this.setUserSignupData({ ie_bank_bic: newVal });
+    },
+    bankCorrespondentAccount(newVal) {
+      this.setUserSignupData({ ie_bank_correspondent_account: newVal });
+    },
+    bankLegalAddress(newVal) {
+      this.setUserSignupData({ ie_bank_legal_address: newVal });
+    },
+    confirmDocFile(newVal) {
+      this.setUserSignupData({ ie_confirm_doc: newVal });
+    },
   },
   methods: {
+    ...mapActions('userSignupStore', ['setUserSignupData']),
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
