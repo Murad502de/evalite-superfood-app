@@ -123,6 +123,10 @@ export default {
     /* SETTERS */
     /* HANDLERS */
     next() {
+      console.debug('Steps/next/onboarding', this.onboarding); //DELETE
+
+      if (this.onboarding === 0) { }
+
       if (this.onboarding === 3) {
         this.step3AgreementProgress = 100;
       }

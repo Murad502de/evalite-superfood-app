@@ -1,3 +1,5 @@
+import { mapActions, mapGetters, } from 'vuex';
+
 export default {
   components: {},
 
@@ -28,6 +30,7 @@ export default {
     };
   },
   computed: {
+    ...mapGetters('userSignupStore', ['userSignupData']), //DELETE
     computedProgress() {
       let progress = 0;
 
@@ -61,13 +64,30 @@ export default {
     computedProgress(newVal) {
       this.$emit('update:progress', newVal);
     },
+    secondName(newVal) {
+      this.setUserSignupData({ user_second_name: newVal });
+    },
+    firstName(newVal) {
+      this.setUserSignupData({ user_first_name: newVal });
+    },
+    thirdName(newVal) {
+      this.setUserSignupData({ user_third_name: newVal });
+    },
+    gender(newVal) {
+      this.setUserSignupData({ user_gender: newVal });
+    },
+    birthday(newVal) {
+      this.setUserSignupData({ user_birthday: newVal });
+    },
+    email(newVal) {
+      this.setUserSignupData({ user_email: newVal });
+    },
+    phone(newVal) {
+      this.setUserSignupData({ user_phone: newVal });
+    },
   },
   methods: {
-    /* GETTERS */
-    /* SETTERS */
-    /* HANDLERS */
-    /* HELPERS */
-    /* ACTIONS */
+    ...mapActions('userSignupStore', ['setUserSignupData']),
   },
 
   created() { },
