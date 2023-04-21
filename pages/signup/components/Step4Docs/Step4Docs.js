@@ -1,3 +1,4 @@
+import { mapActions, mapGetters, } from 'vuex';
 import AppFormMedia from '@/components/AppFormMedia/AppFormMedia.vue';
 import PassportSpreadMainSvg from '@/assets/svg/passport_spread_main.svg';
 import PassportSpreadRegistrationSvg from '@/assets/svg/passport_spread_registration.svg';
@@ -43,6 +44,7 @@ export default {
     };
   },
   computed: {
+    ...mapGetters('userSignupStore', ['userSignupData']), //DELETE
     computedProgress() {
       let progress = 0;
 
@@ -85,8 +87,39 @@ export default {
     computedProgress(newVal) {
       this.$emit('update:progress', newVal);
     },
+    passFullName(newVal) {
+      this.setUserSignupData({ pass_full_name: newVal });
+    },
+    passSeries(newVal) {
+      this.setUserSignupData({ pass_series: newVal });
+    },
+    passNumber(newVal) {
+      this.setUserSignupData({ pass_number: newVal });
+    },
+    passIssueDate(newVal) {
+      this.setUserSignupData({ pass_issue_date: newVal });
+    },
+    passValidity(newVal) {
+      this.setUserSignupData({ pass_validity: newVal });
+    },
+    passIssuedBy(newVal) {
+      this.setUserSignupData({ pass_issue_by: newVal });
+    },
+    passDepartmentCode(newVal) {
+      this.setUserSignupData({ pass_department_code: newVal });
+    },
+    mainSpreadMediaFile(newVal) {
+      this.setUserSignupData({ passport_main_spread: newVal });
+    },
+    registrationSpreadMediaFile(newVal) {
+      this.setUserSignupData({ passport_registration_spread: newVal });
+    },
+    verificationSpreadMediaFile(newVal) {
+      this.setUserSignupData({ passport_verification_spread: newVal });
+    },
   },
   methods: {
+    ...mapActions('userSignupStore', ['setUserSignupData']),
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
