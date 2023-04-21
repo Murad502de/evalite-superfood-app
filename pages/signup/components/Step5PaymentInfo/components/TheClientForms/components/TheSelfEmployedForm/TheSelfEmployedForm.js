@@ -1,3 +1,4 @@
+import { mapActions, mapGetters, } from 'vuex';
 import AppFormMediaDoc from '@/components/AppFormMediaDoc/AppFormMediaDoc.vue';
 import { createUploadedFileUrl } from '@/utils/file.js';
 
@@ -31,6 +32,7 @@ export default {
     };
   },
   computed: {
+    ...mapGetters('userSignupStore', ['userSignupData']), //DELETE
     computedProgress() {
       let progress = 0;
 
@@ -67,8 +69,33 @@ export default {
     computedProgress(newVal) {
       this.$emit('update:progress', newVal);
     },
+    seFullName(newVal) {
+      this.setUserSignupData({ se_full_name: newVal });
+    },
+    transactionAccount(newVal) {
+      this.setUserSignupData({ se_transaction_account: newVal });
+    },
+    seBank(newVal) {
+      this.setUserSignupData({ se_bank: newVal });
+    },
+    bic(newVal) {
+      this.setUserSignupData({ se_bic: newVal });
+    },
+    correspondentAccount(newVal) {
+      this.setUserSignupData({ se_correspondent_account: newVal });
+    },
+    bankInn(newVal) {
+      this.setUserSignupData({ se_bank_inn: newVal });
+    },
+    bankKpp(newVal) {
+      this.setUserSignupData({ se_bank_kpp: newVal });
+    },
+    confirmDocFile(newVal) {
+      this.setUserSignupData({ se_confirm_doc: newVal });
+    },
   },
   methods: {
+    ...mapActions('userSignupStore', ['setUserSignupData']),
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
