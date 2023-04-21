@@ -28,7 +28,7 @@ export default {
     return {
       length: 6,
       loading: false,
-      onboarding: 0,
+      onboarding: 2,
       formsCount: 5,
       confirmTimerCount: 30,
       confirmTimer: null,

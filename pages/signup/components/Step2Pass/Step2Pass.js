@@ -1,3 +1,5 @@
+import { mapActions, mapGetters, } from 'vuex';
+
 export default {
   components: {},
 
@@ -24,6 +26,7 @@ export default {
     };
   },
   computed: {
+    ...mapGetters('userSignupStore', ['userSignupData']), //DELETE
     computedProgress() {
       let progress = 0;
 
@@ -42,8 +45,12 @@ export default {
     computedProgress(newVal) {
       this.$emit('update:progress', newVal);
     },
+    password(newVal) {
+      this.setUserSignupData({ user_password: newVal });
+    },
   },
   methods: {
+    ...mapActions('userSignupStore', ['setUserSignupData']),
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
