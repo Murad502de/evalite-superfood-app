@@ -44,13 +44,9 @@ export default {
     ...mapActions('userSignupStore', ['setUserSignupData']),
     async next() {
       if (this.$refs.form.validate()) {
-        console.debug('signup/Start/methods/next/code', this.code); //DELETE
-
         this.loading = true;
 
         const response = await usersCheckInviteCode(this.code);
-
-        console.debug('signup/Start/methods/next/response', response); //DELETE
 
         this.loading = false;
 

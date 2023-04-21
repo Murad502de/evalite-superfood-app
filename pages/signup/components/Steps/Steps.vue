@@ -7,12 +7,13 @@
       v-window.steps--forms(v-model="onboarding")
         v-window-item
           Step1PersonalData(
+            :loading="loading",
             @update:progress="(newValue) => (step1PersonalDataProgress = newValue)"
           )
 
         v-window-item
           Step1Confirm(
-            :email="'test@mai.com'",
+            :email="userSignupData.user_email",
             :disabled="false",
             @update:progress="(newValue) => (step1ConfirmProgress = newValue)",
             @startTimer="startConfirmTimer"
@@ -52,7 +53,7 @@
           v-btn.steps--actions-btn.steps--actions__prev(
             :class="{ 'signup__steps--actions-btn_step-3': onboarding === 3 }",
             :elevation="0",
-            :disabled="onboarding === 0",
+            :disabled="loading || onboarding === 0",
             color="#F2F6F9",
             @click="prev"
           ) Назад
@@ -66,6 +67,7 @@
           v-btn.steps--actions-btn.steps--actions__next(
             :class="{ 'signup__steps--actions-btn_step-3': onboarding === 3 }",
             :elevation="0",
+            :loading="loading",
             color="#0082DE",
             @click="next"
           ) {{ nextBtnTitle }}

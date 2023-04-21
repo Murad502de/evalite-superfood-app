@@ -1,3 +1,5 @@
+import { mapGetters } from 'vuex';
+import { usersEmailConfirmCode } from '@/api/users/usersEmailConfirmCode';
 import AppStepperProgress from '@/components/AppStepperProgress';
 import Pdf from '@/assets/svg/pdf.svg';
 import Step1PersonalData from '../Step1PersonalData/Step1PersonalData.vue';
@@ -24,6 +26,7 @@ export default {
   data() {
     return {
       length: 6,
+      loading: false,
       onboarding: 0,
       formsCount: 5,
       confirmTimerCount: 30,
@@ -42,6 +45,7 @@ export default {
     };
   },
   computed: {
+    ...mapGetters('userSignupStore', ['userSignupData']),
     confirmSendCodeTitle() {
       return this.confirmTimerCount
         ? `Отправить повторно через ${this.confirmTimerCount} сек`
@@ -122,10 +126,15 @@ export default {
 
     /* SETTERS */
     /* HANDLERS */
-    next() {
+    async next() {
       console.debug('Steps/next/onboarding', this.onboarding); //DELETE
 
-      if (this.onboarding === 0) { }
+      this.loading = true;
+
+      if (this.onboarding === 0) {
+        // TODO exec valudation
+        await this.sendConfirmCode();
+      }
 
       if (this.onboarding === 3) {
         this.step3AgreementProgress = 100;
@@ -138,6 +147,8 @@ export default {
       } else {
         this.onboarding++;
       }
+
+      this.loading = false;
     },
     prev() {
       this.onboarding = this.onboarding - 1 < 0
@@ -154,6 +165,13 @@ export default {
 
     /* HELPERS */
     /* ACTIONS */
+    async sendConfirmCode() {
+      console.debug('sendConfirmCode/this.userSignupData.email', this.userSignupData.user_email); //DELETE
+
+      const response = await usersEmailConfirmCode(this.userSignupData.user_email);
+
+      console.debug('sendConfirmCode/response', response); //DELETE
+    },
   },
 
   created() { },

@@ -8,11 +8,14 @@ export default {
       type: Number,
       default: 0,
     },
+    loading: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
       valid: true,
-      loading: false,
       secondName: '',
       secondNameRules: [],
       firstName: '',

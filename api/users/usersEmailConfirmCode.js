@@ -1,7 +1,9 @@
 import { api } from '@/api';
 
-export const usersEmailConfirmCode = async () => {
-  const payload = {};
+export const usersEmailConfirmCode = async (email = null) => {
+  if (!email) return;
+
+  const payload = { email };
 
   console.debug('api/users/usersEmailConfirmCode.js/usersEmailConfirmCode/payload', payload); //DELETE
 
