@@ -1,3 +1,4 @@
+import { mapActions, mapGetters, } from 'vuex';
 import TheIndividualEntrepreneurForm from './components/TheIndividualEntrepreneurForm/TheIndividualEntrepreneurForm.vue';
 import TheSelfEmployedForm from './components/TheSelfEmployedForm/TheSelfEmployedForm.vue';
 
@@ -15,13 +16,17 @@ export default {
       selfEmployedFormProgress: 0,
     };
   },
-  computed: {},
+  computed: {
+    ...mapGetters('userSignupStore', ['userSignupData']), //DELETE
+  },
 
   watch: {
     tab(newVal) {
       if (newVal == 0) {
+        this.setUserSignupData({ user_employment_type: 'individual_entrepreneur' });
         this.$emit('update:progress', this.entrepreneurFormProgress);
       } else {
+        this.setUserSignupData({ user_employment_type: 'self_employed' });
         this.$emit('update:progress', this.selfEmployedFormProgress);
       }
     },
@@ -37,6 +42,7 @@ export default {
     },
   },
   methods: {
+    ...mapActions('userSignupStore', ['setUserSignupData']),
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
@@ -44,6 +50,8 @@ export default {
     /* ACTIONS */
   },
 
-  created() { },
+  created() {
+    this.setUserSignupData({ user_employment_type: this.tab ? 'self_employed' : 'individual_entrepreneur' });
+  },
   mounted() { },
 }
