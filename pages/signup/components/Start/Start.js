@@ -1,3 +1,4 @@
+import { mapActions, mapGetters, } from 'vuex';
 import RocketSvg from '@/assets/svg/rocket.svg';
 import AppButton from '@/components/AppButton/AppButton.vue';
 
@@ -14,7 +15,7 @@ export default {
       loading: false,
       title: 'Стать партнёром',
       subTitle: 'EVALITE - это игры, сервисы, продукты и комьюнити людей для ускорения, облегчения и снижения затрат на саморазвитие.',
-      code: null,
+      code: '',
       codeRules: [
         v => !!v || 'Данное поле обязательно к заполнению'
       ],
@@ -29,13 +30,17 @@ export default {
       actionsInfoTitle: 'Уже зарегистрировались? Нажимайте войти',
     };
   },
-  computed: {},
+  computed: {
+    ...mapGetters('userSignupStore', ['userSignupData']), //DELETE
+  },
 
-  watch: {},
+  watch: {
+    code(newVal) {
+      this.setUserSignupData({ user_promo_code: newVal });
+    },
+  },
   methods: {
-    /* GETTERS */
-    /* SETTERS */
-    /* HANDLERS */
+    ...mapActions('userSignupStore', ['setUserSignupData']),
     next() {
       if (this.$refs.form.validate()) {
         this.loading = true;
@@ -51,9 +56,6 @@ export default {
     signin() {
       this.$router.push({ name: 'signin' });
     },
-
-    /* HELPERS */
-    /* ACTIONS */
   },
 
   created() { },
