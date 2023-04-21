@@ -1,4 +1,5 @@
 import { mapGetters } from 'vuex';
+import { usersEmailConfirm } from '@/api/users/usersEmailConfirm';
 import { usersEmailConfirmCode } from '@/api/users/usersEmailConfirmCode';
 import AppStepperProgress from '@/components/AppStepperProgress';
 import Pdf from '@/assets/svg/pdf.svg';
@@ -133,7 +134,18 @@ export default {
 
       if (this.onboarding === 0) {
         // TODO exec valudation
-        await this.sendConfirmCode();
+        await this.sendConfirmCodeToEmail();
+      }
+
+      if (this.onboarding === 1) {
+        // TODO exec valudation
+        const response = await this.sendConfirmCode();
+
+        if (response.status !== 200) {
+          alert('Неверный код');
+          this.loading = false;
+          return;
+        }
       }
 
       if (this.onboarding === 3) {
@@ -166,11 +178,21 @@ export default {
     /* HELPERS */
     /* ACTIONS */
     async sendConfirmCode() {
-      console.debug('sendConfirmCode/this.userSignupData.email', this.userSignupData.user_email); //DELETE
+      console.debug('sendConfirmCode/this.userSignupData.user_email', this.userSignupData.user_email); //DELETE
+      console.debug('sendConfirmCode/this.userSignupData.user_confirm_code', this.userSignupData.user_confirm_code); //DELETE
+
+      const response = await usersEmailConfirm(this.userSignupData.user_email, this.userSignupData.user_confirm_code);
+
+      console.debug('sendConfirmCode/response', response); //DELETE
+
+      return response;
+    },
+    async sendConfirmCodeToEmail() {
+      console.debug('sendConfirmCodeToEmail/this.userSignupData.email', this.userSignupData.user_email); //DELETE
 
       const response = await usersEmailConfirmCode(this.userSignupData.user_email);
 
-      console.debug('sendConfirmCode/response', response); //DELETE
+      console.debug('sendConfirmCodeToEmail/response', response); //DELETE
     },
   },
 

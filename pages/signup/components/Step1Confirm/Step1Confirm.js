@@ -1,3 +1,5 @@
+import { mapActions } from 'vuex';
+
 export default {
   components: {},
 
@@ -36,19 +38,17 @@ export default {
     computedProgress(newVal) {
       this.$emit('update:progress', newVal);
     },
+    code(newVal) {
+      this.setUserSignupData({ user_confirm_code: newVal });
+    },
   },
   methods: {
+    ...mapActions('userSignupStore', ['setUserSignupData']),
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
     /* HELPERS */
     /* ACTIONS */
-    sendCodeToConfirm() {
-      this.$emit('sendCodeToConfirm', this.code);
-    },
-    sendCodeToEmail() {
-      this.$emit('sendCodeToEmail', this.email);
-    },
   },
 
   created() {

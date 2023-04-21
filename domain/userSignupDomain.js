@@ -9,6 +9,7 @@ export const userSignupDomain = {
   user_password: '',
   user_phone: '',
   user_promo_code: '',
+  user_confirm_code: '',
   user_avatar: null,
   pass_full_name: '',
   pass_series: '',
