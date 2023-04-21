@@ -11,7 +11,7 @@
   )
   Finish.signup--finish(
     v-if="activeSection === activeSections.finish",
-    @next="redirectTo('index')"
+    @next="redirectTo('signin')"
   )
 </template>
 
