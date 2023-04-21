@@ -12,6 +12,6 @@ export const usersEmailConfirmCode = async () => {
 
     return response;
   } catch (e) {
-    return Object.assign(error, e).response;
+    return Object.assign({}, e).response;
   }
 };
