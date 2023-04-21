@@ -3,7 +3,9 @@ import Cookies from 'js-cookie';
 
 axios.defaults.headers['Content-Type'] = "application/json";
 
-const API_BASE_URL = process.env.API_URL;
+const API_BASE_URL = process.env.baseURL;
+
+console.debug('API_BASE_URL', process.env.baseURL); //DELETE
 
 const api = axios.create({
   baseURL: API_BASE_URL || ''

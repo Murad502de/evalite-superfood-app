@@ -1,4 +1,5 @@
 import { mapActions, mapGetters, } from 'vuex';
+import { usersCheckInviteCode } from '@/api/users/usersCheckInviteCode';
 import RocketSvg from '@/assets/svg/rocket.svg';
 import AppButton from '@/components/AppButton/AppButton.vue';
 
@@ -41,16 +42,23 @@ export default {
   },
   methods: {
     ...mapActions('userSignupStore', ['setUserSignupData']),
-    next() {
+    async next() {
       if (this.$refs.form.validate()) {
+        console.debug('signup/Start/methods/next/code', this.code); //DELETE
+
         this.loading = true;
 
-        setTimeout(() => {
-          this.loading = false;
-          // this.signinFailed = true;
+        const response = await usersCheckInviteCode(this.code);
 
+        console.debug('signup/Start/methods/next/response', response); //DELETE
+
+        this.loading = false;
+
+        if (response.status === 200) {
           this.$emit('next');
-        }, 5000);
+        } else {
+          alert('Промокод не найден');
+        }
       }
     },
     signin() {

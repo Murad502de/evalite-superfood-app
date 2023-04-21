@@ -1,17 +1,17 @@
 import { api } from '@/api';
 
-export const usersCheckInviteCode = async () => {
-  const payload = {};
+export const usersCheckInviteCode = async (code = null) => {
+  console.debug('api/users/usersCheckInviteCode.js/usersCheckInviteCode/code', code); //DELETE
 
-  console.debug('api/users/usersCheckInviteCode.js/usersCheckInviteCode/payload', payload); //DELETE
+  if (!code) return;
 
   try {
-    const response = await api.post('users', payload);
+    const response = await api.get(`users/check/invite-code/${code}`);
 
     console.debug('api/users/usersCheckInviteCode.js/usersCheckInviteCode/response', response); //DELETE
 
     return response;
   } catch (e) {
-    return Object.assign(error, e).response;
+    return Object.assign({}, e).response;
   }
 };

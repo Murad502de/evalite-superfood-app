@@ -82,8 +82,7 @@ export default {
   build: {},
 
   env: {
-    WSS_URL: process.env.WSS_URL,
-    WSS_PATH: process.env.WSS_PATH,
+    baseURL: process.env.API_URL,
   },
 
   server: {
