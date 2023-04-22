@@ -1,4 +1,5 @@
 import { mapGetters } from 'vuex';
+import { usersCreate } from '@/api/users/usersCreate';
 import { usersEmailConfirm } from '@/api/users/usersEmailConfirm';
 import { usersEmailConfirmCode } from '@/api/users/usersEmailConfirmCode';
 import AppStepperProgress from '@/components/AppStepperProgress';
@@ -38,8 +39,6 @@ export default {
       step3AgreementProgress: 0,
       step4DocsProgress: 0,
       step5PaymentInfoProgress: 0,
-
-      //text-data
       actionsStep3Title: 'Согласие на использование электронного документооборота',
       actionsStep3Text: 'Нажимая кнопку "Принимаю условия", Вы соглашаетесь с условиями использования Ваших данных в обмене документами с системой Evalite.',
       actionsStep3AgreementTitle: 'Cоглашение на обмен персональными данными и документами посредством ЭЦП',
@@ -129,7 +128,6 @@ export default {
     /* HANDLERS */
     async next() {
       console.debug('Steps/next/onboarding', this.onboarding); //DELETE
-
       this.loading = true;
 
       if (this.onboarding === 0) {
@@ -153,8 +151,16 @@ export default {
       }
 
       if (this.onboarding + 1 === this.length) {
-        this.onboarding = 0;
+        this.loading = true;
+        const response = await this.signup();
 
+        if (response.status !== 200) {
+          alert('Ошибка регистрации');
+          this.loading = false;
+          return;
+        }
+
+        this.onboarding = 0;
         this.$emit('next');
       } else {
         this.onboarding++;
@@ -169,7 +175,6 @@ export default {
     },
     startConfirmTimer() {
       clearInterval(this.confirmTimer);
-
       this.confirmTimer = setInterval(() => {
         this.confirmTimerCount--;
       }, 1000);
@@ -193,6 +198,11 @@ export default {
       const response = await usersEmailConfirmCode(this.userSignupData.user_email);
 
       console.debug('sendConfirmCodeToEmail/response', response); //DELETE
+    },
+    async signup() {
+      console.debug('Steps/methods/signup/this.userSignupData', this.userSignupData); //DELETE
+      const response = await usersCreate(this.userSignupData);
+      return response;
     },
   },
 

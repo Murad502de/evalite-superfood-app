@@ -39,11 +39,6 @@ export default {
     },
 
     /* ACTIONS */
-    signup() {
-      console.debug('signup/methods/signup'); //DELETE
-
-      this.setActiveSection(this.activeSections.finish);
-    },
   },
 
   created() {

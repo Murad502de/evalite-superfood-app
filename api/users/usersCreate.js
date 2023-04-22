@@ -1,8 +1,7 @@
 import { api } from '@/api';
+import { userSignupDomain } from '@/domain/userSignupDomain';
 
-export const usersCreate = async () => {
-  const payload = {};
-
+export const usersCreate = async (payload = userSignupDomain) => {
   console.debug('api/users/usersCreate.js/usersCreate/payload', payload); //DELETE
 
   try {

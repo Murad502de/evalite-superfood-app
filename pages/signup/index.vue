@@ -7,7 +7,7 @@
   )
   Steps.signup--steps(
     v-if="activeSection === activeSections.steps",
-    @next="signup"
+    @next="setActiveSection(activeSections.finish)"
   )
   Finish.signup--finish(
     v-if="activeSection === activeSections.finish",
