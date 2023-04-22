@@ -6,6 +6,10 @@
     v-model="valid",
     lazy-validation
   )
+    .signup-step1-personal-data__form--avatar
+      v-avatar(size="256")
+        img(src="https://cdn.vuetifyjs.com/images/john.jpg", alt="John")
+
     v-text-field(
       v-model="secondName",
       :rules="secondNameRules",
