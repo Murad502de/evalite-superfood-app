@@ -1,5 +1,4 @@
 import * as validation from "@/services/formValidation";
-import * as constants from '@/shared/constants';
 
 export default {
   layout: "empty",
@@ -13,12 +12,12 @@ export default {
       signinFailed: false,
       password: '',
       passwordRules: [
-        validation.required(constants.validationRequiredMsg),
+        validation.required(),
       ],
       email: '',
       emailRules: [
-        validation.required(constants.validationRequiredMsg),
-        validation.email(constants.validationEmailMsg),
+        validation.required(),
+        validation.email(),
       ],
     };
   },

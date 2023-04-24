@@ -1,3 +1,4 @@
+import * as validation from "@/services/formValidation";
 import { mapActions, mapGetters, } from 'vuex';
 import { usersCheckInviteCode } from '@/api/users/usersCheckInviteCode';
 import RocketSvg from '@/assets/svg/rocket.svg';
@@ -18,7 +19,7 @@ export default {
       subTitle: 'EVALITE - это игры, сервисы, продукты и комьюнити людей для ускорения, облегчения и снижения затрат на саморазвитие.',
       code: '',
       codeRules: [
-        v => !!v || 'Данное поле обязательно к заполнению'
+        validation.required(),
       ],
       btnStyles: {
         height: '48px',
