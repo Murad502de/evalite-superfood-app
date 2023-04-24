@@ -17,6 +17,7 @@ export default {
       type: Boolean,
       default: false,
     },
+    
   },
   data() {
     return {
@@ -60,27 +61,13 @@ export default {
     computedProgress() {
       let progress = 0;
 
-      if (this.secondName.length) {
-        progress += 10;
-      }
-      if (this.firstName.length) {
-        progress += 10;
-      }
-      if (this.thirdName.length) {
-        progress += 10;
-      }
-      if (this.gender.length) {
-        progress += 10;
-      }
-      if (this.birthday.length) {
-        progress += 10;
-      }
-      if (this.email.length) {
-        progress += 10;
-      }
-      if (this.phone.length) {
-        progress += 10;
-      }
+      if (this.secondName.length) progress += 10;
+      if (this.firstName.length) progress += 10;
+      if (this.thirdName.length) progress += 10;
+      if (this.gender.length) progress += 10;
+      if (this.birthday.length) progress += 10;
+      if (this.email.length) progress += 10;
+      if (this.phone.length) progress += 10;
 
       return progress;
     },
@@ -119,7 +106,6 @@ export default {
     ...mapActions('userSignupStore', ['setUserSignupData']),
     uploadAvatar(file = null) {
       //TODO call validate service
-
       console.debug(file); //DELETE
 
       this.avatarFile = file;

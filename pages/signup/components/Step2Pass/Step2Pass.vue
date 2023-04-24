@@ -21,7 +21,7 @@
       :type="showPass1 ? 'text' : 'password'",
       :append-icon="showPass1 ? 'mdi-eye' : 'mdi-eye-off'",
       @click:append="showPass1 = !showPass1",
-      :rules="password1Rules",
+      :rules="passwordRules",
       :disabled="loading",
       :label="passInputAgainLabel",
       required,

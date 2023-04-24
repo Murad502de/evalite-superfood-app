@@ -1,4 +1,5 @@
 import { mapActions, mapGetters, } from 'vuex';
+import * as validation from "@/services/formValidation";
 import AppFormMediaDoc from '@/components/AppFormMediaDoc/AppFormMediaDoc.vue';
 import { createUploadedFileUrl } from '@/utils/file.js';
 
@@ -13,19 +14,33 @@ export default {
       valid: true,
       loading: false,
       seFullName: '',
-      seFullNameRules: [],
+      seFullNameRules: [
+        validation.required(),
+      ],
       transactionAccount: '',
-      transactionAccountRules: [],
+      transactionAccountRules: [
+        validation.required(),
+      ],
       seBank: '',
-      seBankRules: [],
+      seBankRules: [
+        validation.required(),
+      ],
       bic: '',
-      bicRules: [],
+      bicRules: [
+        validation.required(),
+      ],
       correspondentAccount: '',
-      correspondentAccountRules: [],
+      correspondentAccountRules: [
+        validation.required(),
+      ],
       bankInn: '',
-      bankInnRules: [],
+      bankInnRules: [
+        validation.required(),
+      ],
       bankKpp: '',
-      bankKppRules: [],
+      bankKppRules: [
+        validation.required(),
+      ],
       confirmDocFile: null,
       confirmDocName: '',
       confirmDocUrl: '',

@@ -1,4 +1,5 @@
 import { mapActions, mapGetters, } from 'vuex';
+import * as validation from "@/services/formValidation";
 import AppFormMedia from '@/components/AppFormMedia/AppFormMedia.vue';
 import PassportSpreadMainSvg from '@/assets/svg/passport_spread_main.svg';
 import PassportSpreadRegistrationSvg from '@/assets/svg/passport_spread_registration.svg';
@@ -19,19 +20,33 @@ export default {
       valid: true,
       loading: false,
       passFullName: '',
-      passFullNameRules: [],
+      passFullNameRules: [
+        validation.required(),
+      ],
       passSeries: '',
-      passSeriesRules: [],
+      passSeriesRules: [
+        validation.required(),
+      ],
       passNumber: '',
-      passNumberRules: [],
+      passNumberRules: [
+        validation.required(),
+      ],
       passIssueDate: '',
-      passIssueDateRules: [],
+      passIssueDateRules: [
+        validation.required(),
+      ],
       passValidity: '',
-      passValidityRules: [],
+      passValidityRules: [
+        validation.required(),
+      ],
       passIssuedBy: '',
-      passIssuedByRules: [],
+      passIssuedByRules: [
+        validation.required(),
+      ],
       passDepartmentCode: '',
-      passDepartmentCodeRules: [],
+      passDepartmentCodeRules: [
+        validation.required(),
+      ],
       mainSpreadMediaFile: null,
       mainSpreadMediaName: null,
       mainSpreadMediaUrl: null,

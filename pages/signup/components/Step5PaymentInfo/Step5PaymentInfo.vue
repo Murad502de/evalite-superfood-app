@@ -4,6 +4,7 @@
 
   TheInstructions.signup-step5-payment-info__the-instructions
   TheClientForms.signup-step5-payment-info__client-forms(
+    ref="forms"
     @update:progress="(newValue) => (theClientFormsProgress = newValue)"
   )
 </template>

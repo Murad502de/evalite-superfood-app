@@ -7,12 +7,14 @@
       v-window.steps--forms(v-model="onboarding")
         v-window-item
           Step1PersonalData(
+            ref="step1_personal_data"
             :loading="loading",
             @update:progress="(newValue) => (step1PersonalDataProgress = newValue)"
           )
 
         v-window-item
           Step1Confirm(
+            ref="step1_confirm"
             :email="userSignupData.user_email",
             :disabled="false",
             @update:progress="(newValue) => (step1ConfirmProgress = newValue)",
@@ -21,6 +23,7 @@
 
         v-window-item
           Step2Pass(
+            ref="step2_pass"
             @update:progress="(newValue) => (step2PassProgress = newValue)"
           )
 
@@ -29,11 +32,13 @@
 
         v-window-item
           Step4Docs(
+            ref="step4_docs"
             @update:progress="(newValue) => (step4DocsProgress = newValue)"
           )
 
         v-window-item
           Step5PaymentInfo(
+            ref="step5_payment_info"
             @update:progress="(newValue) => (step5PaymentInfoProgress = newValue)"
           )
 

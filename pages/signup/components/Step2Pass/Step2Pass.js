@@ -1,4 +1,5 @@
 import { mapActions, mapGetters, } from 'vuex';
+import * as validation from "@/services/formValidation";
 
 export default {
   components: {},
@@ -8,9 +9,16 @@ export default {
     return {
       valid: true,
       password: '',
-      passwordRules: [],
+      passwordRules: [
+        validation.required(),
+        validation.passSpaces(),
+        validation.passCyrillic(),
+        validation.passLength(),
+        validation.passCapitalLetters(),
+        validation.passLowerCase(),
+        validation.passSpecSymbols(),
+      ],
       password1: '',
-      password1Rules: [],
       showPass: false,
       showPass1: false,
       loading: false,

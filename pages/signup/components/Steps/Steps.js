@@ -11,6 +11,7 @@ import Step3Agreement from '../Step3Agreement/Step3Agreement.vue';
 import Step4Docs from '../Step4Docs/Step4Docs.vue';
 import Step5PaymentInfo from '../Step5PaymentInfo/Step5PaymentInfo.vue';
 import steps from './shared/steps';
+import * as stepsWindow from './shared/stepsWindow';
 
 export default {
   components: {
@@ -27,10 +28,9 @@ export default {
   props: {},
   data() {
     return {
-      length: 6,
+      onboardings: 6,
       loading: false,
-      onboarding: 0,
-      formsCount: 5,
+      onboarding: stepsWindow.step1PersonalData,
       confirmTimerCount: 30,
       confirmTimer: null,
       step1PersonalDataProgress: 0,
@@ -75,7 +75,7 @@ export default {
       if (!newVal) {
         clearInterval(this.confirmTimer);
       }
-    },
+    }
   },
   methods: {
     /* GETTERS */
@@ -127,16 +127,15 @@ export default {
     /* SETTERS */
     /* HANDLERS */
     async next() {
-      console.debug('Steps/next/onboarding', this.onboarding); //DELETE
+      if (!this.validate()) return;
+
       this.loading = true;
 
-      if (this.onboarding === 0) {
-        // TODO exec valudation
+      if (this.onboarding === stepsWindow.step1PersonalData) {
         await this.sendConfirmCodeToEmail();
       }
 
-      if (this.onboarding === 1) {
-        // TODO exec valudation
+      if (this.onboarding === stepsWindow.step1Confirm) {
         const response = await this.sendConfirmCode();
 
         if (response.status !== 200) {
@@ -146,11 +145,11 @@ export default {
         }
       }
 
-      if (this.onboarding === 3) {
+      if (this.onboarding === stepsWindow.step3Agreement) {
         this.step3AgreementProgress = 100;
       }
 
-      if (this.onboarding + 1 === this.length) {
+      if (this.onboarding + 1 === this.onboardings) {
         this.loading = true;
         const response = await this.signup();
 
@@ -160,7 +159,7 @@ export default {
           return;
         }
 
-        this.onboarding = 0;
+        this.onboarding = stepsWindow.step1PersonalData;
         this.$emit('next');
       } else {
         this.onboarding++;
@@ -169,8 +168,8 @@ export default {
       this.loading = false;
     },
     prev() {
-      this.onboarding = this.onboarding - 1 < 0
-        ? this.length - 1
+      this.onboarding = this.onboarding - 1 < stepsWindow.step1PersonalData
+        ? stepsWindow.step1PersonalData
         : this.onboarding - 1;
     },
     startConfirmTimer() {
@@ -181,6 +180,47 @@ export default {
     },
 
     /* HELPERS */
+    validate() {
+      switch (this.onboarding) {
+        case stepsWindow.step1PersonalData:
+          return this.validateStep1PersonalData();
+        case stepsWindow.step1Confirm:
+          return this.validateStep1Confirm();
+        case stepsWindow.step2Pass:
+          return this.validateStep2Pass();
+        case stepsWindow.step3Agreement:
+          return this.validateStep3Agreement();
+        case stepsWindow.step4Docs:
+          return this.validateStep4Docs();
+        case stepsWindow.step5PaymentInfo:
+          return this.validateStep5PaymentInfo();
+        default:
+          return false;
+      }
+    },
+    validateStep1PersonalData() {
+      return this.$refs.step1_personal_data.$refs.form.validate();
+    },
+    validateStep1Confirm() {
+      return false;
+    },
+    validateStep2Pass() {
+      return this.$refs.step2_pass.$refs.form.validate();
+    },
+    validateStep3Agreement() {
+      return true;
+    },
+    validateStep4Docs() {
+      return this.$refs.step4_docs.$refs.form.validate();
+    },
+    validateStep5PaymentInfo() {
+      if (this.$refs.step5_payment_info.$refs.forms.tab) {
+        return this.$refs.step5_payment_info.$refs.forms.$refs.se_form.$refs.form.validate();
+      }
+
+      return this.$refs.step5_payment_info.$refs.forms.$refs.ie_form.$refs.form.validate();
+    },
+
     /* ACTIONS */
     async sendConfirmCode() {
       console.debug('sendConfirmCode/this.userSignupData.user_email', this.userSignupData.user_email); //DELETE
@@ -207,5 +247,7 @@ export default {
   },
 
   created() { },
-  mounted() { },
+  mounted() {
+    console.debug('this.$refs', this.$refs); //DELETE
+  },
 }
