@@ -1,5 +1,5 @@
 import * as validation from "@/services/formValidation";
-import * as constants from './shared/constants';
+import * as constants from '@/shared/constants';
 
 export default {
   layout: "empty",
