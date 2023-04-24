@@ -1,4 +1,5 @@
 import { mapActions, mapGetters, } from 'vuex';
+import * as validation from "@/services/formValidation";
 import { createUploadedFileUrl } from '@/utils/file.js';
 import AppAvatar from '@/components/AppAvatar/AppAvatar.vue';
 
@@ -21,19 +22,34 @@ export default {
     return {
       valid: true,
       secondName: '',
-      secondNameRules: [],
+      secondNameRules: [
+        validation.required(),
+      ],
       firstName: '',
-      firstNameRules: [],
+      firstNameRules: [
+        validation.required(),
+      ],
       thirdName: '',
-      thirdNameRules: [],
+      thirdNameRules: [
+        validation.required(),
+      ],
       gender: '',
-      genderRules: [],
+      genderRules: [
+        validation.required(),
+      ],
       birthday: '',
-      birthdayRules: [],
+      birthdayRules: [
+        validation.required(),
+      ],
       email: '',
-      emailRules: [],
+      emailRules: [
+        validation.required(),
+        validation.email(),
+      ],
       phone: '',
-      phoneRules: [],
+      phoneRules: [
+        validation.required(),
+      ],
       avatarFile: null,
       avatarName: null,
       avatarUrl: null,
