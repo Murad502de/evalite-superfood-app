@@ -1,3 +1,6 @@
+import * as validation from "@/services/formValidation";
+import * as constants from './shared/constants';
+
 export default {
   layout: "empty",
   components: {},
@@ -10,12 +13,12 @@ export default {
       signinFailed: false,
       password: '',
       passwordRules: [
-        v => !!v || 'Данное поле обязательно к заполнению'
+        validation.required(constants.validationRequiredMsg),
       ],
       email: '',
       emailRules: [
-        v => !!v || 'Данное поле обязательно к заполнению',
-        v => /.+@.+\..+/.test(v) || 'E-mail некорректный',
+        validation.required(constants.validationRequiredMsg),
+        validation.email(constants.validationEmailMsg),
       ],
     };
   },
@@ -40,7 +43,7 @@ export default {
     /* SETTERS */
     /* HANDLERS */
     redirectTo(to) {
-      this.$router.push({name: to});
+      this.$router.push({ name: to });
     },
     signin() {
       console.debug("pages/signin/methods/signin/isValid", this.$refs.form.validate()); //DELETE
