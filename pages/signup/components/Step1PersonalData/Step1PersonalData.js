@@ -1,7 +1,11 @@
 import { mapActions, mapGetters, } from 'vuex';
+import { createUploadedFileUrl } from '@/utils/file.js';
+import AppAvatar from '@/components/AppAvatar/AppAvatar.vue';
 
 export default {
-  components: {},
+  components: {
+    AppAvatar,
+  },
 
   props: {
     progress: {
@@ -30,6 +34,9 @@ export default {
       emailRules: [],
       phone: '',
       phoneRules: [],
+      avatarFile: null,
+      avatarName: null,
+      avatarUrl: null,
     };
   },
   computed: {
@@ -64,6 +71,9 @@ export default {
   },
 
   watch: {
+    avatarFile(newVal) {
+      this.setUserSignupData({ user_avatar: newVal });
+    },
     computedProgress(newVal) {
       this.$emit('update:progress', newVal);
     },
@@ -77,7 +87,7 @@ export default {
       this.setUserSignupData({ user_third_name: newVal });
     },
     gender(newVal) {
-      this.setUserSignupData({ user_gender: newVal });
+      this.setUserSignupData({ user_gender: newVal === 'муж' ? 'male' : 'female' });
     },
     birthday(newVal) {
       this.setUserSignupData({ user_birthday: newVal });
@@ -91,6 +101,20 @@ export default {
   },
   methods: {
     ...mapActions('userSignupStore', ['setUserSignupData']),
+    uploadAvatar(file = null) {
+      //TODO call validate service
+
+      console.debug(file); //DELETE
+
+      this.avatarFile = file;
+      this.avatarName = file.name;
+      this.avatarUrl = createUploadedFileUrl(file);
+    },
+    deleteAvatar() {
+      this.avatarFile = null;
+      this.avatarName = null;
+      this.avatarUrl = null;
+    },
   },
 
   created() { },

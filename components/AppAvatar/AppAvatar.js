@@ -1,16 +1,10 @@
-import AppButton from '@/components/AppButton/AppButton.vue';
-import FileIconSvg from '@/assets/svg/file.svg';
-
 export default {
-  components: {
-    AppButton,
-    FileIconSvg,
-  },
+  components: {},
 
   props: {
-    disabled: {
-      type: Boolean,
-      default: false,
+    url: {
+      type: String,
+      default: null,
     },
   },
   data() {

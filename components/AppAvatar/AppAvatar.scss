@@ -1,0 +1,11 @@
+.app-avatar {
+  cursor: pointer;
+
+  & .v-icon {
+    font-size: 500%;
+  }
+
+  &__input {
+    display: none;
+  }
+}
