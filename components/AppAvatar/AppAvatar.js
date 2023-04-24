@@ -6,11 +6,21 @@ export default {
       type: String,
       default: null,
     },
+    error: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    classes() {
+      return {
+        'app-avatar_error': this.error
+      };
+    },
+  },
 
   watch: {},
   methods: {

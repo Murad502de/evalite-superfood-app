@@ -8,4 +8,9 @@
   &__input {
     display: none;
   }
+
+  &_error {
+    background: #ff5252 !important;
+    opacity: .9 !important;
+  }
 }
