@@ -9,6 +9,8 @@
     .signup-step1-personal-data__form--avatar
       AppAvatar(
         :url="avatarUrl",
+        :error="avatarError"
+        :disabled="loading"
         @upload="uploadAvatar",
         @delete="deleteAvatar"
       )

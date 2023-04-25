@@ -30,7 +30,7 @@ export default {
     return {
       onboardings: 6,
       loading: false,
-      onboarding: stepsWindow.step1PersonalData,
+      onboarding: stepsWindow.step1Confirm,
       confirmTimerCount: 30,
       confirmTimer: null,
       step1PersonalDataProgress: 0,
@@ -199,7 +199,9 @@ export default {
       }
     },
     validateStep1PersonalData() {
-      return this.$refs.step1_personal_data.$refs.form.validate();
+      console.debug('this.$refs.step1_personal_data', this.$refs.step1_personal_data); //DELETE
+      this.$refs.step1_personal_data.avatarError = !this.$refs.step1_personal_data.avatarFile;
+      return this.$refs.step1_personal_data.$refs.form.validate() && this.$refs.step1_personal_data.avatarFile;
     },
     validateStep1Confirm() {
       return false;

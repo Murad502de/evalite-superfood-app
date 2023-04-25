@@ -17,7 +17,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    
+
   },
   data() {
     return {
@@ -54,6 +54,7 @@ export default {
       avatarFile: null,
       avatarName: null,
       avatarUrl: null,
+      avatarError: false,
     };
   },
   computed: {

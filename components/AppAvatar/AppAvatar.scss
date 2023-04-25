@@ -13,4 +13,8 @@
     background: #ff5252 !important;
     opacity: .9 !important;
   }
+
+  &_disabled {
+    cursor: default;
+  }
 }

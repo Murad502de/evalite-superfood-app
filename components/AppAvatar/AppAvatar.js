@@ -10,6 +10,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {};
@@ -17,7 +21,8 @@ export default {
   computed: {
     classes() {
       return {
-        'app-avatar_error': this.error
+        'app-avatar_error': this.error,
+        'app-avatar_disabled': this.disabled,
       };
     },
   },
@@ -27,8 +32,10 @@ export default {
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
-    selectFile(e) {
-      this.$refs.input.click();
+    selectFile() {
+      if (!this.disabled) {
+        this.$refs.input.click();
+      }
     },
     selectedFile(e) {
       this.$emit('upload', e.target.files[0]);
