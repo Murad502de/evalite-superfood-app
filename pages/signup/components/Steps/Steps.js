@@ -30,7 +30,7 @@ export default {
     return {
       onboardings: 6,
       loading: false,
-      onboarding: stepsWindow.step1Confirm,
+      onboarding: stepsWindow.step4Docs,
       confirmTimerCount: 30,
       confirmTimer: null,
       step1PersonalDataProgress: 0,
@@ -207,17 +207,31 @@ export default {
       return this.$refs.step1_confirm.code.length;
     },
     validateStep2Pass() {
-      console.debug('this.$refs', this.$refs); //DELETE
+      if (
+        this.$refs.step2_pass.$refs.form.validate() &&
+        (this.$refs.step2_pass.password !== this.$refs.step2_pass.password1)
+      ) {
+        alert('Пароли должны совпадать');
+      }
 
-      return this.$refs.step2_pass.$refs.form.validate();
+      return this.$refs.step2_pass.$refs.form.validate() &&
+        (this.$refs.step2_pass.password === this.$refs.step2_pass.password1);
     },
     validateStep3Agreement() {
       return true;
     },
     validateStep4Docs() {
-      return this.$refs.step4_docs.$refs.form.validate();
+      this.$refs.step4_docs.mainSpreadMediaError = !this.$refs.step4_docs.mainSpreadMediaFile;
+      this.$refs.step4_docs.registrationSpreadMediaError = !this.$refs.step4_docs.registrationSpreadMediaFile;
+      this.$refs.step4_docs.verificationSpreadMediaError = !this.$refs.step4_docs.verificationSpreadMediaFile;
+      return this.$refs.step4_docs.$refs.form.validate() &&
+        this.$refs.step4_docs.mainSpreadMediaFile &&
+        this.$refs.step4_docs.registrationSpreadMediaFile &&
+        this.$refs.step4_docs.verificationSpreadMediaFile;
     },
     validateStep5PaymentInfo() {
+      console.debug('this.$refs', this.$refs); //DELETE
+
       if (this.$refs.step5_payment_info.$refs.forms.tab) {
         return this.$refs.step5_payment_info.$refs.forms.$refs.se_form.$refs.form.validate();
       }
@@ -251,7 +265,5 @@ export default {
   },
 
   created() { },
-  mounted() {
-    console.debug('this.$refs', this.$refs); //DELETE
-  },
+  mounted() { },
 }

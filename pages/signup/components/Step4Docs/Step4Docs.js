@@ -50,12 +50,15 @@ export default {
       mainSpreadMediaFile: null,
       mainSpreadMediaName: null,
       mainSpreadMediaUrl: null,
+      mainSpreadMediaError: false,
       registrationSpreadMediaFile: null,
       registrationSpreadMediaName: null,
       registrationSpreadMediaUrl: null,
+      registrationSpreadMediaError: false,
       verificationSpreadMediaFile: null,
       verificationSpreadMediaName: null,
       verificationSpreadMediaUrl: null,
+      verificationSpreadMediaError: false,
     };
   },
   computed: {
@@ -146,6 +149,7 @@ export default {
       this.mainSpreadMediaFile = file;
       this.mainSpreadMediaName = file.name;
       this.mainSpreadMediaUrl = createUploadedFileUrl(file);
+      this.mainSpreadMediaError = false;
     },
     deleteMainSpread() {
       this.mainSpreadMediaFile = null;
@@ -158,6 +162,7 @@ export default {
       this.registrationSpreadMediaFile = file;
       this.registrationSpreadMediaName = file.name;
       this.registrationSpreadMediaUrl = createUploadedFileUrl(file);
+      this.registrationSpreadMediaError = false;
     },
     deleteRegistrationSpread() {
       this.registrationSpreadMediaFile = null;
@@ -170,6 +175,7 @@ export default {
       this.verificationSpreadMediaFile = file;
       this.verificationSpreadMediaName = file.name;
       this.verificationSpreadMediaUrl = createUploadedFileUrl(file);
+      this.verificationSpreadMediaError = false;
     },
     deleteVerificationSpread() {
       this.verificationSpreadMediaFile = null;

@@ -50,6 +50,10 @@
           margin-top: 16px;
         }
       }
+
+      &_error &__title {
+        color: #ff5252;
+      }
     }
   }
 }

@@ -74,7 +74,9 @@
           )
 
       .signup-step1-docs-form-passport__media
-        .signup-step1-docs-form-passport__spread-main
+        .signup-step1-docs-form-passport__spread-main(
+          :class="{ 'signup-step1-docs-form-passport_error': mainSpreadMediaError }"
+        )
           .signup-step1-docs-form-passport__title Фото паспорта основной разворот (стр. 1-2)
           .signup-step1-docs-form-passport__media-info На фотографии должны быть отчетливо видны серия, номер, основные данные, фотография. В поле зрения не должны попадать пальцы и посторонние предметы.
 
@@ -87,7 +89,9 @@
             template(v-slot:stub-img)
               PassportSpreadMainSvg
 
-        .signup-step1-docs-form-passport__spread-registration
+        .signup-step1-docs-form-passport__spread-registration(
+          :class="{ 'signup-step1-docs-form-passport_error': registrationSpreadMediaError }"
+        )
           .signup-step1-docs-form-passport__title Фото паспорта разворот прописка (стр. 3-4)
           .signup-step1-docs-form-passport__media-info На фотографии должны быть отчетливо видны серия, номер, основные данные, фотография. В поле зрения не должны попадать пальцы и посторонние предметы.
 
@@ -100,7 +104,9 @@
             template(v-slot:stub-img)
               PassportSpreadRegistrationSvg
 
-        .signup-step1-docs-form-passport__passport-verification
+        .signup-step1-docs-form-passport__passport-verification(
+          :class="{ 'signup-step1-docs-form-passport_error': verificationSpreadMediaError }"
+        )
           .signup-step1-docs-form-passport__title Фото с паспортом
           .signup-step1-docs-form-passport__media-info На фотографии должны быть отчетливо видны серия, номер, основные данные, фотография. В поле зрения не должны попадать пальцы и посторонние предметы.
 
