@@ -10,6 +10,7 @@
     :length="codeLength",
     v-model="code",
     :disabled="disabled"
+    :class="{'signup-step1-confirm__code-input_error': validError}"
   )
 </template>
 

@@ -17,6 +17,7 @@ export default {
     return {
       code: '',
       codeLength: 4,
+      validError: false,
     };
   },
   computed: {
@@ -40,6 +41,7 @@ export default {
     },
     code(newVal) {
       this.setUserSignupData({ user_confirm_code: newVal });
+      this.validError = false;
     },
   },
   methods: {

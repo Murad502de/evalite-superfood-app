@@ -199,14 +199,16 @@ export default {
       }
     },
     validateStep1PersonalData() {
-      console.debug('this.$refs.step1_personal_data', this.$refs.step1_personal_data); //DELETE
       this.$refs.step1_personal_data.avatarError = !this.$refs.step1_personal_data.avatarFile;
       return this.$refs.step1_personal_data.$refs.form.validate() && this.$refs.step1_personal_data.avatarFile;
     },
     validateStep1Confirm() {
-      return false;
+      this.$refs.step1_confirm.validError = !this.$refs.step1_confirm.code.length;
+      return this.$refs.step1_confirm.code.length;
     },
     validateStep2Pass() {
+      console.debug('this.$refs', this.$refs); //DELETE
+
       return this.$refs.step2_pass.$refs.form.validate();
     },
     validateStep3Agreement() {
