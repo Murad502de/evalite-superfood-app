@@ -6,7 +6,13 @@
 
       &__title {
         font-weight: 700;
-        line-height: 125%;
+        font-size: 20px;
+        line-height: 28px;
+        color: #263043;
+
+        &_error {
+          color: #ff5252;
+        }
       }
 
       &__info {

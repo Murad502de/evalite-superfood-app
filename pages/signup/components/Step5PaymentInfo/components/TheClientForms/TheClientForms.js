@@ -11,7 +11,7 @@ export default {
   props: {},
   data() {
     return {
-      tab: 1,
+      tab: 0,
       entrepreneurFormProgress: 0,
       selfEmployedFormProgress: 0,
     };

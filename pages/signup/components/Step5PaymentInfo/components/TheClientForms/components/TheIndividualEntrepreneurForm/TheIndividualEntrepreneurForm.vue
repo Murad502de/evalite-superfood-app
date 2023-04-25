@@ -86,7 +86,9 @@ v-form.the-individual-entrepreneur-form(
   )
 
   .the-individual-entrepreneur-form--certificate
-    .the-individual-entrepreneur-form--certificate__title Подтверждающий документ ЕГРИП
+    .the-individual-entrepreneur-form--certificate__title(
+      :class="{ 'the-individual-entrepreneur-form--certificate__title_error': confirmDocError }"
+    ) Подтверждающий документ ЕГРИП
     .the-individual-entrepreneur-form--certificate__info Загрузите документ в формате .pdf
     AppFormMediaDoc.the-individual-entrepreneur-form--certificate__file(
       :type="'pdf'",

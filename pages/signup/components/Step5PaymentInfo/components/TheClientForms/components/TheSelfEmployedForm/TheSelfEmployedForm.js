@@ -44,6 +44,7 @@ export default {
       confirmDocFile: null,
       confirmDocName: '',
       confirmDocUrl: '',
+      confirmDocError: false,
     };
   },
   computed: {
@@ -122,6 +123,7 @@ export default {
       this.confirmDocFile = file;
       this.confirmDocName = file.name;
       this.confirmDocUrl = createUploadedFileUrl(file);
+      this.confirmDocError = false;
     },
     deleteConfirmDoc() {
       this.confirmDocFile = null;

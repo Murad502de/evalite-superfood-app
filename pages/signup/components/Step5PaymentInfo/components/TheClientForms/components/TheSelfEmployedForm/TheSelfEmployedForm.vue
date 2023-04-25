@@ -58,7 +58,9 @@ v-form.the-self-employed-form(ref="form", v-model="valid", lazy-validation)
   )
 
   .the-self-employed-form--certificate
-    .the-self-employed-form--certificate__title Подтверждающий документ НПД (форма КНД 1122035)
+    .the-self-employed-form--certificate__title(
+      :class="{ 'the-self-employed-form--certificate__title_error': confirmDocError }"
+    ) Подтверждающий документ НПД (форма КНД 1122035)
     .the-self-employed-form--certificate__info Загрузите документ в формате .pdf
     AppFormMediaDoc.the-self-employed-form--certificate__file(
       :type="'pdf'",

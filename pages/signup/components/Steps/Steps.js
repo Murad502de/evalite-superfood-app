@@ -24,13 +24,12 @@ export default {
     Step5PaymentInfo,
     Pdf,
   },
-
   props: {},
   data() {
     return {
       onboardings: 6,
       loading: false,
-      onboarding: stepsWindow.step4Docs,
+      onboarding: stepsWindow.step5PaymentInfo,
       confirmTimerCount: 30,
       confirmTimer: null,
       step1PersonalDataProgress: 0,
@@ -69,7 +68,6 @@ export default {
       }));
     },
   },
-
   watch: {
     confirmTimerCount(newVal) {
       if (!newVal) {
@@ -78,7 +76,6 @@ export default {
     }
   },
   methods: {
-    /* GETTERS */
     getStepProgress(index = null) {
       switch (index) {
         case 0:
@@ -123,9 +120,6 @@ export default {
 
       return false;
     },
-
-    /* SETTERS */
-    /* HANDLERS */
     async next() {
       if (!this.validate()) return;
 
@@ -178,8 +172,6 @@ export default {
         this.confirmTimerCount--;
       }, 1000);
     },
-
-    /* HELPERS */
     validate() {
       switch (this.onboarding) {
         case stepsWindow.step1PersonalData:
@@ -230,31 +222,26 @@ export default {
         this.$refs.step4_docs.verificationSpreadMediaFile;
     },
     validateStep5PaymentInfo() {
-      console.debug('this.$refs', this.$refs); //DELETE
-
       if (this.$refs.step5_payment_info.$refs.forms.tab) {
-        return this.$refs.step5_payment_info.$refs.forms.$refs.se_form.$refs.form.validate();
+        this.$refs.step5_payment_info.$refs.forms.$refs.se_form.confirmDocError = !this.$refs.step5_payment_info.$refs.forms.$refs.se_form.confirmDocFile;
+        return this.$refs.step5_payment_info.$refs.forms.$refs.se_form.$refs.form.validate() &&
+          this.$refs.step5_payment_info.$refs.forms.$refs.se_form.confirmDocFile;
       }
 
-      return this.$refs.step5_payment_info.$refs.forms.$refs.ie_form.$refs.form.validate();
+      this.$refs.step5_payment_info.$refs.forms.$refs.ie_form.confirmDocError = !this.$refs.step5_payment_info.$refs.forms.$refs.ie_form.confirmDocFile;
+      return this.$refs.step5_payment_info.$refs.forms.$refs.ie_form.$refs.form.validate() &&
+        this.$refs.step5_payment_info.$refs.forms.$refs.ie_form.confirmDocFile;
     },
-
-    /* ACTIONS */
     async sendConfirmCode() {
       console.debug('sendConfirmCode/this.userSignupData.user_email', this.userSignupData.user_email); //DELETE
       console.debug('sendConfirmCode/this.userSignupData.user_confirm_code', this.userSignupData.user_confirm_code); //DELETE
-
       const response = await usersEmailConfirm(this.userSignupData.user_email, this.userSignupData.user_confirm_code);
-
       console.debug('sendConfirmCode/response', response); //DELETE
-
       return response;
     },
     async sendConfirmCodeToEmail() {
       console.debug('sendConfirmCodeToEmail/this.userSignupData.email', this.userSignupData.user_email); //DELETE
-
       const response = await usersEmailConfirmCode(this.userSignupData.user_email);
-
       console.debug('sendConfirmCodeToEmail/response', response); //DELETE
     },
     async signup() {
@@ -263,7 +250,6 @@ export default {
       return response;
     },
   },
-
   created() { },
   mounted() { },
 }
