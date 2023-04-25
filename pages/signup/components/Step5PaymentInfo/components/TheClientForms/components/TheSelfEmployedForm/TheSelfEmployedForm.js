@@ -20,6 +20,7 @@ export default {
       transactionAccount: '',
       transactionAccountRules: [
         validation.required(),
+        validation.numbers(),
       ],
       seBank: '',
       seBankRules: [
@@ -28,18 +29,22 @@ export default {
       bic: '',
       bicRules: [
         validation.required(),
+        validation.numbers(),
       ],
       correspondentAccount: '',
       correspondentAccountRules: [
         validation.required(),
+        validation.numbers(),
       ],
       bankInn: '',
       bankInnRules: [
         validation.required(),
+        validation.numbers(),
       ],
       bankKpp: '',
       bankKppRules: [
         validation.required(),
+        validation.numbers(),
       ],
       confirmDocFile: null,
       confirmDocName: '',

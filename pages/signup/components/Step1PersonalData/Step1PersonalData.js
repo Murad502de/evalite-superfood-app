@@ -1,5 +1,6 @@
 import { mapActions, mapGetters, } from 'vuex';
 import * as validation from "@/services/formValidation";
+import * as formPlaceholder from "@/services/formPlaceholder";
 import { createUploadedFileUrl } from '@/utils/file.js';
 import AppAvatar from '@/components/AppAvatar/AppAvatar.vue';
 
@@ -41,6 +42,7 @@ export default {
       birthday: '',
       birthdayRules: [
         validation.required(),
+        validation.date(),
       ],
       email: '',
       emailRules: [
@@ -50,6 +52,7 @@ export default {
       phone: '',
       phoneRules: [
         validation.required(),
+        validation.phoneRus(),
       ],
       avatarFile: null,
       avatarName: null,
@@ -71,6 +74,9 @@ export default {
       if (this.phone.length) progress += 10;
 
       return progress;
+    },
+    formPlaceholder() {
+      return formPlaceholder;
     },
   },
 

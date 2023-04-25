@@ -24,14 +24,17 @@ export default {
       inn: '',
       innRules: [
         validation.required(),
+        validation.numbers(),
       ],
       ogrn: '',
       ogrnRules: [
         validation.required(),
+        validation.numbers(),
       ],
       transactionAccount: '',
       transactionAccountRules: [
         validation.required(),
+        validation.numbers(),
       ],
       bank: '',
       bankRules: [
@@ -40,14 +43,17 @@ export default {
       bankInn: '',
       bankInnRules: [
         validation.required(),
+        validation.numbers(),
       ],
       bankBic: '',
       bankBicRules: [
         validation.required(),
+        validation.numbers(),
       ],
       bankCorrespondentAccount: '',
       bankCorrespondentAccountRules: [
         validation.required(),
+        validation.numbers(),
       ],
       bankLegalAddress: '',
       bankLegalAddressRules: [

@@ -40,6 +40,7 @@
             :rules="passIssueDateRules",
             :disabled="loading",
             label="Дата выдачи",
+            :placeholder="formPlaceholder.date",
             required,
             outlined
           )
@@ -49,6 +50,7 @@
             :rules="passValidityRules",
             :disabled="loading",
             label="Срок действия",
+            :placeholder="formPlaceholder.date",
             required,
             outlined
           )

@@ -9,8 +9,8 @@
     .signup-step1-personal-data__form--avatar
       AppAvatar(
         :url="avatarUrl",
-        :error="avatarError"
-        :disabled="loading"
+        :error="avatarError",
+        :disabled="loading",
         @upload="uploadAvatar",
         @delete="deleteAvatar"
       )
@@ -57,6 +57,7 @@
       :rules="birthdayRules",
       :disabled="loading",
       label="Дата рождения",
+      :placeholder="formPlaceholder.date",
       required,
       outlined
     )
@@ -75,6 +76,7 @@
       :rules="phoneRules",
       :disabled="loading",
       label="Телефон",
+      :placeholder="formPlaceholder.phoneRus",
       required,
       outlined
     )

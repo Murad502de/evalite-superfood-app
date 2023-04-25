@@ -1,5 +1,6 @@
 import { mapActions, mapGetters, } from 'vuex';
 import * as validation from "@/services/formValidation";
+import * as formPlaceholder from "@/services/formPlaceholder";
 import AppFormMedia from '@/components/AppFormMedia/AppFormMedia.vue';
 import PassportSpreadMainSvg from '@/assets/svg/passport_spread_main.svg';
 import PassportSpreadRegistrationSvg from '@/assets/svg/passport_spread_registration.svg';
@@ -26,18 +27,22 @@ export default {
       passSeries: '',
       passSeriesRules: [
         validation.required(),
+        validation.numbers(),
       ],
       passNumber: '',
       passNumberRules: [
         validation.required(),
+        validation.numbers(),
       ],
       passIssueDate: '',
       passIssueDateRules: [
         validation.required(),
+        validation.date(),
       ],
       passValidity: '',
       passValidityRules: [
         validation.required(),
+        validation.date(),
       ],
       passIssuedBy: '',
       passIssuedByRules: [
@@ -46,6 +51,7 @@ export default {
       passDepartmentCode: '',
       passDepartmentCodeRules: [
         validation.required(),
+        validation.numbers(),
       ],
       mainSpreadMediaFile: null,
       mainSpreadMediaName: null,
@@ -98,6 +104,9 @@ export default {
       }
 
       return progress;
+    },
+    formPlaceholder() {
+      return formPlaceholder;
     },
   },
 
