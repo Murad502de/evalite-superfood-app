@@ -68,7 +68,7 @@ export default {
 
   router: {
     middleware: [
-      // 'check_auth',
+      'auth',
       // 'access_rights',
     ],
   },
