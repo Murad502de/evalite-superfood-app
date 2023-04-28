@@ -1,6 +1,6 @@
 <template lang="pug">
-.rq-home Home Page
-  //- component(:is="getComponent(user.type)")
+.ruqi-home
+  component(:is="getComponent('referral')")
 </template>
 
 <script src="./home.js" />

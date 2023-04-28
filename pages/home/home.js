@@ -1,10 +1,11 @@
+import * as roles from "@/shared/roles";
+import homeAdmin from './components/homeAdmin/homeAdmin.vue';
+import homeReferral from './components/homeReferral/homeReferral.vue';
+
 export default {
-  layout: "default",
   components: {
-    // superManager,
-    // manager,
-    // dispatcher,
-    // executor,
+    homeAdmin,
+    homeReferral,
   },
   props: {},
   data() {
@@ -15,18 +16,10 @@ export default {
   methods: {
     getComponent(name) {
       switch (name) {
-        case "superManager":
-          return "superManager";
-
-        case "manager":
-          return "manager";
-
-        case "dispatcher":
-          return "dispatcher";
-
-        case "contractor":
-          return "executor";
-
+        case roles.admin:
+          return "homeAdmin";
+        case roles.referral:
+          return "homeReferral";
         default:
           return "";
       }
