@@ -1,55 +1,15 @@
 <template lang="pug">
-.rq-home Home Page
-  //- component(:is="getComponent(user.type)")
+.ruqi-index
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
 export default {
-  layout: "default",
-  components: {
-    // superManager,
-    // manager,
-    // dispatcher,
-    // executor,
-  },
-
+  components: {},
   props: {},
-  data() {
-    return {};
-  },
-  computed: {
-    ...mapGetters("user", ["user"]),
-  },
-
+  data: () => ({}),
+  computed: {},
   watch: {},
-  methods: {
-    /* GETTERS */
-    getComponent(name) {
-      switch (name) {
-        case "superManager":
-          return "superManager";
-
-        case "manager":
-          return "manager";
-
-        case "dispatcher":
-          return "dispatcher";
-
-        case "contractor":
-          return "executor";
-
-        default:
-          return "";
-      }
-    },
-
-    /* SETTERS */
-    /* HANDLERS */
-    /* HELPERS */
-  },
-
+  methods: {},
   created() {},
   mounted() {},
 };

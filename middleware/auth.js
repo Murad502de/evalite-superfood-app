@@ -8,9 +8,10 @@ export default async function ({ route, redirect, }) {
     if (
       route.name === routeNames.signin ||
       route.name === routeNames.signup ||
-      route.name === routeNames.forgot
+      route.name === routeNames.forgot ||
+      route.name === routeNames.index
     ) {
-      return redirect('/');
+      return redirect(`/${routeNames.home}`);
     }
   } else {
     if (
