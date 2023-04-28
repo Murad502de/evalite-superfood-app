@@ -1,6 +1,8 @@
 import Cookies from 'js-cookie';
 import * as routeNames from '@/shared/routeNames';
 
+// Cookies.set('token', ''); //DELETE
+
 export default async function ({ route, redirect, }) {
   if (Cookies.get('token')) {
     if (

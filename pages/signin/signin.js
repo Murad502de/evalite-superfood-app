@@ -51,7 +51,10 @@ export default {
 
         if (response.status !== 200) {
           this.signinFailed = true;
+          return;
         }
+
+        this.redirectTo('index');
       }
     },
   },

@@ -4,13 +4,10 @@
 </template>
 
 <script>
-import { mapGetters, } from 'vuex';
-// import superManager from '@/components/pages/home/superManager';
-// import manager from '@/components/pages/home/manager';
-// import dispatcher from '@/components/pages/home/dispatcher';
-// import executor from '@/components/pages/home/executor';
+import { mapGetters } from "vuex";
 
 export default {
+  layout: "default",
   components: {
     // superManager,
     // manager,
@@ -19,9 +16,11 @@ export default {
   },
 
   props: {},
-  data: () => ({}),
+  data() {
+    return {};
+  },
   computed: {
-    ...mapGetters('user', ['user',]),
+    ...mapGetters("user", ["user"]),
   },
 
   watch: {},
@@ -29,31 +28,31 @@ export default {
     /* GETTERS */
     getComponent(name) {
       switch (name) {
-        case 'superManager':
-          return 'superManager';
+        case "superManager":
+          return "superManager";
 
-        case 'manager':
-          return 'manager';
+        case "manager":
+          return "manager";
 
-        case 'dispatcher':
-          return 'dispatcher';
+        case "dispatcher":
+          return "dispatcher";
 
-        case 'contractor':
-          return 'executor';
+        case "contractor":
+          return "executor";
 
         default:
-          return '';
+          return "";
       }
-    }
+    },
 
     /* SETTERS */
     /* HANDLERS */
     /* HELPERS */
   },
 
-  created() { },
-  mounted() { },
-}
+  created() {},
+  mounted() {},
+};
 </script>
 
 <style lang="scss">
