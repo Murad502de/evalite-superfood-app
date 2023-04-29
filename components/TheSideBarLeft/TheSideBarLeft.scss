@@ -1,0 +1,32 @@
+@import "@/styles/colors.scss";
+
+.the-side-bar-left {
+  box-sizing: border-box;
+  width: 98px;
+  height: 100vh;
+  background: $blue;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  &__top,
+  &__bottom {
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  &__bottom {
+    margin-bottom: 20px;
+  }
+
+  &__link {
+    margin-top: 24px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
