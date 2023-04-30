@@ -17,6 +17,7 @@ export default {
   },
   data() {
     return {
+      valid: true,
       code: '',
       codeLength: 4,
       timerCount: 30,
@@ -39,18 +40,15 @@ export default {
 
   watch: {
     timerCount(newVal) {
-      if (!newVal) {
-        clearInterval(this.timer);
-      }
+      if (!newVal) clearInterval(this.timer);
+    },
+    sendCodeLoading(newVal) {
+      if (!newVal) this.startTimer();
     },
   },
   methods: {
-    /* GETTERS */
-    /* SETTERS */
-    /* HANDLERS */
-    /* HELPERS */
-    /* ACTIONS */
     startTimer() {
+      this.timerCount = 30;
       this.timer = setInterval(() => {
         this.timerCount--;
       }, 1000);

@@ -13,9 +13,7 @@ export const usersPasswordUpdate = async (email = null, confirm_code = null, pas
 
   try {
     const response = await api.put('users/password', payload);
-
     console.debug('api/users/usersPasswordUpdate.js/usersPasswordUpdate/response', response); //DELETE
-
     return response;
   } catch (e) {
     return Object.assign({}, e).response;

@@ -2,6 +2,8 @@ import EmailCard from "./components/EmailCard";
 import ConfirmCard from "./components/ConfirmCard";
 import PassCard from "./components/PassCard";
 import { usersCheckEmail } from '@/api/users/usersCheckEmail';
+import { usersPasswordReset } from '@/api/users/usersPasswordReset';
+import { usersPasswordUpdate } from '@/api/users/usersPasswordUpdate';
 
 export default {
   layout: "empty",
@@ -9,7 +11,6 @@ export default {
     EmailCard,
     ConfirmCard,
     PassCard,
-    usersCheckEmail,
   },
   props: {},
   data() {
@@ -17,8 +18,8 @@ export default {
       step: 1,
       email: '',
       emailCardLoading: false,
-      confirnCardConfirmCodeLoading: false,
-      confirnCardSendCodeLoading: false,
+      confirmCardConfirmCodeLoading: false,
+      confirmCardSendCodeLoading: false,
       passCardUpdatePassLoading: false,
     };
   },
@@ -39,62 +40,56 @@ export default {
   },
   methods: {
     async emailCardSendCodeToEmail(email) {
-      console.debug("pages/forgot/methods/emailCardSendCodeToEmail/email", email); //DELETE
+      this.email = email;
       this.emailCardLoading = true;
-      const response = await usersCheckEmail(email);
+      const usersCheckEmailResponse = await usersCheckEmail(this.email);
 
-      if (response.status !== 200) {
-        this.signinFailed = true;
-        return;
-      }
-
-      const responseSendCodeToEmail = await this.sendCodeToEmail(email);
-
-      if (responseSendCodeToEmail.status !== 200) {
-        this.signinFailed = true;
-        return;
-      }
-
-      setTimeout(() => {
-        console.debug("pages/forgot/methods/sendCodeToEmail/setTimeout"); //DELETE
-        this.step = 2;
+      if (usersCheckEmailResponse.status !== 200) {
         this.emailCardLoading = false;
-      }, 3000);
+        alert('Пользователь с таким E-mail не найден'); //FIXME implement with vuetify
+        return;
+      }
+
+      const usersPasswordResetResponse = await usersPasswordReset(email);
+
+      if (usersPasswordResetResponse.status !== 200) {
+        this.emailCardLoading = false;
+        alert('Ошибка, при отправке кода'); //FIXME implement with vuetify
+        return;
+      }
+
+      this.step = 2;
+      this.emailCardLoading = false;
     },
     async confirmCardSendCodeToConfirm(code) {
       console.debug("pages/forgot/methods/confirmCardSendCodeToConfirm/code", code); //DELETE
-
-      this.confirnCardConfirmCodeLoading = true;
-
+      this.confirmCardConfirmCodeLoading = true;
       setTimeout(() => {
         this.step = 3;
-        this.confirnCardConfirmCodeLoading = false;
+        this.confirmCardConfirmCodeLoading = false;
       }, 3000);
     },
     async confirmCardSendCodeToEmail(email) {
       console.debug("pages/forgot/methods/confirmCardSendCodeToEmail/email"); //DELETE
+      this.confirmCardSendCodeLoading = true;
+      const usersPasswordResetResponse = await usersPasswordReset(email);
 
-      await this.sendCodeToEmail(email);
+      if (usersPasswordResetResponse.status !== 200) {
+        this.confirmCardSendCodeLoading = false;
+        alert('Ошибка, при отправке кода'); //FIXME implement with vuetify
+        return;
+      }
 
-      this.confirnCardSendCodeLoading = true;
-
-      setTimeout(() => {
-        this.confirnCardSendCodeLoading = false;
-      }, 3000);
+      this.confirmCardSendCodeLoading = false;
     },
     async updatePassword(password) {
       console.debug("pages/forgot/methods/updatePassword/password", password); //DELETE
-
       this.passCardUpdatePassLoading = true;
 
       setTimeout(() => {
         this.passCardUpdatePassLoading = false;
         this.$router.push({ name: 'signin' });
       }, 3000);
-    },
-    async sendCodeToEmail(email) {
-      console.debug("pages/forgot/methods/sendCodeToEmail/email", email); //DELETE
-      this.email = email;
     },
   },
 

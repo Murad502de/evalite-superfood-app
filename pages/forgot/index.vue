@@ -9,8 +9,8 @@
   ConfirmCard(
     v-if="step === 2",
     :email="email",
-    :confirmCodeLoading="confirnCardConfirmCodeLoading",
-    :sendCodeLoading="confirnCardSendCodeLoading",
+    :confirmCodeLoading="confirmCardConfirmCodeLoading",
+    :sendCodeLoading="confirmCardSendCodeLoading",
     @sendCodeToConfirm="confirmCardSendCodeToConfirm",
     @sendCodeToEmail="confirmCardSendCodeToEmail"
   )
