@@ -45,15 +45,15 @@
             outlined
           )
 
-          v-text-field.signup-step1-docs-form-passport__info--validity(
-            v-model="passValidity",
-            :rules="passValidityRules",
-            :disabled="loading",
-            label="Срок действия",
-            :placeholder="formPlaceholder.date",
-            required,
-            outlined
-          )
+          //- v-text-field.signup-step1-docs-form-passport__info--validity(
+          //-   v-model="passValidity",
+          //-   :rules="passValidityRules",
+          //-   :disabled="loading",
+          //-   label="Срок действия",
+          //-   :placeholder="formPlaceholder.date",
+          //-   required,
+          //-   outlined
+          //- )
 
         .signup-step1-docs-form-passport__info--row
           v-text-field.signup-step1-docs-form-passport__info--issued-by(

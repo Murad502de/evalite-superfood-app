@@ -73,10 +73,10 @@ export default {
       let progress = 0;
 
       if (this.passFullName.length) {
-        progress += 10;
+        progress += 15;
       }
       if (this.passSeries.length) {
-        progress += 10;
+        progress += 15;
       }
       if (this.passNumber.length) {
         progress += 10;
@@ -84,9 +84,9 @@ export default {
       if (this.passIssueDate.length) {
         progress += 10;
       }
-      if (this.passValidity.length) {
-        progress += 10;
-      }
+      // if (this.passValidity.length) {
+      //   progress += 10;
+      // }
       if (this.passIssuedBy.length) {
         progress += 10;
       }
@@ -126,9 +126,9 @@ export default {
     passIssueDate(newVal) {
       this.setUserSignupData({ pass_issue_date: newVal });
     },
-    passValidity(newVal) {
-      this.setUserSignupData({ pass_validity: newVal });
-    },
+    // passValidity(newVal) {
+    //   this.setUserSignupData({ pass_validity: newVal });
+    // },
     passIssuedBy(newVal) {
       this.setUserSignupData({ pass_issue_by: newVal });
     },
