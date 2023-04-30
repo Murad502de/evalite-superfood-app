@@ -3,6 +3,7 @@ import ConfirmCard from "./components/ConfirmCard";
 import PassCard from "./components/PassCard";
 import { usersCheckEmail } from '@/api/users/usersCheckEmail';
 import { usersPasswordReset } from '@/api/users/usersPasswordReset';
+import { usersPasswordResetConfirm } from '@/api/users/usersPasswordResetConfirm';
 import { usersPasswordUpdate } from '@/api/users/usersPasswordUpdate';
 
 export default {
@@ -17,6 +18,7 @@ export default {
     return {
       step: 1,
       email: '',
+      code: '',
       emailCardLoading: false,
       confirmCardConfirmCodeLoading: false,
       confirmCardSendCodeLoading: false,
@@ -63,11 +65,19 @@ export default {
     },
     async confirmCardSendCodeToConfirm(code) {
       console.debug("pages/forgot/methods/confirmCardSendCodeToConfirm/code", code); //DELETE
+      this.code = code;
       this.confirmCardConfirmCodeLoading = true;
-      setTimeout(() => {
-        this.step = 3;
+      const usersPasswordResetConfirmResponse = await usersPasswordResetConfirm(this.email, this.code);
+      console.debug("pages/forgot/methods/confirmCardSendCodeToConfirm/usersPasswordResetConfirmResponse", usersPasswordResetConfirmResponse); //DELETE
+
+      if (usersPasswordResetConfirmResponse.status !== 200) {
         this.confirmCardConfirmCodeLoading = false;
-      }, 3000);
+        alert('Неправильный код'); //FIXME implement with vuetify
+        return;
+      }
+
+      this.step = 3;
+      this.confirmCardConfirmCodeLoading = false;
     },
     async confirmCardSendCodeToEmail(email) {
       console.debug("pages/forgot/methods/confirmCardSendCodeToEmail/email"); //DELETE
@@ -85,11 +95,17 @@ export default {
     async updatePassword(password) {
       console.debug("pages/forgot/methods/updatePassword/password", password); //DELETE
       this.passCardUpdatePassLoading = true;
+      const usersPasswordUpdateResponse = await usersPasswordUpdate(this.email, this.code, password);
+      console.debug("pages/forgot/methods/updatePassword/usersPasswordUpdateResponse", usersPasswordUpdateResponse); //DELETE
 
-      setTimeout(() => {
+      if (usersPasswordUpdateResponse.status !== 200) {
         this.passCardUpdatePassLoading = false;
-        this.$router.push({ name: 'signin' });
-      }, 3000);
+        alert('Произошла ошибка, при обновлении пароля'); //FIXME implement with vuetify
+        return;
+      }
+
+      this.passCardUpdatePassLoading = false;
+      this.$router.push({ name: 'signin' });
     },
   },
 
