@@ -28,13 +28,8 @@ export default {
   computed: {},
   watch: {
     forgotFailed(newVal, oldVal) {
-      console.debug("pages/forgot/watch/forgotFailed/newVal", newVal); //DELETE
-      console.debug("pages/forgot/watch/forgotFailed/oldVal", oldVal); //DELETE
-
       if (newVal) {
         setTimeout(() => {
-          console.debug("pages/forgot/watch/forgotFailed/setTimeout"); //DELETE
-
           this.forgotFailed = false;
         }, 5000);
       }
@@ -64,11 +59,9 @@ export default {
       this.emailCardLoading = false;
     },
     async confirmCardSendCodeToConfirm(code) {
-      console.debug("pages/forgot/methods/confirmCardSendCodeToConfirm/code", code); //DELETE
       this.code = code;
       this.confirmCardConfirmCodeLoading = true;
       const usersPasswordResetConfirmResponse = await usersPasswordResetConfirm(this.email, this.code);
-      console.debug("pages/forgot/methods/confirmCardSendCodeToConfirm/usersPasswordResetConfirmResponse", usersPasswordResetConfirmResponse); //DELETE
 
       if (usersPasswordResetConfirmResponse.status !== 200) {
         this.confirmCardConfirmCodeLoading = false;
@@ -80,7 +73,6 @@ export default {
       this.confirmCardConfirmCodeLoading = false;
     },
     async confirmCardSendCodeToEmail(email) {
-      console.debug("pages/forgot/methods/confirmCardSendCodeToEmail/email"); //DELETE
       this.confirmCardSendCodeLoading = true;
       const usersPasswordResetResponse = await usersPasswordReset(email);
 
@@ -93,10 +85,8 @@ export default {
       this.confirmCardSendCodeLoading = false;
     },
     async updatePassword(password) {
-      console.debug("pages/forgot/methods/updatePassword/password", password); //DELETE
       this.passCardUpdatePassLoading = true;
       const usersPasswordUpdateResponse = await usersPasswordUpdate(this.email, this.code, password);
-      console.debug("pages/forgot/methods/updatePassword/usersPasswordUpdateResponse", usersPasswordUpdateResponse); //DELETE
 
       if (usersPasswordUpdateResponse.status !== 200) {
         this.passCardUpdatePassLoading = false;
@@ -110,9 +100,7 @@ export default {
   },
 
   created() {
-    console.debug("pages/forgot/created"); //DELETE
   },
   mounted() {
-    console.debug("pages/forgot/mounted"); //DELETE
   },
 };
