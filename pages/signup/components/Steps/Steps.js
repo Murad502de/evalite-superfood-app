@@ -192,7 +192,8 @@ export default {
     },
     validateStep1PersonalData() {
       // this.$refs.step1_personal_data.avatarError = !this.$refs.step1_personal_data.avatarFile;
-      return this.$refs.step1_personal_data.$refs.form.validate() && this.$refs.step1_personal_data.avatarFile;
+      // return this.$refs.step1_personal_data.$refs.form.validate() && this.$refs.step1_personal_data.avatarFile;
+      return this.$refs.step1_personal_data.$refs.form.validate();
     },
     validateStep1Confirm() {
       this.$refs.step1_confirm.validError = !this.$refs.step1_confirm.code.length;
