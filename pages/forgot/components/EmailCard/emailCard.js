@@ -1,3 +1,5 @@
+import * as validation from "@/services/formValidation";
+
 export default {
   components: {},
 
@@ -12,8 +14,8 @@ export default {
       valid: true,
       email: '',
       emailRules: [
-        v => !!v || 'Данное поле обязательно к заполнению',
-        v => /.+@.+\..+/.test(v) || 'E-mail некорректный',
+        validation.required(),
+        validation.email(),
       ],
     };
   },
