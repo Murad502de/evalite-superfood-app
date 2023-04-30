@@ -2,7 +2,6 @@ import * as validation from "@/services/formValidation";
 
 export default {
   components: {},
-
   props: {
     loading: {
       type: Boolean,
@@ -20,12 +19,8 @@ export default {
     };
   },
   computed: {},
-
   watch: {},
   methods: {
-    /* GETTERS */
-    /* SETTERS */
-    /* HANDLERS */
     sendCodeToEmail() {
       console.debug("pages/forgot/methods/sendCodeToEmail/isValid", this.$refs.form.validate()); //DELETE
 
@@ -33,11 +28,7 @@ export default {
         this.$emit('sendCodeToEmail', this.email);
       }
     },
-
-    /* HELPERS */
-    /* ACTIONS */
   },
-
   created() {
     console.debug("pages/forgot/EmailCard/created"); //DELETE
   },
