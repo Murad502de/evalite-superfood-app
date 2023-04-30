@@ -1,6 +1,7 @@
 import EmailCard from "./components/EmailCard";
 import ConfirmCard from "./components/ConfirmCard";
 import PassCard from "./components/PassCard";
+import { usersCheckEmail } from '@/api/users/usersCheckEmail';
 
 export default {
   layout: "empty",
@@ -8,8 +9,8 @@ export default {
     EmailCard,
     ConfirmCard,
     PassCard,
+    usersCheckEmail,
   },
-
   props: {},
   data() {
     return {
@@ -22,7 +23,6 @@ export default {
     };
   },
   computed: {},
-
   watch: {
     forgotFailed(newVal, oldVal) {
       console.debug("pages/forgot/watch/forgotFailed/newVal", newVal); //DELETE
@@ -38,19 +38,25 @@ export default {
     },
   },
   methods: {
-    /* GETTERS */
-    /* SETTERS */
-    /* HANDLERS */
     async emailCardSendCodeToEmail(email) {
       console.debug("pages/forgot/methods/emailCardSendCodeToEmail/email", email); //DELETE
-
-      await this.sendCodeToEmail(email);
-
       this.emailCardLoading = true;
+      const response = await usersCheckEmail(email);
+
+      if (response.status !== 200) {
+        this.signinFailed = true;
+        return;
+      }
+
+      const responseSendCodeToEmail = await this.sendCodeToEmail(email);
+
+      if (responseSendCodeToEmail.status !== 200) {
+        this.signinFailed = true;
+        return;
+      }
 
       setTimeout(() => {
         console.debug("pages/forgot/methods/sendCodeToEmail/setTimeout"); //DELETE
-
         this.step = 2;
         this.emailCardLoading = false;
       }, 3000);
@@ -83,15 +89,11 @@ export default {
 
       setTimeout(() => {
         this.passCardUpdatePassLoading = false;
-        this.$router.push({name: 'signin'});
+        this.$router.push({ name: 'signin' });
       }, 3000);
     },
-
-    /* HELPERS */
-    /* ACTIONS */
     async sendCodeToEmail(email) {
       console.debug("pages/forgot/methods/sendCodeToEmail/email", email); //DELETE
-
       this.email = email;
     },
   },
