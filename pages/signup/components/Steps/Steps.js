@@ -30,7 +30,7 @@ export default {
     return {
       onboardings: 6,
       loading: false,
-      onboarding: stepsWindow.step4Docs,
+      onboarding: stepsWindow.step1PersonalData,
       confirmTimerCount: 30,
       confirmTimer: null,
       step1PersonalDataProgress: 0,

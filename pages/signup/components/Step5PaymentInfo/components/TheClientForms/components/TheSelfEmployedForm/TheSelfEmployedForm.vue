@@ -17,6 +17,30 @@ v-form.the-self-employed-form(ref="form", v-model="valid", lazy-validation)
     outlined
   )
   v-text-field(
+    v-model="seInn",
+    :rules="seInnRules",
+    :disabled="loading",
+    label="ИНН",
+    required,
+    outlined
+  )
+  v-text-field(
+    v-model="seSwift",
+    :rules="seSwiftRules",
+    :disabled="loading",
+    label="SWIFT-код",
+    required,
+    outlined
+  )
+  v-text-field(
+    v-model="seMailingAddress",
+    :rules="seMailingAddressRules",
+    :disabled="loading",
+    label="Почтовый адрес",
+    required,
+    outlined
+  )
+  v-text-field(
     v-model="seBank",
     :rules="seBankRules",
     :disabled="loading",
@@ -28,7 +52,7 @@ v-form.the-self-employed-form(ref="form", v-model="valid", lazy-validation)
     v-model="bic",
     :rules="bicRules",
     :disabled="loading",
-    label="БИК",
+    label="БИК банка",
     required,
     outlined
   )

@@ -22,6 +22,19 @@ export default {
         validation.required(),
         validation.numbers(),
       ],
+      seInn: '',
+      seInnRules: [
+        validation.required(),
+        validation.numbers(),
+      ],
+      seSwift: '',
+      seSwiftRules: [
+        validation.required(),
+      ],
+      seMailingAddress: '',
+      seMailingAddressRules: [
+        validation.required(),
+      ],
       seBank: '',
       seBankRules: [
         validation.required(),
@@ -95,6 +108,15 @@ export default {
     },
     transactionAccount(newVal) {
       this.setUserSignupData({ se_transaction_account: newVal });
+    },
+    seInn(newVal) {
+      this.setUserSignupData({ se_inn: newVal });
+    },
+    seSwift(newVal) {
+      this.setUserSignupData({ se_swift: newVal });
+    },
+    seMailingAddress(newVal) {
+      this.setUserSignupData({ se_mailing_address: newVal });
     },
     seBank(newVal) {
       this.setUserSignupData({ se_bank: newVal });
