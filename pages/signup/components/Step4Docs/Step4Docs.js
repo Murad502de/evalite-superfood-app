@@ -1,4 +1,4 @@
-import { mapActions, mapGetters, } from 'vuex';
+import { mapActions, } from 'vuex';
 import * as validation from "@/services/formValidation";
 import * as formPlaceholder from "@/services/formPlaceholder";
 import AppFormMedia from '@/components/AppFormMedia/AppFormMedia.vue';
@@ -67,7 +67,6 @@ export default {
     };
   },
   computed: {
-    ...mapGetters('userSignupStore', ['userSignupData']), //DELETE
     computedProgress() {
       let progress = 0;
 
