@@ -1,5 +1,6 @@
 import { mapGetters } from 'vuex';
 import { usersCreate } from '@/api/users/usersCreate';
+import { usersCheckEmail } from '@/api/users/usersCheckEmail';
 import { usersEmailConfirm } from '@/api/users/usersEmailConfirm';
 import { usersEmailConfirmCode } from '@/api/users/usersEmailConfirmCode';
 import AppStepperProgress from '@/components/AppStepperProgress';
@@ -121,7 +122,7 @@ export default {
       return false;
     },
     async next() {
-      if (!this.validate()) return;
+      if (!await this.validate()) return;
 
       this.loading = true;
 
@@ -172,10 +173,10 @@ export default {
         this.confirmTimerCount--;
       }, 1000);
     },
-    validate() {
+    async validate() {
       switch (this.onboarding) {
         case stepsWindow.step1PersonalData:
-          return this.validateStep1PersonalData();
+          return await this.validateStep1PersonalData();
         case stepsWindow.step1Confirm:
           return this.validateStep1Confirm();
         case stepsWindow.step2Pass:
@@ -190,10 +191,19 @@ export default {
           return false;
       }
     },
-    validateStep1PersonalData() {
+    async validateStep1PersonalData() {
       // this.$refs.step1_personal_data.avatarError = !this.$refs.step1_personal_data.avatarFile;
       // return this.$refs.step1_personal_data.$refs.form.validate() && this.$refs.step1_personal_data.avatarFile;
-      return this.$refs.step1_personal_data.$refs.form.validate();
+      let emailValid = true;
+      const formValid = this.$refs.step1_personal_data.$refs.form.validate();
+      const usersCheckEmailResponse = await usersCheckEmail(this.userSignupData.user_email);
+
+      if (formValid && usersCheckEmailResponse.status === 200) {
+        emailValid = false;
+        alert('Пользователь с таким E-mail уже существует'); //FIXME implement with vuetify
+      }
+
+      return formValid && emailValid;
     },
     validateStep1Confirm() {
       this.$refs.step1_confirm.validError = !this.$refs.step1_confirm.code.length;
