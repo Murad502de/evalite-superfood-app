@@ -15,7 +15,7 @@ export const userSignupDomain = {
   pass_series: '',
   pass_number: '',
   pass_issue_date: '',
-  pass_validity: '',
+  pass_registration_address: '',
   pass_issue_by: '',
   pass_department_code: '',
   passport_main_spread: null,

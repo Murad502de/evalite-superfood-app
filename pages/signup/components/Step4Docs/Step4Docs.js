@@ -39,10 +39,9 @@ export default {
         validation.required(),
         validation.date(),
       ],
-      passValidity: '',
-      passValidityRules: [
+      passRegistrationAddress: '',
+      passRegistrationAddressRules: [
         validation.required(),
-        validation.date(),
       ],
       passIssuedBy: '',
       passIssuedByRules: [
@@ -73,10 +72,10 @@ export default {
       let progress = 0;
 
       if (this.passFullName.length) {
-        progress += 15;
+        progress += 10;
       }
       if (this.passSeries.length) {
-        progress += 15;
+        progress += 10;
       }
       if (this.passNumber.length) {
         progress += 10;
@@ -84,9 +83,9 @@ export default {
       if (this.passIssueDate.length) {
         progress += 10;
       }
-      // if (this.passValidity.length) {
-      //   progress += 10;
-      // }
+      if (this.passRegistrationAddress.length) {
+        progress += 10;
+      }
       if (this.passIssuedBy.length) {
         progress += 10;
       }
@@ -126,9 +125,9 @@ export default {
     passIssueDate(newVal) {
       this.setUserSignupData({ pass_issue_date: newVal });
     },
-    // passValidity(newVal) {
-    //   this.setUserSignupData({ pass_validity: newVal });
-    // },
+    passRegistrationAddress(newVal) {
+      this.setUserSignupData({ pass_registration_address: newVal });
+    },
     passIssuedBy(newVal) {
       this.setUserSignupData({ pass_issue_by: newVal });
     },
