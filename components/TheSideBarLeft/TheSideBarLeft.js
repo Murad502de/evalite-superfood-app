@@ -20,7 +20,7 @@ export default {
     linksTop() {
       return linksTop.map(linkTop => ({
         ...linkTop,
-        to: this.getRedirectUrl(linkTop.name),
+        to: this.getRedirectRouteName(linkTop.name),
         active: this.isLinkActive(linkTop.name),
         hidden: this.isLinkHidden(linkTop.name),
       }));
@@ -28,7 +28,7 @@ export default {
     linksBottom() {
       return linksBottom.map(linkBottom => ({
         ...linkBottom,
-        to: this.getRedirectUrl(linkBottom.name),
+        to: this.getRedirectRouteName(linkBottom.name),
         active: this.isLinkActive(linkBottom.name),
         hidden: this.isLinkHidden(linkBottom.name),
       }));
@@ -40,10 +40,13 @@ export default {
       if (link.name === 'exit') await authSignoutService();
       this.$router.push({ name: link.to });
     },
-    getRedirectUrl(routeName) {
+    onLogoClicked() {
+      this.$router.push({ name: this.getRedirectRouteNameHome(this.userData.role) });
+    },
+    getRedirectRouteName(routeName) {
       switch (routeName) {
         case routeNames.home:
-          return this.getRedirectUrlHome(this.userData.role);
+          return this.getRedirectRouteNameHome(this.userData.role);
         case routeNames.profile:
           return routeNames.profile;
         case routeNames.exit:
@@ -52,7 +55,7 @@ export default {
           return routeNames.home;
       }
     },
-    getRedirectUrlHome(role) {
+    getRedirectRouteNameHome(role) {
       switch (role) {
         case roles.admin:
           return routeNames.applications;
