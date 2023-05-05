@@ -10,5 +10,5 @@ export const userDomain = {
   invite_code: '',
   individual_code: '',
   promo_code: '',
-  role: 'admin',
+  role: 'referral',
 };

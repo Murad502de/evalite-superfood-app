@@ -3,6 +3,7 @@ import HomeSvg from '@/assets/svg/home.svg';
 import ExitSvg from '@/assets/svg/exit.svg';
 import SettingsSvg from '@/assets/svg/cog_outline.svg';
 import ProfileSvg from '@/assets/svg/user_outline.svg';
+import Applications from '@/assets/svg/list_outline.svg';
 
 export default {
   components: {
@@ -10,6 +11,7 @@ export default {
     ExitSvg,
     SettingsSvg,
     ProfileSvg,
+    Applications,
   },
   props: {
     iconName: {
@@ -37,6 +39,8 @@ export default {
           return 'SettingsSvg';
         case icons.profile:
           return 'ProfileSvg';
+        case icons.applications:
+          return 'Applications';
         default:
           return '';
       }
