@@ -1,10 +1,19 @@
 import Cookies from 'js-cookie';
+import { usersMy } from '@/api/users/usersMy';
+import { authSignoutService } from '@/services/authSignoutService';
 import * as routeNames from '@/shared/routeNames';
 
-// Cookies.set('token', ''); //DELETE
-
-export default async function ({ route, redirect, }) {
+export default async function ({ route, redirect, store, }) {
   if (Cookies.get('token')) {
+    const usersMyResponse = await usersMy();
+
+    if (usersMyResponse.status !== 200) {
+      authSignoutService();
+      return redirect(`/${routeNames.signin}`);
+    }
+
+    store.dispatch('userStore/setUserData', usersMyResponse.data.data);
+
     if (
       route.name === routeNames.signin ||
       route.name === routeNames.signup ||

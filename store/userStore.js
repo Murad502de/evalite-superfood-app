@@ -11,7 +11,7 @@ export const getters = {
 }
 
 export const actions = {
-  async setUserSignupData({ commit }, payload = {}) {
+  async setUserData({ commit }, payload = {}) {
     commit('updateUserData', payload);
   },
 }

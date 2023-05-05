@@ -1,4 +1,4 @@
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions, } from 'vuex';
 import * as roles from "@/shared/roles";
 import homeAdmin from './components/homeAdmin/homeAdmin.vue';
 import homeReferral from './components/homeReferral/homeReferral.vue';
@@ -17,6 +17,7 @@ export default {
   },
   watch: {},
   methods: {
+    ...mapActions('userStore', ['setUserData']),
     getComponent(name) {
       switch (name) {
         case roles.admin:
@@ -28,6 +29,6 @@ export default {
       }
     },
   },
-  created() { },
+  created() {},
   mounted() { },
 };
