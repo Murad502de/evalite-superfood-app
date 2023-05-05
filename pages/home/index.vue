@@ -1,6 +1,6 @@
 <template lang="pug">
 .ruqi-home
-  component(:is="getComponent('referral')")
+  component(:is="getComponent(userData.role)")
 </template>
 
 <script src="./home.js" />

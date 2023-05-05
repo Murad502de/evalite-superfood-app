@@ -1,3 +1,4 @@
+import { mapGetters } from 'vuex';
 import * as roles from "@/shared/roles";
 import homeAdmin from './components/homeAdmin/homeAdmin.vue';
 import homeReferral from './components/homeReferral/homeReferral.vue';
@@ -11,7 +12,9 @@ export default {
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    ...mapGetters('userStore', ['userData']),
+  },
   watch: {},
   methods: {
     getComponent(name) {
