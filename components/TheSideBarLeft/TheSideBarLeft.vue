@@ -8,7 +8,8 @@
         :key="index",
         v-if="!link.hidden",
         :iconName="link.iconName",
-        :title="link.title"
+        :title="link.title",
+        :active="link.active",
         @click="onLinkClicked(link)"
       )
 
@@ -20,6 +21,7 @@
         v-if="!link.hidden",
         :iconName="link.iconName",
         :title="link.title",
+        :active="link.active",
         @click="onLinkClicked(link)"
       )
 </template>

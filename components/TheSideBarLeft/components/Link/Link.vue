@@ -1,5 +1,5 @@
 <template lang="pug">
-.link(@click="$emit('click')")
+.link(:class="{ link_active: active }", @click="$emit('click')")
   component.link__icon(:is="getIcon(iconName)")
   .link__title {{ title }}
 </template>

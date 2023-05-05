@@ -41,15 +41,20 @@ export default {
 
       if (link.name === 'exit') {
         Cookies.set('token', ''); //FIXME
-        this.$router.push({ name: 'signin' });
       }
+
+      this.$router.push({ name: link.to });
     },
     getRedirectUrl(routeName) {
       switch (routeName) {
         case routeNames.home:
           return this.getRedirectUrlHome(this.userData.role);
+        case routeNames.profile:
+          return routeNames.profile;
+        case routeNames.exit:
+          return routeNames.index;
         default:
-          return false;
+          return routeNames.home;
       }
     },
     getRedirectUrlHome(role) {
@@ -61,7 +66,7 @@ export default {
       }
     },
     isLinkActive(routeName) {
-      return false;
+      return routeName === this.$route.name;
     },
     isLinkHidden(routeName) {
       switch (routeName) {
