@@ -45,14 +45,14 @@ export default {
     },
     getRedirectRouteName(routeName) {
       switch (routeName) {
-        case routeNames.home:
-          return this.getRedirectRouteNameHome(this.userData.role);
         case routeNames.profile:
           return routeNames.profile;
+        case routeNames.applications:
+          return routeNames.applications;
         case routeNames.exit:
           return routeNames.index;
         default:
-          return routeNames.home;
+          return this.getRedirectRouteNameHome(this.userData.role);
       }
     },
     getRedirectRouteNameHome(role) {
@@ -70,7 +70,10 @@ export default {
       switch (routeName) {
         case routeNames.applications:
         case routeNames.settings:
+        case routeNames.profile:
           return this.userData.role !== roles.admin;
+        case routeNames.home:
+          return this.userData.role === roles.admin;
         default:
           return false;
       }

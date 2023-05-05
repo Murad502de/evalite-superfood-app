@@ -1,6 +1,7 @@
 import { mapGetters, mapActions, } from 'vuex';
 import * as roles from "@/shared/roles";
-import homeAdmin from './components/homeAdmin/homeAdmin.vue';
+// import homeAdmin from './components/homeAdmin/homeAdmin.vue';
+import homeAdmin from '@/pages/applications/index.vue';
 import homeReferral from './components/homeReferral/homeReferral.vue';
 
 export default {
