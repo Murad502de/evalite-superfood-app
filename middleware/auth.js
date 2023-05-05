@@ -2,12 +2,13 @@ import Cookies from 'js-cookie';
 import { usersMy } from '@/api/users/usersMy';
 import { authSignoutService } from '@/services/authSignoutService';
 import * as routeNames from '@/shared/routeNames';
+import * as httpResponse from '@/shared/httpResponses';
 
 export default async function ({ route, redirect, store, }) {
   if (Cookies.get('token')) {
     const usersMyResponse = await usersMy();
 
-    if (usersMyResponse.status !== 200) {
+    if (usersMyResponse.status !== httpResponse.HTTP_OK) {
       authSignoutService();
       return redirect(`/${routeNames.signin}`);
     }
