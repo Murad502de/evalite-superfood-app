@@ -1,5 +1,5 @@
 <template lang="pug">
-.ruqi-profile ruqi-profile
+.ruqi-settings ruqi-settings
 </template>
 
 <script>
