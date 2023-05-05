@@ -38,6 +38,9 @@ export default {
         this.$router.push({ name: 'signin' });
       }
     },
+    getRedirectUrlByRole(routeName) {
+      return false;
+    },
     isLinkActive() {
       return false;
     },
