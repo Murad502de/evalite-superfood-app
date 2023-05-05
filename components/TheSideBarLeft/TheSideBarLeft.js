@@ -2,9 +2,9 @@ import { mapGetters } from 'vuex';
 import Logo from '@/assets/svg/evalite-ctystal-logo.svg';
 import Link from './components/Link/Link.vue';
 import { linksTop, linksBottom, } from './shared/links';
-import Cookies from 'js-cookie'; //FIXME
 import * as routeNames from '@/shared/routeNames';
 import * as roles from '@/shared/roles';
+import { authSignoutService } from '@/services/authSignoutService';
 
 export default {
   components: {
@@ -36,13 +36,8 @@ export default {
   },
   watch: {},
   methods: {
-    onLinkClicked(link) {
-      console.debug('onLinkClicked', link); //DELETE
-
-      if (link.name === 'exit') {
-        Cookies.set('token', ''); //FIXME
-      }
-
+    async onLinkClicked(link) {
+      if (link.name === 'exit') await authSignoutService();
       this.$router.push({ name: link.to });
     },
     getRedirectUrl(routeName) {
