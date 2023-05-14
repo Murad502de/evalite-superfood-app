@@ -45,10 +45,12 @@ export default {
     },
     getRedirectRouteName(routeName) {
       switch (routeName) {
-        case routeNames.profile:
-          return routeNames.profile;
         case routeNames.applications:
           return routeNames.applications;
+        case routeNames.profile:
+          return routeNames.profile;
+        case routeNames.settings:
+          return routeNames.settings;
         case routeNames.exit:
           return routeNames.index;
         default:

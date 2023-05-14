@@ -1,5 +1,12 @@
 <template lang="pug">
-.ruqi-applications ruqi-applications
+.ruqi-applications
+  v-tabs(v-model="tab")
+    v-tab Верификации
+    v-tab Выплаты
+
+  v-window(v-model="tab")
+    v-window-item QWERTY 1
+    v-window-item QWERTY 2
 </template>
 
 <script>
@@ -8,7 +15,9 @@ export default {
   components: {},
   props: {},
   data() {
-    return {};
+    return {
+      tab: 0,
+    };
   },
   computed: {},
   watch: {},
@@ -19,4 +28,11 @@ export default {
 </script>
 
 <style lang="scss">
+.ruqi-applications {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  margin: 24px;
+}
 </style>
