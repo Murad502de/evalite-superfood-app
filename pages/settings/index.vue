@@ -1,6 +1,7 @@
 <template lang="pug">
 .ruqi-settings
-  .ruqi-settings__container ruqi-settings-container
+  .ruqi-settings__container
+    AppCard AppCard
 </template>
 
 <script src="./settings.js" />

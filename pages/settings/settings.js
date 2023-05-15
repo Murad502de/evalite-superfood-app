@@ -1,5 +1,9 @@
+import AppCard from '@/components/AppCard/AppCard.vue';
+
 export default {
-  components: {},
+  components: {
+    AppCard,
+  },
   props: {},
   data() {
     return {};
@@ -7,7 +11,7 @@ export default {
   computed: {},
   watch: {},
   methods: {},
-  created() {},
-  mounted() {},
+  created() { },
+  mounted() { },
 };
 
