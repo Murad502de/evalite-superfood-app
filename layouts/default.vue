@@ -3,13 +3,16 @@ v-app.ruqi-layout-default
   .ruqi-layout-default__container
     TheSideBarLeft.ruqi-layout-default__sidebar
     .ruqi-layout-default__main
-      TheSideBarTop.ruqi-layout-default__topbar
+      TheSideBarTop.ruqi-layout-default__topbar(
+        :section="getPageNameByRouteName(activePage)"
+      )
       Nuxt.ruqi-layout-default__main-page
 </template>
 
 <script>
 import TheSideBarLeft from "@/components/TheSideBarLeft/TheSideBarLeft.vue";
 import TheSideBarTop from "@/components/TheSideBarTop/TheSideBarTop.vue";
+import * as routeNames from "@/shared/routeNames";
 
 export default {
   name: "default",
@@ -20,9 +23,26 @@ export default {
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    activePage() {
+      return this.$route.name;
+    },
+  },
   watch: {},
-  methods: {},
+  methods: {
+    getPageNameByRouteName(name) {
+      switch (name) {
+        case routeNames.applications:
+          return "Заявки";
+        case routeNames.settings:
+          return "Настройки";
+        case routeNames.profile:
+          return "Профиль";
+        default:
+          return "";
+      }
+    },
+  },
   created() {},
   mounted() {},
   beforeUnmount() {},

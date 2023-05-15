@@ -1,6 +1,6 @@
 <template lang="pug">
 .the-side-bar-top
-  .the-side-bar-top--active-section TheSideBarTop
+  .the-side-bar-top--active-section {{ section }}
 </template>
 
 <script src="./TheSideBarTop.js" />

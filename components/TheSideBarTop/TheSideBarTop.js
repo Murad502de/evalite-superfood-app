@@ -1,7 +1,12 @@
 export default {
   components: {},
 
-  props: {},
+  props: {
+    section: {
+      type: String,
+      default: '',
+    },
+  },
   data() {
     return {};
   },
@@ -16,6 +21,6 @@ export default {
     /* ACTIONS */
   },
 
-  created() {},
-  mounted() {},
+  created() { },
+  mounted() { },
 }
