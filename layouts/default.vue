@@ -40,6 +40,7 @@ export default {
   &__sidebar {
   }
   &__main {
+    box-sizing: border-box;
     background: $backdrop-gray;
     flex: 1;
   }
