@@ -2,16 +2,20 @@
 v-app.ruqi-layout-default
   .ruqi-layout-default__container
     TheSideBarLeft.ruqi-layout-default__sidebar
-    Nuxt.ruqi-layout-default__main
+    .ruqi-layout-default__main
+      TheSideBarTop.ruqi-layout-default__topbar
+      Nuxt.ruqi-layout-default__main-page
 </template>
 
 <script>
 import TheSideBarLeft from "@/components/TheSideBarLeft/TheSideBarLeft.vue";
+import TheSideBarTop from "@/components/TheSideBarTop/TheSideBarTop.vue";
 
 export default {
   name: "default",
   components: {
     TheSideBarLeft,
+    TheSideBarTop,
   },
   data() {
     return {};
@@ -43,6 +47,9 @@ export default {
     box-sizing: border-box;
     background: $backdrop-gray;
     flex: 1;
+
+    &-page {
+    }
   }
 }
 </style>

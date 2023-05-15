@@ -1,8 +1,8 @@
 <template lang="pug">
 .ruqi-applications
   .ruqi-applications__container
-    .ruqi-applications--top-bar
-      .ruqi-applications--top-bar__title Заявки
+    //- .ruqi-applications--top-bar
+    //-   .ruqi-applications--top-bar__title Заявки
 
     v-tabs.ruqi-applications--tabs(v-model="tab")
       v-tab.ruqi-applications--tab Верификации
