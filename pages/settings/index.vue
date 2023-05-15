@@ -1,22 +1,7 @@
 <template lang="pug">
-.ruqi-settings ruqi-settings
+.ruqi-settings
+  .ruqi-settings__container ruqi-settings-container
 </template>
 
-<script>
-export default {
-  layout: "default",
-  components: {},
-  props: {},
-  data() {
-    return {};
-  },
-  computed: {},
-  watch: {},
-  methods: {},
-  created() {},
-  mounted() {},
-};
-</script>
-
-<style lang="scss">
-</style>
+<script src="./settings.js" />
+<style lang="scss" src="./settings.scss" />
