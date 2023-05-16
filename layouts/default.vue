@@ -53,6 +53,8 @@ export default {
 @import "@/styles/colors.scss";
 
 .ruqi-layout-default {
+  overflow: hidden;
+
   &__container {
     box-sizing: border-box;
     height: 100vh;
@@ -67,6 +69,7 @@ export default {
     box-sizing: border-box;
     background: $backdrop-gray;
     flex: 1;
+    overflow-y: scroll;
 
     &-page {
     }

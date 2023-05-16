@@ -4,4 +4,49 @@
   &__container {
     max-width: 800px;
   }
+
+  &--top-bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &--form {
+    margin-top: 14px;
+  }
+
+  &--percentage-levels {
+    &__title {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 125%;
+      color: #263043;
+    }
+
+    &__levels {
+      margin-top: 14px;
+    }
+
+    &__level {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+
+      &-delete {
+        margin-top: -30px;
+        margin-left: 16px;
+        cursor: pointer;
+
+        &:hover {
+          color: #EB4D3D;
+        }
+      }
+    }
+
+    &__add {}
+  }
 }
