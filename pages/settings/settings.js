@@ -32,6 +32,7 @@ export default {
       personalLinkHost: '',
       personalLinkHostRules: [
         validation.required(),
+        validation.url(),
       ],
       minPayout: '',
       minPayoutRules: [

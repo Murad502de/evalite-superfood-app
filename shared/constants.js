@@ -1,5 +1,6 @@
 export const validationRequiredMsg = 'Данное поле обязательно к заполнению';
 export const validationEmailMsg = 'E-mail некорректный';
+export const validationUrlMsg = 'Url-адрес некорректный';
 export const validationNumbersMsg = 'Допустима только численная строка';
 export const validationDateMsg = 'Дата некорректная';
 export const validationPhoneRusMsg = 'Телефон некорректный';
