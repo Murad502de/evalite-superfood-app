@@ -1,5 +1,6 @@
 import * as validation from "@/services/formValidation";
 import { configurationsRead } from '@/api/configurations/configurationsRead';
+import { configurationsCreate } from '@/api/configurations/configurationsCreate';
 import AppCard from '@/components/AppCard/AppCard.vue';
 import AppButton from '@/components/AppButton/AppButton.vue';
 
@@ -64,18 +65,28 @@ export default {
         "percentage": 0
       });
     },
-    save() {
+    async save() {
       if (this.$refs.form.validate()) {
         this.loading = true;
+        const payload = {
+          amocrmSubdomain: this.amocrmSubdomain,
+          amocrmRedirectUri: this.amocrmRedirectUri,
+          amocrmClientSecret: this.amocrmClientSecret,
+          amocrmUtmSourceId: this.amocrmUtmSourceId,
+          personalLinkHost: this.personalLinkHost,
+          minPayout: this.minPayout,
+          percentage: this.percentage,
+          percentageLevels: this.percentageLevels,
+        };
+        const configurationsCreateResponse = await configurationsCreate(payload);
 
-        console.debug('configuration/save/amocrmSubdomain', this.amocrmSubdomain); //DELETE
-        console.debug('configuration/save/amocrmRedirectUri', this.amocrmRedirectUri); //DELETE
-        console.debug('configuration/save/amocrmClientSecret', this.amocrmClientSecret); //DELETE
-        console.debug('configuration/save/amocrmUtmSourceId', this.amocrmUtmSourceId); //DELETE
-        console.debug('configuration/save/personalLinkHost', this.personalLinkHost); //DELETE
-        console.debug('configuration/save/minPayout', this.minPayout); //DELETE
-        console.debug('configuration/save/percentage', this.percentage); //DELETE
-        console.debug('configuration/save/percentageLevels', this.percentageLevels); //DELETE
+        console.debug('configurationsCreateResponse', configurationsCreateResponse); //DELETE
+
+        if (configurationsCreateResponse.status !== 200) {
+          alert('Ошибка сохранения настроек'); //FIXME implement with vuetify
+        }
+
+        this.loading = false;
       }
     },
   },
