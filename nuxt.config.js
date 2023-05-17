@@ -7,7 +7,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'ruqi',
+    title: 'Evalite',
     htmlAttrs: {
       lang: 'en'
     },
@@ -44,6 +44,7 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/pwa',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -53,7 +54,24 @@ export default {
     '@nuxtjs/vuetify',
     'nuxt-route-meta',
     'nuxt-svg-loader',
+    '@nuxtjs/pwa',
   ],
+
+  pwa: {
+    icon: {
+      fileName: 'favicon.png',
+      sizes: [64, 120, 144, 152, 192, 384, 512],
+    },
+    meta: {
+      title: 'Evalite',
+      author: 'itWelt',
+    },
+    manifest: {
+      name: 'Evalite',
+      lang: 'ru',
+      display: 'standalone',
+    }
+  },
 
   vuetify: {
     customVariables: ['@/styles/variables.scss'],

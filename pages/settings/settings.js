@@ -94,7 +94,9 @@ export default {
     this.fetching = true;
     const configurationsReadResponse = await configurationsRead();
 
-    if (configurationsReadResponse.status === 200) {
+    console.debug('configurationsReadResponse', configurationsReadResponse); //DELETE
+
+    if (configurationsReadResponse.status === 200 || configurationsReadResponse.status === 201) {
       const data = configurationsReadResponse.data.data;
       this.amocrmSubdomain = data.amocrm_subdomain;
       this.amocrmRedirectUri = data.amocrm_redirect_uri;
