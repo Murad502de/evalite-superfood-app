@@ -1,4 +1,5 @@
 import { usersVerifications } from '@/api/users/usersVerifications';
+import { parseFromISOtoDdMmYyyy } from '@/utils/date';
 import AppTable from '@/components/AppTable/AppTable.vue';
 
 export default {
@@ -73,7 +74,7 @@ export default {
       this.items = usersVerificationsResponse.data.data.map(item => ({
         uuid: item.uuid,
         full_name: `${item.second_name} ${item.first_name} ${item.third_name}`,
-        date: '10.02.1990',
+        date: parseFromISOtoDdMmYyyy(item.created_at),
         role: item.role,
       }));
       this.loading = false;
