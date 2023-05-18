@@ -1,3 +1,4 @@
+import { usersVerifications } from '@/api/users/usersVerifications';
 import AppTable from '@/components/AppTable/AppTable.vue';
 
 export default {
@@ -26,28 +27,12 @@ export default {
           sortable: false,
         },
       ],
-      items: [
-        {
-          full_name: 'Иванов Иван Иванович',
-          date: '10.02.1990',
-          role: 'Реферал',
-        },
-        {
-          full_name: 'Иванов Иван Иванович',
-          date: '10.02.1990',
-          role: 'Реферал',
-        },
-        {
-          full_name: 'Иванов Иван Иванович',
-          date: '10.02.1990',
-          role: 'Реферал',
-        },
-      ],
+      items: [],
       loading: false,
-      page: 2,
-      lastPage: 2,
+      page: 1,
+      lastPage: 1,
       itemsPerPage: 5,
-      itemsLength: 8,
+      itemsLength: 0,
     };
   },
   computed: {},
@@ -60,19 +45,43 @@ export default {
     onRowClick(e) {
       console.debug('Ver/onRowClick/e', e);
     },
-    updatePage(e) {
+    async updatePage(e) {
       console.debug('Ver/updatePage/e', e);
       this.page = e.page;
+      await this.fetchUsers();
     },
-    updateItemsPerPage(e) {
+    async updateItemsPerPage(e) {
       console.debug('Ver/updateItemsPerPage/e', e);
       this.page = 1;
       this.itemsPerPage = e.itemsPerPage;
+      await this.fetchUsers();
     },
     /* HELPERS */
     /* ACTIONS */
+    async fetchUsers() {
+      this.loading = true;
+      const usersVerificationsResponse = await usersVerifications({ page: this.page, perPage: this.itemsPerPage });
+
+      if (usersVerificationsResponse.status !== 200) {
+        alert('Ошибка получения списка'); //FIXME implement with vuetify
+      }
+
+      this.page = usersVerificationsResponse.data.meta.current_page;
+      this.lastPage = usersVerificationsResponse.data.meta.last_page;
+      this.itemsPerPage = usersVerificationsResponse.data.meta.per_page;
+      this.itemsLength = usersVerificationsResponse.data.meta.total;
+      this.items = usersVerificationsResponse.data.data.map(item => ({
+        uuid: item.uuid,
+        full_name: `${item.second_name} ${item.first_name} ${item.third_name}`,
+        date: '10.02.1990',
+        role: item.role,
+      }));
+      this.loading = false;
+    },
   },
 
-  created() { },
+  async created() {
+    await this.fetchUsers();
+  },
   mounted() { },
 }

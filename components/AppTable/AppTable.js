@@ -47,8 +47,6 @@ export default {
       this.$emit('click:row', e);
     },
     updateOptions(e) {
-      console.debug('updateOptions/e', e); //DELETE
-
       if (e.itemsPerPage !== this.itemsPerPage) {
         this.$emit('update:itemsPerPage', e);
         return;

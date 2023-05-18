@@ -4,7 +4,7 @@
     hide-default-footer,
     :headers="headers",
     :items="items",
-    :loading="false",
+    :loading="loading",
     :loading-text="loadingText",
     @click:row="onRowClick"
   )
@@ -13,6 +13,9 @@
     :options="{ page: page, itemsPerPage: itemsPerPage }",
     :pagination="{ itemsLength: itemsLength }",
     @update:options="updateOptions"
+
+    :disable-pagination="loading"
+    :disable-items-per-page="loading"
   )
     template(v-slot:page-text) {{ `${page} из ${lastPage}` }}
 </template>

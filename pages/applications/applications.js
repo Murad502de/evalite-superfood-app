@@ -1,4 +1,3 @@
-import { usersVerifications } from '@/api/users/usersVerifications';
 import Verifications from './components/Verifications/Verifications.vue';
 import Payouts from './components/Payouts/Payouts.vue';
 
@@ -15,15 +14,9 @@ export default {
   },
   computed: {},
   watch: {},
-  methods: {},
-  async created() {
-    const usersVerificationsResponse = await usersVerifications();
+  methods: {
 
-    console.debug('usersVerificationsResponse', usersVerificationsResponse); //DELETE
-
-    if (usersVerificationsResponse.status !== 200) {
-      alert('Ошибка сохранения настроек'); //FIXME implement with vuetify
-    }
   },
+  created() {},
   mounted() { },
 };
