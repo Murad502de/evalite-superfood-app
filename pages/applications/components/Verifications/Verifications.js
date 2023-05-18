@@ -1,5 +1,6 @@
 import { usersVerifications } from '@/api/users/usersVerifications';
 import { parseFromISOtoDdMmYyyy } from '@/utils/date';
+import { getRoleTitleByCode } from '@/utils/roles';
 import AppTable from '@/components/AppTable/AppTable.vue';
 
 export default {
@@ -75,7 +76,7 @@ export default {
         uuid: item.uuid,
         full_name: `${item.second_name} ${item.first_name} ${item.third_name}`,
         date: parseFromISOtoDdMmYyyy(item.created_at),
-        role: item.role,
+        role: getRoleTitleByCode(item.role),
       }));
       this.loading = false;
     },
