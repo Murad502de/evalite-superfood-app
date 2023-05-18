@@ -48,12 +48,10 @@ export default {
       console.debug('Ver/onRowClick/e', e);
     },
     async updatePage(e) {
-      console.debug('Ver/updatePage/e', e);
       this.page = e.page;
       await this.fetchUsers();
     },
     async updateItemsPerPage(e) {
-      console.debug('Ver/updateItemsPerPage/e', e);
       this.page = 1;
       this.itemsPerPage = e.itemsPerPage;
       await this.fetchUsers();
