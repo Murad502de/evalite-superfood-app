@@ -9,8 +9,10 @@
       v-tab.ruqi-applications--tab Выплаты
 
     v-window.ruqi-applications--window(v-model="tab")
-      v-window-item.ruqi-applications--window-item QWERTY 1
-      v-window-item.ruqi-applications--window-item QWERTY 2
+      v-window-item.ruqi-applications--window-item
+        Verifications
+      v-window-item.ruqi-applications--window-item
+        Payouts
 </template>
 
 <script src="./applications.js" />

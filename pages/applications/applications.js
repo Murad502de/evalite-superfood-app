@@ -1,5 +1,11 @@
+import Verifications from './components/Verifications/Verifications.vue';
+import Payouts from './components/Payouts/Payouts.vue';
+
 export default {
-  components: {},
+  components: {
+    Verifications,
+    Payouts,
+  },
   props: {},
   data() {
     return {
@@ -9,6 +15,6 @@ export default {
   computed: {},
   watch: {},
   methods: {},
-  created() {},
-  mounted() {},
+  created() { },
+  mounted() { },
 };
