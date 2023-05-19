@@ -80,7 +80,7 @@ export default {
     overflow-y: scroll;
 
     &-page {
-      padding-bottom: 104px;
+      padding-bottom: 104px !important;
       flex: 1;
     }
   }
