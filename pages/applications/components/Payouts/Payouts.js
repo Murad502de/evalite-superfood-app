@@ -58,6 +58,7 @@ export default {
     /* HELPERS */
     /* ACTIONS */
     async fetchPayouts() {
+      this.items = [];
       this.loading = true;
       const payoutsReadProcessingResponse = await payoutsReadProcessing({ page: this.page, perPage: this.itemsPerPage });
 

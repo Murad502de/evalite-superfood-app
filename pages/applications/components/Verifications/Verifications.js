@@ -59,6 +59,7 @@ export default {
     /* HELPERS */
     /* ACTIONS */
     async fetchUsers() {
+      this.items = [];
       this.loading = true;
       const usersVerificationsResponse = await usersVerifications({ page: this.page, perPage: this.itemsPerPage });
 
