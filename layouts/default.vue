@@ -7,11 +7,13 @@ v-app.ruqi-layout-default
         :section="getPageNameByRouteName(activePage)"
       )
       Nuxt.ruqi-layout-default__main-page
+    TheSideBarBottom.ruqi-layout-default__bottombar
 </template>
 
 <script>
 import TheSideBarLeft from "@/components/TheSideBarLeft/TheSideBarLeft.vue";
 import TheSideBarTop from "@/components/TheSideBarTop/TheSideBarTop.vue";
+import TheSideBarBottom from "@/components/TheSideBarBottom/TheSideBarBottom.vue";
 import * as routeNames from "@/shared/routeNames";
 
 export default {
@@ -19,6 +21,7 @@ export default {
   components: {
     TheSideBarLeft,
     TheSideBarTop,
+    TheSideBarBottom,
   },
   data() {
     return {};
@@ -74,12 +77,16 @@ export default {
     overflow-y: scroll;
 
     &-page {
+      padding-bottom: 104px;
     }
   }
 
   @media screen and (min-width: $screen-sm) {
     &__sidebar {
-      display: block;
+      display: flex;
+    }
+    &__bottombar {
+      display: none;
     }
   }
 }

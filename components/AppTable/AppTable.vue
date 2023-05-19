@@ -2,7 +2,7 @@
 .app-table
   v-data-table.elevation-1.app-table--table(
     hide-default-footer,
-    mobile-breakpoint="577"
+    mobile-breakpoint="576"
     :headers="headers",
     :items="items",
     :loading="loading",
