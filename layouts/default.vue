@@ -51,6 +51,7 @@ export default {
 
 <style lang="scss">
 @import "@/styles/colors.scss";
+@import "@/styles/breakpoints.scss";
 
 .ruqi-layout-default {
   overflow: hidden;
@@ -64,6 +65,7 @@ export default {
     justify-content: flex-start;
   }
   &__sidebar {
+    display: none;
   }
   &__main {
     box-sizing: border-box;
@@ -72,6 +74,12 @@ export default {
     overflow-y: scroll;
 
     &-page {
+    }
+  }
+
+  @media screen and (min-width: $screen-sm) {
+    &__sidebar {
+      display: block;
     }
   }
 }
