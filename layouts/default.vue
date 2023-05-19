@@ -72,12 +72,16 @@ export default {
   }
   &__main {
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
     background: $backdrop-gray;
     flex: 1;
     overflow-y: scroll;
 
     &-page {
       padding-bottom: 104px;
+      flex: 1;
     }
   }
 

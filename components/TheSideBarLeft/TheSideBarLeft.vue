@@ -3,7 +3,7 @@
   .the-side-bar-left__top
     Logo.the-side-bar-left__logo(@click="onLogoClicked")
     .the-side-bar-left__links
-      Link.the-side-bar-left__link(
+      AppSideBarLink.the-side-bar-left__link(
         v-for="(link, index) in linksTop",
         :key="index",
         v-if="!link.hidden",
@@ -15,7 +15,7 @@
 
   .the-side-bar-left__bottom
     .the-side-bar-left__links
-      Link.the-side-bar-left__link(
+      AppSideBarLink.the-side-bar-left__link(
         v-for="(link, index) in linksBottom",
         :key="index",
         v-if="!link.hidden",

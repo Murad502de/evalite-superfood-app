@@ -26,4 +26,20 @@
     height: 72px;
     max-width: 348px;
   }
+
+  &__links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__link {
+    margin-left: 24px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
 }

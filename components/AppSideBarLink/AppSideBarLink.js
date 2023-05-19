@@ -26,6 +26,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    hideTitle: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {};
