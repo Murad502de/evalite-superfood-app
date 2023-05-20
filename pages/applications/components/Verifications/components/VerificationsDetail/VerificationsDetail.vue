@@ -1,15 +1,11 @@
 <template lang="pug">
 AppOverlay.verifications-detail(
-    :dialog="dialog",
-    :title="'Расулов Гаджимурад Зайнутдинович'",
-    @close="close",
-    @save="save"
-  )
-    v-text-field(
-      outlined
-      loading
-    )
-    AppSkeleton(height="56")
+  :dialog="dialog",
+  :title="'Расулов Гаджимурад Зайнутдинович'",
+  @close="close",
+  @save="save"
+)
+  AppTextField(v-model="test")
 </template>
 
 <script src="./VerificationsDetail.js" />

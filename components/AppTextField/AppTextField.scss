@@ -1,0 +1,11 @@
+@import "@/styles/colors.scss";
+
+.app-text-field {
+  .v-text-field--outlined fieldset {
+    border-color: #E2E4E5 !important;
+  }
+
+  .v-text-field--outlined.v-input--is-focused fieldset {
+    border-color: $blue !important;
+  }
+}

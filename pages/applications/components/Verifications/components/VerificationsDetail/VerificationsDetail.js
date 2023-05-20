@@ -1,12 +1,12 @@
 import AppOverlay from '@/components/AppOverlay/AppOverlay.vue';
-
-import AppSkeleton from '@/components/AppSkeleton/AppSkeleton.vue';
+import AppButton from '@/components/AppButton/AppButton.vue';
+import AppTextField from '@/components/AppTextField/AppTextField.vue';
 
 export default {
   components: {
     AppOverlay,
-
-    AppSkeleton,
+    AppButton,
+    AppTextField,
   },
   props: {
     dialog: {
@@ -15,7 +15,9 @@ export default {
     },
   },
   data() {
-    return {};
+    return {
+      test: '',
+    };
   },
   computed: {},
   watch: {},
