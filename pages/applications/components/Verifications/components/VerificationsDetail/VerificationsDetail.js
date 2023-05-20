@@ -1,11 +1,11 @@
 import AppOverlay from '@/components/AppOverlay/AppOverlay.vue';
-import AppButton from '@/components/AppButton/AppButton.vue';
+import AppCard from '@/components/AppCard/AppCard.vue';
 import AppTextField from '@/components/AppTextField/AppTextField.vue';
 
 export default {
   components: {
     AppOverlay,
-    AppButton,
+    AppCard,
     AppTextField,
   },
   props: {

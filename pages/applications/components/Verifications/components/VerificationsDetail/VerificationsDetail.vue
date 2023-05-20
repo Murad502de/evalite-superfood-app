@@ -5,7 +5,8 @@ AppOverlay.verifications-detail(
   @close="close",
   @save="save"
 )
-  AppTextField(v-model="test")
+  AppCard
+    AppTextField(v-model="test")
 </template>
 
 <script src="./VerificationsDetail.js" />
