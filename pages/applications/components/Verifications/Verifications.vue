@@ -9,13 +9,16 @@
     :lastPage="lastPage",
     :itemsPerPage="itemsPerPage",
     :itemsLength="itemsLength",
-    @click:row="onRowClick",
+    @click:row="openVerificationsDetailDialog",
     @update:page="updatePage",
     @update:itemsPerPage="updateItemsPerPage"
   )
 
-  AppOverlay(:dialog="dialog", @close="dialog = false", @save="dialog = false")
-    .ttt AppOverlayMain TTT
+  VerificationsDetail(
+    :dialog="verificationsDetailDialog",
+    @close="closeVerificationsDetailDialog",
+    @save="saveVerificationsDetailDialog"
+  )
 </template>
 
 <script src="./Verifications.js" />

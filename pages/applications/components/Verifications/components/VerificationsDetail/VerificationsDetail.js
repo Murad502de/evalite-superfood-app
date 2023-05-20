@@ -1,13 +1,13 @@
+import AppOverlay from '@/components/AppOverlay/AppOverlay.vue';
+
 export default {
-  components: {},
+  components: {
+    AppOverlay,
+  },
   props: {
     dialog: {
       type: Boolean,
       default: false,
-    },
-    title: {
-      type: String,
-      default: '',
     },
   },
   data() {

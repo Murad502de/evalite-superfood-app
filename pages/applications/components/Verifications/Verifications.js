@@ -2,12 +2,12 @@ import { usersVerifications } from '@/api/users/usersVerifications';
 import { parseFromISOtoDdMmYyyy } from '@/utils/date';
 import { getRoleTitleByCode } from '@/utils/roles';
 import AppTable from '@/components/AppTable/AppTable.vue';
-import AppOverlay from '@/components/AppOverlay/AppOverlay.vue';
+import VerificationsDetail from './components/VerificationsDetail/VerificationsDetail.vue';
 
 export default {
   components: {
     AppTable,
-    AppOverlay,
+    VerificationsDetail,
   },
 
   props: {},
@@ -38,20 +38,22 @@ export default {
       itemsPerPage: 5,
       itemsLength: 0,
 
-      dialog: false,
+      verificationsDetailDialog: false,
     };
   },
   computed: {},
 
   watch: {},
   methods: {
-    /* GETTERS */
-    /* SETTERS */
-    /* HANDLERS */
-    onRowClick(e) {
-      console.debug('Ver/onRowClick/e', e);
-
-      this.dialog = true;
+    openVerificationsDetailDialog(e) {
+      console.debug('Ver/openVerificationsDetailDialog/e', e); //DELETE
+      this.verificationsDetailDialog = true;
+    },
+    closeVerificationsDetailDialog() {
+      this.verificationsDetailDialog = false;
+    },
+    saveVerificationsDetailDialog() {
+      this.verificationsDetailDialog = false;
     },
     async updatePage(e) {
       this.page = e.page;
@@ -62,8 +64,6 @@ export default {
       this.itemsPerPage = e.itemsPerPage;
       await this.fetchUsers();
     },
-    /* HELPERS */
-    /* ACTIONS */
     async fetchUsers() {
       this.items = [];
       this.loading = true;

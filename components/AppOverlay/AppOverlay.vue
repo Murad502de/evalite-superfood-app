@@ -11,7 +11,7 @@ v-dialog.app-overlay(
     v-toolbar.app-overlay--toolbar(flat, dark, color="#0082DE")
       v-btn(icon, dark, @click="close")
         v-icon mdi-close
-      v-toolbar-title Расулов Гаджимурад Зайнутдинович
+      v-toolbar-title {{ title }}
       v-spacer
       v-toolbar-items
         v-btn(dark, text, @click="save") Сохранить
