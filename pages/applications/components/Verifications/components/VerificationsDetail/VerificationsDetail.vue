@@ -5,7 +5,11 @@ AppOverlay.verifications-detail(
     @close="close",
     @save="save"
   )
-    .ttt AppOverlayMain TTT
+    v-text-field(
+      outlined
+      loading
+    )
+    AppSkeleton(height="56")
 </template>
 
 <script src="./VerificationsDetail.js" />

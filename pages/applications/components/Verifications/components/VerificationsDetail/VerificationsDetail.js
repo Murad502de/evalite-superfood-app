@@ -1,8 +1,12 @@
 import AppOverlay from '@/components/AppOverlay/AppOverlay.vue';
 
+import AppSkeleton from '@/components/AppSkeleton/AppSkeleton.vue';
+
 export default {
   components: {
     AppOverlay,
+
+    AppSkeleton,
   },
   props: {
     dialog: {
