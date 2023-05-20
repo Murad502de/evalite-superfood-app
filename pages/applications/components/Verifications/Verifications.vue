@@ -13,6 +13,9 @@
     @update:page="updatePage",
     @update:itemsPerPage="updateItemsPerPage"
   )
+
+  AppOverlay(:dialog="dialog", @close="dialog = false", @save="dialog = false")
+    .ttt AppOverlayMain TTT
 </template>
 
 <script src="./Verifications.js" />

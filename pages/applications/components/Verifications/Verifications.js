@@ -2,10 +2,12 @@ import { usersVerifications } from '@/api/users/usersVerifications';
 import { parseFromISOtoDdMmYyyy } from '@/utils/date';
 import { getRoleTitleByCode } from '@/utils/roles';
 import AppTable from '@/components/AppTable/AppTable.vue';
+import AppOverlay from '@/components/AppOverlay/AppOverlay.vue';
 
 export default {
   components: {
     AppTable,
+    AppOverlay,
   },
 
   props: {},
@@ -35,6 +37,8 @@ export default {
       lastPage: 1,
       itemsPerPage: 5,
       itemsLength: 0,
+
+      dialog: false,
     };
   },
   computed: {},
@@ -46,6 +50,8 @@ export default {
     /* HANDLERS */
     onRowClick(e) {
       console.debug('Ver/onRowClick/e', e);
+
+      this.dialog = true;
     },
     async updatePage(e) {
       this.page = e.page;
