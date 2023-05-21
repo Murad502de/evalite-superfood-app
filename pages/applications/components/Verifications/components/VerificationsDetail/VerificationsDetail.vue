@@ -5,8 +5,11 @@ AppOverlay.verifications-detail(
   @close="close",
   @save="save"
 )
-  AppCard
-    AppTextField(v-model="test")
+  AppCard.verifications-detail--card
+    v-form.verifications-detail--form(ref="form", v-model="valid", lazy-validation)
+      AppTextField(v-model="test" label="Фамилия")
+      AppTextField(v-model="test" label="Имя")
+      AppTextField(v-model="test" label="Отчество")
 </template>
 
 <script src="./VerificationsDetail.js" />

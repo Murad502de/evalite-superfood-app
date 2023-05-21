@@ -16,7 +16,8 @@ export default {
   },
   data() {
     return {
-      test: '',
+      valid: true,
+      test: '', //DELETE
     };
   },
   computed: {},

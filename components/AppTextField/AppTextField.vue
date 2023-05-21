@@ -5,6 +5,7 @@
     v-else,
     :outlined="outlined",
     :loading="loading",
+    :label="label"
     :value="value",
     @input="input"
   )

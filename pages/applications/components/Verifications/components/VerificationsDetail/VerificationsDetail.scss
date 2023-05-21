@@ -1,1 +1,5 @@
-.verifications-detail {}
+.verifications-detail {
+  &--card {
+    max-width: 800px;
+  }
+}
