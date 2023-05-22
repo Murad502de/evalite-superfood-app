@@ -1,1 +1,59 @@
-.app-form-passport {}
+.app-form-passport {
+  &__title {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 46px;
+    color: #263043;
+
+    @media screen and (max-width: 768px) {
+      font-size: 36px;
+    }
+  }
+
+  &-form {
+    margin-top: 24px;
+
+    &-passport {
+      &__title {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 28px;
+        color: #263043;
+      }
+
+      &__info {
+        margin-top: 40px;
+      }
+
+      &__info {
+        &--row {}
+
+        &--series {}
+
+        &--number {}
+
+        &--issue-date {}
+
+        &--validity {}
+
+        &--issued-by {}
+
+        &--division-code {}
+      }
+
+      &__media {
+        &-info {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 20px;
+          color: #263043;
+          margin-top: 16px;
+        }
+      }
+
+      &_error &__title {
+        color: #ff5252;
+      }
+    }
+  }
+}

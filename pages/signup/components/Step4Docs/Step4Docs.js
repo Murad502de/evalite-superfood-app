@@ -14,7 +14,6 @@ export default {
     PassportSpreadRegistrationSvg,
     PassportSpreadVerificationSvg,
   },
-
   props: {},
   data() {
     return {
@@ -107,7 +106,6 @@ export default {
       return formPlaceholder;
     },
   },
-
   watch: {
     computedProgress(newVal) {
       this.$emit('update:progress', newVal);
@@ -193,7 +191,6 @@ export default {
     /* HELPERS */
     /* ACTIONS */
   },
-
   created() { },
   mounted() { },
 }
