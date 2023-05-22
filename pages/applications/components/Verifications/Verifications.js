@@ -1,4 +1,5 @@
 import { usersVerifications } from '@/api/users/usersVerifications';
+import { usersUuid } from '@/api/users/usersUuid';
 import { parseFromISOtoDdMmYyyy } from '@/utils/date';
 import { getRoleTitleByCode } from '@/utils/roles';
 import AppTable from '@/components/AppTable/AppTable.vue';
@@ -9,7 +10,6 @@ export default {
     AppTable,
     VerificationsDetail,
   },
-
   props: {},
   data() {
     return {
@@ -38,16 +38,27 @@ export default {
       itemsPerPage: 5,
       itemsLength: 0,
 
+      verificationsDetail: {},
       verificationsDetailDialog: false,
+      verificationsDetailLoading: false,
     };
   },
   computed: {},
-
   watch: {},
   methods: {
-    openVerificationsDetailDialog(e) {
+    async openVerificationsDetailDialog(e) {
       console.debug('Ver/openVerificationsDetailDialog/e', e); //DELETE
+      this.verificationsDetailLoading = true;
       this.verificationsDetailDialog = true;
+      const usersUuidResponse = await usersUuid(e.uuid);
+      console.debug('usersUuidResponse', usersUuidResponse); //DELETE
+
+      if (usersUuidResponse.status !== 200) {
+        alert('Ошибка получения пользователя'); //FIXME implement with vuetify
+      }
+
+      this.verificationsDetail = usersUuidResponse.data.data;
+      this.verificationsDetailLoading = false;
     },
     closeVerificationsDetailDialog() {
       this.verificationsDetailDialog = false;
@@ -86,7 +97,6 @@ export default {
       this.loading = false;
     },
   },
-
   async created() {
     await this.fetchUsers();
   },

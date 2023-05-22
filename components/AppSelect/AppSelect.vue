@@ -2,6 +2,7 @@
 .app-select
   AppSkeleton.app-select__stub(v-if="loading", height="56")
   v-select.app-select__select(
+    v-else
     :value="value",
     :rules="rules",
     :disabled="disabled",

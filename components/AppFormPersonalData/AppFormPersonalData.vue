@@ -18,7 +18,7 @@
     AppTextField(
       v-model="secondName",
       :rules="secondNameRules",
-      :disabled="loading",
+      :loading="loading",
       label="Фамилия",
       required,
       outlined
@@ -27,7 +27,7 @@
     AppTextField(
       v-model="firstName",
       :rules="firstNameRules",
-      :disabled="loading",
+      :loading="loading",
       label="Имя",
       required,
       outlined
@@ -36,7 +36,7 @@
     AppTextField(
       v-model="thirdName",
       :rules="thirdNameRules",
-      :disabled="loading",
+      :loading="loading",
       label="Отчество",
       required,
       outlined
@@ -45,7 +45,7 @@
     AppSelect(
       v-model="gender",
       :rules="genderRules",
-      :disabled="loading",
+      :loading="loading",
       :items="['муж', 'жен']",
       label="Пол",
       required,
@@ -55,7 +55,7 @@
     AppTextField(
       v-model="birthday",
       :rules="birthdayRules",
-      :disabled="loading",
+      :loading="loading",
       label="Дата рождения",
       :placeholder="formPlaceholder.date",
       required,
@@ -65,7 +65,7 @@
     AppTextField(
       v-model="email",
       :rules="emailRules",
-      :disabled="loading",
+      :loading="loading",
       label="E-mail",
       required,
       outlined
@@ -74,7 +74,7 @@
     AppTextField(
       v-model="phone",
       :rules="phoneRules",
-      :disabled="loading",
+      :loading="loading",
       label="Телефон",
       :placeholder="formPlaceholder.phoneRus",
       required,

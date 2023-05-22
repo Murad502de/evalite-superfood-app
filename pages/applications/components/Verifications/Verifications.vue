@@ -15,7 +15,9 @@
   )
 
   VerificationsDetail(
+    :user="verificationsDetail"
     :dialog="verificationsDetailDialog",
+    :loading="verificationsDetailLoading",
     @close="closeVerificationsDetailDialog",
     @save="saveVerificationsDetailDialog"
   )

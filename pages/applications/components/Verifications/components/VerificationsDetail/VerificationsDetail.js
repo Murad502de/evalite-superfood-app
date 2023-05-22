@@ -20,6 +20,14 @@ export default {
       type: Boolean,
       default: false,
     },
+    loading: {
+      type: Boolean,
+      default: true,
+    },
+    user: {
+      type: Object,
+      required: true,
+    },
   },
   data() {
     return {
@@ -54,6 +62,8 @@ export default {
       return this.$refs.personal_data_form.$refs.form.validate();
     },
   },
-  created() { },
+  created() {
+    console.debug('user', this.user); //DELETE
+  },
   mounted() { },
 }
