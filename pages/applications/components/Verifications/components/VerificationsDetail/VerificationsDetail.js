@@ -16,6 +16,7 @@ export default {
   },
   data() {
     return {
+      tab: 0,
       valid: true,
       test: '', //DELETE
     };

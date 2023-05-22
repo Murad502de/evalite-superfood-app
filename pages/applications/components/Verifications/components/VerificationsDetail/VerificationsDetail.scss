@@ -2,4 +2,12 @@
   &--card {
     max-width: 800px;
   }
+
+  &--window {
+    margin-top: 18px;
+
+    &-item {
+      margin-top: 6px;
+    }
+  }
 }
