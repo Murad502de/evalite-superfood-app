@@ -2,6 +2,7 @@ import AppOverlay from '@/components/AppOverlay/AppOverlay.vue';
 import AppCard from '@/components/AppCard/AppCard.vue';
 import AppTextField from '@/components/AppTextField/AppTextField.vue';
 import AppSelect from '@/components/AppSelect/AppSelect.vue';
+import * as validation from "@/services/formValidation";
 
 export default {
   components: {
@@ -22,6 +23,9 @@ export default {
       valid: true,
       test: '', //DELETE
       test2: '', //DELETE
+      rules: [
+        validation.required(),
+      ],
     };
   },
   computed: {},
@@ -32,6 +36,10 @@ export default {
     },
     save() {
       this.$emit('save');
+    },
+
+    validForm() {
+      console.debug(this.$refs.form.validate()); //DELETE
     },
   },
   created() { },

@@ -6,6 +6,8 @@ AppOverlay.verifications-detail(
   @save="save"
 )
   AppCard.verifications-detail--card
+    v-btn(@click="validForm") test
+
     v-tabs.verifications-detail--tabs(v-model="tab")
       v-tab.verifications-detail--tab Персональные данные
       v-tab.verifications-detail--tab Паспорт
@@ -18,15 +20,16 @@ AppOverlay.verifications-detail(
           v-model="valid",
           lazy-validation
         )
-          AppTextField(v-model="test", label="Фамилия")
-          AppTextField(v-model="test", label="Имя")
-          AppTextField(v-model="test", label="Отчество")
+          AppTextField(v-model="test", label="Фамилия", :rules="rules")
+          AppTextField(v-model="test", label="Имя", :rules="rules")
+          AppTextField(v-model="test", label="Отчество", :rules="rules")
           AppSelect(
             v-model="test2",
             :items="['муж', 'жен']",
             label="Пол",
             required,
-            outlined
+            outlined,
+            :rules="rules"
           )
 
       v-window-item.verifications-detail--window-item Паспорт

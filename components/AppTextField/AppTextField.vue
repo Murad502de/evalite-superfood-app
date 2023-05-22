@@ -4,9 +4,12 @@
   v-text-field.app-text-field__text-field(
     v-else,
     :outlined="outlined",
+    :required="required"
+    :disabled="disabled",
     :loading="loading",
     :label="label"
     :value="value",
+    :rules="rules",
     @input="input"
   )
 </template>
