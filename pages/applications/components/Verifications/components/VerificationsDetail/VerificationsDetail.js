@@ -1,8 +1,9 @@
+import * as validation from "@/services/formValidation";
 import AppOverlay from '@/components/AppOverlay/AppOverlay.vue';
 import AppCard from '@/components/AppCard/AppCard.vue';
 import AppTextField from '@/components/AppTextField/AppTextField.vue';
 import AppSelect from '@/components/AppSelect/AppSelect.vue';
-import * as validation from "@/services/formValidation";
+import AppFormPersonalData from '@/components/AppFormPersonalData/AppFormPersonalData.vue';
 
 export default {
   components: {
@@ -10,6 +11,7 @@ export default {
     AppCard,
     AppTextField,
     AppSelect,
+    AppFormPersonalData,
   },
   props: {
     dialog: {

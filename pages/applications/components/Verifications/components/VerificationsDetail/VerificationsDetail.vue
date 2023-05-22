@@ -11,7 +11,7 @@ AppOverlay.verifications-detail(
     v-tabs.verifications-detail--tabs(
       v-model="tab",
       :show-arrows="false",
-      center-active,
+      center-active
     )
       v-tab.verifications-detail--tab Персональные данные
       v-tab.verifications-detail--tab Паспорт
@@ -19,6 +19,9 @@ AppOverlay.verifications-detail(
 
     v-window.verifications-detail--window(v-model="tab")
       v-window-item.verifications-detail--window-item
+        AppFormPersonalData
+
+      v-window-item.verifications-detail--window-item Паспорт
         v-form.verifications-detail--form(
           ref="form",
           v-model="valid",
@@ -35,8 +38,6 @@ AppOverlay.verifications-detail(
             outlined,
             :rules="rules"
           )
-
-      v-window-item.verifications-detail--window-item Паспорт
 
       v-window-item.verifications-detail--window-item Платежные данные
 </template>
