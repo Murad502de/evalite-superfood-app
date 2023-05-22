@@ -1,6 +1,7 @@
 import * as validation from "@/services/formValidation";
 import AppOverlay from '@/components/AppOverlay/AppOverlay.vue';
 import AppCard from '@/components/AppCard/AppCard.vue';
+import AppButton from '@/components/AppButton/AppButton.vue';
 import AppTextField from '@/components/AppTextField/AppTextField.vue';
 import AppSelect from '@/components/AppSelect/AppSelect.vue';
 import AppFormPersonalData from '@/components/AppFormPersonalData/AppFormPersonalData.vue';
@@ -9,6 +10,7 @@ export default {
   components: {
     AppOverlay,
     AppCard,
+    AppButton,
     AppTextField,
     AppSelect,
     AppFormPersonalData,
@@ -41,7 +43,7 @@ export default {
     },
 
     validForm() {
-      console.debug(this.$refs.form.validate()); //DELETE
+      console.debug(this.$refs.personal_data_form.$refs.form.validate()); //DELETE
     },
   },
   created() { },
