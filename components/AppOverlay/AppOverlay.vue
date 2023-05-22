@@ -14,7 +14,7 @@ v-dialog.app-overlay(
       v-toolbar-title {{ title }}
       v-spacer
       v-toolbar-items
-        v-btn(dark, text, @click="save") Сохранить
+        slot(name="actions")
     .app-overlay--main
       slot
 </template>

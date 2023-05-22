@@ -2,9 +2,11 @@
 AppOverlay.verifications-detail(
   :dialog="dialog",
   :title="'Расулов Гаджимурад Зайнутдинович'",
-  @close="close",
-  @save="save"
+  @close="close"
 )
+  template(v-slot:actions)
+    v-btn(dark, text, @click="approve") Утвердить
+
   AppCard.verifications-detail--card
     v-tabs.verifications-detail--tabs(
       v-model="tab",
@@ -22,7 +24,7 @@ AppOverlay.verifications-detail(
       v-window-item.verifications-detail--window-item Паспорт
       v-window-item.verifications-detail--window-item Платежные данные
 
-    AppButton Сохранить
+    AppButton(@click="save") Сохранить
 </template>
 
 <script src="./VerificationsDetail.js" />

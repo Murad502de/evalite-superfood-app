@@ -39,11 +39,19 @@ export default {
       this.$emit('close');
     },
     save() {
-      this.$emit('save');
+      if (this.validForms()) {
+        this.$emit('save');
+      }
     },
-
-    validForm() {
+    approve() {
+      if (this.validForms()) {
+        this.$emit('approve');
+      }
+    },
+    validForms() {
       console.debug(this.$refs.personal_data_form.$refs.form.validate()); //DELETE
+
+      return this.$refs.personal_data_form.$refs.form.validate();
     },
   },
   created() { },
