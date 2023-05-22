@@ -21,6 +21,13 @@ AppOverlay.verifications-detail(
           AppTextField(v-model="test", label="Фамилия")
           AppTextField(v-model="test", label="Имя")
           AppTextField(v-model="test", label="Отчество")
+          AppSelect(
+            v-model="test2",
+            :items="['муж', 'жен']",
+            label="Пол",
+            required,
+            outlined
+          )
 
       v-window-item.verifications-detail--window-item Паспорт
 
