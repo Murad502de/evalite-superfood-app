@@ -19,13 +19,15 @@ AppOverlay.verifications-detail(
 
     v-window.verifications-detail--window(v-model="tab")
       v-window-item.verifications-detail--window-item
-        AppFormPersonalData(ref="personal_data_form" :loading="loading")
+        AppFormPersonalData(ref="personal_data_form", :loading="loading")
 
       v-window-item.verifications-detail--window-item
-        AppFormPassport(ref="passport_form" :loading="loading")
-      v-window-item.verifications-detail--window-item Платежные данные
+        AppFormPassport(ref="passport_form", :loading="loading")
 
-    AppButton(@click="save" :disabled="loading") Сохранить
+      v-window-item.verifications-detail--window-item
+        AppFormPaymentDetails(ref="payment_details_form", :loading="loading")
+
+    AppButton(@click="save", :disabled="loading") Сохранить
 </template>
 
 <script src="./VerificationsDetail.js" />
