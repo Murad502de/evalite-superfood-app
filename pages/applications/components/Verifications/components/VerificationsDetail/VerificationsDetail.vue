@@ -1,7 +1,7 @@
 <template lang="pug">
 AppOverlay.verifications-detail(
   :dialog="dialog",
-  :title="this.user.first_name",
+  :title="this.user.fullName",
   @close="close"
 )
   template(v-slot:actions)

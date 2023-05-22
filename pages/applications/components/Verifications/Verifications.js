@@ -1,5 +1,6 @@
 import { usersVerifications } from '@/api/users/usersVerifications';
 import { usersUuid } from '@/api/users/usersUuid';
+import { userUuidInAdapter } from '@/api/adapters/users/userUuidInAdapter';
 import { parseFromISOtoDdMmYyyy } from '@/utils/date';
 import { getRoleTitleByCode } from '@/utils/roles';
 import AppTable from '@/components/AppTable/AppTable.vue';
@@ -57,11 +58,12 @@ export default {
         alert('Ошибка получения пользователя'); //FIXME implement with vuetify
       }
 
-      this.verificationsDetail = usersUuidResponse.data.data;
+      this.verificationsDetail = await userUuidInAdapter(usersUuidResponse.data.data);
       this.verificationsDetailLoading = false;
     },
     closeVerificationsDetailDialog() {
       this.verificationsDetailDialog = false;
+      this.verificationsDetail = {};
     },
     saveVerificationsDetailDialog() {
       this.verificationsDetailDialog = false;
