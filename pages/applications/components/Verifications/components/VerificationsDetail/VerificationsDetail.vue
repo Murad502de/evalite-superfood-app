@@ -21,7 +21,8 @@ AppOverlay.verifications-detail(
       v-window-item.verifications-detail--window-item
         AppFormPersonalData(ref="personal_data_form" :loading="loading")
 
-      v-window-item.verifications-detail--window-item Паспорт
+      v-window-item.verifications-detail--window-item
+        AppFormPassport(ref="passport_form" :loading="loading")
       v-window-item.verifications-detail--window-item Платежные данные
 
     AppButton(@click="save" :disabled="loading") Сохранить
