@@ -8,7 +8,11 @@ AppOverlay.verifications-detail(
   AppCard.verifications-detail--card
     v-btn(@click="validForm") test
 
-    v-tabs.verifications-detail--tabs(v-model="tab")
+    v-tabs.verifications-detail--tabs(
+      v-model="tab",
+      :show-arrows="false",
+      center-active,
+    )
       v-tab.verifications-detail--tab Персональные данные
       v-tab.verifications-detail--tab Паспорт
       v-tab.verifications-detail--tab Платежные данные

@@ -1,6 +1,12 @@
 .verifications-detail {
+
   &--card {
     max-width: 800px;
+
+    & .v-slide-group__prev,
+    & .v-slide-group__next {
+      display: none !important;
+    }
   }
 
   &--window {
@@ -9,5 +15,13 @@
     &-item {
       margin-top: 6px;
     }
+  }
+
+  &--tab {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 125%;
+    text-transform: capitalize;
+    letter-spacing: unset;
   }
 }

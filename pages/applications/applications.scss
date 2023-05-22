@@ -25,4 +25,9 @@
       // padding: 0 16px;
     }
   }
+
+  & .v-slide-group__prev,
+  & .v-slide-group__next {
+    display: none !important;
+  }
 }

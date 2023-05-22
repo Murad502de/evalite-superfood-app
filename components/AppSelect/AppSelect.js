@@ -1,5 +1,9 @@
+import AppSkeleton from '@/components/AppSkeleton/AppSkeleton.vue';
+
 export default {
-  components: {},
+  components: {
+    AppSkeleton,
+  },
   props: {
     outlined: {
       type: Boolean,
