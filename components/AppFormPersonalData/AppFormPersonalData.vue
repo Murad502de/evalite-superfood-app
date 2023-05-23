@@ -10,7 +10,7 @@
       AppAvatar(
         :url="avatarUrl",
         :error="avatarError",
-        :disabled="loading",
+        :disabled="loading || disabled",
         @upload="uploadAvatar",
         @delete="deleteAvatar"
       )
@@ -19,6 +19,7 @@
       v-model="secondName",
       :rules="secondNameRules",
       :loading="loading",
+      :disabled="disabled",
       label="Фамилия",
       required,
       outlined
@@ -28,6 +29,7 @@
       v-model="firstName",
       :rules="firstNameRules",
       :loading="loading",
+      :disabled="disabled",
       label="Имя",
       required,
       outlined
@@ -37,6 +39,7 @@
       v-model="thirdName",
       :rules="thirdNameRules",
       :loading="loading",
+      :disabled="disabled",
       label="Отчество",
       required,
       outlined
@@ -46,6 +49,7 @@
       v-model="gender",
       :rules="genderRules",
       :loading="loading",
+      :disabled="disabled",
       :items="['муж', 'жен']",
       label="Пол",
       required,
@@ -56,6 +60,7 @@
       v-model="birthday",
       :rules="birthdayRules",
       :loading="loading",
+      :disabled="disabled",
       label="Дата рождения",
       :placeholder="formPlaceholder.date",
       required,
@@ -66,6 +71,7 @@
       v-model="email",
       :rules="emailRules",
       :loading="loading",
+      :disabled="disabled",
       label="E-mail",
       required,
       outlined
@@ -75,6 +81,7 @@
       v-model="phone",
       :rules="phoneRules",
       :loading="loading",
+      :disabled="disabled",
       label="Телефон",
       :placeholder="formPlaceholder.phoneRus",
       required,

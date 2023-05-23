@@ -61,12 +61,49 @@ export default {
       this.verificationsDetail = await userUuidInAdapter(usersUuidResponse.data.data);
       this.verificationsDetailLoading = false;
     },
-    closeVerificationsDetailDialog() {
-      this.verificationsDetailDialog = false;
-      this.verificationsDetail = {};
+
+    updateAvatar(value) {
+      console.debug('Verifications/updateAvatar/value', value); //DELETE
+      this.verificationsDetail.avatarFile = value;
     },
-    saveVerificationsDetailDialog() {
+    updateFirstName(value) {
+      console.debug('Verifications/updateFirstName/value', value); //DELETE
+      this.verificationsDetail.firstName = value;
+    },
+    updateSecondName(value) {
+      console.debug('Verifications/updateSecondName/value', value); //DELETE
+      this.verificationsDetail.secondName = value;
+    },
+    updateThirdName(value) {
+      console.debug('Verifications/updateThirdName/value', value); //DELETE
+      this.verificationsDetail.thirdName = value;
+    },
+    updateGender(value) {
+      console.debug('Verifications/updateGender/value', value); //DELETE
+      this.verificationsDetail.gender = value;
+    },
+    updateBirthday(value) {
+      console.debug('Verifications/updateBirthday/value', value); //DELETE
+      this.verificationsDetail.birthday = value;
+    },
+    updateEmail(value) {
+      console.debug('Verifications/updateEmail/value', value); //DELETE
+      this.verificationsDetail.email = value;
+    },
+    updatePhone(value) {
+      console.debug('Verifications/updatePhone/value', value); //DELETE
+      this.verificationsDetail.phone = value;
+    },
+
+    closeVerificationsDetailDialog() {
+      console.debug('closeVerificationsDetailDialog/verificationsDetail', this.verificationsDetail); //DELETE
       this.verificationsDetailDialog = false;
+      this.verificationsDetail = null;
+    },
+    async approveVerificationsDetail() {
+      console.debug('approveVerificationsDetail/verificationsDetail', this.verificationsDetail); //DELETE
+      this.verificationsDetailDialog = false;
+      await this.fetchUsers();
     },
     async updatePage(e) {
       this.page = e.page;

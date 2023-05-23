@@ -15,11 +15,19 @@
   )
 
   VerificationsDetail(
-    :user="verificationsDetail"
+    :user="verificationsDetail",
     :dialog="verificationsDetailDialog",
     :loading="verificationsDetailLoading",
+    @update:avatar="updateAvatar",
+    @update:second_name="updateSecondName",
+    @update:first_name="updateFirstName",
+    @update:third_name="updateThirdName",
+    @update:gender="updateGender",
+    @update:birthday="updateBirthday",
+    @update:email="updateEmail",
+    @update:phone="updatePhone",
     @close="closeVerificationsDetailDialog",
-    @save="saveVerificationsDetailDialog"
+    @approve="approveVerificationsDetail"
   )
 </template>
 

@@ -1,4 +1,3 @@
-import * as validation from "@/services/formValidation";
 import AppOverlay from '@/components/AppOverlay/AppOverlay.vue';
 import AppCard from '@/components/AppCard/AppCard.vue';
 import AppButton from '@/components/AppButton/AppButton.vue';
@@ -29,7 +28,7 @@ export default {
       default: true,
     },
     user: {
-      type: Object,
+      type: Object | null,
       required: true,
     },
   },
@@ -37,17 +36,19 @@ export default {
     return {
       tab: 0,
       valid: true,
-      test: '', //DELETE
-      test2: '', //DELETE
-      rules: [
-        validation.required(),
-      ],
+      approveLoading: false,
     };
   },
-  computed: {},
+  computed: {
+    title() {
+      if (this.user === null) return;
+      return this.user.fullName;
+    },
+  },
   watch: {},
   methods: {
     close() {
+      if (this.approveLoading) return;
       this.$emit('close');
     },
     save() {
@@ -57,7 +58,12 @@ export default {
     },
     approve() {
       if (this.validForms()) {
-        this.$emit('approve');
+        this.approveLoading = true;
+
+        setTimeout(() => { //FIXME
+          this.approveLoading = false;
+          this.$emit('approve');
+        }, 5000);
       }
     },
     validForms() {
@@ -65,9 +71,31 @@ export default {
 
       return this.$refs.personal_data_form.$refs.form.validate();
     },
+    updateAvatar(value) {
+      this.$emit('update:avatar', value);
+    },
+    updateSecondName(value) {
+      this.$emit('update:second_name', value);
+    },
+    updateFirstName(value) {
+      this.$emit('update:first_name', value);
+    },
+    updateThirdName(value) {
+      this.$emit('update:third_name', value);
+    },
+    updateGender(value) {
+      this.$emit('update:gender', value);
+    },
+    updateBirthday(value) {
+      this.$emit('update:birthday', value);
+    },
+    updateEmail(value) {
+      this.$emit('update:email', value);
+    },
+    updatePhone(value) {
+      this.$emit('update:phone', value);
+    },
   },
-  created() {
-    console.debug('user', this.user); //DELETE
-  },
+  created() { },
   mounted() { },
 }

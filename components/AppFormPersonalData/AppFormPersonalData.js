@@ -16,7 +16,15 @@ export default {
       type: String,
       default: '',
     },
+    data: {
+      type: Object | null,
+      required: true,
+    },
     loading: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
       type: Boolean,
       default: false,
     },
@@ -24,33 +32,33 @@ export default {
   data() {
     return {
       valid: true,
-      secondName: '',
+      secondName: null,
       secondNameRules: [
         validation.required(),
       ],
-      firstName: '',
+      firstName: null,
       firstNameRules: [
         validation.required(),
       ],
-      thirdName: '',
+      thirdName: null,
       thirdNameRules: [
         validation.required(),
       ],
-      gender: '',
+      gender: null,
       genderRules: [
         validation.required(),
       ],
-      birthday: '',
+      birthday: null,
       birthdayRules: [
         validation.required(),
         validation.date(),
       ],
-      email: '',
+      email: null,
       emailRules: [
         validation.required(),
         validation.email(),
       ],
-      phone: '',
+      phone: null,
       phoneRules: [
         validation.required(),
         validation.phoneRus(),
@@ -64,13 +72,13 @@ export default {
   computed: {
     computedProgress() {
       let progress = 0;
-      if (this.secondName.length) progress += 10;
-      if (this.firstName.length) progress += 10;
-      if (this.thirdName.length) progress += 10;
-      if (this.gender.length) progress += 10;
-      if (this.birthday.length) progress += 10;
-      if (this.email.length) progress += 10;
-      if (this.phone.length) progress += 10;
+      if (this.secondName && this.secondName.length) progress += 10;
+      if (this.firstName && this.firstName.length) progress += 10;
+      if (this.thirdName && this.thirdName.length) progress += 10;
+      if (this.gender && this.gender.length) progress += 10;
+      if (this.birthday && this.birthday.length) progress += 10;
+      if (this.email && this.email.length) progress += 10;
+      if (this.phone && this.phone.length) progress += 10;
       return progress;
     },
     formPlaceholder() {
@@ -78,48 +86,67 @@ export default {
     },
   },
   watch: {
-    computedProgress(newVal) {
-      console.debug('AppFormPersonalData/watch/computedProgress', newVal); //DELETE
+    data(newVal) {
+      if (newVal === null) {
+        this.avatarUrl = null;
+        this.firstName = null;
+        this.secondName = null;
+        this.thirdName = null;
+        this.gender = null;
+        this.birthday = null;
+        this.email = null;
+        this.phone = null;
+        return;
+      }
+
+      this.avatarUrl = newVal.avatar;
+      this.firstName = newVal.firstName;
+      this.secondName = newVal.secondName;
+      this.thirdName = newVal.thirdName;
+      this.gender = newVal.gender;
+      this.birthday = newVal.birthday;
+      this.email = newVal.email;
+      this.phone = newVal.phone;
+    },
+    computedProgress(newVal, oldVal) {
+      if (newVal === null || oldVal === null) return;
       this.$emit('update:progress', newVal);
     },
-    avatarFile(newVal) {
-      console.debug('AppFormPersonalData/watch/avatarFile', newVal); //DELETE
+    avatarFile(newVal, oldVal) {
       this.$emit('update:avatar', newVal);
     },
-    secondName(newVal) {
-      console.debug('AppFormPersonalData/watch/secondName', newVal); //DELETE
+    secondName(newVal, oldVal) {
+      if (newVal === null || oldVal === null) return;
       this.$emit('update:second_name', newVal);
     },
-    firstName(newVal) {
-      console.debug('AppFormPersonalData/watch/firstName', newVal); //DELETE
+    firstName(newVal, oldVal) {
+      if (newVal === null || oldVal === null) return;
       this.$emit('update:first_name', newVal);
     },
-    thirdName(newVal) {
-      console.debug('AppFormPersonalData/watch/thirdName', newVal); //DELETE
+    thirdName(newVal, oldVal) {
+      if (newVal === null || oldVal === null) return;
       this.$emit('update:third_name', newVal);
     },
-    gender(newVal) {
-      console.debug('AppFormPersonalData/watch/gender', newVal); //DELETE
+    gender(newVal, oldVal) {
+      if (newVal === null || oldVal === null) return;
       const genderCode = newVal === 'муж' ? 'male' : 'female';
-      console.debug('AppFormPersonalData/watch/genderCode', genderCode); //DELETE
       this.$emit('update:gender', genderCode);
     },
-    birthday(newVal) {
-      console.debug('AppFormPersonalData/watch/birthday', newVal); //DELETE
+    birthday(newVal, oldVal) {
+      if (newVal === null || oldVal === null) return;
       this.$emit('update:birthday', newVal);
     },
-    email(newVal) {
-      console.debug('AppFormPersonalData/watch/email', newVal); //DELETE
+    email(newVal, oldVal) {
+      if (newVal === null || oldVal === null) return;
       this.$emit('update:email', newVal);
     },
-    phone(newVal) {
-      console.debug('AppFormPersonalData/watch/phone', newVal); //DELETE
+    phone(newVal, oldVal) {
+      if (newVal === null || oldVal === null) return;
       this.$emit('update:phone', newVal);
     },
   },
   methods: {
     uploadAvatar(file = null) {
-      console.debug(file); //DELETE
       this.avatarFile = file;
       this.avatarName = file.name;
       this.avatarUrl = createUploadedFileUrl(file);
