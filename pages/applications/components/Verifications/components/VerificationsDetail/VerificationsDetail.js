@@ -53,23 +53,42 @@ export default {
     },
     save() {
       if (this.validForms()) {
-        this.$emit('save');
+        // this.$emit('save');
       }
     },
     approve() {
       if (this.validForms()) {
-        this.approveLoading = true;
+        // this.approveLoading = true;
 
-        setTimeout(() => { //FIXME
-          this.approveLoading = false;
-          this.$emit('approve');
-        }, 5000);
+        // setTimeout(() => { //FIXME
+        //   this.approveLoading = false;
+        //   this.$emit('approve');
+        // }, 5000);
       }
     },
     validForms() {
-      console.debug(this.$refs.personal_data_form.$refs.form.validate()); //DELETE
+      const personalDataForm = this.$refs.personal_data_form;
+      const passportForm = this.$refs.passport_form;
 
-      return this.$refs.personal_data_form.$refs.form.validate();
+      console.debug('personalDataForm', personalDataForm); //DELETE
+      console.debug('passport_form', passportForm); //DELETE
+
+      if (!personalDataForm || !passportForm) {
+        alert('Необходимо проверить всё разделы');
+        return false;
+      }
+
+      if (!personalDataForm.validate()) {
+        this.tab = 0;
+        return false;
+      }
+
+      if (!passportForm.validate()) {
+        this.tab = 1;
+        return false;
+      }
+
+      return true;
     },
     updateAvatar(value) {
       this.$emit('update:avatar', value);

@@ -7,7 +7,7 @@
 
       .app-form-passport-form-passport__info
         .app-form-passport-form-passport__info--row
-          v-text-field(
+          AppTextField(
             v-model="passFullName",
             :rules="passFullNameRules",
             :disabled="loading",
@@ -17,7 +17,7 @@
           )
 
         .app-form-passport-form-passport__info--row
-          v-text-field.app-form-passport-form-passport__info--series(
+          AppTextField.app-form-passport-form-passport__info--series(
             v-model="passSeries",
             :rules="passSeriesRules",
             :disabled="loading",
@@ -26,7 +26,7 @@
             outlined
           )
 
-          v-text-field.app-form-passport-form-passport__info--number(
+          AppTextField.app-form-passport-form-passport__info--number(
             v-model="passNumber",
             :rules="passNumberRules",
             :disabled="loading",
@@ -35,7 +35,7 @@
             outlined
           )
 
-          v-text-field.app-form-passport-form-passport__info--issue-date(
+          AppTextField.app-form-passport-form-passport__info--issue-date(
             v-model="passIssueDate",
             :rules="passIssueDateRules",
             :disabled="loading",
@@ -45,7 +45,7 @@
             outlined
           )
 
-          v-text-field.app-form-passport-form-passport__info--validity(
+          AppTextField.app-form-passport-form-passport__info--validity(
             v-model="passRegistrationAddress",
             :rules="passRegistrationAddressRules",
             :disabled="loading",
@@ -55,7 +55,7 @@
           )
 
         .app-form-passport-form-passport__info--row
-          v-text-field.app-form-passport-form-passport__info--issued-by(
+          AppTextField.app-form-passport-form-passport__info--issued-by(
             v-model="passIssuedBy",
             :rules="passIssuedByRules",
             :disabled="loading",
@@ -65,7 +65,7 @@
           )
 
         .app-form-passport-form-passport__info--row
-          v-text-field.app-form-passport-form-passport__info--division-code(
+          AppTextField.app-form-passport-form-passport__info--division-code(
             v-model="passDepartmentCode",
             :rules="passDepartmentCodeRules",
             :disabled="loading",

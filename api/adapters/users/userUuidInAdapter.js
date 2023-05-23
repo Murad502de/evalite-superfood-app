@@ -11,4 +11,17 @@ export const userUuidInAdapter = async (user) => ({
   birthday: parseFromISOtoDdMmYyyy(user.birthday),
   email: user.email,
   phone: user.phone,
+  passport: {
+    uuid: user.passport.uuid,
+    departmentCode: user.passport.department_code,
+    fullName: user.passport.full_name,
+    issueBy: user.passport.issue_by,
+    issueDate: parseFromISOtoDdMmYyyy(user.passport.issue_date),
+    number: user.passport.number,
+    passportMainSpread: user.passport.passport_main_spread,
+    passportRegistrationSpread: user.passport.passport_registration_spread,
+    passportVerificationSpread: user.passport.passport_verification_spread,
+    registrationAddress: user.passport.registration_address,
+    series: user.passport.series,
+  },
 });

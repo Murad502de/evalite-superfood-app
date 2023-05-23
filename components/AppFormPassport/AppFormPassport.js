@@ -5,19 +5,37 @@ import PassportSpreadMainSvg from '@/assets/svg/passport_spread_main.svg';
 import PassportSpreadRegistrationSvg from '@/assets/svg/passport_spread_registration.svg';
 import PassportSpreadVerificationSvg from '@/assets/svg/passport_verification.svg';
 import { createUploadedFileUrl } from '@/utils/file.js';
+import AppTextField from '@/components/AppTextField/AppTextField.vue';
 
 export default {
   components: {
+    AppTextField,
     AppFormMedia,
     PassportSpreadMainSvg,
     PassportSpreadRegistrationSvg,
     PassportSpreadVerificationSvg,
   },
-  props: {},
+  props: {
+    title: {
+      type: String,
+      default: '',
+    },
+    data: {
+      type: Object | null,
+      required: true,
+    },
+    loading: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       valid: true,
-      loading: false,
       passFullName: '',
       passFullNameRules: [
         validation.required(),
@@ -67,13 +85,13 @@ export default {
   computed: {
     computedProgress() {
       let progress = 0;
-      if (this.passFullName.length) progress += 10;
-      if (this.passSeries.length) progress += 10;
-      if (this.passNumber.length) progress += 10;
-      if (this.passIssueDate.length) progress += 10;
-      if (this.passRegistrationAddress.length) progress += 10;
-      if (this.passIssuedBy.length) progress += 10;
-      if (this.passDepartmentCode.length) progress += 10;
+      if (this.passFullName && this.passFullName.length) progress += 10;
+      if (this.passSeries && this.passSeries.length) progress += 10;
+      if (this.passNumber && this.passNumber.length) progress += 10;
+      if (this.passIssueDate && this.passIssueDate.length) progress += 10;
+      if (this.passRegistrationAddress && this.passRegistrationAddress.length) progress += 10;
+      if (this.passIssuedBy && this.passIssuedBy.length) progress += 10;
+      if (this.passDepartmentCode && this.passDepartmentCode.length) progress += 10;
       if (this.mainSpreadMediaFile) progress += 10;
       if (this.registrationSpreadMediaFile) progress += 10;
       if (this.verificationSpreadMediaFile) progress += 10;
@@ -84,6 +102,10 @@ export default {
     },
   },
   watch: {
+    data(newVal) {
+      console.debug('AppFormPassport/watch/data/newVal', newVal); //DELETE
+      this.init(newVal);
+    },
     computedProgress(newVal) {
       this.$emit('update:progress', newVal);
     },
@@ -156,7 +178,41 @@ export default {
       this.verificationSpreadMediaName = null;
       this.verificationSpreadMediaUrl = null;
     },
+    init(value) {
+      console.debug('AppFormPassport/methods/init/value', value); //DELETE
+
+      if (value === null) {
+        this.passFullName = null;
+        this.passSeries = null;
+        this.passNumber = null;
+        this.passIssueDate = null;
+        this.passRegistrationAddress = null;
+        this.passIssuedBy = null;
+        this.passDepartmentCode = null;
+        return;
+      }
+
+      this.passFullName = value.passport.fullName;
+      this.passSeries = value.passport.series;
+      this.passNumber = value.passport.number;
+      this.passIssueDate = value.passport.issueDate;
+      this.passRegistrationAddress = value.passport.registrationAddress;
+      this.passIssuedBy = value.passport.issueBy;
+      this.passDepartmentCode = value.passport.departmentCode;
+    },
+    validate() {
+      this.mainSpreadMediaError = !this.mainSpreadMediaFile;
+      this.registrationSpreadMediaError = !this.registrationSpreadMediaFile;
+      this.verificationSpreadMediaError = !this.verificationSpreadMediaFile;
+      return this.$refs.form.validate() &&
+        this.mainSpreadMediaFile &&
+        this.registrationSpreadMediaFile &&
+        this.verificationSpreadMediaFile;
+    },
   },
-  created() { },
+  created() {
+    console.debug('AppFormPassport/created/data', this.data); //DELETE
+    this.init(this.data);
+  },
   mounted() { },
 }

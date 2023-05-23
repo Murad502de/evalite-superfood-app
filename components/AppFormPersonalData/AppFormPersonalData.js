@@ -156,6 +156,9 @@ export default {
       this.avatarName = null;
       this.avatarUrl = null;
     },
+    validate() {
+      return this.$refs.form.validate();
+    },
   },
   created() { },
   mounted() { },
