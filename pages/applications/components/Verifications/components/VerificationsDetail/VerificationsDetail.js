@@ -47,6 +47,9 @@ export default {
       if (this.user === null) return;
       return this.user.fullName;
     },
+    employmentTypeCrt() {
+      return this.user ? this.user.employmentType : null;
+    },
     employmentTypeSE() {
       return employmentTypes.selfEmployed;
     },
