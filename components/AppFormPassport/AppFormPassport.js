@@ -189,6 +189,9 @@ export default {
         this.passRegistrationAddress = null;
         this.passIssuedBy = null;
         this.passDepartmentCode = null;
+        this.mainSpreadMediaUrl = null;
+        this.registrationSpreadMediaUrl = null;
+        this.verificationSpreadMediaUrl = null;
         return;
       }
 
@@ -199,15 +202,18 @@ export default {
       this.passRegistrationAddress = value.passport.registrationAddress;
       this.passIssuedBy = value.passport.issueBy;
       this.passDepartmentCode = value.passport.departmentCode;
+      this.mainSpreadMediaUrl = value.passport.mainSpread;
+      this.registrationSpreadMediaUrl = value.passport.registrationSpread;
+      this.verificationSpreadMediaUrl = value.passport.verificationSpread;
     },
     validate() {
-      this.mainSpreadMediaError = !this.mainSpreadMediaFile;
-      this.registrationSpreadMediaError = !this.registrationSpreadMediaFile;
-      this.verificationSpreadMediaError = !this.verificationSpreadMediaFile;
+      this.mainSpreadMediaError = !this.mainSpreadMediaUrl;
+      this.registrationSpreadMediaError = !this.registrationSpreadMediaUrl;
+      this.verificationSpreadMediaError = !this.verificationSpreadMediaUrl;
       return this.$refs.form.validate() &&
-        this.mainSpreadMediaFile &&
-        this.registrationSpreadMediaFile &&
-        this.verificationSpreadMediaFile;
+        this.mainSpreadMediaUrl &&
+        this.registrationSpreadMediaUrl &&
+        this.verificationSpreadMediaUrl;
     },
   },
   created() {

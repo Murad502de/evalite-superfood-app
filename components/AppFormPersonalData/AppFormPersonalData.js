@@ -103,7 +103,7 @@ export default {
       this.firstName = newVal.firstName;
       this.secondName = newVal.secondName;
       this.thirdName = newVal.thirdName;
-      this.gender = newVal.gender;
+      this.gender = newVal.gender === 'male' ? 'муж' : 'жен';
       this.birthday = newVal.birthday;
       this.email = newVal.email;
       this.phone = newVal.phone;

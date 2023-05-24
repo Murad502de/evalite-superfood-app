@@ -17,6 +17,7 @@ AppOverlay.verifications-detail(
       v-tab.verifications-detail--tab(:disabled="approveLoading") Персональные данные
       v-tab.verifications-detail--tab(:disabled="approveLoading") Паспорт
       v-tab.verifications-detail--tab(:disabled="approveLoading") Платежные данные
+      v-tab.verifications-detail--tab(:disabled="approveLoading") Договор
 
     v-window.verifications-detail--window(v-model="tab")
       v-window-item.verifications-detail--window-item
@@ -50,6 +51,8 @@ AppOverlay.verifications-detail(
           :loading="loading",
           :disabled="approveLoading"
         )
+
+      v-window-item.verifications-detail--window-item Договор
 
     AppButton(@click="save", :disabled="loading || approveLoading") Сохранить
 </template>

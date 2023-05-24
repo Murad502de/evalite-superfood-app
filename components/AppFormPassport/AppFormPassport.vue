@@ -1,6 +1,6 @@
 <template lang="pug">
 .app-form-passport
-  .app-form-passport__title Загрузка документов
+  .app-form-passport__title {{ title }}
   v-form.app-form-passport-form(ref="form", v-model="valid", lazy-validation)
     .app-form-passport-form-passport
       .app-form-passport-form-passport__title 1. Паспорт РФ
