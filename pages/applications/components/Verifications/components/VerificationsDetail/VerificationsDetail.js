@@ -6,6 +6,7 @@ import AppSelect from '@/components/AppSelect/AppSelect.vue';
 import AppFormPersonalData from '@/components/AppFormPersonalData/AppFormPersonalData.vue';
 import AppFormPassport from '@/components/AppFormPassport/AppFormPassport.vue';
 import AppFormPaymentDetailsSE from '@/components/AppFormPaymentDetailsSE/AppFormPaymentDetailsSE.vue';
+import AppFormPaymentDetailsIE from '@/components/AppFormPaymentDetailsIE/AppFormPaymentDetailsIE.vue';
 
 export default {
   components: {
@@ -17,6 +18,7 @@ export default {
     AppFormPersonalData,
     AppFormPassport,
     AppFormPaymentDetailsSE,
+    AppFormPaymentDetailsIE,
   },
   props: {
     dialog: {

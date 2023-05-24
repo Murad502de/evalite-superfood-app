@@ -46,7 +46,15 @@ AppOverlay.verifications-detail(
 
       v-window-item.verifications-detail--window-item
         AppFormPaymentDetailsSE(
+          v-if="this.user && this.user.employmentType === 'self_employed'",
           ref="payment_details_form_se",
+          :data="this.user",
+          :loading="loading",
+          :disabled="approveLoading"
+        )
+        AppFormPaymentDetailsIE(
+          v-if="this.user && this.user.employmentType === 'individual_entrepreneur'",
+          ref="payment_details_form_ie",
           :data="this.user",
           :loading="loading",
           :disabled="approveLoading"
