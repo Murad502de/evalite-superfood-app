@@ -1,1 +1,25 @@
-.app-form-payment-details-ie {}
+.app-form-payment-details-ie {
+  &--certificate {
+    font-size: 16px;
+    color: #263043;
+
+    &__title {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 28px;
+      color: #263043;
+
+      &_error {
+        color: #ff5252;
+      }
+    }
+
+    &__info {
+      font-weight: 400;
+      line-height: 20px;
+      margin-top: 16px;
+    }
+
+    &__file {}
+  }
+}

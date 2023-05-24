@@ -26,6 +26,7 @@ export const userUuidInAdapter = async (user) => ({
     series: user.passport.series,
   },
   paymentDetailsSelfEmployed: await userUuidPaymentDetailsSelfEmployedInAdapter(user.payment_details_self_employed),
+  paymentDetailsIndividualEntrepreneur: await userUuidPaymentDetailsIndividualEntrepreneurInAdapter(user.payment_details_individual_entrepreneur),
 });
 
 const userUuidPaymentDetailsSelfEmployedInAdapter = async (data) => {
@@ -43,6 +44,25 @@ const userUuidPaymentDetailsSelfEmployedInAdapter = async (data) => {
     mailingAddress: data.mailing_address,
     confirmDoc: data.se_confirm_doc,
     swift: data.swift,
+    transactionAccount: data.transaction_account,
+  };
+};
+
+const userUuidPaymentDetailsIndividualEntrepreneurInAdapter = async (data) => {
+  if (!data) return null;
+
+  return {
+    uuid: data.uuid,
+    bank: data.bank,
+    bankBic: data.bank_bic,
+    bankCorrespondentAccount: data.bank_correspondent_account,
+    bankInn: data.bank_inn,
+    bankLegalAddress: data.bank_legal_address,
+    fullName: data.full_name,
+    confirmDoc: data.ie_confirm_doc,
+    inn: data.inn,
+    ogrn: data.ogrn,
+    organizationLegalAddress: data.organization_legal_address,
     transactionAccount: data.transaction_account,
   };
 };
