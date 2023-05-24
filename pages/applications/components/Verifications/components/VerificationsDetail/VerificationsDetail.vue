@@ -78,10 +78,28 @@ AppOverlay.verifications-detail(
           ref="payment_details_form_ie",
           :data="this.user",
           :loading="loading",
-          :disabled="approveLoading"
+          :disabled="approveLoading",
+          @update:full_name="updateFullNameIE",
+          @update:organization_legal_address="updateOrganizationLegalAddressIE",
+          @update:inn="updateInnIE",
+          @update:ogrn="updateOgrnIE",
+          @update:transaction_account="updateTransactionAccountIE",
+          @update:bank="updateBankIE",
+          @update:bank_inn="updateBankInnIE",
+          @update:bank_bic="updateBankBicIE",
+          @update:bank_correspondent_account="updateBankCorrespondentAccountIE",
+          @update:bank_legal_address="updateBankLegalAddressIE",
+          @update:confirm_doc="updateConfirmDocIE"
         )
 
-      v-window-item.verifications-detail--window-item Договор
+      v-window-item.verifications-detail--window-item
+        AppFormMediaDoc(
+          :type="'pdf'",
+          :mediaName="agencyContractName",
+          :mediaUrl="agencyContractUrl",
+          @upload="uploadAgencyContract",
+          @delete="deleteAgencyContract"
+        )
 
     AppButton(@click="save", :disabled="loading || approveLoading") Сохранить
 </template>

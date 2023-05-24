@@ -1,3 +1,5 @@
+import { createUploadedFileUrl } from '@/utils/file.js';
+import * as employmentTypes from '@/shared/employmentTypes';
 import AppOverlay from '@/components/AppOverlay/AppOverlay.vue';
 import AppCard from '@/components/AppCard/AppCard.vue';
 import AppButton from '@/components/AppButton/AppButton.vue';
@@ -7,7 +9,7 @@ import AppFormPersonalData from '@/components/AppFormPersonalData/AppFormPersona
 import AppFormPassport from '@/components/AppFormPassport/AppFormPassport.vue';
 import AppFormPaymentDetailsSE from '@/components/AppFormPaymentDetailsSE/AppFormPaymentDetailsSE.vue';
 import AppFormPaymentDetailsIE from '@/components/AppFormPaymentDetailsIE/AppFormPaymentDetailsIE.vue';
-import * as employmentTypes from '@/shared/employmentTypes';
+import AppFormMediaDoc from '@/components/AppFormMediaDoc/AppFormMediaDoc.vue';
 
 export default {
   components: {
@@ -20,6 +22,7 @@ export default {
     AppFormPassport,
     AppFormPaymentDetailsSE,
     AppFormPaymentDetailsIE,
+    AppFormMediaDoc,
   },
   props: {
     dialog: {
@@ -40,6 +43,10 @@ export default {
       tab: 0,
       valid: true,
       approveLoading: false,
+      agencyContractFile: null,
+      agencyContractName: null,
+      agencyContractUrl: null,
+      agencyContractError: false,
     };
   },
   computed: {
@@ -224,7 +231,67 @@ export default {
       console.debug('VerDet/updateConfirmDocSE', value); //DELETE
       this.$emit('update:confirm_doc_se', value);
     },
-    
+
+    updateFullNameIE(value) {
+      console.debug('VerDet/updateFullNameIE/value', value); //DELETE
+      this.$emit('update:full_name_ie', value);
+    },
+    updateOrganizationLegalAddressIE(value) {
+      console.debug('VerDet/updateOrganizationLegalAddressIE/value', value); //DELETE
+      this.$emit('update:organization_legal_address_ie', value);
+    },
+    updateInnIE(value) {
+      console.debug('VerDet/updateInnIE/value', value); //DELETE
+      this.$emit('update:inn_ie', value);
+    },
+    updateOgrnIE(value) {
+      console.debug('VerDet/updateOgrnIE/value', value); //DELETE
+      this.$emit('update:ogrn_ie', value);
+    },
+    updateTransactionAccountIE(value) {
+      console.debug('VerDet/updateTransactionAccountIE/value', value); //DELETE
+      this.$emit('update:transaction_account_ie', value);
+    },
+    updateBankIE(value) {
+      console.debug('VerDet/updateBankIE/value', value); //DELETE
+      this.$emit('update:bank_ie', value);
+    },
+    updateBankInnIE(value) {
+      console.debug('VerDet/updateBankInnIE/value', value); //DELETE
+      this.$emit('update:bank_inn_ie', value);
+    },
+    updateBankBicIE(value) {
+      console.debug('VerDet/updateBankBicIE/value', value); //DELETE
+      this.$emit('update:bank_bic_ie', value);
+    },
+    updateBankCorrespondentAccountIE(value) {
+      console.debug('VerDet/updateBankCorrespondentAccountIE/value', value); //DELETE
+      this.$emit('update:bank_correspondent_account_ie', value);
+    },
+    updateBankLegalAddressIE(value) {
+      console.debug('VerDet/updateBankLegalAddressIE/value', value); //DELETE
+      this.$emit('update:bank_legal_address_ie', value);
+    },
+    updateConfirmDocIE(value) {
+      console.debug('VerDet/updateConfirmDocIE/value', value); //DELETE
+      this.$emit('update:confirm_doc_ie', value);
+    },
+
+    uploadAgencyContract(file = null) {
+      //TODO call validate service
+      console.debug(file); //DELETE
+      this.agencyContractFile = file;
+      this.agencyContractName = file.name;
+      this.agencyContractUrl = createUploadedFileUrl(file);
+      this.agencyContractError = false;
+    },
+    deleteAgencyContract() {
+      this.agencyContractFile = null;
+      this.agencyContractName = null;
+      this.agencyContractUrl = null;
+      this.agencyContractError = false;
+    },
+
     getPaymentDetailsFormRef() {
       if (this.employmentTypeCrt === this.employmentTypeSE) return this.$refs.payment_details_form_se;
       if (this.employmentTypeCrt === this.employmentTypeIE) return this.$refs.payment_details_form_ie;

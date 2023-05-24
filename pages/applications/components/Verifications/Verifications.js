@@ -133,6 +133,7 @@ export default {
       console.debug('Verifications/updatePhone/value', value); //DELETE
       this.verificationsDetail.phone = value;
     },
+    
     updateFullNamePass(value) {
       console.debug('Vers/updateFullNamePass', value); //DELETE
     },
@@ -163,6 +164,7 @@ export default {
     updateVerificationSpreadPass(value) {
       console.debug('Vers/updateVerificationSpreadPass', value); //DELETE
     },
+
     updateFullNameSe(value) {
       console.debug('Vers/updateFullNameSe', value); //DELETE
     },
@@ -195,6 +197,40 @@ export default {
     },
     updateConfirmDocSe(value) {
       console.debug('Vers/updateConfirmDocSe', value); //DELETE
+    },
+
+    updateFullNameIE(value) {
+      console.debug('Vers/updateFullNameIE/value', value); //DELETE
+    },
+    updateOrganizationLegalAddressIE(value) {
+      console.debug('Vers/updateOrganizationLegalAddressIE/value', value); //DELETE
+    },
+    updateInnIE(value) {
+      console.debug('Vers/updateInnIE/value', value); //DELETE
+    },
+    updateOgrnIE(value) {
+      console.debug('Vers/updateOgrnIE/value', value); //DELETE
+    },
+    updateTransactionAccountIE(value) {
+      console.debug('Vers/updateTransactionAccountIE/value', value); //DELETE
+    },
+    updateBankIE(value) {
+      console.debug('Vers/updateBankIE/value', value); //DELETE
+    },
+    updateBankInnIE(value) {
+      console.debug('Vers/updateBankInnIE/value', value); //DELETE
+    },
+    updateBankBicIE(value) {
+      console.debug('Vers/updateBankBicIE/value', value); //DELETE
+    },
+    updateBankCorrespondentAccountIE(value) {
+      console.debug('Vers/updateBankCorrespondentAccountIE/value', value); //DELETE
+    },
+    updateBankLegalAddressIE(value) {
+      console.debug('Vers/updateBankLegalAddressIE/value', value); //DELETE
+    },
+    updateConfirmDocIE(value) {
+      console.debug('Vers/updateConfirmDocIE/value', value); //DELETE
     },
   },
   async created() {

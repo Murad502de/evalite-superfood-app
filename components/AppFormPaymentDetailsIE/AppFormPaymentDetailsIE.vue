@@ -4,15 +4,15 @@ v-form.app-form-payment-details-ie(
   v-model="valid",
   lazy-validation
 )
-  v-text-field(
-    v-model="ieFullName",
-    :rules="ieFullNameRules",
+  AppTextField(
+    v-model="fullName",
+    :rules="fullNameRules",
     :disabled="loading",
     label="ФИО ИП",
     required,
     outlined
   )
-  v-text-field(
+  AppTextField(
     v-model="organizationLegalAddress",
     :rules="organizationLegalAddressRules",
     :disabled="loading",
@@ -20,7 +20,7 @@ v-form.app-form-payment-details-ie(
     required,
     outlined
   )
-  v-text-field(
+  AppTextField(
     v-model="inn",
     :rules="innRules",
     :disabled="loading",
@@ -28,7 +28,7 @@ v-form.app-form-payment-details-ie(
     required,
     outlined
   )
-  v-text-field(
+  AppTextField(
     v-model="ogrn",
     :rules="ogrnRules",
     :disabled="loading",
@@ -36,7 +36,7 @@ v-form.app-form-payment-details-ie(
     required,
     outlined
   )
-  v-text-field(
+  AppTextField(
     v-model="transactionAccount",
     :rules="transactionAccountRules",
     :disabled="loading",
@@ -44,7 +44,7 @@ v-form.app-form-payment-details-ie(
     required,
     outlined
   )
-  v-text-field(
+  AppTextField(
     v-model="bank",
     :rules="bankRules",
     :disabled="loading",
@@ -52,7 +52,7 @@ v-form.app-form-payment-details-ie(
     required,
     outlined
   )
-  v-text-field(
+  AppTextField(
     v-model="bankInn",
     :rules="bankInnRules",
     :disabled="loading",
@@ -60,7 +60,7 @@ v-form.app-form-payment-details-ie(
     required,
     outlined
   )
-  v-text-field(
+  AppTextField(
     v-model="bankBic",
     :rules="bankBicRules",
     :disabled="loading",
@@ -68,7 +68,7 @@ v-form.app-form-payment-details-ie(
     required,
     outlined
   )
-  v-text-field(
+  AppTextField(
     v-model="bankCorrespondentAccount",
     :rules="bankCorrespondentAccountRules",
     :disabled="loading",
@@ -76,7 +76,7 @@ v-form.app-form-payment-details-ie(
     required,
     outlined
   )
-  v-text-field(
+  AppTextField(
     v-model="bankLegalAddress",
     :rules="bankLegalAddressRules",
     :disabled="loading",

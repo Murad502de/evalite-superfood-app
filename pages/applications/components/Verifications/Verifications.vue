@@ -48,7 +48,18 @@
     @update:correspondent_account_se="updateCorrespondentAccountSe",
     @update:bank_inn_se="updateBankInnSe",
     @update:bank_kpp_se="updateBankKppSe",
-    @update:confirm_doc_se="updateConfirmDocSe"
+    @update:confirm_doc_se="updateConfirmDocSe",
+    @update:full_name_ie="updateFullNameIE",
+    @update:organization_legal_address_ie="updateOrganizationLegalAddressIE",
+    @update:inn_ie="updateInnIE",
+    @update:ogrn_ie="updateOgrnIE",
+    @update:transaction_account_ie="updateTransactionAccountIE",
+    @update:bank_ie="updateBankIE",
+    @update:bank_inn_ie="updateBankInnIE",
+    @update:bank_bic_ie="updateBankBicIE",
+    @update:bank_correspondent_account_ie="updateBankCorrespondentAccountIE",
+    @update:bank_legal_address_ie="updateBankLegalAddressIE",
+    @update:confirm_doc_ie="updateConfirmDocIE"
   )
 </template>
 

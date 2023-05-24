@@ -96,6 +96,10 @@ export default {
     },
   },
   watch: {
+    data(newVal) {
+      console.debug('SE/watch/data/newVal', newVal); //DELETE
+      this.init(newVal);
+    },
     computedProgress(newVal) {
       this.$emit('update:progress', newVal);
     },

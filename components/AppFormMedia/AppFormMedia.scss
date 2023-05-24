@@ -10,6 +10,7 @@
   }
 
   &__desktop {
+    max-width: 306px;
     width: 100%;
   }
 
@@ -24,6 +25,7 @@
     align-items: center;
     height: 342px;
     user-select: none;
+    margin-left: 24px;
 
     &__name,
     &__delete {
@@ -88,6 +90,7 @@
 
     &-file {
       margin-top: 30px;
+      margin-left: 0;
 
       &__media {
         margin-top: 8px;
