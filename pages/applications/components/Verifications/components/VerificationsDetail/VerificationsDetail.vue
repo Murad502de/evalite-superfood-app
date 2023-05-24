@@ -45,8 +45,8 @@ AppOverlay.verifications-detail(
         )
 
       v-window-item.verifications-detail--window-item
-        AppFormPaymentDetails(
-          ref="payment_details_form",
+        AppFormPaymentDetailsSE(
+          ref="payment_details_form_se",
           :data="this.user",
           :loading="loading",
           :disabled="approveLoading"
