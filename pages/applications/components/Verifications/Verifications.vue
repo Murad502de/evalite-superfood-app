@@ -18,6 +18,8 @@
     :user="verificationsDetail",
     :dialog="verificationsDetailDialog",
     :loading="verificationsDetailLoading",
+    @close="closeVerificationsDetailDialog",
+    @approve="approveVerificationsDetail",
     @update:avatar="updateAvatar",
     @update:second_name="updateSecondName",
     @update:first_name="updateFirstName",
@@ -26,8 +28,27 @@
     @update:birthday="updateBirthday",
     @update:email="updateEmail",
     @update:phone="updatePhone",
-    @close="closeVerificationsDetailDialog",
-    @approve="approveVerificationsDetail"
+    @update:pass_full_name="updateFullNamePass",
+    @update:pass_series="updateSeriesPass",
+    @update:pass_number="updateNumberPass",
+    @update:pass_issue_date="updateIssueDatePass",
+    @update:pass_registration_address="updateRegistrationAddressPass",
+    @update:pass_issue_by="updateIssueByPass",
+    @update:pass_department_code="updateDepartmentCodePass",
+    @update:pass_main_spread="updateMainSpreadPass",
+    @update:pass_registration_spread="updateRegistrationSpreadPass",
+    @update:pass_verification_spread="updateVerificationSpreadPass",
+    @update:full_name_se="updateFullNameSe",
+    @update:transaction_account_se="updateTransactionAccountSe",
+    @update:inn_se="updateInnSe",
+    @update:swift_se="updateSwiftSe",
+    @update:mailing_address_se="updateMailingAddressSe",
+    @update:bank_se="updateBankSe",
+    @update:bic_se="updateBicSe",
+    @update:correspondent_account_se="updateCorrespondentAccountSe",
+    @update:bank_inn_se="updateBankInnSe",
+    @update:bank_kpp_se="updateBankKppSe",
+    @update:confirm_doc_se="updateConfirmDocSe"
   )
 </template>
 

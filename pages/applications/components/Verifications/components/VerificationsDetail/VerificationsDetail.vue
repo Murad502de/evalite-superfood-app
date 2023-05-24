@@ -41,7 +41,17 @@ AppOverlay.verifications-detail(
           ref="passport_form",
           :data="this.user",
           :loading="loading",
-          :disabled="approveLoading"
+          :disabled="approveLoading",
+          @update:full_name="updateFullNamePass",
+          @update:series="updateSeriesPass",
+          @update:number="updateNumberPass",
+          @update:issue_date="updateIssueDatePass",
+          @update:registration_address="updateRegistrationAddressPass",
+          @update:issue_by="updateIssueByPass",
+          @update:department_code="updateDepartmentCodePass",
+          @update:main_spread="updateMainSpreadPass",
+          @update:registration_spread="updateRegistrationSpreadPass",
+          @update:verification_spread="updateVerificationSpreadPass"
         )
 
       v-window-item.verifications-detail--window-item

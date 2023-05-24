@@ -133,6 +133,69 @@ export default {
       console.debug('Verifications/updatePhone/value', value); //DELETE
       this.verificationsDetail.phone = value;
     },
+    updateFullNamePass(value) {
+      console.debug('Vers/updateFullNamePass', value); //DELETE
+    },
+    updateSeriesPass(value) {
+      console.debug('Vers/updateSeriesPass', value); //DELETE
+    },
+    updateNumberPass(value) {
+      console.debug('Vers/updateNumberPass', value); //DELETE
+    },
+    updateIssueDatePass(value) {
+      console.debug('Vers/updateIssueDatePass', value); //DELETE
+    },
+    updateRegistrationAddressPass(value) {
+      console.debug('Vers/updateRegistrationAddressPass', value); //DELETE
+    },
+    updateIssueByPass(value) {
+      console.debug('Vers/updateIssueByPass', value); //DELETE
+    },
+    updateDepartmentCodePass(value) {
+      console.debug('Vers/updateDepartmentCodePass', value); //DELETE
+    },
+    updateMainSpreadPass(value) {
+      console.debug('Vers/updateMainSpreadPass', value); //DELETE
+    },
+    updateRegistrationSpreadPass(value) {
+      console.debug('Vers/updateRegistrationSpreadPass', value); //DELETE
+    },
+    updateVerificationSpreadPass(value) {
+      console.debug('Vers/updateVerificationSpreadPass', value); //DELETE
+    },
+    updateFullNameSe(value) {
+      console.debug('Vers/updateFullNameSe', value); //DELETE
+    },
+    updateTransactionAccountSe(value) {
+      console.debug('Vers/updateTransactionAccountSe', value); //DELETE
+    },
+    updateInnSe(value) {
+      console.debug('Vers/updateInnSe', value); //DELETE
+    },
+    updateSwiftSe(value) {
+      console.debug('Vers/updateSwiftSe', value); //DELETE
+    },
+    updateMailingAddressSe(value) {
+      console.debug('Vers/updateMailingAddressSe', value); //DELETE
+    },
+    updateBankSe(value) {
+      console.debug('Vers/updateBankSe', value); //DELETE
+    },
+    updateBicSe(value) {
+      console.debug('Vers/updateBicSe', value); //DELETE
+    },
+    updateCorrespondentAccountSe(value) {
+      console.debug('Vers/updateCorrespondentAccountSe', value); //DELETE
+    },
+    updateBankInnSe(value) {
+      console.debug('Vers/updateBankInnSe', value); //DELETE
+    },
+    updateBankKppSe(value) {
+      console.debug('Vers/updateBankKppSe', value); //DELETE
+    },
+    updateConfirmDocSe(value) {
+      console.debug('Vers/updateConfirmDocSe', value); //DELETE
+    },
   },
   async created() {
     await this.fetchUsers();

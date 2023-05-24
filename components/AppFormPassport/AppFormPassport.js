@@ -110,34 +110,54 @@ export default {
       this.$emit('update:progress', newVal);
     },
     passFullName(newVal) {
-      this.$emit('update:pass_full_name', newVal);
+      if (this.isDataNull()) return;
+      console.debug('PS/watch/passFullName', newVal); //DELETE
+      this.$emit('update:full_name', newVal);
     },
     passSeries(newVal) {
-      this.$emit('update:pass_series', newVal);
+      if (this.isDataNull()) return;
+      console.debug('PS/watch/passSeries', newVal); //DELETE
+      this.$emit('update:series', newVal);
     },
     passNumber(newVal) {
-      this.$emit('update:pass_number', newVal);
+      if (this.isDataNull()) return;
+      console.debug('PS/watch/passNumber', newVal); //DELETE
+      this.$emit('update:number', newVal);
     },
     passIssueDate(newVal) {
-      this.$emit('update:pass_issue_date', newVal);
+      if (this.isDataNull()) return;
+      console.debug('PS/watch/passIssueDate', newVal); //DELETE
+      this.$emit('update:issue_date', newVal);
     },
     passRegistrationAddress(newVal) {
-      this.$emit('update:pass_registration_address', newVal);
+      if (this.isDataNull()) return;
+      console.debug('PS/watch/passRegistrationAddress', newVal); //DELETE
+      this.$emit('update:registration_address', newVal);
     },
     passIssuedBy(newVal) {
-      this.$emit('update:pass_issue_by', newVal);
+      if (this.isDataNull()) return;
+      console.debug('PS/watch/passIssuedBy', newVal); //DELETE
+      this.$emit('update:issue_by', newVal);
     },
     passDepartmentCode(newVal) {
-      this.$emit('update:pass_department_code', newVal);
+      if (this.isDataNull()) return;
+      console.debug('PS/watch/passDepartmentCode', newVal); //DELETE
+      this.$emit('update:department_code', newVal);
     },
     mainSpreadMediaFile(newVal) {
-      this.$emit('update:passport_main_spread', newVal);
+      if (this.isDataNull()) return;
+      console.debug('PS/watch/mainSpreadMediaFile', newVal); //DELETE
+      this.$emit('update:main_spread', newVal);
     },
     registrationSpreadMediaFile(newVal) {
-      this.$emit('update:passport_registration_spread', newVal);
+      if (this.isDataNull()) return;
+      console.debug('PS/watch/registrationSpreadMediaFile', newVal); //DELETE
+      this.$emit('update:registration_spread', newVal);
     },
     verificationSpreadMediaFile(newVal) {
-      this.$emit('update:passport_verification_spread', newVal);
+      if (this.isDataNull()) return;
+      console.debug('PS/watch/verificationSpreadMediaFile', newVal); //DELETE
+      this.$emit('update:verification_spread', newVal);
     },
   },
   methods: {
@@ -214,6 +234,9 @@ export default {
         this.mainSpreadMediaUrl &&
         this.registrationSpreadMediaUrl &&
         this.verificationSpreadMediaUrl;
+    },
+    isDataNull() {
+      return this.data === null;
     },
   },
   created() {
