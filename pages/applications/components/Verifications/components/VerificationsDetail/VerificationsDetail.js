@@ -7,6 +7,7 @@ import AppFormPersonalData from '@/components/AppFormPersonalData/AppFormPersona
 import AppFormPassport from '@/components/AppFormPassport/AppFormPassport.vue';
 import AppFormPaymentDetailsSE from '@/components/AppFormPaymentDetailsSE/AppFormPaymentDetailsSE.vue';
 import AppFormPaymentDetailsIE from '@/components/AppFormPaymentDetailsIE/AppFormPaymentDetailsIE.vue';
+import * as employmentTypes from '@/shared/employmentTypes';
 
 export default {
   components: {
@@ -45,6 +46,12 @@ export default {
     title() {
       if (this.user === null) return;
       return this.user.fullName;
+    },
+    employmentTypeSE() {
+      return employmentTypes.selfEmployed;
+    },
+    employmentTypeIE() {
+      return employmentTypes.individualEntrepreneur;
     },
   },
   watch: {},
