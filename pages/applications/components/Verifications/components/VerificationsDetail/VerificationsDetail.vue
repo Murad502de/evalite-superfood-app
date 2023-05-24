@@ -50,7 +50,18 @@ AppOverlay.verifications-detail(
           ref="payment_details_form_se",
           :data="this.user",
           :loading="loading",
-          :disabled="approveLoading"
+          :disabled="approveLoading",
+          @update:full_name="updateFullNameSE",
+          @update:transaction_account="updateTransactionAccountSE",
+          @update:inn="updateInnSE",
+          @update:swift="updateSwiftSE",
+          @update:mailing_address="updateMailingAddressSE",
+          @update:bank="updateBankSE",
+          @update:bic="updateBicSE",
+          @update:correspondent_account="updateCorrespondentAccountSE",
+          @update:bank_inn="updateBankInnSE",
+          @update:bank_kpp="updateBankKppSE",
+          @update:confirm_doc="updateConfirmDocSE"
         )
         AppFormPaymentDetailsIE(
           v-if="employmentTypeCrt === employmentTypeIE",

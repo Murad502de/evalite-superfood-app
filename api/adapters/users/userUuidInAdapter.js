@@ -25,4 +25,24 @@ export const userUuidInAdapter = async (user) => ({
     registrationAddress: user.passport.registration_address,
     series: user.passport.series,
   },
+  paymentDetailsSelfEmployed: await userUuidPaymentDetailsSelfEmployedInAdapter(user.payment_details_self_employed),
 });
+
+const userUuidPaymentDetailsSelfEmployedInAdapter = async (data) => {
+  if (!data) return null;
+
+  return {
+    uuid: data.uuid,
+    bank: data.bank,
+    bankInn: data.bank_inn,
+    bankKpp: data.bank_kpp,
+    bic: data.bic,
+    correspondentAccount: data.correspondent_account,
+    fullName: data.full_name,
+    inn: data.inn,
+    mailingAddress: data.mailing_address,
+    confirmDoc: data.se_confirm_doc,
+    swift: data.swift,
+    transactionAccount: data.transaction_account,
+  };
+};

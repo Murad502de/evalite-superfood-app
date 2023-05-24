@@ -29,8 +29,8 @@ export default {
   data() {
     return {
       valid: true,
-      seFullName: '',
-      seFullNameRules: [
+      fullName: '',
+      fullNameRules: [
         validation.required(),
       ],
       transactionAccount: '',
@@ -38,21 +38,21 @@ export default {
         validation.required(),
         validation.numbers(),
       ],
-      seInn: '',
-      seInnRules: [
+      inn: '',
+      innRules: [
         validation.required(),
         validation.numbers(),
       ],
-      seSwift: '',
-      seSwiftRules: [
+      swift: '',
+      swiftRules: [
         validation.required(),
       ],
-      seMailingAddress: '',
-      seMailingAddressRules: [
+      mailingAddress: '',
+      mailingAddressRules: [
         validation.required(),
       ],
-      seBank: '',
-      seBankRules: [
+      bank: '',
+      bankRules: [
         validation.required(),
       ],
       bic: '',
@@ -84,81 +84,73 @@ export default {
   computed: {
     computedProgress() {
       let progress = 0;
-
-      if (this.seFullName.length) {
-        progress += 10;
-      }
-      if (this.transactionAccount.length) {
-        progress += 10;
-      }
-      if (this.seBank.length) {
-        progress += 10;
-      }
-      if (this.bic.length) {
-        progress += 10;
-      }
-      if (this.correspondentAccount.length) {
-        progress += 10;
-      }
-      if (this.bankInn.length) {
-        progress += 10;
-      }
-      if (this.bankKpp.length) {
-        progress += 10;
-      }
-      if (this.confirmDocFile) {
-        progress += 30;
-      }
-
+      if (this.fullName && this.fullName.length) progress += 10;
+      if (this.transactionAccount && this.transactionAccount.length) progress += 10;
+      if (this.bank && this.bank.length) progress += 10;
+      if (this.bic && this.bic.length) progress += 10;
+      if (this.correspondentAccount && this.correspondentAccount.length) progress += 10;
+      if (this.bankInn && this.bankInn.length) progress += 10;
+      if (this.bankKpp && this.bankKpp.length) progress += 10;
+      if (this.confirmDocFile) progress += 30;
       return progress;
     },
   },
-
   watch: {
     computedProgress(newVal) {
       this.$emit('update:progress', newVal);
     },
-    seFullName(newVal) {
-      console.debug('SE/watch/seFullName', newVal); //DELETE
+    fullName(newVal) {
+      if (this.isDataNull()) return;
+      console.debug('SE/watch/fullName', newVal); //DELETE
       this.$emit('update:full_name', newVal);
     },
     transactionAccount(newVal) {
+      if (this.isDataNull()) return;
       console.debug('SE/watch/transactionAccount', newVal); //DELETE
       this.$emit('update:transaction_account', newVal);
     },
-    seInn(newVal) {
-      console.debug('SE/watch/seInn', newVal); //DELETE
+    inn(newVal) {
+      if (this.isDataNull()) return;
+      console.debug('SE/watch/inn', newVal); //DELETE
       this.$emit('update:inn', newVal);
     },
-    seSwift(newVal) {
-      console.debug('SE/watch/seSwift', newVal); //DELETE
+    swift(newVal) {
+      if (this.isDataNull()) return;
+      console.debug('SE/watch/swift', newVal); //DELETE
       this.$emit('update:swift', newVal);
     },
-    seMailingAddress(newVal) {
-      console.debug('SE/watch/seMailingAddress', newVal); //DELETE
+    mailingAddress(newVal) {
+      if (this.isDataNull()) return;
+      console.debug('SE/watch/mailingAddress', newVal); //DELETE
       this.$emit('update:mailing_address', newVal);
     },
-    seBank(newVal) {
-      console.debug('SE/watch/seBank', newVal); //DELETE
+    bank(newVal) {
+      if (this.isDataNull()) return;
+      console.debug('SE/watch/bank', newVal); //DELETE
       this.$emit('update:bank', newVal);
     },
     bic(newVal) {
+      if (this.isDataNull()) return;
       console.debug('SE/watch/bic', newVal); //DELETE
       this.$emit('update:bic', newVal);
     },
     correspondentAccount(newVal) {
+      if (this.isDataNull()) return;
       console.debug('SE/watch/correspondentAccount', newVal); //DELETE
       this.$emit('update:correspondent_account', newVal);
     },
     bankInn(newVal) {
+      if (this.isDataNull()) return;
       console.debug('SE/watch/bankInn', newVal); //DELETE
       this.$emit('update:bank_inn', newVal);
     },
     bankKpp(newVal) {
+      if (this.isDataNull()) return;
       console.debug('SE/watch/bankKpp', newVal); //DELETE
       this.$emit('update:bank_kpp', newVal);
     },
     confirmDocFile(newVal) {
+      if (this.isDataNull()) return;
       console.debug('SE/watch/confirmDocFile', newVal); //DELETE
       this.$emit('update:confirm_doc', newVal);
     },
@@ -177,13 +169,52 @@ export default {
       this.confirmDocName = null;
       this.confirmDocUrl = null;
     },
+    init(value) {
+      console.debug('AppFormPaymentDetailsSE/methods/init/value', value); //DELETE
+
+      if (value === null) {
+        this.fullName = null;
+        this.transactionAccount = null;
+        this.inn = null;
+        this.swift = null;
+        this.mailingAddress = null;
+        this.bank = null;
+        this.bic = null;
+        this.correspondentAccount = null;
+        this.bankInn = null;
+        this.bankKpp = null;
+        this.confirmDocFile = null;
+        this.confirmDocName = null;
+        this.confirmDocUrl = null;
+        this.confirmDocError = false;
+        return;
+      }
+
+      this.fullName = value.paymentDetailsSelfEmployed.fullName;
+      this.transactionAccount = value.paymentDetailsSelfEmployed.transactionAccount;
+      this.inn = value.paymentDetailsSelfEmployed.inn;
+      this.swift = value.paymentDetailsSelfEmployed.swift;
+      this.mailingAddress = value.paymentDetailsSelfEmployed.mailingAddress;
+      this.bank = value.paymentDetailsSelfEmployed.bank;
+      this.bic = value.paymentDetailsSelfEmployed.bic;
+      this.correspondentAccount = value.paymentDetailsSelfEmployed.correspondentAccount;
+      this.bankInn = value.paymentDetailsSelfEmployed.bankInn;
+      this.bankKpp = value.paymentDetailsSelfEmployed.bankKpp;
+      this.confirmDocUrl = value.paymentDetailsSelfEmployed.confirmDoc;
+    },
     validate() {
       this.confirmDocError = !this.confirmDocUrl;
       return this.$refs.form.validate() &&
         this.confirmDocUrl;
     },
+    isDataNull() {
+      console.debug('SE/methods/isDataNull/data', this.data); //DELETE
+      return this.data === null;
+    },
   },
-
-  created() { },
+  created() {
+    console.debug('AppFormPaymentDetailsSE/created/data', this.data); //DELETE
+    this.init(this.data);
+  },
   mounted() { },
 }

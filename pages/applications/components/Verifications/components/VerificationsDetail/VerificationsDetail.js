@@ -72,6 +72,8 @@ export default {
       if (this.validForms()) {
         // this.approveLoading = true;
 
+        this.$emit('approve');
+
         // setTimeout(() => { //FIXME
         //   this.approveLoading = false;
         //   this.$emit('approve');
@@ -81,11 +83,17 @@ export default {
     validForms() {
       const personalDataForm = this.$refs.personal_data_form;
       const passportForm = this.$refs.passport_form;
+      const paymentDetailsForm = this.getPaymentDetailsFormRef();
 
       console.debug('personalDataForm', personalDataForm); //DELETE
-      console.debug('passport_form', passportForm); //DELETE
+      console.debug('passportForm', passportForm); //DELETE
+      console.debug('paymentDetailsForm', paymentDetailsForm); //DELETE
 
-      if (!personalDataForm || !passportForm) {
+      if (
+        !personalDataForm ||
+        !passportForm ||
+        !paymentDetailsForm
+      ) {
         alert('Необходимо проверить всё разделы');
         return false;
       }
@@ -97,6 +105,11 @@ export default {
 
       if (!passportForm.validate()) {
         this.tab = 1;
+        return false;
+      }
+
+      if (!paymentDetailsForm.validate()) {
+        this.tab = 2;
         return false;
       }
 
@@ -126,6 +139,55 @@ export default {
     updatePhone(value) {
       this.$emit('update:phone', value);
     },
+    updateFullNameSE(value) {
+      console.debug('VerDet/updateFullNameSE', value); //DELETE
+      this.$emit('update:full_name_se', value);
+    },
+    updateTransactionAccountSE(value) {
+      console.debug('VerDet/updateTransactionAccountSE', value); //DELETE
+      this.$emit('update:transaction_account_se', value);
+    },
+    updateInnSE(value) {
+      console.debug('VerDet/updateInnSE', value); //DELETE
+      this.$emit('update:inn_se', value);
+    },
+    updateSwiftSE(value) {
+      console.debug('VerDet/updateSwiftSE', value); //DELETE
+      this.$emit('update:swift_se', value);
+    },
+    updateMailingAddressSE(value) {
+      console.debug('VerDet/updateMailingAddressSE', value); //DELETE
+      this.$emit('update:mailing_address_se', value);
+    },
+    updateBankSE(value) {
+      console.debug('VerDet/updateBankSE', value); //DELETE
+      this.$emit('update:bank_se', value);
+    },
+    updateBicSE(value) {
+      console.debug('VerDet/updateBicSE', value); //DELETE
+      this.$emit('update:bic_se', value);
+    },
+    updateCorrespondentAccountSE(value) {
+      console.debug('VerDet/updateCorrespondentAccountSE', value); //DELETE
+      this.$emit('update:correspondent_account_se', value);
+    },
+    updateBankInnSE(value) {
+      console.debug('VerDet/updateBankInnSE', value); //DELETE
+      this.$emit('update:bank_inn_se', value);
+    },
+    updateBankKppSE(value) {
+      console.debug('VerDet/updateBankKppSE', value); //DELETE
+      this.$emit('update:bank_kpp_se', value);
+    },
+    updateConfirmDocSE(value) {
+      console.debug('VerDet/updateConfirmDocSE', value); //DELETE
+      this.$emit('update:confirm_doc_se', value);
+    },
+    getPaymentDetailsFormRef() {
+      if (this.employmentTypeCrt === this.employmentTypeSE) return this.$refs.payment_details_form_se;
+      if (this.employmentTypeCrt === this.employmentTypeIE) return this.$refs.payment_details_form_ie;
+      return null;
+    }
   },
   created() { },
   mounted() { },

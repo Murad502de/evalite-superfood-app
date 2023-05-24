@@ -1,8 +1,8 @@
 <template lang="pug">
 v-form.app-form-payment-details-se(ref="form", v-model="valid", lazy-validation)
   AppTextField(
-    v-model="seFullName",
-    :rules="seFullNameRules",
+    v-model="fullName",
+    :rules="fullNameRules",
     :disabled="loading",
     label="ФИО получателя",
     required,
@@ -17,32 +17,32 @@ v-form.app-form-payment-details-se(ref="form", v-model="valid", lazy-validation)
     outlined
   )
   AppTextField(
-    v-model="seInn",
-    :rules="seInnRules",
+    v-model="inn",
+    :rules="innRules",
     :disabled="loading",
     label="ИНН",
     required,
     outlined
   )
   AppTextField(
-    v-model="seSwift",
-    :rules="seSwiftRules",
+    v-model="swift",
+    :rules="swiftRules",
     :disabled="loading",
     label="SWIFT-код",
     required,
     outlined
   )
   AppTextField(
-    v-model="seMailingAddress",
-    :rules="seMailingAddressRules",
+    v-model="mailingAddress",
+    :rules="mailingAddressRules",
     :disabled="loading",
     label="Почтовый адрес",
     required,
     outlined
   )
   AppTextField(
-    v-model="seBank",
-    :rules="seBankRules",
+    v-model="bank",
+    :rules="bankRules",
     :disabled="loading",
     label="Банк получателя",
     required,
