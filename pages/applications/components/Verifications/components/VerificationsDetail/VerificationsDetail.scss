@@ -19,10 +19,10 @@
   }
 
   &--tab {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 125%;
-    text-transform: capitalize;
-    letter-spacing: unset;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    line-height: 125% !important;
+    text-transform: capitalize !important;
+    letter-spacing: unset !important;
   }
 }
