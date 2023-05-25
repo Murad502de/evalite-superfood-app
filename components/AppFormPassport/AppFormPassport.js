@@ -1,10 +1,10 @@
 import * as validation from "@/services/formValidation";
 import * as formPlaceholder from "@/services/formPlaceholder";
+import { createUploadedFileUrl } from '@/utils/file.js';
 import AppFormMedia from '@/components/AppFormMedia/AppFormMedia.vue';
 import PassportSpreadMainSvg from '@/assets/svg/passport_spread_main.svg';
 import PassportSpreadRegistrationSvg from '@/assets/svg/passport_spread_registration.svg';
 import PassportSpreadVerificationSvg from '@/assets/svg/passport_verification.svg';
-import { createUploadedFileUrl } from '@/utils/file.js';
 import AppTextField from '@/components/AppTextField/AppTextField.vue';
 
 export default {

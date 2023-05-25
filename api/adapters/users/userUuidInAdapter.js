@@ -20,14 +20,18 @@ export const userUuidInAdapter = async (user) => ({
     issueDate: parseFromISOtoDdMmYyyy(user.passport.issue_date),
     number: user.passport.number,
     mainSpread: user.passport.passport_main_spread,
+    mainSpreadFile: null,
     registrationSpread: user.passport.passport_registration_spread,
+    registrationSpreadFile: null,
     verificationSpread: user.passport.passport_verification_spread,
+    verificationSpreadFile: null,
     registrationAddress: user.passport.registration_address,
     series: user.passport.series,
   },
   paymentDetailsSelfEmployed: await userUuidPaymentDetailsSelfEmployedInAdapter(user.payment_details_self_employed),
   paymentDetailsIndividualEntrepreneur: await userUuidPaymentDetailsIndividualEntrepreneurInAdapter(user.payment_details_individual_entrepreneur),
   agencyContract: user.agency_contract,
+  agencyContractFile: null,
 });
 
 const userUuidPaymentDetailsSelfEmployedInAdapter = async (data) => {
@@ -44,6 +48,7 @@ const userUuidPaymentDetailsSelfEmployedInAdapter = async (data) => {
     inn: data.inn,
     mailingAddress: data.mailing_address,
     confirmDoc: data.se_confirm_doc,
+    confirmDocFile: null,
     swift: data.swift,
     transactionAccount: data.transaction_account,
   };
@@ -61,6 +66,7 @@ const userUuidPaymentDetailsIndividualEntrepreneurInAdapter = async (data) => {
     bankLegalAddress: data.bank_legal_address,
     fullName: data.full_name,
     confirmDoc: data.ie_confirm_doc,
+    confirmDocFile: null,
     inn: data.inn,
     ogrn: data.ogrn,
     organizationLegalAddress: data.organization_legal_address,
