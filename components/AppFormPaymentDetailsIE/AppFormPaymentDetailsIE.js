@@ -165,6 +165,7 @@ export default {
   },
   methods: {
     uploadConfirmDoc(file = null) {
+      if (this.loading || this.disabled) return;
       //TODO call validate service
       console.debug(file); //DELETE
       this.confirmDocFile = file;
@@ -173,6 +174,7 @@ export default {
       this.confirmDocError = false;
     },
     deleteConfirmDoc() {
+      if (this.loading || this.disabled) return;
       this.confirmDocFile = null;
       this.confirmDocName = null;
       this.confirmDocUrl = null;

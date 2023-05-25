@@ -8,6 +8,7 @@
     :type="'pdf'",
     :mediaName="agencyContractName",
     :mediaUrl="agencyContractUrl",
+    :disabledForm="disabled"
     @upload="uploadAgencyContract",
     @delete="deleteAgencyContract"
   )

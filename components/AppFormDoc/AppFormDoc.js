@@ -45,6 +45,7 @@ export default {
   },
   methods: {
     uploadAgencyContract(file = null) {
+      if (this.loading || this.disabled) return;
       //TODO call validate service
       console.debug(file); //DELETE
       this.agencyContractFile = file;
@@ -53,6 +54,7 @@ export default {
       this.agencyContractError = false;
     },
     deleteAgencyContract() {
+      if (this.loading || this.disabled) return;
       this.agencyContractFile = null;
       this.agencyContractName = null;
       this.agencyContractUrl = null;

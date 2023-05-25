@@ -26,6 +26,10 @@ export default {
       type: String,
       default: null,
     },
+    disabledForm: { //FIXME remane to disabled
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -34,7 +38,7 @@ export default {
   },
   computed: {
     disabled() {
-      return !!this.mediaUrl;
+      return !!this.mediaUrl || this.disabledForm;
     },
   },
 

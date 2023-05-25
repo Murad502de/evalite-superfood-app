@@ -1,13 +1,10 @@
 <template lang="pug">
-v-form.app-form-payment-details-ie(
-  ref="form",
-  v-model="valid",
-  lazy-validation
-)
+v-form.app-form-payment-details-ie(ref="form", v-model="valid", lazy-validation)
   AppTextField(
     v-model="fullName",
     :rules="fullNameRules",
-    :disabled="loading",
+    :loading="loading",
+    :disabled="disabled",
     label="ФИО ИП",
     required,
     outlined
@@ -15,7 +12,8 @@ v-form.app-form-payment-details-ie(
   AppTextField(
     v-model="organizationLegalAddress",
     :rules="organizationLegalAddressRules",
-    :disabled="loading",
+    :loading="loading",
+    :disabled="disabled",
     label="Юридический адрес организации",
     required,
     outlined
@@ -23,7 +21,8 @@ v-form.app-form-payment-details-ie(
   AppTextField(
     v-model="inn",
     :rules="innRules",
-    :disabled="loading",
+    :loading="loading",
+    :disabled="disabled",
     label="ИНН",
     required,
     outlined
@@ -31,7 +30,8 @@ v-form.app-form-payment-details-ie(
   AppTextField(
     v-model="ogrn",
     :rules="ogrnRules",
-    :disabled="loading",
+    :loading="loading",
+    :disabled="disabled",
     label="ОГРН",
     required,
     outlined
@@ -39,7 +39,8 @@ v-form.app-form-payment-details-ie(
   AppTextField(
     v-model="transactionAccount",
     :rules="transactionAccountRules",
-    :disabled="loading",
+    :loading="loading",
+    :disabled="disabled",
     label="Расчетный счет",
     required,
     outlined
@@ -47,7 +48,8 @@ v-form.app-form-payment-details-ie(
   AppTextField(
     v-model="bank",
     :rules="bankRules",
-    :disabled="loading",
+    :loading="loading",
+    :disabled="disabled",
     label="Банк",
     required,
     outlined
@@ -55,7 +57,8 @@ v-form.app-form-payment-details-ie(
   AppTextField(
     v-model="bankInn",
     :rules="bankInnRules",
-    :disabled="loading",
+    :loading="loading",
+    :disabled="disabled",
     label="ИНН банка",
     required,
     outlined
@@ -63,7 +66,8 @@ v-form.app-form-payment-details-ie(
   AppTextField(
     v-model="bankBic",
     :rules="bankBicRules",
-    :disabled="loading",
+    :loading="loading",
+    :disabled="disabled",
     label="БИК банка",
     required,
     outlined
@@ -71,7 +75,8 @@ v-form.app-form-payment-details-ie(
   AppTextField(
     v-model="bankCorrespondentAccount",
     :rules="bankCorrespondentAccountRules",
-    :disabled="loading",
+    :loading="loading",
+    :disabled="disabled",
     label="Корреспондентский счет банка",
     required,
     outlined
@@ -79,7 +84,8 @@ v-form.app-form-payment-details-ie(
   AppTextField(
     v-model="bankLegalAddress",
     :rules="bankLegalAddressRules",
-    :disabled="loading",
+    :loading="loading",
+    :disabled="disabled",
     label="Юридический адрес банка",
     required,
     outlined

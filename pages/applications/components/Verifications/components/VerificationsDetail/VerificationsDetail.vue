@@ -5,19 +5,19 @@ AppOverlay.verifications-detail(
   @close="close"
 )
   template(v-slot:actions)
-    v-btn(dark, text, @click="approve", :loading="approveLoading") Утвердить
+    v-btn(dark, text, @click="approve", :loading="approveLoading" :disabled="saveLoading") Утвердить
 
   AppCard.verifications-detail--card
     v-tabs.verifications-detail--tabs(
       v-model="tab",
       :show-arrows="false",
       center-active,
-      :hide-slider="approveLoading"
+      :hide-slider="approveLoading || saveLoading"
     )
-      v-tab.verifications-detail--tab(:disabled="approveLoading") Персональные данные
-      v-tab.verifications-detail--tab(:disabled="approveLoading") Паспорт
-      v-tab.verifications-detail--tab(:disabled="approveLoading") Платежные данные
-      v-tab.verifications-detail--tab(:disabled="approveLoading") Договор
+      v-tab.verifications-detail--tab(:disabled="approveLoading || saveLoading") Персональные данные
+      v-tab.verifications-detail--tab(:disabled="approveLoading || saveLoading") Паспорт
+      v-tab.verifications-detail--tab(:disabled="approveLoading || saveLoading") Платежные данные
+      v-tab.verifications-detail--tab(:disabled="approveLoading || saveLoading") Договор
 
     v-window.verifications-detail--window(v-model="tab")
       v-window-item.verifications-detail--window-item
@@ -25,7 +25,7 @@ AppOverlay.verifications-detail(
           ref="personal_data_form",
           :data="this.user",
           :loading="loading",
-          :disabled="approveLoading",
+          :disabled="approveLoading || saveLoading",
           @update:avatar="updateAvatar",
           @update:second_name="updateSecondName",
           @update:first_name="updateFirstName",
@@ -41,7 +41,7 @@ AppOverlay.verifications-detail(
           ref="passport_form",
           :data="this.user",
           :loading="loading",
-          :disabled="approveLoading",
+          :disabled="approveLoading || saveLoading",
           @update:full_name="updateFullNamePass",
           @update:series="updateSeriesPass",
           @update:number="updateNumberPass",
@@ -60,7 +60,7 @@ AppOverlay.verifications-detail(
           ref="payment_details_form_se",
           :data="this.user",
           :loading="loading",
-          :disabled="approveLoading",
+          :disabled="approveLoading || saveLoading",
           @update:full_name="updateFullNameSE",
           @update:transaction_account="updateTransactionAccountSE",
           @update:inn="updateInnSE",
@@ -78,7 +78,7 @@ AppOverlay.verifications-detail(
           ref="payment_details_form_ie",
           :data="this.user",
           :loading="loading",
-          :disabled="approveLoading",
+          :disabled="approveLoading || saveLoading",
           @update:full_name="updateFullNameIE",
           @update:organization_legal_address="updateOrganizationLegalAddressIE",
           @update:inn="updateInnIE",
@@ -98,11 +98,11 @@ AppOverlay.verifications-detail(
           :data="this.user",
           :title="'Загрузите документ в формате .pdf'",
           :loading="loading",
-          :disabled="approveLoading",
+          :disabled="approveLoading || saveLoading",
           @update:agency_contract="updateAgencyContract"
         )
 
-    AppButton(@click="save", :disabled="loading || approveLoading") Сохранить
+    AppButton(@click="save", :disabled="loading || approveLoading" :loading="saveLoading") Сохранить
 </template>
 
 <script src="./VerificationsDetail.js" />

@@ -10,7 +10,8 @@
           AppTextField(
             v-model="passFullName",
             :rules="passFullNameRules",
-            :disabled="loading",
+            :loading="loading",
+            :disabled="disabled",
             label="ФИО в паспорте",
             required,
             outlined
@@ -20,7 +21,8 @@
           AppTextField.app-form-passport-form-passport__info--series(
             v-model="passSeries",
             :rules="passSeriesRules",
-            :disabled="loading",
+            :loading="loading",
+            :disabled="disabled",
             label="Серия",
             required,
             outlined
@@ -29,7 +31,8 @@
           AppTextField.app-form-passport-form-passport__info--number(
             v-model="passNumber",
             :rules="passNumberRules",
-            :disabled="loading",
+            :loading="loading",
+            :disabled="disabled",
             label="Номер",
             required,
             outlined
@@ -38,7 +41,8 @@
           AppTextField.app-form-passport-form-passport__info--issue-date(
             v-model="passIssueDate",
             :rules="passIssueDateRules",
-            :disabled="loading",
+            :loading="loading",
+            :disabled="disabled",
             label="Дата выдачи",
             :placeholder="formPlaceholder.date",
             required,
@@ -48,7 +52,8 @@
           AppTextField.app-form-passport-form-passport__info--validity(
             v-model="passRegistrationAddress",
             :rules="passRegistrationAddressRules",
-            :disabled="loading",
+            :loading="loading",
+            :disabled="disabled",
             label="Адрес регистрации",
             required,
             outlined
@@ -58,7 +63,8 @@
           AppTextField.app-form-passport-form-passport__info--issued-by(
             v-model="passIssuedBy",
             :rules="passIssuedByRules",
-            :disabled="loading",
+            :loading="loading",
+            :disabled="disabled",
             label="Кем выдан",
             required,
             outlined
@@ -68,7 +74,8 @@
           AppTextField.app-form-passport-form-passport__info--division-code(
             v-model="passDepartmentCode",
             :rules="passDepartmentCodeRules",
-            :disabled="loading",
+            :loading="loading",
+            :disabled="disabled",
             label="Код подразделения",
             required,
             outlined

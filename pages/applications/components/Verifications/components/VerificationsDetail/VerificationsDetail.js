@@ -30,7 +30,15 @@ export default {
     },
     loading: {
       type: Boolean,
-      default: true,
+      default: false,
+    },
+    saveLoading: {
+      type: Boolean,
+      default: false,
+    },
+    edited: {
+      type: Boolean,
+      default: false,
     },
     user: {
       type: Object | null,
@@ -62,31 +70,38 @@ export default {
   watch: {},
   methods: {
     close() {
-      if (this.approveLoading) return;
+      if (this.approveLoading || this.saveLoading) return;
       this.$emit('close');
       this.tab = 0;
     },
     save() {
-      if (this.validForms()) {
-        // this.$emit('save');
-        // this.tab = 0;
+      if (this.validForms({ save: true })) {
+        this.$emit('save');
       }
     },
     approve() {
-      if (this.validForms()) {
-        // this.approveLoading = true;
+      // if (this.validForms()) {
+      //   // this.approveLoading = true;
 
-        this.$emit('approve');
+      //   this.$emit('approve');
 
-        // setTimeout(() => { //FIXME
-        //   this.approveLoading = false;
-        //   this.$emit('approve');
-        // }, 5000);
+      //   // setTimeout(() => { //FIXME
+      //   //   this.approveLoading = false;
+      //   //   this.$emit('approve');
+      //   // }, 5000);
 
-        this.tab = 0;
+      //   this.tab = 0;
+      // }
+
+      if (this.edited) {
+        alert('Данные были изменены. Перед утверждением, необходимо сохранить изменения.');
+        return;
       }
+
+      this.$emit('approve');
+      this.tab = 0;
     },
-    validForms() {
+    validForms({ save }) {
       const personalDataForm = this.$refs.personal_data_form;
       const passportForm = this.$refs.passport_form;
       const paymentDetailsForm = this.getPaymentDetailsFormRef();
@@ -101,7 +116,7 @@ export default {
         !personalDataForm ||
         !passportForm ||
         !paymentDetailsForm ||
-        !agencyContractForm
+        (!agencyContractForm && !save)
       ) {
         alert('Необходимо проверить всё разделы');
         return false;
@@ -122,7 +137,7 @@ export default {
         return false;
       }
 
-      if (!agencyContractForm.validate()) {
+      if (!save && !agencyContractForm.validate()) {
         this.tab = 3;
         return false;
       }

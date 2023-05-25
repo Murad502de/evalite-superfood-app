@@ -16,10 +16,13 @@
 
   VerificationsDetail(
     :user="verificationsDetail",
+    :edited="verificationsDetailEdited",
     :dialog="verificationsDetailDialog",
     :loading="verificationsDetailLoading",
+    :saveLoading="verificationsDetailLoadingSave"
     @close="closeVerificationsDetailDialog",
     @approve="approveVerificationsDetail",
+    @save="saveVerificationsDetail"
     @update:avatar="updateAvatar",
     @update:second_name="updateSecondName",
     @update:first_name="updateFirstName",
@@ -59,7 +62,7 @@
     @update:bank_bic_ie="updateBankBicIE",
     @update:bank_correspondent_account_ie="updateBankCorrespondentAccountIE",
     @update:bank_legal_address_ie="updateBankLegalAddressIE",
-    @update:confirm_doc_ie="updateConfirmDocIE"
+    @update:confirm_doc_ie="updateConfirmDocIE",
     @update:agency_contract="updateAgencyContract"
   )
 </template>

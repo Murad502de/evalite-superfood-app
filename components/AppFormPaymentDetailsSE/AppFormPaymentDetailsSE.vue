@@ -3,7 +3,8 @@ v-form.app-form-payment-details-se(ref="form", v-model="valid", lazy-validation)
   AppTextField(
     v-model="fullName",
     :rules="fullNameRules",
-    :disabled="loading",
+    :loading="loading",
+    :disabled="disabled",
     label="ФИО получателя",
     required,
     outlined
@@ -11,7 +12,8 @@ v-form.app-form-payment-details-se(ref="form", v-model="valid", lazy-validation)
   AppTextField(
     v-model="transactionAccount",
     :rules="transactionAccountRules",
-    :disabled="loading",
+    :loading="loading",
+    :disabled="disabled",
     label="Номер счета",
     required,
     outlined
@@ -19,7 +21,8 @@ v-form.app-form-payment-details-se(ref="form", v-model="valid", lazy-validation)
   AppTextField(
     v-model="inn",
     :rules="innRules",
-    :disabled="loading",
+    :loading="loading",
+    :disabled="disabled",
     label="ИНН",
     required,
     outlined
@@ -27,7 +30,8 @@ v-form.app-form-payment-details-se(ref="form", v-model="valid", lazy-validation)
   AppTextField(
     v-model="swift",
     :rules="swiftRules",
-    :disabled="loading",
+    :loading="loading",
+    :disabled="disabled",
     label="SWIFT-код",
     required,
     outlined
@@ -35,7 +39,8 @@ v-form.app-form-payment-details-se(ref="form", v-model="valid", lazy-validation)
   AppTextField(
     v-model="mailingAddress",
     :rules="mailingAddressRules",
-    :disabled="loading",
+    :loading="loading",
+    :disabled="disabled",
     label="Почтовый адрес",
     required,
     outlined
@@ -43,7 +48,8 @@ v-form.app-form-payment-details-se(ref="form", v-model="valid", lazy-validation)
   AppTextField(
     v-model="bank",
     :rules="bankRules",
-    :disabled="loading",
+    :loading="loading",
+    :disabled="disabled",
     label="Банк получателя",
     required,
     outlined
@@ -51,7 +57,8 @@ v-form.app-form-payment-details-se(ref="form", v-model="valid", lazy-validation)
   AppTextField(
     v-model="bic",
     :rules="bicRules",
-    :disabled="loading",
+    :loading="loading",
+    :disabled="disabled",
     label="БИК банка",
     required,
     outlined
@@ -59,7 +66,8 @@ v-form.app-form-payment-details-se(ref="form", v-model="valid", lazy-validation)
   AppTextField(
     v-model="correspondentAccount",
     :rules="correspondentAccountRules",
-    :disabled="loading",
+    :loading="loading",
+    :disabled="disabled",
     label="Корр. счет",
     required,
     outlined
@@ -67,7 +75,8 @@ v-form.app-form-payment-details-se(ref="form", v-model="valid", lazy-validation)
   AppTextField(
     v-model="bankInn",
     :rules="bankInnRules",
-    :disabled="loading",
+    :loading="loading",
+    :disabled="disabled",
     label="ИНН банка",
     required,
     outlined
@@ -75,7 +84,8 @@ v-form.app-form-payment-details-se(ref="form", v-model="valid", lazy-validation)
   AppTextField(
     v-model="bankKpp",
     :rules="bankKppRules",
-    :disabled="loading",
+    :loading="loading",
+    :disabled="disabled",
     label="КПП банка",
     required,
     outlined

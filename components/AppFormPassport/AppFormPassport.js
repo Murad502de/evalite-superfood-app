@@ -162,6 +162,7 @@ export default {
   },
   methods: {
     uploadMainSpread(file = null) {
+      if (this.loading || this.disabled) return;
       //TODO call validate service
       console.debug(file); //DELETE
       this.mainSpreadMediaFile = file;
@@ -170,11 +171,13 @@ export default {
       this.mainSpreadMediaError = false;
     },
     deleteMainSpread() {
+      if (this.loading || this.disabled) return;
       this.mainSpreadMediaFile = null;
       this.mainSpreadMediaName = null;
       this.mainSpreadMediaUrl = null;
     },
     uploadRegistrationSpread(file = null) {
+      if (this.loading || this.disabled) return;
       //TODO call validate service
       this.registrationSpreadMediaFile = file;
       this.registrationSpreadMediaName = file.name;
@@ -182,11 +185,13 @@ export default {
       this.registrationSpreadMediaError = false;
     },
     deleteRegistrationSpread() {
+      if (this.loading || this.disabled) return;
       this.registrationSpreadMediaFile = null;
       this.registrationSpreadMediaName = null;
       this.registrationSpreadMediaUrl = null;
     },
     uploadVerificationSpread(file = null) {
+      if (this.loading || this.disabled) return;
       //TODO call validate service
       this.verificationSpreadMediaFile = file;
       this.verificationSpreadMediaName = file.name;
@@ -194,6 +199,7 @@ export default {
       this.verificationSpreadMediaError = false;
     },
     deleteVerificationSpread() {
+      if (this.loading || this.disabled) return;
       this.verificationSpreadMediaFile = null;
       this.verificationSpreadMediaName = null;
       this.verificationSpreadMediaUrl = null;
