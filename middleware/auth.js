@@ -9,7 +9,7 @@ export default async function ({ route, redirect, store, }) {
     const usersMyResponse = await usersMy();
 
     if (usersMyResponse.status !== httpResponse.HTTP_OK) {
-      authSignoutService();
+      await authSignoutService();
       return redirect(`/${routeNames.signin}`);
     }
 
