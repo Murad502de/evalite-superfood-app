@@ -60,6 +60,7 @@
     @update:bank_correspondent_account_ie="updateBankCorrespondentAccountIE",
     @update:bank_legal_address_ie="updateBankLegalAddressIE",
     @update:confirm_doc_ie="updateConfirmDocIE"
+    @update:agency_contract="updateAgencyContract"
   )
 </template>
 

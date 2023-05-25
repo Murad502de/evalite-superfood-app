@@ -69,6 +69,7 @@ export default {
     async approveVerificationsDetail() {
       console.debug('approveVerificationsDetail/verificationsDetail', this.verificationsDetail); //DELETE
       this.verificationsDetailDialog = false;
+      this.verificationsDetail = null;
       await this.fetchUsers();
     },
     async updatePage(e) {
@@ -101,6 +102,7 @@ export default {
       }));
       this.loading = false;
     },
+
     updateAvatar(value) {
       console.debug('Verifications/updateAvatar/value', value); //DELETE
       this.verificationsDetail.avatarFile = value;
@@ -133,7 +135,7 @@ export default {
       console.debug('Verifications/updatePhone/value', value); //DELETE
       this.verificationsDetail.phone = value;
     },
-    
+
     updateFullNamePass(value) {
       console.debug('Vers/updateFullNamePass', value); //DELETE
     },
@@ -231,6 +233,10 @@ export default {
     },
     updateConfirmDocIE(value) {
       console.debug('Vers/updateConfirmDocIE/value', value); //DELETE
+    },
+
+    updateAgencyContract(value) {
+      console.debug('Vers/updateAgencyContract/value', value); //DELETE
     },
   },
   async created() {

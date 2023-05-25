@@ -1,4 +1,3 @@
-import { createUploadedFileUrl } from '@/utils/file.js';
 import * as employmentTypes from '@/shared/employmentTypes';
 import AppOverlay from '@/components/AppOverlay/AppOverlay.vue';
 import AppCard from '@/components/AppCard/AppCard.vue';
@@ -9,7 +8,7 @@ import AppFormPersonalData from '@/components/AppFormPersonalData/AppFormPersona
 import AppFormPassport from '@/components/AppFormPassport/AppFormPassport.vue';
 import AppFormPaymentDetailsSE from '@/components/AppFormPaymentDetailsSE/AppFormPaymentDetailsSE.vue';
 import AppFormPaymentDetailsIE from '@/components/AppFormPaymentDetailsIE/AppFormPaymentDetailsIE.vue';
-import AppFormMediaDoc from '@/components/AppFormMediaDoc/AppFormMediaDoc.vue';
+import AppFormDoc from '@/components/AppFormDoc/AppFormDoc.vue';
 
 export default {
   components: {
@@ -22,7 +21,7 @@ export default {
     AppFormPassport,
     AppFormPaymentDetailsSE,
     AppFormPaymentDetailsIE,
-    AppFormMediaDoc,
+    AppFormDoc,
   },
   props: {
     dialog: {
@@ -43,10 +42,6 @@ export default {
       tab: 0,
       valid: true,
       approveLoading: false,
-      agencyContractFile: null,
-      agencyContractName: null,
-      agencyContractUrl: null,
-      agencyContractError: false,
     };
   },
   computed: {
@@ -69,10 +64,12 @@ export default {
     close() {
       if (this.approveLoading) return;
       this.$emit('close');
+      this.tab = 0;
     },
     save() {
       if (this.validForms()) {
         // this.$emit('save');
+        // this.tab = 0;
       }
     },
     approve() {
@@ -85,21 +82,26 @@ export default {
         //   this.approveLoading = false;
         //   this.$emit('approve');
         // }, 5000);
+
+        this.tab = 0;
       }
     },
     validForms() {
       const personalDataForm = this.$refs.personal_data_form;
       const passportForm = this.$refs.passport_form;
       const paymentDetailsForm = this.getPaymentDetailsFormRef();
+      const agencyContractForm = this.$refs.agency_contract_form;
 
       console.debug('personalDataForm', personalDataForm); //DELETE
       console.debug('passportForm', passportForm); //DELETE
       console.debug('paymentDetailsForm', paymentDetailsForm); //DELETE
+      console.debug('agencyContractForm', agencyContractForm); //DELETE
 
       if (
         !personalDataForm ||
         !passportForm ||
-        !paymentDetailsForm
+        !paymentDetailsForm ||
+        !agencyContractForm
       ) {
         alert('Необходимо проверить всё разделы');
         return false;
@@ -120,8 +122,19 @@ export default {
         return false;
       }
 
+      if (!agencyContractForm.validate()) {
+        this.tab = 3;
+        return false;
+      }
+
       return true;
     },
+    getPaymentDetailsFormRef() {
+      if (this.employmentTypeCrt === this.employmentTypeSE) return this.$refs.payment_details_form_se;
+      if (this.employmentTypeCrt === this.employmentTypeIE) return this.$refs.payment_details_form_ie;
+      return null;
+    },
+
     updateAvatar(value) {
       this.$emit('update:avatar', value);
     },
@@ -146,6 +159,7 @@ export default {
     updatePhone(value) {
       this.$emit('update:phone', value);
     },
+
     updateFullNamePass(value) {
       console.debug('VerDet/updateFullNamePass', value); //DELETE
       this.$emit('update:pass_full_name', value);
@@ -277,26 +291,10 @@ export default {
       this.$emit('update:confirm_doc_ie', value);
     },
 
-    uploadAgencyContract(file = null) {
-      //TODO call validate service
-      console.debug(file); //DELETE
-      this.agencyContractFile = file;
-      this.agencyContractName = file.name;
-      this.agencyContractUrl = createUploadedFileUrl(file);
-      this.agencyContractError = false;
+    updateAgencyContract(value) {
+      console.debug('VerDet/updateAgencyContract/value', value); //DELETE
+      this.$emit('update:agency_contract', value);
     },
-    deleteAgencyContract() {
-      this.agencyContractFile = null;
-      this.agencyContractName = null;
-      this.agencyContractUrl = null;
-      this.agencyContractError = false;
-    },
-
-    getPaymentDetailsFormRef() {
-      if (this.employmentTypeCrt === this.employmentTypeSE) return this.$refs.payment_details_form_se;
-      if (this.employmentTypeCrt === this.employmentTypeIE) return this.$refs.payment_details_form_ie;
-      return null;
-    }
   },
   created() { },
   mounted() { },

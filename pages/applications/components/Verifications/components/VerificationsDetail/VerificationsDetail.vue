@@ -93,12 +93,13 @@ AppOverlay.verifications-detail(
         )
 
       v-window-item.verifications-detail--window-item
-        AppFormMediaDoc(
-          :type="'pdf'",
-          :mediaName="agencyContractName",
-          :mediaUrl="agencyContractUrl",
-          @upload="uploadAgencyContract",
-          @delete="deleteAgencyContract"
+        AppFormDoc(
+          ref="agency_contract_form",
+          :data="this.user",
+          :title="'Загрузите документ в формате .pdf'",
+          :loading="loading",
+          :disabled="approveLoading",
+          @update:agency_contract="updateAgencyContract"
         )
 
     AppButton(@click="save", :disabled="loading || approveLoading") Сохранить
