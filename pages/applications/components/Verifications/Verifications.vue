@@ -20,6 +20,7 @@
     :dialog="verificationsDetailDialog",
     :loading="verificationsDetailLoading",
     :saveLoading="verificationsDetailLoadingSave"
+    :approveLoading="verificationsDetailLoadingApprove"
     @close="closeVerificationsDetailDialog",
     @approve="approveVerificationsDetail",
     @save="saveVerificationsDetail"

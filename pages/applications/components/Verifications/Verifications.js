@@ -1,6 +1,7 @@
 import { usersVerifications } from '@/api/users/usersVerifications';
 import { usersUuid } from '@/api/users/usersUuid';
 import { usersUuidUpdate } from '@/api/users/usersUuidUpdate';
+import { usersUuidStatusVerificationSet } from '@/api/users/usersUuidStatusVerificationSet';
 import { userUuidInAdapter } from '@/api/adapters/users/userUuidInAdapter';
 import { userUuidOutAdapter } from '@/api/adapters/users/userUuidOutAdapter';
 import { parseFromISOtoDdMmYyyy } from '@/utils/date';
@@ -47,6 +48,7 @@ export default {
       verificationsDetailDialog: false,
       verificationsDetailLoading: false,
       verificationsDetailLoadingSave: false,
+      verificationsDetailLoadingApprove: false,
     };
   },
   computed: {},
@@ -74,8 +76,17 @@ export default {
     async approveVerificationsDetail() {
       console.debug('approveVerificationsDetail/verificationsDetail', this.verificationsDetail); //DELETE
 
-      //TODO implement approving integration
+      this.verificationsDetailLoadingApprove = true;
 
+      const usersUuidStatusVerificationSetResponse = await usersUuidStatusVerificationSet(this.verificationsDetail.uuid, 'completed');
+
+      console.debug('usersUuidStatusVerificationSetResponse', usersUuidStatusVerificationSetResponse); //DELETE
+
+      if (usersUuidStatusVerificationSetResponse.status !== 200) {
+        alert('Ошибка утверждения пользователя'); //FIXME implement with vuetify
+      }
+
+      this.verificationsDetailLoadingApprove = false;
       this.verificationsDetailDialog = false;
       this.verificationsDetail = null;
       await this.fetchUsers();

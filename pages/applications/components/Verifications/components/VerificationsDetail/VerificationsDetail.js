@@ -36,6 +36,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    approveLoading: {
+      type: Boolean,
+      default: false,
+    },
     edited: {
       type: Boolean,
       default: false,
@@ -49,7 +53,6 @@ export default {
     return {
       tab: 0,
       valid: true,
-      approveLoading: false,
     };
   },
   computed: {
@@ -87,7 +90,7 @@ export default {
         }
 
         this.$emit('approve');
-        this.tab = 0;
+        this.tab = 0; //FIXME
       }
     },
     validForms(save = false) {
