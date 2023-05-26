@@ -71,7 +71,7 @@ export default {
         return;
       }
 
-      this.confirmDocUrl = value.agencyContract;
+      this.agencyContractUrl = value.agencyContract;
     },
     isDataNull() {
       console.debug('AppFormDoc/methods/isDataNull/data', this.data); //DELETE

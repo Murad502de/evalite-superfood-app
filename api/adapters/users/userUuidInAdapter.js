@@ -3,6 +3,7 @@ import { parseFromISOtoDdMmYyyy } from '@/utils/date';
 export const userUuidInAdapter = async (user) => ({
   uuid: user.uuid,
   avatar: user.avatar,
+  avatarFile: null,
   fullName: `${user.second_name} ${user.first_name} ${user.third_name}`,
   firstName: user.first_name,
   secondName: user.second_name,
@@ -30,7 +31,7 @@ export const userUuidInAdapter = async (user) => ({
   },
   paymentDetailsSelfEmployed: await userUuidPaymentDetailsSelfEmployedInAdapter(user.payment_details_self_employed),
   paymentDetailsIndividualEntrepreneur: await userUuidPaymentDetailsIndividualEntrepreneurInAdapter(user.payment_details_individual_entrepreneur),
-  agencyContract: user.agency_contract,
+  agencyContract: user.agency_contract?.agency_contract_url,
   agencyContractFile: null,
 });
 

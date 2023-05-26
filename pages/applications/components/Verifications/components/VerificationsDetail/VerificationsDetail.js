@@ -75,33 +75,22 @@ export default {
       this.tab = 0;
     },
     save() {
-      if (this.validForms({ save: true })) {
+      if (this.validForms(true)) {
         this.$emit('save');
       }
     },
     approve() {
-      // if (this.validForms()) {
-      //   // this.approveLoading = true;
+      if (this.validForms()) {
+        if (this.edited) {
+          alert('Данные были изменены. Перед утверждением, необходимо сохранить изменения.');
+          return;
+        }
 
-      //   this.$emit('approve');
-
-      //   // setTimeout(() => { //FIXME
-      //   //   this.approveLoading = false;
-      //   //   this.$emit('approve');
-      //   // }, 5000);
-
-      //   this.tab = 0;
-      // }
-
-      if (this.edited) {
-        alert('Данные были изменены. Перед утверждением, необходимо сохранить изменения.');
-        return;
+        this.$emit('approve');
+        this.tab = 0;
       }
-
-      this.$emit('approve');
-      this.tab = 0;
     },
-    validForms({ save }) {
+    validForms(save = false) {
       const personalDataForm = this.$refs.personal_data_form;
       const passportForm = this.$refs.passport_form;
       const paymentDetailsForm = this.getPaymentDetailsFormRef();

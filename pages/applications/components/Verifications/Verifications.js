@@ -1,6 +1,8 @@
 import { usersVerifications } from '@/api/users/usersVerifications';
 import { usersUuid } from '@/api/users/usersUuid';
+import { usersUuidUpdate } from '@/api/users/usersUuidUpdate';
 import { userUuidInAdapter } from '@/api/adapters/users/userUuidInAdapter';
+import { userUuidOutAdapter } from '@/api/adapters/users/userUuidOutAdapter';
 import { parseFromISOtoDdMmYyyy } from '@/utils/date';
 import { getRoleTitleByCode } from '@/utils/roles';
 import { createUploadedFileUrl } from '@/utils/file.js';
@@ -80,13 +82,20 @@ export default {
     },
     async saveVerificationsDetail() {
       console.debug('saveVerificationsDetail/verificationsDetail', this.verificationsDetail); //DELETE
+      console.debug('saveVerificationsDetail/verificationsDetail/userUuidOutAdapter', await userUuidOutAdapter(this.verificationsDetail)); //DELETE
       this.verificationsDetailLoadingSave = true;
+      const usersUuidUpdateResponse = await usersUuidUpdate(
+        await userUuidOutAdapter(this.verificationsDetail)
+      );
 
-      //TODO implement saving integration
+      console.debug('usersUuidUpdateResponse', usersUuidUpdateResponse); //DELETE
 
-      setTimeout(() => {
-        this.verificationsDetailLoadingSave = false;
-      }, 3000);
+      if (usersUuidUpdateResponse.status !== 200) {
+        alert('Ошибка сохранения пользователя'); //FIXME implement with vuetify
+      }
+
+      this.verificationsDetailEdited = false;
+      this.verificationsDetailLoadingSave = false;
     },
     async updatePage(e) {
       this.page = e.page;
