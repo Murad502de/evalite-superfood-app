@@ -29,48 +29,48 @@ export default {
   data() {
     return {
       valid: true,
-      fullName: '',
+      fullName: null,
       fullNameRules: [
         validation.required(),
       ],
-      transactionAccount: '',
+      transactionAccount: null,
       transactionAccountRules: [
         validation.required(),
         validation.numbers(),
       ],
-      inn: '',
+      inn: null,
       innRules: [
         validation.required(),
         validation.numbers(),
       ],
-      swift: '',
+      swift: null,
       swiftRules: [
         validation.required(),
       ],
-      mailingAddress: '',
+      mailingAddress: null,
       mailingAddressRules: [
         validation.required(),
       ],
-      bank: '',
+      bank: null,
       bankRules: [
         validation.required(),
       ],
-      bic: '',
+      bic: null,
       bicRules: [
         validation.required(),
         validation.numbers(),
       ],
-      correspondentAccount: '',
+      correspondentAccount: null,
       correspondentAccountRules: [
         validation.required(),
         validation.numbers(),
       ],
-      bankInn: '',
+      bankInn: null,
       bankInnRules: [
         validation.required(),
         validation.numbers(),
       ],
-      bankKpp: '',
+      bankKpp: null,
       bankKppRules: [
         validation.required(),
         validation.numbers(),
@@ -103,58 +103,69 @@ export default {
     computedProgress(newVal) {
       this.$emit('update:progress', newVal);
     },
-    fullName(newVal) {
-      if (this.isDataNull()) return;
+    fullName(newVal, oldVal) {
+      // if (this.isDataNull()) return;
+      if (newVal === null || oldVal === null || this.isDataNull()) return;
       console.debug('SE/watch/fullName', newVal); //DELETE
       this.$emit('update:full_name', newVal);
     },
-    transactionAccount(newVal) {
-      if (this.isDataNull()) return;
+    transactionAccount(newVal, oldVal) {
+      // if (this.isDataNull()) return;
+      if (newVal === null || oldVal === null || this.isDataNull()) return;
       console.debug('SE/watch/transactionAccount', newVal); //DELETE
       this.$emit('update:transaction_account', newVal);
     },
-    inn(newVal) {
-      if (this.isDataNull()) return;
+    inn(newVal, oldVal) {
+      // if (this.isDataNull()) return;
+      if (newVal === null || oldVal === null || this.isDataNull()) return;
       console.debug('SE/watch/inn', newVal); //DELETE
       this.$emit('update:inn', newVal);
     },
-    swift(newVal) {
-      if (this.isDataNull()) return;
+    swift(newVal, oldVal) {
+      // if (this.isDataNull()) return;
+      if (newVal === null || oldVal === null || this.isDataNull()) return;
       console.debug('SE/watch/swift', newVal); //DELETE
       this.$emit('update:swift', newVal);
     },
-    mailingAddress(newVal) {
-      if (this.isDataNull()) return;
+    mailingAddress(newVal, oldVal) {
+      // if (this.isDataNull()) return;
+      if (newVal === null || oldVal === null || this.isDataNull()) return;
       console.debug('SE/watch/mailingAddress', newVal); //DELETE
       this.$emit('update:mailing_address', newVal);
     },
-    bank(newVal) {
-      if (this.isDataNull()) return;
+    bank(newVal, oldVal) {
+      // if (this.isDataNull()) return;
+      if (newVal === null || oldVal === null || this.isDataNull()) return;
       console.debug('SE/watch/bank', newVal); //DELETE
       this.$emit('update:bank', newVal);
     },
-    bic(newVal) {
-      if (this.isDataNull()) return;
+    bic(newVal, oldVal) {
+      // if (this.isDataNull()) return;
+      if (newVal === null || oldVal === null || this.isDataNull()) return;
       console.debug('SE/watch/bic', newVal); //DELETE
       this.$emit('update:bic', newVal);
     },
-    correspondentAccount(newVal) {
-      if (this.isDataNull()) return;
+    correspondentAccount(newVal, oldVal) {
+      // if (this.isDataNull()) return;
+      if (newVal === null || oldVal === null || this.isDataNull()) return;
       console.debug('SE/watch/correspondentAccount', newVal); //DELETE
       this.$emit('update:correspondent_account', newVal);
     },
-    bankInn(newVal) {
-      if (this.isDataNull()) return;
+    bankInn(newVal, oldVal) {
+      // if (this.isDataNull()) return;
+      if (newVal === null || oldVal === null || this.isDataNull()) return;
       console.debug('SE/watch/bankInn', newVal); //DELETE
       this.$emit('update:bank_inn', newVal);
     },
-    bankKpp(newVal) {
-      if (this.isDataNull()) return;
+    bankKpp(newVal, oldVal) {
+      // if (this.isDataNull()) return;
+      if (newVal === null || oldVal === null || this.isDataNull()) return;
       console.debug('SE/watch/bankKpp', newVal); //DELETE
       this.$emit('update:bank_kpp', newVal);
     },
-    confirmDocFile(newVal) {
+    confirmDocFile(newVal, oldVal) {
       if (this.isDataNull()) return;
+      // if (newVal === null || oldVal === null || this.isDataNull()) return;
       console.debug('SE/watch/confirmDocFile', newVal); //DELETE
       this.$emit('update:confirm_doc', newVal);
     },
