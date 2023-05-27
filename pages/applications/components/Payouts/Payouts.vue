@@ -9,7 +9,6 @@
     :lastPage="lastPage",
     :itemsPerPage="itemsPerPage",
     :itemsLength="itemsLength",
-    @click:row="onRowClick",
     @update:page="updatePage",
     @update:itemsPerPage="updateItemsPerPage"
   )
@@ -21,8 +20,11 @@
       :loading="loading",
       :loading-text="'Данные загружаются'"
     )
-      template.payouts--table__action(v-slot:item.action="{item}")
-        AppButton.payouts--payout__close(:loading="false" @click="onRowClick(item)") закрыть
+      template.payouts--table__action(v-slot:item.action="{ item }")
+        AppButton.payouts--payout__close(
+          :loading="item.closeLoading",
+          @click="closePayout(item)"
+        ) закрыть
 </template>
 
 <script src="./Payouts.js" />

@@ -50,8 +50,17 @@ export default {
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
-    onRowClick(e) {
-      console.debug('Ver/onRowClick/e', e);
+    async closePayout(payout) {
+      console.debug('Ver/closePayout/payout', payout); //DELETE
+      payout.closeLoading = true;
+      //TODO send request
+      payout.closeLoading = false;
+      this.deletePayoutFromList(payout);
+    },
+    deletePayoutFromList(payout) {
+      console.debug('Ver/deletePayoutFromList/payout', payout); //DELETE
+      console.debug('Ver/deletePayoutFromList/items', this.items); //DELETE
+      this.items = this.items.filter(item => item.uuid !== payout.uuid);
     },
     async updatePage(e) {
       this.page = e.page;
@@ -84,6 +93,7 @@ export default {
         full_name: `${item.user.second_name} ${item.user.first_name} ${item.user.third_name}`,
         price: item.price,
         date: parseFromISOtoDdMmYyyy(item.created_at),
+        closeLoading: false,
       }));
       this.loading = false;
     },
