@@ -1,10 +1,12 @@
 import { payoutsReadProcessing } from '@/api/payouts/payoutsReadProcessing';
 import { parseFromISOtoDdMmYyyy } from '@/utils/date';
 import AppTable from '@/components/AppTable/AppTable.vue';
+import AppButton from '@/components/AppButton/AppButton.vue';
 
 export default {
   components: {
     AppTable,
+    AppButton,
   },
 
   props: {},
@@ -25,6 +27,11 @@ export default {
         {
           value: 'price',
           text: 'Сумма',
+          sortable: false,
+        },
+        {
+          value: 'action',
+          text: '',
           sortable: false,
         },
       ],
