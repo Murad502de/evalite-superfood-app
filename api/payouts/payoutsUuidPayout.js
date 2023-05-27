@@ -1,17 +1,11 @@
 import { api } from '@/api';
 
-export const payoutsUuidPayout = async ({ page, perPage, }) => {
+export const payoutsUuidPayout = async ({ uuid }) => {
   try {
-    const params = {
-      page,
-      per_page: perPage,
-      filter_status: 'processing',
-    };
-    const response = await api.get('payouts', {
-      params,
-    });
+    const response = await api.put(`payouts/${uuid}/payout`);
     return response;
   } catch (e) {
+    console.error(e);
     return Object.assign({}, e).response;
   }
 };

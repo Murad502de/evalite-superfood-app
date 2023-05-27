@@ -1,4 +1,5 @@
 import { payoutsReadProcessing } from '@/api/payouts/payoutsReadProcessing';
+import { payoutsUuidPayout } from '@/api/payouts/payoutsUuidPayout';
 import { parseFromISOtoDdMmYyyy } from '@/utils/date';
 import AppTable from '@/components/AppTable/AppTable.vue';
 import AppButton from '@/components/AppButton/AppButton.vue';
@@ -53,7 +54,12 @@ export default {
     async closePayout(payout) {
       console.debug('Ver/closePayout/payout', payout); //DELETE
       payout.closeLoading = true;
-      //TODO send request
+      const payoutsUuidPayoutResponse = await payoutsUuidPayout({ uuid: payout.uuid });
+
+      if (payoutsUuidPayoutResponse.status !== 200) {
+        alert('Ошибка закрытия выплаты'); //FIXME implement with vuetify
+      }
+
       payout.closeLoading = false;
       this.deletePayoutFromList(payout);
     },
@@ -81,7 +87,7 @@ export default {
       console.debug('payoutsReadProcessingResponse', payoutsReadProcessingResponse); //DELETE
 
       if (payoutsReadProcessingResponse.status !== 200) {
-        alert('Ошибка получения списка'); //FIXME implement with vuetify
+        alert('Ошибка получения списка выплат'); //FIXME implement with vuetify
       }
 
       this.page = payoutsReadProcessingResponse.data.meta.current_page;
