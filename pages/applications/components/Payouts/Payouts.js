@@ -1,9 +1,11 @@
 import { payoutsReadProcessing } from '@/api/payouts/payoutsReadProcessing';
 import { payoutsUuidPayout } from '@/api/payouts/payoutsUuidPayout';
+import { payoutsUuidGet } from '@/api/payouts/payoutsUuidGet';
 import { parseFromISOtoDdMmYyyy } from '@/utils/date';
 import AppTable from '@/components/AppTable/AppTable.vue';
 import AppButton from '@/components/AppButton/AppButton.vue';
 import PayoutsDetail from './components/PayoutsDetail/PayoutsDetail.vue';
+import { payoutsUuidGetAdapter } from '@/api/adapters/payouts/payoutsUuidGetAdapter';
 
 export default {
   components: {
@@ -66,46 +68,35 @@ export default {
       this.payoutsDetail = null;
     },
     async approvePayoutsDetail() {
-      console.debug('Payouts/methods/approvePayoutsDetail'); //DELETE
-      this.payoutsDetailDialog = true;
-
-      // const usersUuidStatusVerificationSetResponse = await usersUuidStatusVerificationSet(this.verificationsDetail.uuid, 'completed');
-
-      // console.debug('usersUuidStatusVerificationSetResponse', usersUuidStatusVerificationSetResponse); //DELETE
-
-      // if (usersUuidStatusVerificationSetResponse.status !== 200) {
-      //   alert('Ошибка утверждения пользователя'); //FIXME implement with vuetify
-      // }
-
+      console.debug('Payouts/methods/approvePayoutsDetail/this.payoutsDetail', this.payoutsDetail); //DELETE
+      this.payoutsDetailApproveLoading = true;
+      await this.closePayout(this.payoutsDetail);
       this.payoutsDetailApproveLoading = false;
       this.payoutsDetailDialog = false;
       this.payoutsDetail = null;
-      await this.fetchPayouts();
     },
-    async openPayoutsDetailDialog(e) {
-      console.debug('Payouts/methods/openPayoutsDetailDialog/e', e); //DELETE
+    async openPayoutsDetailDialog(payout) {
+      console.debug('Payouts/methods/openPayoutsDetailDialog/payout', payout); //DELETE
       this.payoutsDetailLoading = true;
       this.payoutsDetailDialog = true;
-      // const usersUuidResponse = await usersUuid(e.uuid);
-      // console.debug('usersUuidResponse', usersUuidResponse); //DELETE
+      const payoutsUuidGetResponse = await payoutsUuidGet({ uuid: payout.uuid });
+      console.debug('Payouts/methods/openPayoutsDetailDialog/payoutsUuidGetResponse', payoutsUuidGetResponse); //DELETE
 
-      // if (usersUuidResponse.status !== 200) {
-      //   alert('Ошибка получения пользователя'); //FIXME implement with vuetify
-      // }
+      if (payoutsUuidGetResponse.status !== 200) {
+        alert('Ошибка получения детализации заявки на вывод средств'); //FIXME implement with vuetify
+      }
 
-      // this.payoutsDetail = await userUuidInAdapter(usersUuidResponse.data.data);
+      this.payoutsDetail = await payoutsUuidGetAdapter(payoutsUuidGetResponse.data.data);
       this.payoutsDetailLoading = false;
     },
     async closePayout(payout) {
-      console.debug('Ver/closePayout/payout', payout); //DELETE
-      payout.closeLoading = true;
+      console.debug('Payouts/methods/closePayout/payout', payout); //DELETE
       const payoutsUuidPayoutResponse = await payoutsUuidPayout({ uuid: payout.uuid });
 
       if (payoutsUuidPayoutResponse.status !== 200) {
         alert('Ошибка закрытия выплаты'); //FIXME implement with vuetify
       }
 
-      payout.closeLoading = false;
       this.deletePayoutFromList(payout);
     },
     deletePayoutFromList(payout) {
@@ -144,7 +135,6 @@ export default {
         full_name: `${item.user.second_name} ${item.user.first_name} ${item.user.third_name}`,
         price: item.price,
         date: parseFromISOtoDdMmYyyy(item.created_at),
-        closeLoading: false,
       }));
       this.loading = false;
     },

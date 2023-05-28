@@ -22,11 +22,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    saveLoading: {
-      type: Boolean,
-      default: false,
-    },
-    payoutLoading: {
+    approveLoading: {
       type: Boolean,
       default: false,
     },
@@ -44,6 +40,9 @@ export default {
       tab: 0,
       valid: true,
       user: null,
+      date: null,
+      fullName: null,
+      price: null,
     };
   },
   computed: {
@@ -70,7 +69,7 @@ export default {
   methods: {
     close() {
       console.debug('PayoutsDetail/methods/close'); //DELETE
-      if (this.payoutLoading) return;
+      if (this.approveLoading) return;
       this.$emit('close');
       this.tab = 0;
     },
@@ -81,6 +80,11 @@ export default {
     },
     init(data) {
       console.debug('PayoutsDetail/methods/init/data', data); //DELETE
+      if (!data) return;
+      this.user = data.user;
+      this.date = data.date;
+      this.fullName = data.user.fullName;
+      this.price = data.price;
     },
   },
   created() {

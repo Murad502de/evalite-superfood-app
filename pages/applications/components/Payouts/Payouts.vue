@@ -19,8 +19,7 @@
     :edited="payoutsDetailEdited",
     :dialog="payoutsDetailDialog",
     :loading="payoutsDetailLoading",
-    :saveLoading="payoutsDetailSaveLoading"
-    :payoutLoading="payoutsDetailApproveLoading"
+    :approveLoading="payoutsDetailApproveLoading"
     @close="closePayoutsDetailDialog",
     @approve="approvePayoutsDetail",
   )
