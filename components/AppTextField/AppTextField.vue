@@ -6,6 +6,7 @@
     :outlined="outlined",
     :required="required",
     :disabled="disabled",
+    :readonly="readonly",
     :loading="loading",
     :label="label",
     :placeholder="placeholder",
