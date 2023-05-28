@@ -5,7 +5,7 @@ v-form.app-form-payment-details-ie(ref="form", v-model="valid", lazy-validation)
     :rules="fullNameRules",
     :loading="loading",
     :disabled="disabled",
-    :readonly="readonly"
+    :readonly="readonly",
     label="ФИО ИП",
     required,
     outlined
@@ -15,7 +15,7 @@ v-form.app-form-payment-details-ie(ref="form", v-model="valid", lazy-validation)
     :rules="organizationLegalAddressRules",
     :loading="loading",
     :disabled="disabled",
-    :readonly="readonly"
+    :readonly="readonly",
     label="Юридический адрес организации",
     required,
     outlined
@@ -25,7 +25,7 @@ v-form.app-form-payment-details-ie(ref="form", v-model="valid", lazy-validation)
     :rules="innRules",
     :loading="loading",
     :disabled="disabled",
-    :readonly="readonly"
+    :readonly="readonly",
     label="ИНН",
     required,
     outlined
@@ -35,7 +35,7 @@ v-form.app-form-payment-details-ie(ref="form", v-model="valid", lazy-validation)
     :rules="ogrnRules",
     :loading="loading",
     :disabled="disabled",
-    :readonly="readonly"
+    :readonly="readonly",
     label="ОГРН",
     required,
     outlined
@@ -45,7 +45,7 @@ v-form.app-form-payment-details-ie(ref="form", v-model="valid", lazy-validation)
     :rules="transactionAccountRules",
     :loading="loading",
     :disabled="disabled",
-    :readonly="readonly"
+    :readonly="readonly",
     label="Расчетный счет",
     required,
     outlined
@@ -55,7 +55,7 @@ v-form.app-form-payment-details-ie(ref="form", v-model="valid", lazy-validation)
     :rules="bankRules",
     :loading="loading",
     :disabled="disabled",
-    :readonly="readonly"
+    :readonly="readonly",
     label="Банк",
     required,
     outlined
@@ -65,7 +65,7 @@ v-form.app-form-payment-details-ie(ref="form", v-model="valid", lazy-validation)
     :rules="bankInnRules",
     :loading="loading",
     :disabled="disabled",
-    :readonly="readonly"
+    :readonly="readonly",
     label="ИНН банка",
     required,
     outlined
@@ -75,7 +75,7 @@ v-form.app-form-payment-details-ie(ref="form", v-model="valid", lazy-validation)
     :rules="bankBicRules",
     :loading="loading",
     :disabled="disabled",
-    :readonly="readonly"
+    :readonly="readonly",
     label="БИК банка",
     required,
     outlined
@@ -85,7 +85,7 @@ v-form.app-form-payment-details-ie(ref="form", v-model="valid", lazy-validation)
     :rules="bankCorrespondentAccountRules",
     :loading="loading",
     :disabled="disabled",
-    :readonly="readonly"
+    :readonly="readonly",
     label="Корреспондентский счет банка",
     required,
     outlined
@@ -95,7 +95,7 @@ v-form.app-form-payment-details-ie(ref="form", v-model="valid", lazy-validation)
     :rules="bankLegalAddressRules",
     :loading="loading",
     :disabled="disabled",
-    :readonly="readonly"
+    :readonly="readonly",
     label="Юридический адрес банка",
     required,
     outlined
@@ -110,6 +110,7 @@ v-form.app-form-payment-details-ie(ref="form", v-model="valid", lazy-validation)
       :type="'pdf'",
       :mediaName="confirmDocName",
       :mediaUrl="confirmDocUrl",
+      :readonly="readonly",
       @upload="uploadConfirmDoc",
       @delete="deleteConfirmDoc"
     )

@@ -28,7 +28,7 @@
       .app-form-media-doc-file__preview(v-show="!!mediaUrl", @click="openFile")
         .app-form-media-doc-file__preview-title Просмотреть
 
-      .app-form-media-doc-file__delete(v-show="!!mediaUrl", @click="deleteFile")
+      .app-form-media-doc-file__delete(v-show="!!mediaUrl && !readonly", @click="deleteFile")
         TrashIconSvg.app-form-media-doc-file__delete-icon
         .app-form-media-doc-file__delete-title Удалить
 </template>
