@@ -1,0 +1,28 @@
+.payouts-detail {
+
+  &--card {
+    max-width: 800px;
+
+    & .v-slide-group__prev,
+    & .v-slide-group__next {
+      display: none !important;
+    }
+  }
+
+  &--window {
+    max-width: 555px;
+    margin-top: 18px;
+
+    &-item {
+      margin-top: 6px;
+    }
+  }
+
+  &--tab {
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    line-height: 125% !important;
+    text-transform: capitalize !important;
+    letter-spacing: unset !important;
+  }
+}

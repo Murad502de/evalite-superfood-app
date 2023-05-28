@@ -9,22 +9,21 @@
     :lastPage="lastPage",
     :itemsPerPage="itemsPerPage",
     :itemsLength="itemsLength",
+    @click:row="openPayoutsDetailDialog",
     @update:page="updatePage",
     @update:itemsPerPage="updateItemsPerPage"
   )
-    v-data-table.elevation-1.payouts--table(
-      hide-default-footer,
-      mobile-breakpoint="576",
-      :headers="headers",
-      :items="items",
-      :loading="loading",
-      :loading-text="'Данные загружаются'"
-    )
-      template.payouts--table__action(v-slot:item.action="{ item }")
-        AppButton.payouts--payout__close(
-          :loading="item.closeLoading",
-          @click="closePayout(item)"
-        ) закрыть
+
+  PayoutsDetail(
+    :payout="payoutsDetail",
+    :edited="payoutsDetailEdited",
+    :dialog="payoutsDetailDialog",
+    :loading="payoutsDetailLoading",
+    :saveLoading="payoutsDetailSaveLoading"
+    :payoutLoading="payoutsDetailApproveLoading"
+    @close="closePayoutsDetailDialog",
+    @approve="approvePayoutsDetail",
+  )
 </template>
 
 <script src="./Payouts.js" />

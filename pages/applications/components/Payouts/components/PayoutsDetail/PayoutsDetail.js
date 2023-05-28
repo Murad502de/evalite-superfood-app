@@ -1,0 +1,90 @@
+import * as employmentTypes from '@/shared/employmentTypes';
+import AppOverlay from '@/components/AppOverlay/AppOverlay.vue';
+import AppCard from '@/components/AppCard/AppCard.vue';
+import AppTextField from '@/components/AppTextField/AppTextField.vue';
+import AppFormPaymentDetailsSE from '@/components/AppFormPaymentDetailsSE/AppFormPaymentDetailsSE.vue';
+import AppFormPaymentDetailsIE from '@/components/AppFormPaymentDetailsIE/AppFormPaymentDetailsIE.vue';
+
+export default {
+  components: {
+    AppOverlay,
+    AppCard,
+    AppTextField,
+    AppFormPaymentDetailsSE,
+    AppFormPaymentDetailsIE,
+  },
+  props: {
+    dialog: {
+      type: Boolean,
+      default: false,
+    },
+    loading: {
+      type: Boolean,
+      default: false,
+    },
+    saveLoading: {
+      type: Boolean,
+      default: false,
+    },
+    payoutLoading: {
+      type: Boolean,
+      default: false,
+    },
+    edited: {
+      type: Boolean,
+      default: false,
+    },
+    payout: {
+      type: Object | null,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      tab: 0,
+      valid: true,
+      user: null,
+    };
+  },
+  computed: {
+    title() {
+      if (this.user === null) return;
+      return this.user.fullName;
+    },
+    employmentTypeCrt() {
+      return this.user ? this.user.employmentType : null;
+    },
+    employmentTypeSE() {
+      return employmentTypes.selfEmployed;
+    },
+    employmentTypeIE() {
+      return employmentTypes.individualEntrepreneur;
+    },
+  },
+  watch: {
+    payout(newVal) {
+      console.debug('PayoutsDetail/watch/payout', newVal); //DELETE
+      this.init(newVal);
+    },
+  },
+  methods: {
+    close() {
+      console.debug('PayoutsDetail/methods/close'); //DELETE
+      if (this.payoutLoading) return;
+      this.$emit('close');
+      this.tab = 0;
+    },
+    approve() {
+      console.debug('PayoutsDetail/methods/approve'); //DELETE
+      this.$emit('approve');
+      this.tab = 0; //FIXME
+    },
+    init(data) {
+      console.debug('PayoutsDetail/methods/init/data', data); //DELETE
+    },
+  },
+  created() {
+    console.debug('PayoutsDetail/created/this.payout', this.payout); //DELETE
+  },
+  mounted() { },
+}

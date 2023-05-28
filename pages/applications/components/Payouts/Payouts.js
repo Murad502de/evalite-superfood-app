@@ -3,11 +3,13 @@ import { payoutsUuidPayout } from '@/api/payouts/payoutsUuidPayout';
 import { parseFromISOtoDdMmYyyy } from '@/utils/date';
 import AppTable from '@/components/AppTable/AppTable.vue';
 import AppButton from '@/components/AppButton/AppButton.vue';
+import PayoutsDetail from './components/PayoutsDetail/PayoutsDetail.vue';
 
 export default {
   components: {
     AppTable,
     AppButton,
+    PayoutsDetail,
   },
 
   props: {},
@@ -42,6 +44,13 @@ export default {
       lastPage: 1,
       itemsPerPage: 5,
       itemsLength: 0,
+
+      payoutsDetail: {},
+      payoutsDetailEdited: false,
+      payoutsDetailDialog: false,
+      payoutsDetailLoading: false,
+      payoutsDetailSaveLoading: false,
+      payoutsDetailApproveLoading: false,
     };
   },
   computed: {},
@@ -51,6 +60,42 @@ export default {
     /* GETTERS */
     /* SETTERS */
     /* HANDLERS */
+    closePayoutsDetailDialog() {
+      console.debug('Payouts/methods/closePayoutsDetailDialog'); //DELETE
+      this.payoutsDetailDialog = false;
+      this.payoutsDetail = null;
+    },
+    async approvePayoutsDetail() {
+      console.debug('Payouts/methods/approvePayoutsDetail'); //DELETE
+      this.payoutsDetailDialog = true;
+
+      // const usersUuidStatusVerificationSetResponse = await usersUuidStatusVerificationSet(this.verificationsDetail.uuid, 'completed');
+
+      // console.debug('usersUuidStatusVerificationSetResponse', usersUuidStatusVerificationSetResponse); //DELETE
+
+      // if (usersUuidStatusVerificationSetResponse.status !== 200) {
+      //   alert('Ошибка утверждения пользователя'); //FIXME implement with vuetify
+      // }
+
+      this.payoutsDetailApproveLoading = false;
+      this.payoutsDetailDialog = false;
+      this.payoutsDetail = null;
+      await this.fetchPayouts();
+    },
+    async openPayoutsDetailDialog(e) {
+      console.debug('Payouts/methods/openPayoutsDetailDialog/e', e); //DELETE
+      this.payoutsDetailLoading = true;
+      this.payoutsDetailDialog = true;
+      // const usersUuidResponse = await usersUuid(e.uuid);
+      // console.debug('usersUuidResponse', usersUuidResponse); //DELETE
+
+      // if (usersUuidResponse.status !== 200) {
+      //   alert('Ошибка получения пользователя'); //FIXME implement with vuetify
+      // }
+
+      // this.payoutsDetail = await userUuidInAdapter(usersUuidResponse.data.data);
+      this.payoutsDetailLoading = false;
+    },
     async closePayout(payout) {
       console.debug('Ver/closePayout/payout', payout); //DELETE
       payout.closeLoading = true;
