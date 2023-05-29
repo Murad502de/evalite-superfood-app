@@ -1,9 +1,13 @@
 import { mapGetters, mapActions, } from 'vuex';
 import Home from './components/Home/Home.vue';
+import Verification from './components/Verification/Verification.vue';
+import AgencyContract from './components/AgencyContract/AgencyContract.vue';
 
 export default {
   components: {
     Home,
+    Verification,
+    AgencyContract,
   },
 
   props: {},
@@ -25,9 +29,9 @@ export default {
       if (this.userData && this.agencyContract && this.verificationStatus === 'completed') {
         return 'Home';
       } else if (this.userData && this.agencyContract) {
-        return ''; //verification
+        return 'Verification';
       } else if (this.userData) {
-        return ''; //contract
+        return 'AgencyContract';
       }
 
       return null;
