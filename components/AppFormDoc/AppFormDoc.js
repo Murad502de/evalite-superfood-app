@@ -37,11 +37,11 @@ export default {
       console.debug('AppFormDoc/watch/data/newVal', newVal); //DELETE
       this.init(newVal);
     },
-    agencyContractFile(newVal) {
-      if (this.isDataNull()) return;
-      console.debug('AppFormDoc/watch/agencyContractFile', newVal); //DELETE
-      this.$emit('update:agency_contract', newVal);
-    },
+    // agencyContractFile(newVal) {
+    //   if (this.isDataNull()) return;
+    //   console.debug('AppFormDoc/watch/agencyContractFile', newVal); //DELETE
+    //   this.$emit('update:agency_contract', newVal);
+    // },
   },
   methods: {
     uploadAgencyContract(file = null) {
@@ -52,6 +52,8 @@ export default {
       this.agencyContractName = file.name;
       this.agencyContractUrl = createUploadedFileUrl(file);
       this.agencyContractError = false;
+
+      this.$emit('update:agency_contract', this.agencyContractFile);
     },
     deleteAgencyContract() {
       if (this.loading || this.disabled) return;
@@ -59,6 +61,8 @@ export default {
       this.agencyContractName = null;
       this.agencyContractUrl = null;
       this.agencyContractError = false;
+
+      this.$emit('update:agency_contract', this.agencyContractFile);
     },
     init(value) {
       console.debug('AppFormDoc/methods/init/value', value); //DELETE

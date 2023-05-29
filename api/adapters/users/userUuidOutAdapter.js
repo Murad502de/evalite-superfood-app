@@ -45,7 +45,11 @@ export const userUuidOutAdapter = async (payload = null) => {
   if (!!payload.passport.verificationSpreadFile) data.passport_verification_spread = payload.passport.verificationSpreadFile;
   if (!!payload.paymentDetailsIndividualEntrepreneur?.confirmDocFile) data.ie_confirm_doc = payload.paymentDetailsIndividualEntrepreneur.confirmDocFile;
   if (!!payload.paymentDetailsSelfEmployed?.confirmDocFile) data.se_confirm_doc = payload.paymentDetailsSelfEmployed.confirmDocFile;
-  if (!!payload.agencyContractFile) data.agency_contract = payload.agencyContractFile;
+  if (payload.agencyContractFile !== undefined) {
+    console.debug('payload.agencyContractFile', payload.agencyContractFile); //DELETE
+
+    data.agency_contract = payload.agencyContractFile;
+  }
 
   return data;
 };

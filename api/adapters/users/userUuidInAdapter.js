@@ -32,7 +32,7 @@ export const userUuidInAdapter = async (user) => ({
   paymentDetailsSelfEmployed: await userUuidPaymentDetailsSelfEmployedInAdapter(user.payment_details_self_employed),
   paymentDetailsIndividualEntrepreneur: await userUuidPaymentDetailsIndividualEntrepreneurInAdapter(user.payment_details_individual_entrepreneur),
   agencyContract: user.agency_contract?.agency_contract_url,
-  agencyContractFile: null,
+  agencyContractFile: undefined,
 });
 
 const userUuidPaymentDetailsSelfEmployedInAdapter = async (data) => {
