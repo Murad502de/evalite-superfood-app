@@ -2,5 +2,5 @@
 .home-admin home-admin
 </template>
 
-<script src="./homeAdmin.js" />
-<style lang="scss" src="./homeAdmin.scss" />
+<script src="./HomeAdmin.js" />
+<style lang="scss" src="./HomeAdmin.scss" />

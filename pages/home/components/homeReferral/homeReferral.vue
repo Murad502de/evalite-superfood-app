@@ -3,5 +3,5 @@
   component(:is="getComponent()")
 </template>
 
-<script src="./homeReferral.js" />
-<style lang="scss" src="./homeReferral.scss" />
+<script src="./HomeReferral.js" />
+<style lang="scss" src="./HomeReferral.scss" />

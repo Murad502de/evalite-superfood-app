@@ -1,13 +1,13 @@
 import { mapGetters, mapActions, } from 'vuex';
 import * as roles from "@/shared/roles";
-// import homeAdmin from './components/homeAdmin/homeAdmin.vue';
-import homeAdmin from '@/pages/applications/index.vue';
-import homeReferral from './components/homeReferral/homeReferral.vue';
+// import HomeAdmin from './components/HomeAdmin/HomeAdmin.vue';
+import HomeAdmin from '@/pages/applications/index.vue';
+import HomeReferral from './components/HomeReferral/HomeReferral.vue';
 
 export default {
   components: {
-    homeAdmin,
-    homeReferral,
+    HomeAdmin,
+    HomeReferral,
   },
   props: {},
   data() {
@@ -22,9 +22,9 @@ export default {
     getComponent(name) {
       switch (name) {
         case roles.admin:
-          return "homeAdmin";
+          return "HomeAdmin";
         case roles.referral:
-          return "homeReferral";
+          return "HomeReferral";
         default:
           return "";
       }
