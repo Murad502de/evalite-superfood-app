@@ -1,7 +1,10 @@
 import { mapGetters, mapActions, } from 'vuex';
+import Home from './components/Home/Home.vue';
 
 export default {
-  components: {},
+  components: {
+    Home,
+  },
 
   props: {},
   data: () => ({}),
@@ -20,7 +23,7 @@ export default {
     ...mapActions('userStore', ['setUserData']),
     getComponent() {
       if (this.userData && this.agencyContract && this.verificationStatus === 'completed') {
-        return ''; //home
+        return 'Home';
       } else if (this.userData && this.agencyContract) {
         return ''; //verification
       } else if (this.userData) {
