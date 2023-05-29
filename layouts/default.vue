@@ -41,6 +41,8 @@ export default {
           return "Настройки";
         case routeNames.profile:
           return "Профиль";
+        case routeNames.home:
+          return "Главная";
         default:
           return "";
       }
