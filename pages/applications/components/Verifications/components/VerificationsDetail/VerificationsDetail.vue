@@ -109,7 +109,7 @@ AppOverlay.verifications-detail(
       v-window-item.verifications-detail--window-item
         AppFormDoc(
           ref="agency_contract_form",
-          :data="this.user ? this.user.agencyContract : null",
+          :data="user ? user.agencyContract : null",
           :title="'Загрузите документ в формате .pdf'",
           :loading="loading",
           :disabled="approveLoading || saveLoading",

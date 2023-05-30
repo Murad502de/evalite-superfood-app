@@ -1,4 +1,6 @@
 import { mapGetters, mapActions, } from 'vuex';
+import { usersMy } from '@/api/users/usersMy';
+import * as httpResponse from '@/shared/httpResponses';
 import Home from './components/Home/Home.vue';
 import Verification from './components/Verification/Verification.vue';
 import AgencyContract from './components/AgencyContract/AgencyContract.vue';
@@ -11,7 +13,11 @@ export default {
   },
 
   props: {},
-  data: () => ({}),
+  data() {
+    return {
+      key: 0,
+    };
+  },
   computed: {
     ...mapGetters('userStore', ['userData']),
     agencyContract() {
@@ -35,6 +41,18 @@ export default {
       }
 
       return null;
+    },
+    async forceRerender() {
+      console.debug('HomeReferral/methods/forceRerender'); //DELETE
+      const usersMyResponse = await usersMy();
+      console.debug('HomeReferral/forceRerender/usersMyResponse', usersMyResponse); //DELETE
+
+      if (usersMyResponse.status !== httpResponse.HTTP_OK) {
+        alert('Ошибка получения модели пользователя'); //FIXME implement with vuetify
+      }
+
+      this.setUserData(usersMyResponse.data.data)
+      this.key++;
     },
   },
 

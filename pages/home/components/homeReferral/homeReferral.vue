@@ -1,6 +1,6 @@
 <template lang="pug">
-.home-referral
-  component(:is="getComponent()")
+.home-referral(:key="key")
+  component(:is="getComponent()", @forceRerender="forceRerender")
 </template>
 
 <script src="./HomeReferral.js" />
