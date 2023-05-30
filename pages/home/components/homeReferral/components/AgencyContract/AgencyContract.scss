@@ -38,9 +38,14 @@
 
     &__download {
       color: #0082DE;
-      // font-weight: 700;
       text-decoration: underline;
       cursor: pointer;
+
+      &-stub {
+        color: #263043;
+        opacity: 0.4;
+        cursor: unset;
+      }
     }
 
     &__form {
