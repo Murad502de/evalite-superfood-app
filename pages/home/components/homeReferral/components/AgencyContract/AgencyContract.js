@@ -1,5 +1,9 @@
+import AppFormDoc from '@/components/AppFormDoc/AppFormDoc.vue';
+
 export default {
-  components: {},
+  components: {
+    AppFormDoc,
+  },
   props: {},
   data() {
     return {};

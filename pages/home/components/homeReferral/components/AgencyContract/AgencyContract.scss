@@ -1,3 +1,54 @@
+@import '@/styles/breakpoints.scss';
+
 .home-referral {
-  .agency-contract {}
+  .agency-contract {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 32px 20px 0;
+
+    &__title {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 28px;
+      color: #263043;
+
+      &_error {
+        color: #ff5252;
+      }
+    }
+
+    &__desc {
+      margin-top: 24px;
+      margin-bottom: 12px;
+      font-weight: 600;
+      font-size: 18px;
+      color: #8692A6;
+    }
+
+    &__info {
+      font-weight: 400;
+      font-size: 16px;
+      color: #263043;
+      opacity: 0.4;
+    }
+
+    &__download {
+      color: #0082DE;
+      // font-weight: 700;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    &__form {
+      max-width: 576px;
+
+      &-header {
+        margin-bottom: 32px;
+      }
+    }
+  }
 }

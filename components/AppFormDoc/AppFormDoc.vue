@@ -1,14 +1,13 @@
 <template lang="pug">
 .app-form-doc
-  .app-form-doc__title(
-    :class="{ 'app-form-doc__title_error': agencyContractError }"
-  ) {{ title }}
+  slot(name="header")
+    .app-form-doc__title(:class="{ 'app-form-doc__title_error': docError }") {{ title }}
 
   AppFormMediaDoc(
     :type="'pdf'",
-    :mediaName="agencyContractName",
-    :mediaUrl="agencyContractUrl",
-    :disabledForm="disabled"
+    :mediaName="docName",
+    :mediaUrl="docUrl",
+    :disabledForm="disabled",
     @upload="uploadAgencyContract",
     @delete="deleteAgencyContract"
   )

@@ -5,7 +5,13 @@ AppOverlay.verifications-detail(
   @close="close"
 )
   template(v-slot:actions)
-    v-btn(dark, text, @click="approve", :loading="approveLoading" :disabled="saveLoading") Утвердить
+    v-btn(
+      dark,
+      text,
+      @click="approve",
+      :loading="approveLoading",
+      :disabled="saveLoading"
+    ) Утвердить
 
   AppCard.verifications-detail--card
     v-tabs.verifications-detail--tabs(
@@ -14,10 +20,18 @@ AppOverlay.verifications-detail(
       center-active,
       :hide-slider="approveLoading || saveLoading"
     )
-      v-tab.verifications-detail--tab(:disabled="approveLoading || saveLoading") Персональные данные
-      v-tab.verifications-detail--tab(:disabled="approveLoading || saveLoading") Паспорт
-      v-tab.verifications-detail--tab(:disabled="approveLoading || saveLoading") Платежные данные
-      v-tab.verifications-detail--tab(:disabled="approveLoading || saveLoading") Договор
+      v-tab.verifications-detail--tab(
+        :disabled="approveLoading || saveLoading"
+      ) Персональные данные
+      v-tab.verifications-detail--tab(
+        :disabled="approveLoading || saveLoading"
+      ) Паспорт
+      v-tab.verifications-detail--tab(
+        :disabled="approveLoading || saveLoading"
+      ) Платежные данные
+      v-tab.verifications-detail--tab(
+        :disabled="approveLoading || saveLoading"
+      ) Договор
 
     v-window.verifications-detail--window(v-model="tab")
       v-window-item.verifications-detail--window-item
@@ -95,14 +109,18 @@ AppOverlay.verifications-detail(
       v-window-item.verifications-detail--window-item
         AppFormDoc(
           ref="agency_contract_form",
-          :data="this.user",
+          :data="this.user ? this.user.agencyContract : null",
           :title="'Загрузите документ в формате .pdf'",
           :loading="loading",
           :disabled="approveLoading || saveLoading",
           @update:agency_contract="updateAgencyContract"
         )
 
-    AppButton(@click="save", :disabled="loading || approveLoading" :loading="saveLoading") Сохранить
+    AppButton(
+      @click="save",
+      :disabled="loading || approveLoading",
+      :loading="saveLoading"
+    ) Сохранить
 </template>
 
 <script src="./VerificationsDetail.js" />

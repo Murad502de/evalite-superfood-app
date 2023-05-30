@@ -25,10 +25,10 @@ export default {
   },
   data() {
     return {
-      agencyContractFile: null,
-      agencyContractName: null,
-      agencyContractUrl: null,
-      agencyContractError: false,
+      docFile: null,
+      docName: null,
+      docUrl: null,
+      docError: false,
     };
   },
   computed: {},
@@ -37,9 +37,9 @@ export default {
       console.debug('AppFormDoc/watch/data/newVal', newVal); //DELETE
       this.init(newVal);
     },
-    // agencyContractFile(newVal) {
+    // docFile(newVal) {
     //   if (this.isDataNull()) return;
-    //   console.debug('AppFormDoc/watch/agencyContractFile', newVal); //DELETE
+    //   console.debug('AppFormDoc/watch/docFile', newVal); //DELETE
     //   this.$emit('update:agency_contract', newVal);
     // },
   },
@@ -48,42 +48,42 @@ export default {
       if (this.loading || this.disabled) return;
       //TODO call validate service
       console.debug(file); //DELETE
-      this.agencyContractFile = file;
-      this.agencyContractName = file.name;
-      this.agencyContractUrl = createUploadedFileUrl(file);
-      this.agencyContractError = false;
+      this.docFile = file;
+      this.docName = file.name;
+      this.docUrl = createUploadedFileUrl(file);
+      this.docError = false;
 
-      this.$emit('update:agency_contract', this.agencyContractFile);
+      this.$emit('update:agency_contract', this.docFile);
     },
     deleteAgencyContract() {
       if (this.loading || this.disabled) return;
-      this.agencyContractFile = null;
-      this.agencyContractName = null;
-      this.agencyContractUrl = null;
-      this.agencyContractError = false;
+      this.docFile = null;
+      this.docName = null;
+      this.docUrl = null;
+      this.docError = false;
 
-      this.$emit('update:agency_contract', this.agencyContractFile);
+      this.$emit('update:agency_contract', this.docFile);
     },
     init(value) {
       console.debug('AppFormDoc/methods/init/value', value); //DELETE
 
       if (value === null) {
-        this.agencyContractFile = null;
-        this.agencyContractName = null;
-        this.agencyContractUrl = null;
-        this.agencyContractError = false;
+        this.docFile = null;
+        this.docName = null;
+        this.docUrl = null;
+        this.docError = false;
         return;
       }
 
-      this.agencyContractUrl = value.agencyContract;
+      this.docUrl = value;
     },
     isDataNull() {
       console.debug('AppFormDoc/methods/isDataNull/data', this.data); //DELETE
       return this.data === null;
     },
     validate() {
-      this.agencyContractError = !this.agencyContractUrl;
-      return this.agencyContractUrl;
+      this.docError = !this.docUrl;
+      return this.docUrl;
     },
   },
   created() {
