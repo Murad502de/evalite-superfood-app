@@ -1,9 +1,13 @@
 .the-widget-income-referral {
   .info-block {
-    padding: 10px;
-    margin-top: 12px;
     background: #349CE4;
     border: 1px solid #349CE4;
+    padding: 0;
+    height: 102px;
+
+    &__container {
+      padding: 10px;
+    }
 
     &:first-child {
       margin-top: 0;
@@ -16,6 +20,12 @@
 
     &__value {
       font-size: 36px;
+    }
+
+    &__skeleton {
+      border-radius: 14px;
+      background: #349CE4;
+      border: 1px solid #349CE4;
     }
   }
 }
