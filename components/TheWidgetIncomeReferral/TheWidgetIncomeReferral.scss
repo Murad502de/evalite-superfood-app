@@ -16,8 +16,6 @@
     justify-content: center;
   }
 
-  &__header {}
-
   &--status {
     display: flex;
     flex-direction: row;
@@ -44,6 +42,4 @@
     flex-wrap: nowrap;
     justify-content: center;
   }
-
-  &--payout {}
 }
