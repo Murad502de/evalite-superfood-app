@@ -1,12 +1,15 @@
 import TheWidgetIncomeReferral from '@/components/TheWidgetIncomeReferral/TheWidgetIncomeReferral.vue';
+import AppTable from '@/components/AppTable/AppTable.vue';
 
 export default {
   components: {
     TheWidgetIncomeReferral,
+    AppTable,
   },
   props: {},
   data() {
     return {
+      tab: 0,
       widgetIncomeReferralLoading: true,
       widgetIncomeReferralLoadingPayout: false,
     };
