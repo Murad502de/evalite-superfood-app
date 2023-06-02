@@ -6,6 +6,7 @@ export const payoutsUuidGetAdapter = async (payout) => {
     uuid: payout.uuid,
     date: parseFromISOtoDdMmYyyy(payout.created_at),
     price: payout.price,
+    status: payout.status,
     user: await userUuidInAdapter(payout.user),
   };
 };
