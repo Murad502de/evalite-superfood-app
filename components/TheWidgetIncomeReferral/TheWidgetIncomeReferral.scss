@@ -36,26 +36,6 @@
     margin-top: 24px;
   }
 
-  &--info-block {
-    padding: 10px;
-    margin-top: 12px;
-    background: #349CE4;
-    border: 1px solid #349CE4;
-
-    &:first-child {
-      margin-top: 0;
-    }
-
-    &__title {
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    &__value {
-      font-size: 36px;
-    }
-  }
-
   &__footer {
     margin-top: 24px;
     width: 100%;

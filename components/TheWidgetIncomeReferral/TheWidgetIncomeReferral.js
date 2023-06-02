@@ -2,6 +2,7 @@ import AppCard from '@/components/AppCard/AppCard.vue';
 import AppButton from '@/components/AppButton/AppButton.vue';
 import StatusWarning from '@/assets/svg/status_warning_circle_outline.svg'
 import StatusSuccess from '@/assets/svg/check_circle.svg'
+import InfoBlock from './components/InfoBlock/InfoBlock.vue';
 
 export default {
   components: {
@@ -9,6 +10,7 @@ export default {
     AppButton,
     StatusWarning,
     StatusSuccess,
+    InfoBlock,
   },
   props: {
     disabled: {

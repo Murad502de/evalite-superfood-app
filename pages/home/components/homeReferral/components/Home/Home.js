@@ -7,7 +7,7 @@ export default {
   props: {},
   data() {
     return {
-      widgetIncomeReferralLoading: false,
+      widgetIncomeReferralLoading: true,
       widgetIncomeReferralLoadingPayout: false,
     };
   },

@@ -10,13 +10,11 @@ AppCard.the-widget-income-referral
         .the-widget-income-referral--status__title {{ getStatusTitle() }}
 
     .the-widget-income-referral__main
-      AppCard.the-widget-income-referral--info-block
-        .the-widget-income-referral--info-block__title {{ amountTitle }}
-        .the-widget-income-referral--info-block__value {{ convertToMoneyFormat(amount) }}
-
-      AppCard.the-widget-income-referral--info-block
-        .the-widget-income-referral--info-block__title {{ amountTitleResidual }}
-        .the-widget-income-referral--info-block__value {{ convertToMoneyFormat(amountResidual) }}
+      InfoBlock(:title="amountTitle", :value="convertToMoneyFormat(amount)")
+      InfoBlock(
+        :title="amountTitleResidual",
+        :value="convertToMoneyFormat(amountResidual)"
+      )
 
     .the-widget-income-referral__footer
       AppButton.the-widget-income-referral--payout(
