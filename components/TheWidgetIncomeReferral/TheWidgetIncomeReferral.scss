@@ -7,6 +7,7 @@
   font-size: 16px;
   color: #FFFFFF;
   user-select: none;
+  width: 282px;
 
   &__container {
     display: flex;
@@ -14,6 +15,11 @@
     flex-wrap: nowrap;
     align-items: flex-start;
     justify-content: center;
+  }
+
+  &__header {
+    height: 24px;
+    width: 100%;
   }
 
   &--status {
@@ -49,5 +55,19 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
+  }
+
+  &--payout {
+    width: 96px;
+
+    &__skeleton {
+      width: 96px;
+    }
+  }
+
+  &__skeleton {
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.12);
+    border-style: none;
   }
 }
