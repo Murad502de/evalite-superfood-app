@@ -1,3 +1,7 @@
 .home-referral {
-  .home {}
+  .home {
+    &__container {
+      padding: 32px 16px;
+    }
+  }
 }

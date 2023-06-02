@@ -1,12 +1,27 @@
+import TheWidgetIncomeReferral from '@/components/TheWidgetIncomeReferral/TheWidgetIncomeReferral.vue';
+
 export default {
-  components: {},
+  components: {
+    TheWidgetIncomeReferral,
+  },
   props: {},
   data() {
-    return {};
+    return {
+      widgetIncomeReferralLoading: false,
+      widgetIncomeReferralLoadingPayout: false,
+    };
   },
   computed: {},
   watch: {},
-  methods: {},
+  methods: {
+    payoutReferralIncome() {
+      this.widgetIncomeReferralLoadingPayout = true;
+
+      setTimeout(() => { //DELETE
+        this.widgetIncomeReferralLoadingPayout = false;
+      }, 2000);
+    },
+  },
   created() { },
   mounted() { },
 }

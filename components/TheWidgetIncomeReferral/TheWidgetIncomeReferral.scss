@@ -1,0 +1,69 @@
+.the-widget-income-referral {
+  box-sizing: border-box;
+  width: max-content;
+  padding: 16px;
+  background: #0082DE;
+  border: 1px solid #0082DE;
+  font-size: 16px;
+  color: #FFFFFF;
+  user-select: none;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  &__header {}
+
+  &--status {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    &__title {
+      font-weight: bold;
+      margin-left: 14px;
+    }
+  }
+
+  &__main {
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  &--info-block {
+    padding: 10px;
+    margin-top: 12px;
+    background: #349CE4;
+    border: 1px solid #349CE4;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &__title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    &__value {
+      font-size: 36px;
+    }
+  }
+
+  &__footer {
+    margin-top: 24px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+
+  &--payout {}
+}
