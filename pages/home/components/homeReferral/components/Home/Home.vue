@@ -18,49 +18,49 @@
 
       v-window.home--window(v-model="tab")
         v-window-item.home--window-item
-          AppTable(
-            :headers="headers",
-            :items="items",
-            :loading="loading",
-            :loading-text="'Данные загружаются'",
-            :page="page",
-            :lastPage="lastPage",
-            :itemsPerPage="itemsPerPage",
-            :itemsLength="itemsLength",
-            @click:row="openVerificationsDetailDialog",
-            @update:page="updatePage",
-            @update:itemsPerPage="updateItemsPerPage"
-          )
+          //- AppTable(
+          //-   :headers="headers",
+          //-   :items="items",
+          //-   :loading="loading",
+          //-   :loading-text="'Данные загружаются'",
+          //-   :page="page",
+          //-   :lastPage="lastPage",
+          //-   :itemsPerPage="itemsPerPage",
+          //-   :itemsLength="itemsLength",
+          //-   @click:row="openVerificationsDetailDialog",
+          //-   @update:page="updatePage",
+          //-   @update:itemsPerPage="updateItemsPerPage"
+          //- )
 
         v-window-item.home--window-item
-          AppTable(
-            :headers="headers",
-            :items="items",
-            :loading="loading",
-            :loading-text="'Данные загружаются'",
-            :page="page",
-            :lastPage="lastPage",
-            :itemsPerPage="itemsPerPage",
-            :itemsLength="itemsLength",
-            @click:row="openVerificationsDetailDialog",
-            @update:page="updatePage",
-            @update:itemsPerPage="updateItemsPerPage"
-          )
+          //- AppTable(
+          //-   :headers="headers",
+          //-   :items="items",
+          //-   :loading="loading",
+          //-   :loading-text="'Данные загружаются'",
+          //-   :page="page",
+          //-   :lastPage="lastPage",
+          //-   :itemsPerPage="itemsPerPage",
+          //-   :itemsLength="itemsLength",
+          //-   @click:row="openVerificationsDetailDialog",
+          //-   @update:page="updatePage",
+          //-   @update:itemsPerPage="updateItemsPerPage"
+          //- )
 
         v-window-item.home--window-item
-          AppTable(
-            :headers="headers",
-            :items="items",
-            :loading="loading",
-            :loading-text="'Данные загружаются'",
-            :page="page",
-            :lastPage="lastPage",
-            :itemsPerPage="itemsPerPage",
-            :itemsLength="itemsLength",
-            @click:row="openVerificationsDetailDialog",
-            @update:page="updatePage",
-            @update:itemsPerPage="updateItemsPerPage"
-          )
+          //- AppTable(
+          //-   :headers="headers",
+          //-   :items="items",
+          //-   :loading="loading",
+          //-   :loading-text="'Данные загружаются'",
+          //-   :page="page",
+          //-   :lastPage="lastPage",
+          //-   :itemsPerPage="itemsPerPage",
+          //-   :itemsLength="itemsLength",
+          //-   @click:row="openVerificationsDetailDialog",
+          //-   @update:page="updatePage",
+          //-   @update:itemsPerPage="updateItemsPerPage"
+          //- )
 </template>
 
 <script src="./Home.js" />
