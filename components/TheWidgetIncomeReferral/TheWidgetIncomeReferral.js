@@ -40,7 +40,7 @@ export default {
     return {
       RuCurrencySymbol: '₽',
       amountTitle: 'Общий доход',
-      amountTitleResidual: 'Остаточная сумма',
+      amountTitleResidual: 'Остаточная сумма порога',
     };
   },
   computed: {
