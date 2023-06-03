@@ -39,10 +39,6 @@
 
         v-window-item.home--window-item
           AppTable(
-            :headers="salesBonussesHeaders",
-            :items="salesBonusses",
-            :loading="salesBonussesLoading",
-            :loading-text="'Данные загружаются'",
             :page="salesBonussesPage",
             :lastPage="salesBonussesLastPage",
             :itemsPerPage="salesBonussesItemsPerPage",
@@ -50,6 +46,16 @@
             @update:page="updateSalesBonussesPage",
             @update:itemsPerPage="updateSalesBonussesItemsPerPage"
           )
+            v-data-table.elevation-1.app-table--table(
+              hide-default-footer,
+              mobile-breakpoint="576",
+              :headers="salesBonussesHeaders",
+              :items="salesBonusses",
+              :loading="salesBonussesLoading",
+              :loading-text="'Данные загружаются'"
+            )
+              template(v-slot:item.status="{ item }")
+                AppStatus(:status="item.status")
 
         v-window-item.home--window-item
           //- AppTable(
