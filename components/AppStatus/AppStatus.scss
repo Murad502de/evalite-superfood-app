@@ -1,0 +1,32 @@
+.app-status {
+  box-sizing: border-box;
+  width: max-content;
+  padding: 4px 8px;
+  border-radius: 5px;
+
+  &__title {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 125%;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  &--waiting {
+    background: #FFFCF0;
+    border: 1px solid #F4D150;
+
+    &__title {
+      color: #F4D150;
+    }
+  }
+
+  &--processing {
+    background: #E4F4FF;
+    border: 1px solid #0082DE;
+
+    &__title {
+      color: #0082DE;
+    }
+  }
+}

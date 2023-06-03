@@ -9,11 +9,13 @@ import { usersSalesGetAdapter } from '@/api/adapters/users/usersSalesGetAdapter'
 
 import TheWidgetIncomeReferral from '@/components/TheWidgetIncomeReferral/TheWidgetIncomeReferral.vue';
 import AppTable from '@/components/AppTable/AppTable.vue';
+import AppStatus from '@/components/AppStatus/AppStatus.vue';
 
 export default {
   components: {
     TheWidgetIncomeReferral,
     AppTable,
+    AppStatus,
   },
   props: {},
   data() {

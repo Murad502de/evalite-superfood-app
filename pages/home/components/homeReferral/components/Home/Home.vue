@@ -34,7 +34,8 @@
               :loading="salesDirectsLoading",
               :loading-text="'Данные загружаются'"
             )
-              template(v-slot:item.status="{ item }") {{item.status}}
+              template(v-slot:item.status="{ item }")
+                AppStatus(:status="item.status")
 
         v-window-item.home--window-item
           AppTable(
