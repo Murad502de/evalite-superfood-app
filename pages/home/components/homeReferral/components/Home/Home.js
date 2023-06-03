@@ -40,6 +40,12 @@ export default {
     async fetchIncome() {
       this.widgetIncomeReferralLoading = true;
       const usersIncomeGetResponse = await usersIncomeGet({ page: 1, perPage: 5, });
+
+      if (usersIncomeGetResponse.status !== httpResponse.HTTP_OK) {
+        alert('Ошибка получения дохода реферала'); //FIXME implement with vuetify
+        return;
+      }
+
       const income = await usersIncomeGetAdapter(usersIncomeGetResponse.data);
       this.amount = income.amount;
       this.amountThreshold = income.amountThreshold;
