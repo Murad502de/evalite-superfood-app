@@ -5,6 +5,7 @@ export const usersPayoutsGet = async ({ page, perPage, }) => {
     const params = {
       page,
       per_page: perPage,
+      filter_status: 'processing',
     };
     const response = await api.get('users/payouts', {
       params,
