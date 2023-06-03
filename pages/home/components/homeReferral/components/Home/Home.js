@@ -69,6 +69,11 @@ export default {
       const usersPayoutsGetResponse = await usersPayoutsGet({ page: 1, perPage: 5, });
       console.debug('usersPayoutsGetResponse', usersPayoutsGetResponse); //DELETE
 
+      if (usersPayoutsGetResponse.status !== httpResponse.HTTP_OK) {
+        alert('Ошибка получения выплат реферала'); //FIXME implement with vuetify
+        return;
+      }
+
       for (let i = 0; i < usersPayoutsGetResponse.data.data.length; i++) {
         const payout = usersPayoutsGetResponse.data.data[0];
         this.payouts.push(await payoutsUuidGetAdapter(payout))
