@@ -1,4 +1,4 @@
-export const usersSalesDirectsGetAdapter = async (data) => {
+export const usersSalesGetAdapter = async (data) => {
   return {
     uuid: data.uuid,
     name: data.name,

@@ -5,7 +5,7 @@ import { usersPayoutsGet } from '@/api/users/usersPayoutsGet';
 import { usersIncomeGet } from '@/api/users/usersIncomeGet';
 import { payoutsUuidGetAdapter } from '@/api/adapters/payouts/payoutsUuidGetAdapter';
 import { usersIncomeGetAdapter } from '@/api/adapters/users/usersIncomeGetAdapter';
-import { usersSalesDirectsGetAdapter } from '@/api/adapters/users/usersSalesDirectsGetAdapter';
+import { usersSalesGetAdapter } from '@/api/adapters/users/usersSalesGetAdapter';
 
 import TheWidgetIncomeReferral from '@/components/TheWidgetIncomeReferral/TheWidgetIncomeReferral.vue';
 import AppTable from '@/components/AppTable/AppTable.vue';
@@ -25,6 +25,7 @@ export default {
       tab: 0,
       payouts: [],
       salesDirects: [],
+      salesBonusses: [],
     };
   },
   computed: {},
@@ -62,7 +63,7 @@ export default {
 
       for (let i = 0; i < usersSalesDirectGetResponse.data.data.length; i++) {
         const sale = usersSalesDirectGetResponse.data.data[0];
-        this.salesDirects.push(await usersSalesDirectsGetAdapter(sale))
+        this.salesDirects.push(await usersSalesGetAdapter(sale))
       }
 
       console.debug('salesDirects', this.salesDirects); //DELETE
@@ -70,6 +71,18 @@ export default {
     async fetchSalesBonusses() {
       const usersSalesBonussesGetResponse = await usersSalesBonussesGet({ page: 1, perPage: 5, });
       console.debug('usersSalesBonussesGetResponse', usersSalesBonussesGetResponse); //DELETE
+
+      if (usersSalesBonussesGetResponse.status !== httpResponse.HTTP_OK) {
+        alert('Ошибка получения бонусов реферала'); //FIXME implement with vuetify
+        return;
+      }
+
+      for (let i = 0; i < usersSalesBonussesGetResponse.data.data.length; i++) {
+        const sale = usersSalesBonussesGetResponse.data.data[0];
+        this.salesBonusses.push(await usersSalesGetAdapter(sale))
+      }
+
+      console.debug('salesBonusses', this.salesBonusses); //DELETE
     },
     async fetchPayouts() {
       const usersPayoutsGetResponse = await usersPayoutsGet({ page: 1, perPage: 5, });
