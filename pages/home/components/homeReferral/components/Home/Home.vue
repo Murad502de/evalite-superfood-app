@@ -18,34 +18,37 @@
 
       v-window.home--window(v-model="tab")
         v-window-item.home--window-item
-          //- AppTable(
-          //-   :headers="headers",
-          //-   :items="items",
-          //-   :loading="loading",
-          //-   :loading-text="'Данные загружаются'",
-          //-   :page="page",
-          //-   :lastPage="lastPage",
-          //-   :itemsPerPage="itemsPerPage",
-          //-   :itemsLength="itemsLength",
-          //-   @click:row="openVerificationsDetailDialog",
-          //-   @update:page="updatePage",
-          //-   @update:itemsPerPage="updateItemsPerPage"
-          //- )
+          AppTable(
+            :page="salesDirectsPage",
+            :lastPage="salesDirectsLastPage",
+            :itemsPerPage="salesDirectsItemsPerPage",
+            :itemsLength="salesDirectsItemsLength",
+            @update:page="updateSalesDirectsPage",
+            @update:itemsPerPage="updateSalesDirectsItemsPerPage"
+          )
+            v-data-table.elevation-1.app-table--table(
+              hide-default-footer,
+              mobile-breakpoint="576",
+              :headers="salesDirectsHeaders",
+              :items="salesDirects",
+              :loading="salesDirectsLoading",
+              :loading-text="'Данные загружаются'"
+            )
+              template(v-slot:item.status="{ item }") {{item.status}}
 
         v-window-item.home--window-item
-          //- AppTable(
-          //-   :headers="headers",
-          //-   :items="items",
-          //-   :loading="loading",
-          //-   :loading-text="'Данные загружаются'",
-          //-   :page="page",
-          //-   :lastPage="lastPage",
-          //-   :itemsPerPage="itemsPerPage",
-          //-   :itemsLength="itemsLength",
-          //-   @click:row="openVerificationsDetailDialog",
-          //-   @update:page="updatePage",
-          //-   @update:itemsPerPage="updateItemsPerPage"
-          //- )
+          AppTable(
+            :headers="salesBonussesHeaders",
+            :items="salesBonusses",
+            :loading="salesBonussesLoading",
+            :loading-text="'Данные загружаются'",
+            :page="salesBonussesPage",
+            :lastPage="salesBonussesLastPage",
+            :itemsPerPage="salesBonussesItemsPerPage",
+            :itemsLength="salesBonussesItemsLength",
+            @update:page="updateSalesBonussesPage",
+            @update:itemsPerPage="updateSalesBonussesItemsPerPage"
+          )
 
         v-window-item.home--window-item
           //- AppTable(

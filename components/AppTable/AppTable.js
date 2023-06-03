@@ -4,11 +4,11 @@ export default {
   props: {
     headers: {
       type: Array,
-      required: true,
+      default: () => ([]),
     },
     items: {
       type: Array,
-      required: true,
+      default: () => ([]),
     },
     loading: {
       type: Boolean,
