@@ -58,19 +58,24 @@
                 AppStatus(:status="item.status")
 
         v-window-item.home--window-item
-          //- AppTable(
-          //-   :headers="headers",
-          //-   :items="items",
-          //-   :loading="loading",
-          //-   :loading-text="'Данные загружаются'",
-          //-   :page="page",
-          //-   :lastPage="lastPage",
-          //-   :itemsPerPage="itemsPerPage",
-          //-   :itemsLength="itemsLength",
-          //-   @click:row="openVerificationsDetailDialog",
-          //-   @update:page="updatePage",
-          //-   @update:itemsPerPage="updateItemsPerPage"
-          //- )
+          AppTable(
+            :page="payoutsPage",
+            :lastPage="payoutsLastPage",
+            :itemsPerPage="payoutsItemsPerPage",
+            :itemsLength="payoutsItemsLength",
+            @update:page="updatePayoutsPage",
+            @update:itemsPerPage="updatePayoutsItemsPerPage"
+          )
+            v-data-table.elevation-1.app-table--table(
+              hide-default-footer,
+              mobile-breakpoint="576",
+              :headers="payoutsHeaders",
+              :items="payouts",
+              :loading="payoutsLoading",
+              :loading-text="'Данные загружаются'"
+            )
+              template(v-slot:item.status="{ item }")
+                AppStatus(:status="item.status")
 </template>
 
 <script src="./Home.js" />

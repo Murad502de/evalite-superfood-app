@@ -3,6 +3,7 @@ import { usersSalesDirectGet } from '@/api/users/usersSalesDirectGet';
 import { usersSalesBonussesGet } from '@/api/users/usersSalesBonussesGet';
 import { usersPayoutsGet } from '@/api/users/usersPayoutsGet';
 import { usersIncomeGet } from '@/api/users/usersIncomeGet';
+import { usersSalesPayoutPost } from '@/api/users/usersSalesPayoutPost';
 import { payoutsUuidGetAdapter } from '@/api/adapters/payouts/payoutsUuidGetAdapter';
 import { usersIncomeGetAdapter } from '@/api/adapters/users/usersIncomeGetAdapter';
 import { usersSalesGetAdapter } from '@/api/adapters/users/usersSalesGetAdapter';
@@ -77,17 +78,45 @@ export default {
       salesBonussesItemsLength: 0,
 
       payouts: [],
+      payoutsHeaders: [
+        {
+          value: 'date',
+          text: 'Название',
+          align: 'start',
+          sortable: false,
+        },
+        {
+          value: 'price',
+          text: 'Бюждет',
+          sortable: false,
+        },
+        {
+          value: 'status',
+          text: 'Статус',
+          sortable: false,
+        },
+      ],
+      payoutsLoading: false,
+      payoutsPage: 1,
+      payoutsLastPage: 1,
+      payoutsItemsPerPage: 5,
+      payoutsItemsLength: 0,
     };
   },
   computed: {},
   watch: {},
   methods: {
-    payoutReferralIncome() {
+    async payoutReferralIncome() {
       this.widgetIncomeReferralLoadingPayout = true;
+      const usersSalesPayoutPostResponse = await usersSalesPayoutPost();
+      this.widgetIncomeReferralLoadingPayout = false;
 
-      setTimeout(() => { //DELETE
-        this.widgetIncomeReferralLoadingPayout = false;
-      }, 2000);
+      if (usersSalesPayoutPostResponse.status !== httpResponse.HTTP_OK) {
+        alert('Ошибка вывода средств'); //FIXME implement with vuetify
+        return;
+      }
+
+      await this.init();
     },
     async fetchIncome() {
       this.widgetIncomeReferralLoading = true;
@@ -195,12 +224,26 @@ export default {
       this.salesBonussesItemsPerPage = e.itemsPerPage;
       await this.fetchSalesBonusses();
     },
+
+    async updatePayoutsPage(e) {
+      this.payoutsLastPage = e.page;
+      await this.fetchPayouts();
+    },
+    async updatePayoutsItemsPerPage(e) {
+      this.payoutsLastPage = 1;
+      this.payoutsItemsPerPage = e.itemsPerPage;
+      await this.fetchPayouts();
+    },
+
+    async init() {
+      await this.fetchIncome();
+      await this.fetchSalesDirects();
+      await this.fetchSalesBonusses();
+      await this.fetchPayouts();
+    },
   },
   async created() {
-    await this.fetchIncome();
-    await this.fetchSalesDirects();
-    await this.fetchSalesBonusses();
-    await this.fetchPayouts();
+    await this.init();
   },
   mounted() { },
 }
