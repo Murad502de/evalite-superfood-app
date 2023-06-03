@@ -1,9 +1,11 @@
+import * as httpResponse from '@/shared/httpResponses';
 import { usersSalesDirectGet } from '@/api/users/usersSalesDirectGet';
 import { usersSalesBonussesGet } from '@/api/users/usersSalesBonussesGet';
 import { usersPayoutsGet } from '@/api/users/usersPayoutsGet';
 import { usersIncomeGet } from '@/api/users/usersIncomeGet';
 import { payoutsUuidGetAdapter } from '@/api/adapters/payouts/payoutsUuidGetAdapter';
-import { usersIncomeGetAdapter } from '@/api/adapters/payouts/usersIncomeGetAdapter';
+import { usersIncomeGetAdapter } from '@/api/adapters/users/usersIncomeGetAdapter';
+import { usersSalesDirectsGetAdapter } from '@/api/adapters/users/usersSalesDirectsGetAdapter';
 
 import TheWidgetIncomeReferral from '@/components/TheWidgetIncomeReferral/TheWidgetIncomeReferral.vue';
 import AppTable from '@/components/AppTable/AppTable.vue';
@@ -22,6 +24,7 @@ export default {
       amountThreshold: 0,
       tab: 0,
       payouts: [],
+      salesDirects: [],
     };
   },
   computed: {},
@@ -45,6 +48,18 @@ export default {
     async fetchSalesDirects() {
       const usersSalesDirectGetResponse = await usersSalesDirectGet({ page: 1, perPage: 5, });
       console.debug('usersSalesDirectGetResponse', usersSalesDirectGetResponse); //DELETE
+
+      if (usersSalesDirectGetResponse.status !== httpResponse.HTTP_OK) {
+        alert('Ошибка получения прямых продаж реферала'); //FIXME implement with vuetify
+        return;
+      }
+
+      for (let i = 0; i < usersSalesDirectGetResponse.data.data.length; i++) {
+        const sale = usersSalesDirectGetResponse.data.data[0];
+        this.salesDirects.push(await usersSalesDirectsGetAdapter(sale))
+      }
+
+      console.debug('salesDirects', this.salesDirects); //DELETE
     },
     async fetchSalesBonusses() {
       const usersSalesBonussesGetResponse = await usersSalesBonussesGet({ page: 1, perPage: 5, });
