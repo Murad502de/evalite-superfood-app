@@ -1,6 +1,7 @@
 import { usersSalesDirectGet } from '@/api/users/usersSalesDirectGet';
 import { usersSalesBonussesGet } from '@/api/users/usersSalesBonussesGet';
 import { usersPayoutsGet } from '@/api/users/usersPayoutsGet';
+import { usersIncomeGet } from '@/api/users/usersIncomeGet';
 import { payoutsUuidGetAdapter } from '@/api/adapters/payouts/payoutsUuidGetAdapter';
 
 import TheWidgetIncomeReferral from '@/components/TheWidgetIncomeReferral/TheWidgetIncomeReferral.vue';
@@ -16,6 +17,8 @@ export default {
     return {
       widgetIncomeReferralLoading: false,
       widgetIncomeReferralLoadingPayout: false,
+      amount: 25000,
+      amountThreshold: 30000,
       tab: 0,
       payouts: [],
     };
@@ -29,6 +32,10 @@ export default {
       setTimeout(() => { //DELETE
         this.widgetIncomeReferralLoadingPayout = false;
       }, 2000);
+    },
+    async fetchIncome() {
+      const usersIncomeGetResponse = await usersIncomeGet({ page: 1, perPage: 5, });
+      console.debug('usersIncomeGetResponse', usersIncomeGetResponse); //DELETE
     },
     async fetchSalesDirects() {
       const usersSalesDirectGetResponse = await usersSalesDirectGet({ page: 1, perPage: 5, });
@@ -51,6 +58,7 @@ export default {
     },
   },
   async created() {
+    await this.fetchIncome();
     await this.fetchSalesDirects();
     await this.fetchSalesBonusses();
     await this.fetchPayouts();

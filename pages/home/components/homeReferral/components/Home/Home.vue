@@ -3,8 +3,8 @@
   .home__container
     .home__widgets
       TheWidgetIncomeReferral.home__widget(
-        :amount="25000",
-        :amountThreshold="30000",
+        :amount="amount",
+        :amountThreshold="amountThreshold",
         :loading="widgetIncomeReferralLoading",
         :loadingPayout="widgetIncomeReferralLoadingPayout",
         @payout="payoutReferralIncome"
