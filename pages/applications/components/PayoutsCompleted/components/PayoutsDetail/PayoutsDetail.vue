@@ -1,8 +1,5 @@
 <template lang="pug">
 AppOverlay.payouts-detail(:dialog="dialog", :title="title", @close="close")
-  template(v-slot:actions)
-    v-btn(dark, text, @click="approve", :loading="approveLoading") Утвердить
-
   AppCard.payouts-detail--card
     v-tabs.payouts-detail--tabs(
       v-model="tab",
