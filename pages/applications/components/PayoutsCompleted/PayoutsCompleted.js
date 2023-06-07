@@ -121,10 +121,10 @@ export default {
       const payoutsGetResponse = await payoutsGet({
         page: this.page,
         perPage: this.itemsPerPage,
-        status: 'processing',
+        status: 'completed',
       });
 
-      console.debug('payoutsGetResponse', payoutsGetResponse); //DELETE
+      console.debug('payoutsGetResponse completed', payoutsGetResponse); //DELETE
 
       if (payoutsGetResponse.status !== 200) {
         alert('Ошибка получения списка выплат'); //FIXME implement with vuetify

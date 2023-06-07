@@ -1,0 +1,28 @@
+.payouts-completed {
+  &--table {
+    .v-data-table__mobile-row {
+      &:last-child {
+        color: red;
+
+        .v-data-table__mobile-row__header {
+          display: none;
+        }
+
+        .v-data-table__mobile-row__cell {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &--payout {
+    &__close {
+      width: 100%;
+      height: 48px !important;
+
+      @media screen and (min-width: 576px) {
+        height: 36px !important;
+      }
+    }
+  }
+}
