@@ -17,7 +17,7 @@
         slot(name="stub-img")
 
       .app-form-media-file__media(v-show="!!mediaUrl")
-        img.app-form-media-file__media--img(:src="mediaUrl")
+        img.app-form-media-file__media--img(:src="mediaUrl" @click="open")
 
       .app-form-media-file__delete(v-show="!!mediaUrl", @click="deleteFile")
         TrashIconSvg.app-form-media-file__delete-icon

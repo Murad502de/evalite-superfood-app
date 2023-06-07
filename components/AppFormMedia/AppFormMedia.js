@@ -41,6 +41,9 @@ export default {
     deleteFile() {
       this.$emit('delete');
     },
+    open() {
+      window.open(this.mediaUrl, '_blank').focus();
+    },
 
     /* HELPERS */
     /* ACTIONS */
