@@ -1,5 +1,5 @@
 <template lang="pug">
-.ruqi-home
+.evalite-home
   component(:is="getComponent(userData.role)")
 </template>
 

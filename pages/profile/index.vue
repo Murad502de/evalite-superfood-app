@@ -1,5 +1,5 @@
 <template lang="pug">
-.ruqi-profile ruqi-profile
+.evalite-profile evalite-profile
 </template>
 
 <script>

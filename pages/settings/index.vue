@@ -1,14 +1,14 @@
 <template lang="pug">
-.ruqi-settings
-  .ruqi-settings__container
+.evalite-settings
+  .evalite-settings__container
     AppCard
-      .ruqi-settings--top-bar
-        AppButton.ruqi-settings--save(
+      .evalite-settings--top-bar
+        AppButton.evalite-settings--save(
           :loading="loading",
           :disabled="fetching",
           @click="save"
         ) сохранить изменения
-      v-form.ruqi-settings--form(ref="form", v-model="valid", lazy-validation)
+      v-form.evalite-settings--form(ref="form", v-model="valid", lazy-validation)
         v-text-field(
           v-model="amocrmSubdomain",
           :rules="amocrmSubdomainRules",
@@ -72,14 +72,14 @@
           outlined
         )
 
-        .ruqi-settings--percentage-levels
-          .ruqi-settings--percentage-levels__title Процентаж связанных продаж
-          .ruqi-settings--percentage-levels__levels
-            .ruqi-settings--percentage-levels__level(
+        .evalite-settings--percentage-levels
+          .evalite-settings--percentage-levels__title Процентаж связанных продаж
+          .evalite-settings--percentage-levels__levels
+            .evalite-settings--percentage-levels__level(
               v-for="(percentageLevel, index) in percentageLevels",
               :key="percentageLevel.uuid"
             )
-              v-text-field.ruqi-settings--percentage-levels__level-field(
+              v-text-field.evalite-settings--percentage-levels__level-field(
                 v-model="percentageLevel.percentage",
                 :rules="percentageRules",
                 :disabled="loading || fetching",
@@ -87,11 +87,11 @@
                 required,
                 outlined
               )
-              v-icon.ruqi-settings--percentage-levels__level-delete(
+              v-icon.evalite-settings--percentage-levels__level-delete(
                 :disabled="loading || fetching",
                 @click="deletePercentageLevel(percentageLevel.uuid)"
               ) mdi-delete
-          AppButton.ruqi-settings--percentage-levels__add(
+          AppButton.evalite-settings--percentage-levels__add(
             :disabled="loading || fetching",
             @click="addPercentageLevel"
           ) Добавить

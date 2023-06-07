@@ -1,13 +1,13 @@
 <template lang="pug">
-v-app.ruqi-layout-default
-  .ruqi-layout-default__container
-    TheSideBarLeft.ruqi-layout-default__sidebar
-    .ruqi-layout-default__main
-      TheSideBarTop.ruqi-layout-default__topbar(
+v-app.evalite-layout-default
+  .evalite-layout-default__container
+    TheSideBarLeft.evalite-layout-default__sidebar
+    .evalite-layout-default__main
+      TheSideBarTop.evalite-layout-default__topbar(
         :section="getPageNameByRouteName(activePage)"
       )
-      Nuxt.ruqi-layout-default__main-page
-    TheSideBarBottom.ruqi-layout-default__bottombar
+      Nuxt.evalite-layout-default__main-page
+    TheSideBarBottom.evalite-layout-default__bottombar
 </template>
 
 <script>
@@ -58,7 +58,7 @@ export default {
 @import "@/styles/colors.scss";
 @import "@/styles/breakpoints.scss";
 
-.ruqi-layout-default {
+.evalite-layout-default {
   overflow: hidden;
 
   &__container {

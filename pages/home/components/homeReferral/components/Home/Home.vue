@@ -15,6 +15,7 @@
         v-tab.home--tab Продажи
         v-tab.home--tab Бонусы
         v-tab.home--tab Активные выплаты
+        v-tab.home--tab Архив выплат
 
       v-window.home--window(v-model="tab")
         v-window-item.home--window-item
@@ -52,6 +53,26 @@
               :headers="salesBonussesHeaders",
               :items="salesBonusses",
               :loading="salesBonussesLoading",
+              :loading-text="'Данные загружаются'"
+            )
+              template(v-slot:item.status="{ item }")
+                AppStatus(:status="item.status")
+
+        v-window-item.home--window-item
+          AppTable(
+            :page="payoutsPage",
+            :lastPage="payoutsLastPage",
+            :itemsPerPage="payoutsItemsPerPage",
+            :itemsLength="payoutsItemsLength",
+            @update:page="updatePayoutsPage",
+            @update:itemsPerPage="updatePayoutsItemsPerPage"
+          )
+            v-data-table.elevation-1.app-table--table(
+              hide-default-footer,
+              mobile-breakpoint="576",
+              :headers="payoutsHeaders",
+              :items="payouts",
+              :loading="payoutsLoading",
               :loading-text="'Данные загружаются'"
             )
               template(v-slot:item.status="{ item }")

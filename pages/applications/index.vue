@@ -1,14 +1,14 @@
 <template lang="pug">
-.ruqi-applications
-  .ruqi-applications__container
-    v-tabs.ruqi-applications--tabs(v-model="tab")
-      v-tab.ruqi-applications--tab Верификации
-      v-tab.ruqi-applications--tab Выплаты
+.evalite-applications
+  .evalite-applications__container
+    v-tabs.evalite-applications--tabs(v-model="tab")
+      v-tab.evalite-applications--tab Верификации
+      v-tab.evalite-applications--tab Выплаты
 
-    v-window.ruqi-applications--window(v-model="tab")
-      v-window-item.ruqi-applications--window-item
+    v-window.evalite-applications--window(v-model="tab")
+      v-window-item.evalite-applications--window-item
         Verifications
-      v-window-item.ruqi-applications--window-item
+      v-window-item.evalite-applications--window-item
         Payouts
 </template>
 

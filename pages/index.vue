@@ -1,5 +1,5 @@
 <template lang="pug">
-.ruqi-index
+.evalite-index
 </template>
 
 <script>
