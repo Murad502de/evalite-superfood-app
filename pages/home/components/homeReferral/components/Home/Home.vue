@@ -80,19 +80,19 @@
 
         v-window-item.home--window-item
           AppTable(
-            :page="payoutsPage",
-            :lastPage="payoutsLastPage",
-            :itemsPerPage="payoutsItemsPerPage",
-            :itemsLength="payoutsItemsLength",
-            @update:page="updatePayoutsPage",
-            @update:itemsPerPage="updatePayoutsItemsPerPage"
+            :page="payoutsCompletedPage",
+            :lastPage="payoutsCompletedLastPage",
+            :itemsPerPage="payoutsCompletedItemsPerPage",
+            :itemsLength="payoutsCompletedItemsLength",
+            @update:page="updatePayoutsCompletedPage",
+            @update:itemsPerPage="updatePayoutsCompletedItemsPerPage"
           )
             v-data-table.elevation-1.app-table--table(
               hide-default-footer,
               mobile-breakpoint="576",
               :headers="payoutsHeaders",
-              :items="payouts",
-              :loading="payoutsLoading",
+              :items="payoutsCompleted",
+              :loading="payoutsCompletedLoading",
               :loading-text="'Данные загружаются'"
             )
               template(v-slot:item.status="{ item }")

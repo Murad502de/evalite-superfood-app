@@ -29,4 +29,13 @@
       color: #0082DE;
     }
   }
+
+  &--completed {
+    background: #ECFFEC;
+    border: 1px solid #71D472;
+
+    &__title {
+      color: #71D472;
+    }
+  }
 }

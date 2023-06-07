@@ -20,6 +20,9 @@ export default {
         case 'processing':
           return 'В обработке';
 
+        case 'completed':
+          return 'Выполнен';
+
         default:
           return '';
       }

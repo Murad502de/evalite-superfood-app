@@ -101,6 +101,13 @@ export default {
       payoutsLastPage: 1,
       payoutsItemsPerPage: 5,
       payoutsItemsLength: 0,
+
+      payoutsCompleted: [],
+      payoutsCompletedLoading: false,
+      payoutsCompletedPage: 1,
+      payoutsCompletedLastPage: 1,
+      payoutsCompletedItemsPerPage: 5,
+      payoutsCompletedItemsLength: 0,
     };
   },
   computed: {},
@@ -189,7 +196,13 @@ export default {
       console.debug('salesBonusses', this.salesBonusses); //DELETE
     },
     async fetchPayouts() {
-      const usersPayoutsGetResponse = await usersPayoutsGet({ page: 1, perPage: 5, });
+      this.payouts = [];
+      this.payoutsLoading = true;
+      const usersPayoutsGetResponse = await usersPayoutsGet({
+        page: this.payoutsPage,
+        perPage: this.payoutsItemsPerPage,
+        status: 'processing',
+      });
       console.debug('usersPayoutsGetResponse', usersPayoutsGetResponse); //DELETE
 
       if (usersPayoutsGetResponse.status !== httpResponse.HTTP_OK) {
@@ -197,12 +210,48 @@ export default {
         return;
       }
 
+      this.payoutsPage = usersPayoutsGetResponse.data.meta.current_page;
+      this.payoutsLastPage = usersPayoutsGetResponse.data.meta.last_page;
+      this.payoutsItemsPerPage = usersPayoutsGetResponse.data.meta.per_page;
+      this.payoutsItemsLength = usersPayoutsGetResponse.data.meta.total;
+
       for (let i = 0; i < usersPayoutsGetResponse.data.data.length; i++) {
         const payout = usersPayoutsGetResponse.data.data[i];
         this.payouts.push(await payoutsUuidGetAdapter(payout))
       }
 
+      this.payoutsLoading = false;
+
       console.debug('payouts', this.payouts); //DELETE
+    },
+    async fetchPayoutsCompleted() {
+      this.payoutsCompleted = [];
+      this.payoutsCompletedLoading = true;
+      const usersPayoutsGetResponse = await usersPayoutsGet({
+        page: this.payoutsCompletedPage,
+        perPage: this.payoutsCompletedItemsPerPage,
+        status: 'completed',
+      });
+      console.debug('usersPayoutsGetResponse', usersPayoutsGetResponse); //DELETE
+
+      if (usersPayoutsGetResponse.status !== httpResponse.HTTP_OK) {
+        alert('Ошибка получения выплат реферала'); //FIXME implement with vuetify
+        return;
+      }
+
+      this.payoutsCompletedPage = usersPayoutsGetResponse.data.meta.current_page;
+      this.payoutsCompletedLastPage = usersPayoutsGetResponse.data.meta.last_page;
+      this.payoutsCompletedItemsPerPage = usersPayoutsGetResponse.data.meta.per_page;
+      this.payoutsCompletedItemsLength = usersPayoutsGetResponse.data.meta.total;
+
+      for (let i = 0; i < usersPayoutsGetResponse.data.data.length; i++) {
+        const payout = usersPayoutsGetResponse.data.data[i];
+        this.payoutsCompleted.push(await payoutsUuidGetAdapter(payout))
+      }
+
+      this.payoutsCompletedLoading = false;
+
+      console.debug('payouts', this.payoutsCompleted); //DELETE
     },
 
     async updateSalesDirectsPage(e) {
@@ -235,11 +284,22 @@ export default {
       await this.fetchPayouts();
     },
 
+    async updatePayoutsCompletedPage(e) {
+      this.payoutsCompletedLastPage = e.page;
+      await this.fetchPayoutsCompleted();
+    },
+    async updatePayoutsCompletedItemsPerPage(e) {
+      this.payoutsCompletedLastPage = 1;
+      this.payoutsCompletedItemsPerPage = e.itemsPerPage;
+      await this.fetchPayoutsCompleted();
+    },
+
     async init() {
       await this.fetchIncome();
       await this.fetchSalesDirects();
       await this.fetchSalesBonusses();
       await this.fetchPayouts();
+      await this.fetchPayoutsCompleted();
     },
   },
   async created() {
