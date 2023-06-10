@@ -1,7 +1,7 @@
 <template lang="pug">
 .the-side-bar-left
   .the-side-bar-left__top
-    Logo.the-side-bar-left__logo(@click="onLogoClicked")
+    img.the-side-bar-left__logo(@click="onLogoClicked" src="@/assets/png/logo.png")
     .the-side-bar-left__links
       AppSideBarLink.the-side-bar-left__link(
         v-for="(link, index) in linksTop",

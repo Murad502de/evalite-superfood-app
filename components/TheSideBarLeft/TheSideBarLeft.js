@@ -1,5 +1,6 @@
 import { mapGetters } from 'vuex';
 import Logo from '@/assets/svg/evalite-ctystal-logo.svg';
+// import Logo from '@/assets/png/logo.png';
 import AppSideBarLink from '@/components/AppSideBarLink/AppSideBarLink.vue';
 import { linksTop, linksBottom, } from './shared/links';
 import * as sidebarService from '@/services/sidebarService';

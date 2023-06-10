@@ -14,12 +14,19 @@
 
   &__logo {
     cursor: pointer;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 14px;
   }
 
   &__top,
   &__bottom {
     box-sizing: border-box;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
   }
 
   &__bottom {
