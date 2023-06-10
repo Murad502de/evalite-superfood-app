@@ -10,6 +10,7 @@
       .signup-step5-payment-info--instructions__item(
         v-for="(instruction, index) in instructions",
         :key="index"
+        @click="open(instruction)"
       )
         ExternalLink.signup-step5-payment-info--instructions__item-logo
         .signup-step5-payment-info--instructions__item-title {{ instruction.title }}

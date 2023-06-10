@@ -1,5 +1,10 @@
 import InfoIconSvg from '@/assets/svg/info.svg';
 import ExternalLink from '@/assets/svg/external_link.svg';
+import {
+  paymentDetailsSberbank,
+  paymentDetailsTinkoff,
+  paymentDetailsAlfabank,
+} from '@/shared/links';
 
 export default {
   components: {
@@ -15,12 +20,15 @@ export default {
       instructions: [
         {
           title: 'Сбербанк инструкция',
+          link: paymentDetailsSberbank,
         },
         {
           title: 'Тинькоф инструкция',
+          link: paymentDetailsTinkoff,
         },
         {
           title: 'Альфабанк инструкция',
+          link: paymentDetailsAlfabank,
         },
       ],
     };
@@ -29,11 +37,9 @@ export default {
 
   watch: {},
   methods: {
-    /* GETTERS */
-    /* SETTERS */
-    /* HANDLERS */
-    /* HELPERS */
-    /* ACTIONS */
+    open(instruction) {
+      window.open(instruction.link, '_blank').focus();
+    },
   },
 
   created() { },
