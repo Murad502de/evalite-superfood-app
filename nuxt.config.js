@@ -34,7 +34,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/vuetify.js', mode: 'client' },
-    { src: '~/plugins/vue-infinite-scroll.js', mode: 'client', ssr: false },
+    // { src: '~/plugins/vue-infinite-scroll.js', mode: 'client', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -85,7 +85,7 @@ export default {
   router: {
     middleware: [
       'auth',
-      // 'access_rights',
+      'routeProtection',
     ],
   },
 
