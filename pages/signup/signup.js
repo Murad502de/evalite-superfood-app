@@ -42,7 +42,7 @@ export default {
   },
 
   created() {
-    this.setActiveSection(activeSections.start);
+    this.setActiveSection(activeSections.steps);
   },
   mounted() { },
 }

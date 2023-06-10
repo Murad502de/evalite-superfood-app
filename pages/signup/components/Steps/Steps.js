@@ -30,7 +30,7 @@ export default {
     return {
       onboardings: 6,
       loading: false,
-      onboarding: stepsWindow.step1PersonalData,
+      onboarding: stepsWindow.step5PaymentInfo,
       confirmTimerCount: 30,
       confirmTimer: null,
       step1PersonalDataProgress: 0,
