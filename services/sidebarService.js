@@ -39,10 +39,11 @@ export const isLinkHidden = (routeName, userDataRole) => {
   switch (routeName) {
     case routeNames.applications:
     case routeNames.settings:
-    case routeNames.profile:
       return userDataRole !== roles.admin;
     case routeNames.home:
       return userDataRole === roles.admin;
+    case routeNames.profile:
+      return true;
     default:
       return false;
   }
