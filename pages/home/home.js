@@ -1,10 +1,10 @@
 import { mapGetters, mapActions, } from 'vuex';
 import * as roles from "@/shared/roles";
-import HomeReferral from './components/HomeReferral/HomeReferral.vue';
+import HomePartner from './components/HomePartner/HomePartner.vue';
 
 export default {
   components: {
-    HomeReferral,
+    HomePartner,
   },
   props: {},
   data() {
@@ -19,7 +19,7 @@ export default {
     getComponent(name) {
       switch (name) {
         case roles.referral:
-          return "HomeReferral";
+          return "HomePartner";
         default:
           return null;
       }

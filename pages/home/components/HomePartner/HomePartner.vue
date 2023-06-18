@@ -3,5 +3,5 @@
   component(:is="getComponent()", @forceRerender="forceRerender")
 </template>
 
-<script src="./HomeReferral.js" />
-<style lang="scss" src="./HomeReferral.scss" />
+<script src="./HomePartner.js" />
+<style lang="scss" src="./HomePartner.scss" />
