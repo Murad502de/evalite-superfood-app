@@ -19,11 +19,11 @@ AppCard.the-widget-income-referral
         :value="convertToMoneyFormat(amount)",
         :loading="loading"
       )
-      InfoBlock.the-widget-income-referral__info-block(
-        :title="amountTitleResidual",
-        :value="convertToMoneyFormat(amountResidual)",
-        :loading="loading"
-      )
+      //- InfoBlock.the-widget-income-referral__info-block(
+      //-   :title="amountTitleResidual",
+      //-   :value="convertToMoneyFormat(amountResidual)",
+      //-   :loading="loading"
+      //- )
 
     .the-widget-income-referral__footer
       AppButton.the-widget-income-referral--payout(
