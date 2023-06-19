@@ -83,7 +83,7 @@ export default {
       payoutsHeaders: [
         {
           value: 'date',
-          text: 'Название',
+          text: 'Дата',
           align: 'start',
           sortable: false,
         },
@@ -217,7 +217,7 @@ export default {
       const usersPayoutsGetResponse = await usersPayoutsGet({
         page: this.payoutsPage,
         perPage: this.payoutsItemsPerPage,
-        status: 'processing',
+        // status: 'processing',
       });
       console.debug('usersPayoutsGetResponse', usersPayoutsGetResponse); //DELETE
 
@@ -315,7 +315,7 @@ export default {
       await this.fetchSalesDirects();
       await this.fetchSalesBonusses();
       await this.fetchPayouts();
-      await this.fetchPayoutsCompleted();
+      // await this.fetchPayoutsCompleted();
     },
   },
   async created() {

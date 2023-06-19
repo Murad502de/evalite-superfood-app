@@ -5,7 +5,7 @@ export const usersSalesBonussesGet = async ({ page, perPage, }) => {
     const params = {
       page,
       per_page: perPage,
-      filter_status: 'waiting',
+      // filter_status: 'waiting',
     };
     const response = await api.get('users/sales/bonusses', {
       params,

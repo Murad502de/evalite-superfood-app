@@ -15,14 +15,12 @@ export default {
     getTitle() {
       switch (this.status) {
         case 'waiting':
-          return 'Ожидает';
-
+          return 'Не выплачено';
         case 'processing':
           return 'В обработке';
-
         case 'completed':
-          return 'Выполнен';
-
+        case 'closed':
+          return 'Выплачено';
         default:
           return '';
       }

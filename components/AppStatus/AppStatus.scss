@@ -13,11 +13,11 @@
   }
 
   &--waiting {
-    background: #FFFCF0;
-    border: 1px solid #F4D150;
+    background: #ECFFEC;
+    border: 1px solid #71D472;
 
     &__title {
-      color: #F4D150;
+      color: #71D472;
     }
   }
 
@@ -30,12 +30,22 @@
     }
   }
 
+  // &--completed {
+  //   background: #ECFFEC;
+  //   border: 1px solid #71D472;
+
+  //   &__title {
+  //     color: #71D472;
+  //   }
+  // }
+
+  &--closed,
   &--completed {
-    background: #ECFFEC;
-    border: 1px solid #71D472;
+    background: #FFF6F5;
+    border: 1px solid #EB4D3D;
 
     &__title {
-      color: #71D472;
+      color: #EB4D3D;
     }
   }
 }

@@ -25,9 +25,9 @@
 
     .home__main
       v-tabs.home--tabs(v-model="tab")
-        v-tab.home--tab Продажи
+        v-tab.home--tab Личные продажи
         v-tab.home--tab Бонусы
-        v-tab.home--tab Активные выплаты
+        v-tab.home--tab Выплаты
         //- v-tab.home--tab Архив выплат
 
       v-window.home--window(v-model="tab")
