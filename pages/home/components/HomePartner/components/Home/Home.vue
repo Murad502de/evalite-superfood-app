@@ -28,7 +28,7 @@
         v-tab.home--tab Продажи
         v-tab.home--tab Бонусы
         v-tab.home--tab Активные выплаты
-        v-tab.home--tab Архив выплат
+        //- v-tab.home--tab Архив выплат
 
       v-window.home--window(v-model="tab")
         v-window-item.home--window-item
@@ -91,25 +91,25 @@
               template(v-slot:item.status="{ item }")
                 AppStatus(:status="item.status")
 
-        v-window-item.home--window-item
-          AppTable(
-            :page="payoutsCompletedPage",
-            :lastPage="payoutsCompletedLastPage",
-            :itemsPerPage="payoutsCompletedItemsPerPage",
-            :itemsLength="payoutsCompletedItemsLength",
-            @update:page="updatePayoutsCompletedPage",
-            @update:itemsPerPage="updatePayoutsCompletedItemsPerPage"
-          )
-            v-data-table.elevation-1.app-table--table(
-              hide-default-footer,
-              mobile-breakpoint="576",
-              :headers="payoutsHeaders",
-              :items="payoutsCompleted",
-              :loading="payoutsCompletedLoading",
-              :loading-text="'Данные загружаются'"
-            )
-              template(v-slot:item.status="{ item }")
-                AppStatus(:status="item.status")
+        //- v-window-item.home--window-item
+        //-   AppTable(
+        //-     :page="payoutsCompletedPage",
+        //-     :lastPage="payoutsCompletedLastPage",
+        //-     :itemsPerPage="payoutsCompletedItemsPerPage",
+        //-     :itemsLength="payoutsCompletedItemsLength",
+        //-     @update:page="updatePayoutsCompletedPage",
+        //-     @update:itemsPerPage="updatePayoutsCompletedItemsPerPage"
+        //-   )
+        //-     v-data-table.elevation-1.app-table--table(
+        //-       hide-default-footer,
+        //-       mobile-breakpoint="576",
+        //-       :headers="payoutsHeaders",
+        //-       :items="payoutsCompleted",
+        //-       :loading="payoutsCompletedLoading",
+        //-       :loading-text="'Данные загружаются'"
+        //-     )
+        //-       template(v-slot:item.status="{ item }")
+        //-         AppStatus(:status="item.status")
 </template>
 
 <script src="./Home.js" />
