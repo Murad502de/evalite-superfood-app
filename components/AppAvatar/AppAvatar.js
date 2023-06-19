@@ -6,6 +6,10 @@ export default {
       type: String,
       default: null,
     },
+    size: {
+      type: String,
+      default: '256',
+    },
     error: {
       type: Boolean,
       default: false,

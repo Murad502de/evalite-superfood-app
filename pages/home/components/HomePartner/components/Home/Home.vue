@@ -1,6 +1,19 @@
 <template lang="pug">
 .home
   .home__container
+    .home__header
+      .home__user
+        AppAvatar.home__user-avatar(:url="avatarUrl", disabled, size="64")
+        .home__user-info
+          .home__user-name {{ userFullName }}
+          .home__user-link
+            .home__user-info-title Реферальная ссылка:&nbsp;
+            .home__user-info-value {{ userReferralLink }}
+
+          .home__user-invite-code
+            .home__user-info-title Код приглашения:&nbsp;
+            .home__user-info-value {{ userInviteCode }}
+
     .home__widgets
       TheWidgetIncomeReferral.home__widget(
         :amount="amount",

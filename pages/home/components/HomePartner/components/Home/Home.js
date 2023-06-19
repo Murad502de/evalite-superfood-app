@@ -1,3 +1,4 @@
+import { mapGetters, mapActions, } from 'vuex';
 import * as httpResponse from '@/shared/httpResponses';
 import { usersSalesDirectGet } from '@/api/users/usersSalesDirectGet';
 import { usersSalesBonussesGet } from '@/api/users/usersSalesBonussesGet';
@@ -7,16 +8,17 @@ import { usersSalesPayoutPost } from '@/api/users/usersSalesPayoutPost';
 import { payoutsUuidGetAdapter } from '@/api/adapters/payouts/payoutsUuidGetAdapter';
 import { usersIncomeGetAdapter } from '@/api/adapters/users/usersIncomeGetAdapter';
 import { usersSalesGetAdapter } from '@/api/adapters/users/usersSalesGetAdapter';
-
 import TheWidgetIncomeReferral from '@/components/TheWidgetIncomeReferral/TheWidgetIncomeReferral.vue';
 import AppTable from '@/components/AppTable/AppTable.vue';
 import AppStatus from '@/components/AppStatus/AppStatus.vue';
+import AppAvatar from '@/components/AppAvatar/AppAvatar.vue';
 
 export default {
   components: {
     TheWidgetIncomeReferral,
     AppTable,
     AppStatus,
+    AppAvatar,
   },
   props: {},
   data() {
@@ -110,7 +112,21 @@ export default {
       payoutsCompletedItemsLength: 0,
     };
   },
-  computed: {},
+  computed: {
+    ...mapGetters('userStore', ['userData']),
+    avatarUrl() {
+      return this.userData.avatar;
+    },
+    userFullName() {
+      return `${this.userData.second_name} ${this.userData.first_name} ${this.userData.third_name}`;
+    },
+    userReferralLink() {
+      return this.userData.referral_link;
+    },
+    userInviteCode() {
+      return this.userData.invite_code;
+    },
+  },
   watch: {},
   methods: {
     async payoutReferralIncome() {

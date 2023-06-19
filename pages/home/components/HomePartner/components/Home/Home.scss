@@ -20,5 +20,55 @@
     & .v-slide-group__next {
       display: none !important;
     }
+
+    &__user {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      column-gap: 24px;
+
+      &-avatar {
+        & .v-icon {
+          font-size: 200% !important;
+        }
+      }
+
+      &-name {
+        font-size: 32px;
+        font-weight: bold;
+        line-height: 32px;
+      }
+
+      &-info {
+        &-value {
+          color: #0082DE;
+        }
+
+        &-title,
+        &-value {
+          font-size: 16px;
+          font-weight: bold;
+        }
+      }
+
+      &-link,
+      &-invite-code {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      &-link {
+        margin-top: 16px;
+      }
+    }
+
+    &__widgets {
+      margin-top: 32px;
+    }
   }
 }

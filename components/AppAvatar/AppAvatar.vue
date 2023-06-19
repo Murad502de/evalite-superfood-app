@@ -1,6 +1,6 @@
 <template lang="pug">
 v-avatar.app-avatar(
-  size="256",
+  :size="size",
   :color="disabled ? '#E2E4E5' : '#0082DE'",
   :class="classes",
   @click="selectFile"
