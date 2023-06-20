@@ -32,6 +32,9 @@
 
       v-window.home--window(v-model="tab")
         v-window-item.home--window-item
+          FilterTable.home--sales-filter(@apply="applySalesDirectsFilter")
+            div salesDirects
+
           AppTable(
             :page="salesDirectsPage",
             :lastPage="salesDirectsLastPage",
@@ -52,6 +55,9 @@
                 AppStatus(:status="item.status")
 
         v-window-item.home--window-item
+          FilterTable(@apply="applySalesBonussesFilter")
+            div salesBonusses
+
           AppTable(
             :page="salesBonussesPage",
             :lastPage="salesBonussesLastPage",
@@ -72,6 +78,9 @@
                 AppStatus(:status="item.status")
 
         v-window-item.home--window-item
+          FilterTable(@apply="applySalesPayoutsFilter")
+            div payouts
+
           AppTable(
             :page="payoutsPage",
             :lastPage="payoutsLastPage",

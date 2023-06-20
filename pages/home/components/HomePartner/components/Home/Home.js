@@ -12,6 +12,7 @@ import TheWidgetIncomeReferral from '@/components/TheWidgetIncomeReferral/TheWid
 import AppTable from '@/components/AppTable/AppTable.vue';
 import AppStatus from '@/components/AppStatus/AppStatus.vue';
 import AppAvatar from '@/components/AppAvatar/AppAvatar.vue';
+import FilterTable from './components/FilterTable/FilterTable.vue';
 
 export default {
   components: {
@@ -19,6 +20,7 @@ export default {
     AppTable,
     AppStatus,
     AppAvatar,
+    FilterTable,
   },
   props: {},
   data() {
@@ -51,7 +53,7 @@ export default {
       salesDirectsLoading: false,
       salesDirectsPage: 1,
       salesDirectsLastPage: 1,
-      salesDirectsItemsPerPage: 5,
+      salesDirectsItemsPerPage: 25,
       salesDirectsItemsLength: 0,
 
       salesBonusses: [],
@@ -76,7 +78,7 @@ export default {
       salesBonussesLoading: false,
       salesBonussesPage: 1,
       salesBonussesLastPage: 1,
-      salesBonussesItemsPerPage: 5,
+      salesBonussesItemsPerPage: 25,
       salesBonussesItemsLength: 0,
 
       payouts: [],
@@ -101,7 +103,7 @@ export default {
       payoutsLoading: false,
       payoutsPage: 1,
       payoutsLastPage: 1,
-      payoutsItemsPerPage: 5,
+      payoutsItemsPerPage: 25,
       payoutsItemsLength: 0,
 
       payoutsCompleted: [],
@@ -308,6 +310,16 @@ export default {
       this.payoutsCompletedLastPage = 1;
       this.payoutsCompletedItemsPerPage = e.itemsPerPage;
       await this.fetchPayoutsCompleted();
+    },
+
+    async applySalesDirectsFilter() {
+      console.debug('applySalesDirectsFilter'); //DELETE
+    },
+    async applySalesBonussesFilter() {
+      console.debug('applySalesBonussesFilter'); //DELETE
+    },
+    async applySalesPayoutsFilter() {
+      console.debug('applySalesPayoutsFilter'); //DELETE
     },
 
     async init() {

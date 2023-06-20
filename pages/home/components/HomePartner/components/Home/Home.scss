@@ -70,5 +70,11 @@
     &__widgets {
       margin-top: 32px;
     }
+
+    &--sales {
+      &-filter {
+        margin: 24px 0;
+      }
+    }
   }
 }

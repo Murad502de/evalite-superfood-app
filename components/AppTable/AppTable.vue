@@ -11,7 +11,7 @@
       @click:row="onRowClick"
     )
   v-data-footer(
-    :items-per-page-options="[5, 10]",
+    :items-per-page-options="[25, 50, 100]",
     :options="{ page: page, itemsPerPage: itemsPerPage }",
     :pagination="{ itemsLength: itemsLength }",
     @update:options="updateOptions",
