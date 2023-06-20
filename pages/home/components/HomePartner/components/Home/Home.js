@@ -13,6 +13,8 @@ import AppTable from '@/components/AppTable/AppTable.vue';
 import AppStatus from '@/components/AppStatus/AppStatus.vue';
 import AppAvatar from '@/components/AppAvatar/AppAvatar.vue';
 import FilterTable from './components/FilterTable/FilterTable.vue';
+import AppTextField from '@/components/AppTextField/AppTextField.vue';
+import AppSelect from '@/components/AppSelect/AppSelect.vue';
 
 export default {
   components: {
@@ -21,6 +23,8 @@ export default {
     AppStatus,
     AppAvatar,
     FilterTable,
+    AppTextField,
+    AppSelect,
   },
   props: {},
   data() {
@@ -30,6 +34,13 @@ export default {
       amount: 0,
       amountThreshold: 0,
       tab: 0,
+
+      salesDirectsFilterLoading: false,
+      salesDirectsFilterDisabled: false,
+      salesDirectsFilterName: '',
+      salesDirectsFilterNameRules: [],
+      salesDirectsFilterGender: '',
+      salesDirectsFilterGenderRules: [],
 
       salesDirects: [],
       salesDirectsHeaders: [

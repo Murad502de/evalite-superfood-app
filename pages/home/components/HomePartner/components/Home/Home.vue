@@ -33,7 +33,34 @@
       v-window.home--window(v-model="tab")
         v-window-item.home--window-item
           FilterTable.home--sales-filter(@apply="applySalesDirectsFilter")
-            div salesDirects
+            .home--sales-filter-directs
+              AppTextField(
+                v-model="salesDirectsFilterName",
+                :rules="salesDirectsFilterNameRules",
+                :loading="salesDirectsFilterLoading",
+                :disabled="salesDirectsFilterDisabled",
+                label="Название",
+                outlined
+              )
+
+              AppTextField(
+                v-model="salesDirectsFilterName",
+                :rules="salesDirectsFilterNameRules",
+                :loading="salesDirectsFilterLoading",
+                :disabled="salesDirectsFilterDisabled",
+                label="Бюджет",
+                outlined
+              )
+
+              AppSelect(
+                v-model="salesDirectsFilterGender",
+                :rules="salesDirectsFilterGenderRules",
+                :loading="salesDirectsFilterLoading",
+                :disabled="salesDirectsFilterDisabled",
+                :items="['муж', 'жен']",
+                label="Пол",
+                outlined
+              )
 
           AppTable(
             :page="salesDirectsPage",
