@@ -76,5 +76,11 @@
         margin: 24px 0;
       }
     }
+
+    &--window {
+      &-item {
+        max-width: 1200px;
+      }
+    }
   }
 }
