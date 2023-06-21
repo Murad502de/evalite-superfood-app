@@ -34,7 +34,7 @@
         v-window-item.home--window-item
           FilterTable.home--sales-filter(@apply="applySalesDirectsFilter")
             .home--sales-filter-directs
-              AppTextField(
+              AppTextField.home--sales-filter__field(
                 v-model="salesDirectsFilterName",
                 :rules="salesDirectsFilterNameRules",
                 :loading="salesDirectsFilterLoading",
@@ -43,7 +43,7 @@
                 outlined
               )
 
-              AppTextField(
+              AppTextField.home--sales-filter__field(
                 v-model="salesDirectsFilterName",
                 :rules="salesDirectsFilterNameRules",
                 :loading="salesDirectsFilterLoading",
@@ -52,7 +52,7 @@
                 outlined
               )
 
-              AppSelect(
+              AppSelect.home--sales-filter__field(
                 v-model="salesDirectsFilterGender",
                 :rules="salesDirectsFilterGenderRules",
                 :loading="salesDirectsFilterLoading",

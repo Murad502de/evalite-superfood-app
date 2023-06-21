@@ -74,6 +74,14 @@
     &--sales {
       &-filter {
         margin: 24px 0;
+
+        &__field {
+          max-width: 428px;
+
+          .v-input__slot {
+            background: #FFFFFF;
+          }
+        }
       }
     }
 
