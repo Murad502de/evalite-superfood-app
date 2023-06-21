@@ -58,7 +58,7 @@
                 :loading="salesDirectsFilterLoading",
                 :disabled="salesDirectsFilterDisabled",
                 :items="['муж', 'жен']",
-                label="Пол",
+                label="Статус",
                 outlined
               )
 
@@ -82,8 +82,53 @@
                 AppStatus(:status="item.status")
 
         v-window-item.home--window-item
-          FilterTable(@apply="applySalesBonussesFilter")
-            div salesBonusses
+          FilterTable.home--sales-filter(@apply="applySalesBonussesFilter")
+            .home--sales-filter-bonusses
+              AppTextField.home--sales-filter__field(
+                v-model="salesDirectsFilterName",
+                :rules="salesDirectsFilterNameRules",
+                :loading="salesDirectsFilterLoading",
+                :disabled="salesDirectsFilterDisabled",
+                label="Название",
+                outlined
+              )
+
+              AppTextField.home--sales-filter__field(
+                v-model="salesDirectsFilterName",
+                :rules="salesDirectsFilterNameRules",
+                :loading="salesDirectsFilterLoading",
+                :disabled="salesDirectsFilterDisabled",
+                label="Бюджет",
+                outlined
+              )
+
+              AppTextField.home--sales-filter__field(
+                v-model="salesDirectsFilterName",
+                :rules="salesDirectsFilterNameRules",
+                :loading="salesDirectsFilterLoading",
+                :disabled="salesDirectsFilterDisabled",
+                label="Партнер",
+                outlined
+              )
+
+              AppTextField.home--sales-filter__field(
+                v-model="salesDirectsFilterName",
+                :rules="salesDirectsFilterNameRules",
+                :loading="salesDirectsFilterLoading",
+                :disabled="salesDirectsFilterDisabled",
+                label="Уровень",
+                outlined
+              )
+
+              AppSelect.home--sales-filter__field(
+                v-model="salesDirectsFilterGender",
+                :rules="salesDirectsFilterGenderRules",
+                :loading="salesDirectsFilterLoading",
+                :disabled="salesDirectsFilterDisabled",
+                :items="['муж', 'жен']",
+                label="Статус",
+                outlined
+              )
 
           AppTable(
             :page="salesBonussesPage",
@@ -105,8 +150,35 @@
                 AppStatus(:status="item.status")
 
         v-window-item.home--window-item
-          FilterTable(@apply="applySalesPayoutsFilter")
-            div payouts
+          FilterTable.home--sales-filter(@apply="applySalesPayoutsFilter")
+            .home--sales-filter-payouts
+              AppTextField.home--sales-filter__field(
+                v-model="salesDirectsFilterName",
+                :rules="salesDirectsFilterNameRules",
+                :loading="salesDirectsFilterLoading",
+                :disabled="salesDirectsFilterDisabled",
+                label="Дата",
+                outlined
+              )
+
+              AppTextField.home--sales-filter__field(
+                v-model="salesDirectsFilterName",
+                :rules="salesDirectsFilterNameRules",
+                :loading="salesDirectsFilterLoading",
+                :disabled="salesDirectsFilterDisabled",
+                label="Бюджет",
+                outlined
+              )
+
+              AppSelect.home--sales-filter__field(
+                v-model="salesDirectsFilterGender",
+                :rules="salesDirectsFilterGenderRules",
+                :loading="salesDirectsFilterLoading",
+                :disabled="salesDirectsFilterDisabled",
+                :items="['муж', 'жен']",
+                label="Статус",
+                outlined
+              )
 
           AppTable(
             :page="payoutsPage",
@@ -126,26 +198,6 @@
             )
               template(v-slot:item.status="{ item }")
                 AppStatus(:status="item.status")
-
-        //- v-window-item.home--window-item
-        //-   AppTable(
-        //-     :page="payoutsCompletedPage",
-        //-     :lastPage="payoutsCompletedLastPage",
-        //-     :itemsPerPage="payoutsCompletedItemsPerPage",
-        //-     :itemsLength="payoutsCompletedItemsLength",
-        //-     @update:page="updatePayoutsCompletedPage",
-        //-     @update:itemsPerPage="updatePayoutsCompletedItemsPerPage"
-        //-   )
-        //-     v-data-table.elevation-1.app-table--table(
-        //-       hide-default-footer,
-        //-       mobile-breakpoint="576",
-        //-       :headers="payoutsHeaders",
-        //-       :items="payoutsCompleted",
-        //-       :loading="payoutsCompletedLoading",
-        //-       :loading-text="'Данные загружаются'"
-        //-     )
-        //-       template(v-slot:item.status="{ item }")
-        //-         AppStatus(:status="item.status")
 </template>
 
 <script src="./Home.js" />
