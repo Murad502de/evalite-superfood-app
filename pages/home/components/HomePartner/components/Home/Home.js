@@ -80,6 +80,18 @@ export default {
           text: 'Бюждет',
           sortable: false,
         },
+
+        {
+          value: 'partner',
+          text: 'Партнер',
+          sortable: false,
+        },
+        {
+          value: 'level',
+          text: 'Уровень',
+          sortable: false,
+        },
+
         {
           value: 'status',
           text: 'Статус',
