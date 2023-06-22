@@ -45,9 +45,15 @@ export default {
       salesDirects: [],
       salesDirectsHeaders: [
         {
+          value: 'date',
+          text: 'Дата',
+          align: 'start',
+          // sortable: false,
+        },
+        {
           value: 'name',
           text: 'Название',
-          align: 'start',
+          // align: 'start',
           // sortable: false,
         },
         {
@@ -70,9 +76,15 @@ export default {
       salesBonusses: [],
       salesBonussesHeaders: [
         {
+          value: 'date',
+          text: 'Дата',
+          align: 'start',
+          // sortable: false,
+        },
+        {
           value: 'name',
           text: 'Название',
-          align: 'start',
+          // align: 'start',
           // sortable: false,
         },
         {

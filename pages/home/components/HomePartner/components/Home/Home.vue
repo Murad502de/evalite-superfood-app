@@ -43,15 +43,6 @@
                 outlined
               )
 
-              AppTextField.home--sales-filter__field(
-                v-model="salesDirectsFilterName",
-                :rules="salesDirectsFilterNameRules",
-                :loading="salesDirectsFilterLoading",
-                :disabled="salesDirectsFilterDisabled",
-                label="Бюджет",
-                outlined
-              )
-
               AppSelect.home--sales-filter__field(
                 v-model="salesDirectsFilterGender",
                 :rules="salesDirectsFilterGenderRules",
@@ -90,15 +81,6 @@
                 :loading="salesDirectsFilterLoading",
                 :disabled="salesDirectsFilterDisabled",
                 label="Название",
-                outlined
-              )
-
-              AppTextField.home--sales-filter__field(
-                v-model="salesDirectsFilterName",
-                :rules="salesDirectsFilterNameRules",
-                :loading="salesDirectsFilterLoading",
-                :disabled="salesDirectsFilterDisabled",
-                label="Бюджет",
                 outlined
               )
 
@@ -158,15 +140,6 @@
                 :loading="salesDirectsFilterLoading",
                 :disabled="salesDirectsFilterDisabled",
                 label="Дата",
-                outlined
-              )
-
-              AppTextField.home--sales-filter__field(
-                v-model="salesDirectsFilterName",
-                :rules="salesDirectsFilterNameRules",
-                :loading="salesDirectsFilterLoading",
-                :disabled="salesDirectsFilterDisabled",
-                label="Бюджет",
                 outlined
               )
 
