@@ -8,6 +8,7 @@ import { usersSalesPayoutPost } from '@/api/users/usersSalesPayoutPost';
 import { payoutsUuidGetAdapter } from '@/api/adapters/payouts/payoutsUuidGetAdapter';
 import { usersIncomeGetAdapter } from '@/api/adapters/users/usersIncomeGetAdapter';
 import { usersSalesGetAdapter } from '@/api/adapters/users/usersSalesGetAdapter';
+import { usersSalesBonussesGetAdapter } from '@/api/adapters/users/usersSalesBonussesGetAdapter';
 import TheWidgetIncomeReferral from '@/components/TheWidgetIncomeReferral/TheWidgetIncomeReferral.vue';
 import AppTable from '@/components/AppTable/AppTable.vue';
 import AppStatus from '@/components/AppStatus/AppStatus.vue';
@@ -241,7 +242,7 @@ export default {
 
       for (let i = 0; i < usersSalesBonussesGetResponse.data.data.length; i++) {
         const sale = usersSalesBonussesGetResponse.data.data[i];
-        this.salesBonusses.push(await usersSalesGetAdapter(sale))
+        this.salesBonusses.push(await usersSalesBonussesGetAdapter(sale))
       }
 
       this.salesBonussesLoading = false;
