@@ -11,4 +11,5 @@ export const userDomain = {
   individual_code: '',
   promo_code: '',
   role: '',
+  uuid: '',
 };

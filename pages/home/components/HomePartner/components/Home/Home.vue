@@ -89,15 +89,6 @@
                 :rules="salesDirectsFilterNameRules",
                 :loading="salesDirectsFilterLoading",
                 :disabled="salesDirectsFilterDisabled",
-                label="Партнер",
-                outlined
-              )
-
-              AppTextField.home--sales-filter__field(
-                v-model="salesDirectsFilterName",
-                :rules="salesDirectsFilterNameRules",
-                :loading="salesDirectsFilterLoading",
-                :disabled="salesDirectsFilterDisabled",
                 label="Уровень",
                 outlined
               )

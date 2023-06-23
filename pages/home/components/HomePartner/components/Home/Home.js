@@ -97,7 +97,7 @@ export default {
         {
           value: 'partner',
           text: 'Партнер',
-          // sortable: false,
+          sortable: false,
         },
         {
           value: 'level',
