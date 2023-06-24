@@ -16,6 +16,7 @@ import AppAvatar from '@/components/AppAvatar/AppAvatar.vue';
 import FilterTable from './components/FilterTable/FilterTable.vue';
 import AppTextField from '@/components/AppTextField/AppTextField.vue';
 import AppSelect from '@/components/AppSelect/AppSelect.vue';
+import AppPickerDate from '@/components/AppPickerDate/AppPickerDate.vue';
 
 export default {
   components: {
@@ -26,6 +27,7 @@ export default {
     FilterTable,
     AppTextField,
     AppSelect,
+    AppPickerDate,
   },
   props: {},
   data() {
@@ -148,6 +150,11 @@ export default {
       payoutsCompletedLastPage: 1,
       payoutsCompletedItemsPerPage: 5,
       payoutsCompletedItemsLength: 0,
+
+      filterSDName: '',
+      filterSDStatuses: ['не выплачено', 'в обработке', 'выплачено'],
+
+      filterSBStatuses: ['не выплачено', 'в обработке', 'выплачено'],
     };
   },
   computed: {
@@ -348,9 +355,6 @@ export default {
       await this.fetchPayoutsCompleted();
     },
 
-    async applySalesDirectsFilter() {
-      console.debug('applySalesDirectsFilter'); //DELETE
-    },
     async applySalesBonussesFilter() {
       console.debug('applySalesBonussesFilter'); //DELETE
     },
@@ -364,6 +368,13 @@ export default {
       await this.fetchSalesBonusses();
       await this.fetchPayouts();
       // await this.fetchPayoutsCompleted();
+    },
+
+    setFilterSDDate(value) {
+      console.debug('setFilterSDDate/value', value); //DELETE
+    },
+    applyFilterSD() {
+      console.debug('applyFilterSD'); //DELETE
     },
   },
   async created() {

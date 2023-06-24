@@ -5,7 +5,9 @@ export default {
     AppButton,
   },
   props: {},
-  data: () => ({}),
+  data() {
+    return {};
+  },
   computed: {},
   watch: {},
   methods: {},

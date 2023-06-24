@@ -32,8 +32,12 @@
 
       v-window.home--window(v-model="tab")
         v-window-item.home--window-item
-          FilterTable.home--sales-filter(@apply="applySalesDirectsFilter")
+          FilterTable.home--sales-filter(@apply="applyFilterSD")
             .home--sales-filter-directs
+              AppPickerDate.home--sales-filter__field(
+                :range="true",
+                @ok="setFilterSDDate"
+              )
               AppTextField.home--sales-filter__field(
                 v-model="salesDirectsFilterName",
                 :rules="salesDirectsFilterNameRules",
@@ -48,7 +52,7 @@
                 :rules="salesDirectsFilterGenderRules",
                 :loading="salesDirectsFilterLoading",
                 :disabled="salesDirectsFilterDisabled",
-                :items="['муж', 'жен']",
+                :items="filterSDStatuses",
                 label="Статус",
                 outlined
               )
@@ -75,12 +79,23 @@
         v-window-item.home--window-item
           FilterTable.home--sales-filter(@apply="applySalesBonussesFilter")
             .home--sales-filter-bonusses
+              AppPickerDate.home--sales-filter__field(:range="true")
+
               AppTextField.home--sales-filter__field(
                 v-model="salesDirectsFilterName",
                 :rules="salesDirectsFilterNameRules",
                 :loading="salesDirectsFilterLoading",
                 :disabled="salesDirectsFilterDisabled",
                 label="Название",
+                outlined
+              )
+
+              AppTextField.home--sales-filter__field(
+                v-model="salesDirectsFilterName",
+                :rules="salesDirectsFilterNameRules",
+                :loading="salesDirectsFilterLoading",
+                :disabled="salesDirectsFilterDisabled",
+                label="Партнер",
                 outlined
               )
 
@@ -98,7 +113,7 @@
                 :rules="salesDirectsFilterGenderRules",
                 :loading="salesDirectsFilterLoading",
                 :disabled="salesDirectsFilterDisabled",
-                :items="['муж', 'жен']",
+                :items="filterSBStatuses",
                 label="Статус",
                 outlined
               )
@@ -125,14 +140,7 @@
         v-window-item.home--window-item
           FilterTable.home--sales-filter(@apply="applySalesPayoutsFilter")
             .home--sales-filter-payouts
-              AppTextField.home--sales-filter__field(
-                v-model="salesDirectsFilterName",
-                :rules="salesDirectsFilterNameRules",
-                :loading="salesDirectsFilterLoading",
-                :disabled="salesDirectsFilterDisabled",
-                label="Дата",
-                outlined
-              )
+              AppPickerDate.home--sales-filter__field(:range="true")
 
               AppSelect.home--sales-filter__field(
                 v-model="salesDirectsFilterGender",

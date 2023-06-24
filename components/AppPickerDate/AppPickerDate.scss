@@ -1,0 +1,23 @@
+@import "@/styles/colors.scss";
+
+.app-picker-date {
+  &__menu {
+    min-width: auto !important;
+  }
+
+  & .v-input__slot {
+    background: #FFFFFF !important;
+
+    & fieldset {
+      border-color: #E2E4E5;
+    }
+  }
+
+  & .v-text-field--outlined.v-input--is-focused fieldset {
+    border-color: $blue;
+  }
+
+  .error--text fieldset {
+    border-color: #ff5252 !important;
+  }
+}
