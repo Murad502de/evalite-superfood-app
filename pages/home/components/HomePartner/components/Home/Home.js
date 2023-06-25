@@ -43,9 +43,18 @@ export default {
       salesDirectsFilterName: '',
       salesDirectsFilterNameRules: [],
 
-      salesDirectsFilterGender: '',
-      salesDirectsFilterGenderRules: [],
+      payoutsCompleted: [],
+      payoutsCompletedLoading: false,
+      payoutsCompletedPage: 1,
+      payoutsCompletedLastPage: 1,
+      payoutsCompletedItemsPerPage: 5,
+      payoutsCompletedItemsLength: 0,
 
+      filterSDDate: null,
+      filterSDName: '',
+      filterSDStatus: '',
+      sortSDBy: undefined,
+      sortSDDesc: false,
       salesDirects: [],
       salesDirectsHeaders: [
         {
@@ -71,12 +80,19 @@ export default {
           // sortable: false,
         },
       ],
-      salesDirectsLoading: false,
+      SDLoading: false,
       salesDirectsPage: 1,
       salesDirectsLastPage: 1,
       salesDirectsItemsPerPage: 25,
       salesDirectsItemsLength: 0,
 
+      filterSBDate: null,
+      filterSBName: '',
+      filterSBPartner: '',
+      filterSBLevel: '',
+      filterSBStatus: '',
+      sortSBBy: undefined,
+      sortSBDesc: false,
       salesBonusses: [],
       salesBonussesHeaders: [
         {
@@ -100,7 +116,7 @@ export default {
         {
           value: 'partner',
           text: 'Партнер',
-          sortable: false,
+          // sortable: false,
         },
         {
           value: 'level',
@@ -120,6 +136,10 @@ export default {
       salesBonussesItemsPerPage: 25,
       salesBonussesItemsLength: 0,
 
+      filterPDate: null,
+      filterPStatus: '',
+      sortPBy: undefined,
+      sortPDesc: false,
       payouts: [],
       payoutsHeaders: [
         {
@@ -144,26 +164,6 @@ export default {
       payoutsLastPage: 1,
       payoutsItemsPerPage: 25,
       payoutsItemsLength: 0,
-
-      payoutsCompleted: [],
-      payoutsCompletedLoading: false,
-      payoutsCompletedPage: 1,
-      payoutsCompletedLastPage: 1,
-      payoutsCompletedItemsPerPage: 5,
-      payoutsCompletedItemsLength: 0,
-
-      filterSDDate: null,
-      filterSDName: '',
-      filterSDStatus: '',
-
-      filterSBDate: null,
-      filterSBName: '',
-      filterSBPartner: '',
-      filterSBLevel: '',
-      filterSBStatus: '',
-
-      filterPDate: null,
-      filterPStatus: '',
 
       salesStatuses: ['не выплачено', 'в обработке', 'выплачено'],
       payoutsStatuses: ['в обработке', 'выплачено'],
@@ -212,12 +212,14 @@ export default {
       this.amountThreshold = income.amountThreshold;
       this.widgetIncomeReferralLoading = false;
     },
-    async fetchSalesDirects() {
-      this.salesDirects = [];
-      this.salesDirectsLoading = true;
+    async fetchSalesDirects(sort = false) {
+      this.salesDirects = sort ? this.salesDirects : [];
+      this.SDLoading = true;
       const usersSalesDirectGetResponse = await usersSalesDirectGet({
         page: this.salesDirectsPage,
         perPage: this.salesDirectsItemsPerPage,
+        orderBy: this.sortSDBy,
+        orderingRule: !!this.sortSDDesc ? 'desc' : 'asc', //FIXME make with util
       });
       console.debug('usersSalesDirectGetResponse', usersSalesDirectGetResponse); //DELETE
 
@@ -231,21 +233,27 @@ export default {
       this.salesDirectsItemsPerPage = usersSalesDirectGetResponse.data.meta.per_page;
       this.salesDirectsItemsLength = usersSalesDirectGetResponse.data.meta.total;
 
+      if (sort) {
+        this.salesDirects = [];
+      }
+
       for (let i = 0; i < usersSalesDirectGetResponse.data.data.length; i++) {
         const sale = usersSalesDirectGetResponse.data.data[i];
         this.salesDirects.push(await usersSalesGetAdapter(sale))
       }
 
-      this.salesDirectsLoading = false;
+      this.SDLoading = false;
 
       console.debug('salesDirects', this.salesDirects); //DELETE
     },
-    async fetchSalesBonusses() {
-      this.salesBonusses = [];
+    async fetchSalesBonusses(sort = false) {
+      this.salesBonusses = sort ? this.salesBonusses : [];
       this.salesBonussesLoading = true;
       const usersSalesBonussesGetResponse = await usersSalesBonussesGet({
         page: this.salesBonussesPage,
         perPage: this.salesBonussesItemsPerPage,
+        orderBy: this.sortSBBy,
+        orderingRule: !!this.sortSBDesc ? 'desc' : 'asc', //FIXME make with util
       });
       console.debug('usersSalesBonussesGetResponse', usersSalesBonussesGetResponse); //DELETE
 
@@ -259,6 +267,10 @@ export default {
       this.salesBonussesItemsPerPage = usersSalesBonussesGetResponse.data.meta.per_page;
       this.salesBonussesItemsLength = usersSalesBonussesGetResponse.data.meta.total;
 
+      if (sort) {
+        this.salesBonusses = [];
+      }
+
       for (let i = 0; i < usersSalesBonussesGetResponse.data.data.length; i++) {
         const sale = usersSalesBonussesGetResponse.data.data[i];
         this.salesBonusses.push(await usersSalesBonussesGetAdapter(sale))
@@ -268,13 +280,14 @@ export default {
 
       console.debug('salesBonusses', this.salesBonusses); //DELETE
     },
-    async fetchPayouts() {
-      this.payouts = [];
+    async fetchPayouts(sort = false) {
+      this.payouts = sort ? this.payouts : [];
       this.payoutsLoading = true;
       const usersPayoutsGetResponse = await usersPayoutsGet({
         page: this.payoutsPage,
         perPage: this.payoutsItemsPerPage,
-        // status: 'processing',
+        orderBy: this.sortPBy,
+        orderingRule: !!this.sortPDesc ? 'desc' : 'asc', //FIXME make with util
       });
       console.debug('usersPayoutsGetResponse', usersPayoutsGetResponse); //DELETE
 
@@ -287,6 +300,10 @@ export default {
       this.payoutsLastPage = usersPayoutsGetResponse.data.meta.last_page;
       this.payoutsItemsPerPage = usersPayoutsGetResponse.data.meta.per_page;
       this.payoutsItemsLength = usersPayoutsGetResponse.data.meta.total;
+
+      if (sort) {
+        this.payouts = [];
+      }
 
       for (let i = 0; i < usersPayoutsGetResponse.data.data.length; i++) {
         const payout = usersPayoutsGetResponse.data.data[i];
@@ -336,6 +353,35 @@ export default {
       this.salesDirectsItemsPerPage = e.itemsPerPage;
       await this.fetchSalesDirects();
     },
+    async updateSDOptions(data) {
+      console.debug('updateSDOptions/data', data); //DELETE
+      this.setSDSorting(data.sortBy[0], data.sortDesc[0]);
+    },
+    async setSDSorting(sortBy, sortDesc) {
+      if (sortBy === undefined && this.sortSDBy === undefined) return;
+      console.debug('setSDSorting/sortBy', sortBy); //DELETE
+      console.debug('setSDSorting/sortDesc', sortDesc); //DELETE
+      console.debug('setSDSorting/sortSDBy', this.sortSDBy); //DELETE
+      console.debug('setSDSorting/sortSDDesc', this.sortSDDesc); //DELETE
+
+      switch (sortBy) {
+        case 'name':
+          this.sortSDBy = 'created_at';
+          break;
+        case 'price':
+          this.sortSDBy = 'price';
+          break;
+        case 'status':
+          this.sortSDBy = 'status';
+          break;
+        default:
+          this.sortSDBy = 'created_at';
+          break;
+      }
+
+      this.sortSDDesc = sortDesc;
+      await this.fetchSalesDirects(true);
+    },
 
     async updateSalesBonussesPage(e) {
       this.salesBonussesPage = e.page;
@@ -346,6 +392,41 @@ export default {
       this.salesBonussesItemsPerPage = e.itemsPerPage;
       await this.fetchSalesBonusses();
     },
+    async updateSBOptions(data) {
+      console.debug('updateSBOptions/data', data); //DELETE
+      this.setSBSorting(data.sortBy[0], data.sortDesc[0]);
+    },
+    async setSBSorting(sortBy, sortDesc) {
+      if (sortBy === undefined && this.sortSBBy === undefined) return;
+      console.debug('setSBSorting/sortBy', sortBy); //DELETE
+      console.debug('setSBSorting/sortDesc', sortDesc); //DELETE
+      console.debug('setSBSorting/sortSBBy', this.sortSBBy); //DELETE
+      console.debug('setSBSorting/sortSBDesc', this.sortSBDesc); //DELETE
+
+      switch (sortBy) {
+        case 'name':
+          this.sortSBBy = 'name';
+          break;
+        case 'price':
+          this.sortSBBy = 'price';
+          break;
+        case 'partner':
+          this.sortSBBy = 'partner_name';
+          break;
+        case 'level':
+          this.sortSBBy = 'level';
+          break;
+        case 'status':
+          this.sortSBBy = 'status';
+          break;
+        default:
+          this.sortSBBy = 'created_at';
+          break;
+      }
+
+      this.sortSBDesc = sortDesc;
+      await this.fetchSalesBonusses(true);
+    },
 
     async updatePayoutsPage(e) {
       this.payoutsLastPage = e.page;
@@ -355,6 +436,32 @@ export default {
       this.payoutsLastPage = 1;
       this.payoutsItemsPerPage = e.itemsPerPage;
       await this.fetchPayouts();
+    },
+    async updatePOptions(data) {
+      console.debug('updatePOptions/data', data); //DELETE
+      this.setPSorting(data.sortBy[0], data.sortDesc[0]);
+    },
+    async setPSorting(sortBy, sortDesc) {
+      if (sortBy === undefined && this.sortPBy === undefined) return;
+      console.debug('setPSorting/sortBy', sortBy); //DELETE
+      console.debug('setPSorting/sortDesc', sortDesc); //DELETE
+      console.debug('setPSorting/sortPBy', this.sortPBy); //DELETE
+      console.debug('setPSorting/sortPDesc', this.sortPDesc); //DELETE
+
+      switch (sortBy) {
+        case 'price':
+          this.sortPBy = 'price';
+          break;
+        case 'status':
+          this.sortPBy = 'status';
+          break;
+        default:
+          this.sortPBy = 'created_at';
+          break;
+      }
+
+      this.sortPDesc = sortDesc;
+      await this.fetchPayouts(true);
     },
 
     async updatePayoutsCompletedPage(e) {
@@ -392,6 +499,7 @@ export default {
       console.debug('applyFilterSD/filterSDName', this.filterSDName); //DELETE
       console.debug('applyFilterSD/filterSDDate', this.filterSDDate); //DELETE
       console.debug('applyFilterSD/filterSDStatus', this.filterSDStatus); //DELETE
+      //TODO request
     },
     applyFilterSB() {
       console.debug('setFilterSBDate/filterSBDate', this.filterSBDate); //DELETE
@@ -399,10 +507,12 @@ export default {
       console.debug('setFilterSBDate/filterSBPartner', this.filterSBPartner); //DELETE
       console.debug('setFilterSBDate/filterSBLevel', this.filterSBLevel); //DELETE
       console.debug('setFilterSBDate/filterSBStatus', this.filterSBStatus); //DELETE
+      //TODO request
     },
     applyFilterP() {
       console.debug('applyFilterP/filterPDate', this.filterPDate); //DELETE
       console.debug('applyFilterP/filterPStatus', this.filterPStatus); //DELETE
+      //TODO request
     },
   },
   async created() {

@@ -67,8 +67,10 @@
               mobile-breakpoint="576",
               :headers="salesDirectsHeaders",
               :items="salesDirects",
-              :loading="salesDirectsLoading",
+              :loading="SDLoading",
               :loading-text="'Данные загружаются'"
+              :server-items-length="salesDirectsItemsLength"
+              @update:options="updateSDOptions"
             )
               template(v-slot:item.status="{ item }")
                 AppStatus(:status="item.status")
@@ -125,6 +127,7 @@
               :items="salesBonusses",
               :loading="salesBonussesLoading",
               :loading-text="'Данные загружаются'"
+              @update:options="updateSBOptions"
             )
               template(v-slot:item.status="{ item }")
                 AppStatus(:status="item.status")
@@ -160,6 +163,7 @@
               :items="payouts",
               :loading="payoutsLoading",
               :loading-text="'Данные загружаются'"
+              @update:options="updatePOptions"
             )
               template(v-slot:item.status="{ item }")
                 AppStatus(:status="item.status")

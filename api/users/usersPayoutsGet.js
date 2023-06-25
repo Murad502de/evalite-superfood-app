@@ -1,11 +1,12 @@
 import { api } from '@/api';
 
-export const usersPayoutsGet = async ({ page, perPage, status, }) => {
+export const usersPayoutsGet = async ({ page, perPage, orderBy, orderingRule, }) => {
   try {
     const params = {
       page,
       per_page: perPage,
-      filter_status: status,
+      order_by: orderBy,
+      ordering_rule: orderingRule,
     };
     const response = await api.get('users/payouts', {
       params,
