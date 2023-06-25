@@ -38,21 +38,18 @@
                 :range="true",
                 @ok="setFilterSDDate"
               )
+
               AppTextField.home--sales-filter__field(
-                v-model="salesDirectsFilterName",
-                :rules="salesDirectsFilterNameRules",
-                :loading="salesDirectsFilterLoading",
+                v-model="filterSDName",
                 :disabled="salesDirectsFilterDisabled",
                 label="Название",
                 outlined
               )
 
               AppSelect.home--sales-filter__field(
-                v-model="salesDirectsFilterGender",
-                :rules="salesDirectsFilterGenderRules",
-                :loading="salesDirectsFilterLoading",
+                v-model="filterSDStatus",
                 :disabled="salesDirectsFilterDisabled",
-                :items="filterSDStatuses",
+                :items="salesStatuses",
                 label="Статус",
                 outlined
               )
@@ -77,43 +74,38 @@
                 AppStatus(:status="item.status")
 
         v-window-item.home--window-item
-          FilterTable.home--sales-filter(@apply="applySalesBonussesFilter")
+          FilterTable.home--sales-filter(@apply="applyFilterSB")
             .home--sales-filter-bonusses
-              AppPickerDate.home--sales-filter__field(:range="true")
+              AppPickerDate.home--sales-filter__field(
+                :range="true",
+                @ok="setFilterSBDate"
+              )
 
               AppTextField.home--sales-filter__field(
-                v-model="salesDirectsFilterName",
-                :rules="salesDirectsFilterNameRules",
-                :loading="salesDirectsFilterLoading",
+                v-model="filterSBName",
                 :disabled="salesDirectsFilterDisabled",
                 label="Название",
                 outlined
               )
 
               AppTextField.home--sales-filter__field(
-                v-model="salesDirectsFilterName",
-                :rules="salesDirectsFilterNameRules",
-                :loading="salesDirectsFilterLoading",
+                v-model="filterSBPartner",
                 :disabled="salesDirectsFilterDisabled",
                 label="Партнер",
                 outlined
               )
 
               AppTextField.home--sales-filter__field(
-                v-model="salesDirectsFilterName",
-                :rules="salesDirectsFilterNameRules",
-                :loading="salesDirectsFilterLoading",
+                v-model="filterSBLevel",
                 :disabled="salesDirectsFilterDisabled",
                 label="Уровень",
                 outlined
               )
 
               AppSelect.home--sales-filter__field(
-                v-model="salesDirectsFilterGender",
-                :rules="salesDirectsFilterGenderRules",
-                :loading="salesDirectsFilterLoading",
+                v-model="filterSBStatus",
                 :disabled="salesDirectsFilterDisabled",
-                :items="filterSBStatuses",
+                :items="salesStatuses",
                 label="Статус",
                 outlined
               )
@@ -138,16 +130,17 @@
                 AppStatus(:status="item.status")
 
         v-window-item.home--window-item
-          FilterTable.home--sales-filter(@apply="applySalesPayoutsFilter")
+          FilterTable.home--sales-filter(@apply="applyFilterP")
             .home--sales-filter-payouts
-              AppPickerDate.home--sales-filter__field(:range="true")
+              AppPickerDate.home--sales-filter__field(
+                :range="true",
+                @ok="setFilterPDate"
+              )
 
               AppSelect.home--sales-filter__field(
-                v-model="salesDirectsFilterGender",
-                :rules="salesDirectsFilterGenderRules",
-                :loading="salesDirectsFilterLoading",
+                v-model="filterPStatus",
                 :disabled="salesDirectsFilterDisabled",
-                :items="['муж', 'жен']",
+                :items="payoutsStatuses",
                 label="Статус",
                 outlined
               )

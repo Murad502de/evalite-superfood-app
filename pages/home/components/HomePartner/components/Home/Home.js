@@ -42,6 +42,7 @@ export default {
       salesDirectsFilterDisabled: false,
       salesDirectsFilterName: '',
       salesDirectsFilterNameRules: [],
+
       salesDirectsFilterGender: '',
       salesDirectsFilterGenderRules: [],
 
@@ -151,10 +152,21 @@ export default {
       payoutsCompletedItemsPerPage: 5,
       payoutsCompletedItemsLength: 0,
 
+      filterSDDate: null,
       filterSDName: '',
-      filterSDStatuses: ['не выплачено', 'в обработке', 'выплачено'],
+      filterSDStatus: '',
 
-      filterSBStatuses: ['не выплачено', 'в обработке', 'выплачено'],
+      filterSBDate: null,
+      filterSBName: '',
+      filterSBPartner: '',
+      filterSBLevel: '',
+      filterSBStatus: '',
+
+      filterPDate: null,
+      filterPStatus: '',
+
+      salesStatuses: ['не выплачено', 'в обработке', 'выплачено'],
+      payoutsStatuses: ['в обработке', 'выплачено'],
     };
   },
   computed: {
@@ -355,13 +367,6 @@ export default {
       await this.fetchPayoutsCompleted();
     },
 
-    async applySalesBonussesFilter() {
-      console.debug('applySalesBonussesFilter'); //DELETE
-    },
-    async applySalesPayoutsFilter() {
-      console.debug('applySalesPayoutsFilter'); //DELETE
-    },
-
     async init() {
       await this.fetchIncome();
       await this.fetchSalesDirects();
@@ -372,9 +377,32 @@ export default {
 
     setFilterSDDate(value) {
       console.debug('setFilterSDDate/value', value); //DELETE
+      this.filterSDDate = value;
     },
+    setFilterSBDate(value) {
+      console.debug('setFilterSBDate/value', value); //DELETE
+      this.filterSBDate = value;
+    },
+    setFilterPDate(value) {
+      console.debug('setFilterPDate/value', value); //DELETE
+      this.filterPDate = value;
+    },
+
     applyFilterSD() {
-      console.debug('applyFilterSD'); //DELETE
+      console.debug('applyFilterSD/filterSDName', this.filterSDName); //DELETE
+      console.debug('applyFilterSD/filterSDDate', this.filterSDDate); //DELETE
+      console.debug('applyFilterSD/filterSDStatus', this.filterSDStatus); //DELETE
+    },
+    applyFilterSB() {
+      console.debug('setFilterSBDate/filterSBDate', this.filterSBDate); //DELETE
+      console.debug('setFilterSBDate/filterSBName', this.filterSBName); //DELETE
+      console.debug('setFilterSBDate/filterSBPartner', this.filterSBPartner); //DELETE
+      console.debug('setFilterSBDate/filterSBLevel', this.filterSBLevel); //DELETE
+      console.debug('setFilterSBDate/filterSBStatus', this.filterSBStatus); //DELETE
+    },
+    applyFilterP() {
+      console.debug('applyFilterP/filterPDate', this.filterPDate); //DELETE
+      console.debug('applyFilterP/filterPStatus', this.filterPStatus); //DELETE
     },
   },
   async created() {
