@@ -17,6 +17,8 @@ import FilterTable from './components/FilterTable/FilterTable.vue';
 import AppTextField from '@/components/AppTextField/AppTextField.vue';
 import AppSelect from '@/components/AppSelect/AppSelect.vue';
 import AppPickerDate from '@/components/AppPickerDate/AppPickerDate.vue';
+import { getSaleStatusByName } from '@/utils/sale';
+import { parseFromDatePickerDdMmYyyy } from '@/utils/date';
 
 export default {
   components: {
@@ -212,12 +214,18 @@ export default {
       this.amountThreshold = income.amountThreshold;
       this.widgetIncomeReferralLoading = false;
     },
-    async fetchSalesDirects(sort = false) {
-      this.salesDirects = sort ? this.salesDirects : [];
+    async fetchSalesDirects(lazy = false) {
+      this.salesDirects = lazy ? this.salesDirects : [];
       this.SDLoading = true;
+      console.debug('filterDateFrom', parseFromDatePickerDdMmYyyy(this.filterSDDate ? this.filterSDDate[0] : null)); //DELETE
+      console.debug('filterDateTo', parseFromDatePickerDdMmYyyy(this.filterSDDate ? this.filterSDDate[1] : null)); //DELETE
       const usersSalesDirectGetResponse = await usersSalesDirectGet({
         page: this.salesDirectsPage,
         perPage: this.salesDirectsItemsPerPage,
+        filterDateFrom: parseFromDatePickerDdMmYyyy(this.filterSDDate ? this.filterSDDate[0] : null),
+        filterDateTo: parseFromDatePickerDdMmYyyy(this.filterSDDate ? this.filterSDDate[1] : null),
+        filterLeadName: this.filterSDName,
+        filterStatus: getSaleStatusByName(this.filterSDStatus),
         orderBy: this.sortSDBy,
         orderingRule: !!this.sortSDDesc ? 'desc' : 'asc', //FIXME make with util
       });
@@ -233,7 +241,7 @@ export default {
       this.salesDirectsItemsPerPage = usersSalesDirectGetResponse.data.meta.per_page;
       this.salesDirectsItemsLength = usersSalesDirectGetResponse.data.meta.total;
 
-      if (sort) {
+      if (lazy) {
         this.salesDirects = [];
       }
 
@@ -495,11 +503,11 @@ export default {
       this.filterPDate = value;
     },
 
-    applyFilterSD() {
+    async applyFilterSD() {
       console.debug('applyFilterSD/filterSDName', this.filterSDName); //DELETE
       console.debug('applyFilterSD/filterSDDate', this.filterSDDate); //DELETE
       console.debug('applyFilterSD/filterSDStatus', this.filterSDStatus); //DELETE
-      //TODO request
+      await this.fetchSalesDirects(true);
     },
     applyFilterSB() {
       console.debug('setFilterSBDate/filterSBDate', this.filterSBDate); //DELETE
