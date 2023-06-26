@@ -19,7 +19,7 @@ export default {
   },
   computed: {
     dateRangeText() {
-      if (this.range) return this.dateFormatted.join(' - ');
+      if (this.range) return this.dateFormatted?.join(' - ');
       return this.dateFormatted;
     },
   },
@@ -56,18 +56,18 @@ export default {
     },
   },
   created() {
-    if (this.range) {
-      this.dates = [
-        (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
-        (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
-      ];
-      this.dateFormatted = [
-        this.formatDate((new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)),
-        this.formatDate((new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)),
-      ];
-    } else {
-      this.dates = (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10);
-      this.dateFormatted = this.formatDate((new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10));
-    }
+    // if (this.range) {
+    //   this.dates = [
+    //     (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+    //     (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+    //   ];
+    //   this.dateFormatted = [
+    //     this.formatDate((new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)),
+    //     this.formatDate((new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)),
+    //   ];
+    // } else {
+    //   this.dates = (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10);
+    //   this.dateFormatted = this.formatDate((new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10));
+    // }
   },
 }
