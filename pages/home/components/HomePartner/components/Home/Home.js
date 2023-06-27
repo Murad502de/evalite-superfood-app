@@ -18,6 +18,7 @@ import AppTextField from '@/components/AppTextField/AppTextField.vue';
 import AppSelect from '@/components/AppSelect/AppSelect.vue';
 import AppPickerDate from '@/components/AppPickerDate/AppPickerDate.vue';
 import { getSaleStatusByName } from '@/utils/sale';
+import { getPayoutStatusByName } from '@/utils/payout';
 import { parseFromDatePickerDdMmYyyy } from '@/utils/date';
 
 export default {
@@ -288,12 +289,15 @@ export default {
 
       console.debug('salesBonusses', this.salesBonusses); //DELETE
     },
-    async fetchPayouts(sort = false) {
-      this.payouts = sort ? this.payouts : [];
+    async fetchPayouts(lazy = false) {
+      this.payouts = lazy ? this.payouts : [];
       this.payoutsLoading = true;
       const usersPayoutsGetResponse = await usersPayoutsGet({
         page: this.payoutsPage,
         perPage: this.payoutsItemsPerPage,
+        filterDateFrom: parseFromDatePickerDdMmYyyy(this.filterPDate ? this.filterPDate[0] : null),
+        filterDateTo: parseFromDatePickerDdMmYyyy(this.filterPDate ? this.filterPDate[1] : null),
+        filterStatus: getPayoutStatusByName(this.filterPStatus),
         orderBy: this.sortPBy,
         orderingRule: !!this.sortPDesc ? 'desc' : 'asc', //FIXME make with util
       });
@@ -309,7 +313,7 @@ export default {
       this.payoutsItemsPerPage = usersPayoutsGetResponse.data.meta.per_page;
       this.payoutsItemsLength = usersPayoutsGetResponse.data.meta.total;
 
-      if (sort) {
+      if (lazy) {
         this.payouts = [];
       }
 
@@ -509,7 +513,7 @@ export default {
       console.debug('applyFilterSD/filterSDStatus', this.filterSDStatus); //DELETE
       await this.fetchSalesDirects(true);
     },
-    applyFilterSB() {
+    async applyFilterSB() {
       console.debug('setFilterSBDate/filterSBDate', this.filterSBDate); //DELETE
       console.debug('setFilterSBDate/filterSBName', this.filterSBName); //DELETE
       console.debug('setFilterSBDate/filterSBPartner', this.filterSBPartner); //DELETE
@@ -517,10 +521,10 @@ export default {
       console.debug('setFilterSBDate/filterSBStatus', this.filterSBStatus); //DELETE
       //TODO request
     },
-    applyFilterP() {
+    async applyFilterP() {
       console.debug('applyFilterP/filterPDate', this.filterPDate); //DELETE
       console.debug('applyFilterP/filterPStatus', this.filterPStatus); //DELETE
-      //TODO request
+      await this.fetchPayouts(true);
     },
   },
   async created() {
