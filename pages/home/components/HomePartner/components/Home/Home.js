@@ -218,8 +218,6 @@ export default {
     async fetchSalesDirects(lazy = false) {
       this.salesDirects = lazy ? this.salesDirects : [];
       this.SDLoading = true;
-      console.debug('filterDateFrom', parseFromDatePickerDdMmYyyy(this.filterSDDate ? this.filterSDDate[0] : null)); //DELETE
-      console.debug('filterDateTo', parseFromDatePickerDdMmYyyy(this.filterSDDate ? this.filterSDDate[1] : null)); //DELETE
       const usersSalesDirectGetResponse = await usersSalesDirectGet({
         page: this.salesDirectsPage,
         perPage: this.salesDirectsItemsPerPage,
@@ -263,6 +261,12 @@ export default {
         perPage: this.salesBonussesItemsPerPage,
         orderBy: this.sortSBBy,
         orderingRule: !!this.sortSBDesc ? 'desc' : 'asc', //FIXME make with util
+        filterDateFrom: parseFromDatePickerDdMmYyyy(this.filterSBDate ? this.filterSBDate[0] : null),
+        filterDateTo: parseFromDatePickerDdMmYyyy(this.filterSBDate ? this.filterSBDate[1] : null),
+        filterLeadName: this.filterSBName,
+        filterPartnerName: this.filterSBPartner,
+        filterLevel: this.filterSBLevel,
+        filterStatus: getSaleStatusByName(this.filterSBStatus),
       });
       console.debug('usersSalesBonussesGetResponse', usersSalesBonussesGetResponse); //DELETE
 
@@ -519,7 +523,7 @@ export default {
       console.debug('setFilterSBDate/filterSBPartner', this.filterSBPartner); //DELETE
       console.debug('setFilterSBDate/filterSBLevel', this.filterSBLevel); //DELETE
       console.debug('setFilterSBDate/filterSBStatus', this.filterSBStatus); //DELETE
-      //TODO request
+      await this.fetchSalesBonusses(true);
     },
     async applyFilterP() {
       console.debug('applyFilterP/filterPDate', this.filterPDate); //DELETE
