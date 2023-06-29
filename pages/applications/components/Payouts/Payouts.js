@@ -21,24 +21,25 @@ export default {
         {
           value: 'date',
           text: 'Дата',
-          sortable: false,
           align: 'start',
+        },
+        {
+          value: 'email',
+          text: 'Email',
         },
         {
           value: 'full_name',
           text: 'ФИО',
-          sortable: false,
         },
         {
           value: 'price',
           text: 'Сумма',
-          sortable: false,
         },
         {
-          value: 'action',
-          text: '',
-          sortable: false,
+          value: 'status',
+          text: 'Статус',
         },
+
       ],
       items: [],
       loading: false,
@@ -136,6 +137,8 @@ export default {
       this.itemsLength = payoutsGetResponse.data.meta.total;
       this.items = payoutsGetResponse.data.data.map(item => ({
         uuid: item.uuid,
+        status: item.status,
+        email: item.user.email,
         full_name: `${item.user.second_name} ${item.user.first_name} ${item.user.third_name}`,
         price: item.price,
         date: parseFromISOtoDdMmYyyy(item.created_at),
