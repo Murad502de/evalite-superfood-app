@@ -18,6 +18,10 @@ export default {
       type: String,
       default: null,
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -25,8 +29,8 @@ export default {
     };
   },
   computed: {
-    disabled() {
-      return !!this.mediaUrl;
+    isDisabled() {
+      return !!this.mediaUrl || this.disabled;
     },
   },
 

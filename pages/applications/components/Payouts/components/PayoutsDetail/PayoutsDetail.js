@@ -4,6 +4,9 @@ import AppCard from '@/components/AppCard/AppCard.vue';
 import AppTextField from '@/components/AppTextField/AppTextField.vue';
 import AppFormPaymentDetailsSE from '@/components/AppFormPaymentDetailsSE/AppFormPaymentDetailsSE.vue';
 import AppFormPaymentDetailsIE from '@/components/AppFormPaymentDetailsIE/AppFormPaymentDetailsIE.vue';
+import AppFormMedia from '@/components/AppFormMedia/AppFormMedia.vue';
+import ReceiptSvg from '@/assets/svg/receipt.svg';
+import { createUploadedFileUrl } from '@/utils/file.js';
 
 export default {
   components: {
@@ -12,6 +15,8 @@ export default {
     AppTextField,
     AppFormPaymentDetailsSE,
     AppFormPaymentDetailsIE,
+    AppFormMedia,
+    ReceiptSvg,
   },
   props: {
     dialog: {
@@ -43,6 +48,11 @@ export default {
       date: null,
       fullName: null,
       price: null,
+      receiptDisabled: false,
+      receiptMediaFile: null,
+      receiptMediaName: null,
+      receiptMediaUrl: null,
+      receiptMediaError: false,
     };
   },
   computed: {
@@ -74,9 +84,16 @@ export default {
       this.tab = 0;
     },
     approve() {
-      console.debug('PayoutsDetail/methods/approve'); //DELETE
+      console.debug('PayoutsDetail/methods/approve/!!receiptMediaUrl', !!this.receiptMediaUrl); //DELETE
+      if (!this.receiptMediaUrl) {
+        this.receiptMediaError = true;
+        alert('Для утверждения выплаты, прикрепите подтверждающую квитанцию'); //FIXME implement with vuetify
+        return;
+      }
+
+      this.receiptDisabled = true;
       this.$emit('approve');
-      this.tab = 0; //FIXME
+      // this.tab = 0; //FIXME
     },
     init(data) {
       console.debug('PayoutsDetail/methods/init/data', data); //DELETE
@@ -85,6 +102,21 @@ export default {
       this.date = data.date;
       this.fullName = data.user.fullName;
       this.price = data.price;
+    },
+    uploadReceiptMedia(file = null) {
+      if (this.loading || this.disabled) return;
+      //TODO call validate service
+      console.debug(file); //DELETE
+      this.receiptMediaFile = file;
+      this.receiptMediaName = file.name;
+      this.receiptMediaUrl = createUploadedFileUrl(file);
+      this.receiptMediaError = false;
+    },
+    deleteReceiptMedia() {
+      if (this.loading || this.disabled) return;
+      this.receiptMediaFile = null;
+      this.receiptMediaName = null;
+      this.receiptMediaUrl = null;
     },
   },
   created() {

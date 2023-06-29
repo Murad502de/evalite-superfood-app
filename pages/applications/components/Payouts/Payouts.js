@@ -70,7 +70,7 @@ export default {
     async approvePayoutsDetail() {
       console.debug('Payouts/methods/approvePayoutsDetail/this.payoutsDetail', this.payoutsDetail); //DELETE
       this.payoutsDetailApproveLoading = true;
-      await this.closePayout(this.payoutsDetail);
+      // await this.closePayout(this.payoutsDetail);
       this.payoutsDetailApproveLoading = false;
       this.payoutsDetailDialog = false;
       this.payoutsDetail = null;

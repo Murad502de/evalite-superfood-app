@@ -25,4 +25,17 @@
     text-transform: capitalize !important;
     letter-spacing: unset !important;
   }
+
+  &--receipt {
+    &__title {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 28px;
+      color: #263043;
+    }
+
+    &_error &__title {
+      color: #ff5252;
+    }
+  }
 }

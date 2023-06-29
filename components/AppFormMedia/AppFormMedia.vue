@@ -2,11 +2,11 @@
 .app-form-media
   .app-form-media__container
     AppFormMediaDesktop.app-form-media__desktop(
-      :disabled="disabled",
+      :disabled="isDisabled",
       @upload="upload"
     )
     AppFormMediaMobile.app-form-media__mobile(
-      :disabled="disabled",
+      :disabled="isDisabled",
       @upload="upload"
     )
 
@@ -17,9 +17,12 @@
         slot(name="stub-img")
 
       .app-form-media-file__media(v-show="!!mediaUrl")
-        img.app-form-media-file__media--img(:src="mediaUrl" @click="open")
+        img.app-form-media-file__media--img(:src="mediaUrl", @click="open")
 
-      .app-form-media-file__delete(v-show="!!mediaUrl", @click="deleteFile")
+      .app-form-media-file__delete(
+        v-show="!!mediaUrl && !disabled",
+        @click="deleteFile"
+      )
         TrashIconSvg.app-form-media-file__delete-icon
         .app-form-media-file__delete-title Удалить
 </template>
