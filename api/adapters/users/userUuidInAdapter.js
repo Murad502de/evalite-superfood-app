@@ -2,7 +2,7 @@ import { parseFromISOtoDdMmYyyy } from '@/utils/date';
 
 export const userUuidInAdapter = async (user) => {
   return {
-    uuid: user?.uuid,
+    uuid: user.uuid,
     avatar: user.avatar,
     avatarFile: null,
     fullName: `${user.second_name} ${user.first_name} ${user.third_name}`,

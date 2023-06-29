@@ -20,21 +20,26 @@ export default {
     return {
       headers: [
         {
-          value: 'full_name',
-          text: 'ФИО',
+          value: 'date',
+          text: 'Дата',
           align: 'start',
           sortable: false,
         },
         {
-          value: 'date',
-          text: 'Дата',
+          value: 'email',
+          text: 'Email',
           sortable: false,
         },
         {
-          value: 'role',
-          text: 'Роль',
+          value: 'full_name',
+          text: 'ФИО',
           sortable: false,
         },
+        // {
+        //   value: 'role',
+        //   text: 'Роль',
+        //   sortable: false,
+        // },
       ],
       items: [],
       loading: false,
@@ -132,6 +137,7 @@ export default {
       this.itemsLength = usersVerificationsResponse.data.meta.total;
       this.items = usersVerificationsResponse.data.data.map(item => ({
         uuid: item.uuid,
+        email: item.email,
         full_name: `${item.second_name} ${item.first_name} ${item.third_name}`,
         date: parseFromISOtoDdMmYyyy(item.created_at),
         role: getRoleTitleByCode(item.role),
