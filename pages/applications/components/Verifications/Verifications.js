@@ -23,22 +23,18 @@ export default {
           value: 'date',
           text: 'Дата',
           align: 'start',
-          sortable: false,
         },
         {
           value: 'email',
           text: 'Email',
-          sortable: false,
         },
         {
           value: 'full_name',
           text: 'ФИО',
-          sortable: false,
         },
         // {
         //   value: 'role',
         //   text: 'Роль',
-        //   sortable: false,
         // },
       ],
       items: [],
