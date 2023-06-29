@@ -34,7 +34,18 @@ export default {
     },
     ok() {
       this.menu = false;
-      this.$emit('ok', this.dates);
+
+      if (this.range) {
+        if (this.dates.length > 1) {
+          if ((Date.parse(this.dates[0]) > Date.parse(this.dates[1]))) {
+            this.$emit('ok', [this.dates[1], this.dates[0]]);
+          } else {
+            this.$emit('ok', this.dates);
+          }
+        }
+      } else {
+        this.$emit('ok', this.dates);
+      }
     },
   },
   watch: {
@@ -42,7 +53,14 @@ export default {
       console.debug('AppPickerDate/watch/dates/newVal', newVal); //DELETE
 
       if (this.range) {
-        this.dateFormatted = [this.formatDate(this.dates[0]), this.formatDate(this.dates[1])];
+        if (
+          (newVal.length > 1) &&
+          (Date.parse(newVal[0]) > Date.parse(newVal[1]))
+        ) {
+          this.dateFormatted = [this.formatDate(this.dates[1]), this.formatDate(this.dates[0])];
+        } else {
+          this.dateFormatted = [this.formatDate(this.dates[0]), this.formatDate(this.dates[1])];
+        }
       } else {
         this.dateFormatted = this.formatDate(this.dates);
       }
@@ -52,7 +70,7 @@ export default {
       this.dateFormatted = this.formatDate(this.value.substring(0, 10));
     },
     dateFormatted(newVal) {
-      console.debug('AppPickerDate/watch/dateFormatted/newVal', newVal); //DELETE
+      // console.debug('AppPickerDate/watch/dateFormatted/newVal', newVal); //DELETE
     },
   },
   created() {

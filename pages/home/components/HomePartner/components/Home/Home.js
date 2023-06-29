@@ -503,11 +503,11 @@ export default {
       this.filterSDDate = value;
     },
     setFilterSBDate(value) {
-      console.debug('setFilterSBDate/value', value); //DELETE
+      // console.debug('setFilterSBDate/value', value); //DELETE
       this.filterSBDate = value;
     },
     setFilterPDate(value) {
-      console.debug('setFilterPDate/value', value); //DELETE
+      // console.debug('setFilterPDate/value', value); //DELETE
       this.filterPDate = value;
     },
 
