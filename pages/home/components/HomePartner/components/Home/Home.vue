@@ -38,7 +38,7 @@
           )
             .home--sales-filter-directs
               AppPickerDate.home--sales-filter__field(
-                :range="false",
+                :range="true",
                 :value="filterSDDate",
                 @ok="setFilterSDDate"
               )

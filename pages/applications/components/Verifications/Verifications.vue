@@ -1,5 +1,23 @@
 <template lang="pug">
 .verifications
+  AppFilterTable.verifications--filter(
+    @apply="applyFilter",
+    @reset="resetFilter"
+  )
+    AppPickerDate.verifications--filter__field(
+      :range="true",
+      :value="filterDate",
+      @ok="setFilterDate"
+    )
+    AppTextField.verifications--filter__field(
+      v-model="filterEmail",
+      label="Email"
+    )
+    AppTextField.verifications--filter__field(
+      v-model="filterName",
+      label="ФИО"
+    )
+
   AppTable(
     :headers="headers",
     :items="items",
@@ -19,11 +37,11 @@
     :edited="verificationsDetailEdited",
     :dialog="verificationsDetailDialog",
     :loading="verificationsDetailLoading",
-    :saveLoading="verificationsDetailLoadingSave"
-    :approveLoading="verificationsDetailLoadingApprove"
+    :saveLoading="verificationsDetailLoadingSave",
+    :approveLoading="verificationsDetailLoadingApprove",
     @close="closeVerificationsDetailDialog",
     @approve="approveVerificationsDetail",
-    @save="saveVerificationsDetail"
+    @save="saveVerificationsDetail",
     @update:avatar="updateAvatar",
     @update:second_name="updateSecondName",
     @update:first_name="updateFirstName",

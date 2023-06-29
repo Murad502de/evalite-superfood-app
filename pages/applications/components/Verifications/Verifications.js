@@ -9,11 +9,18 @@ import { getRoleTitleByCode } from '@/utils/roles';
 import { createUploadedFileUrl } from '@/utils/file.js';
 import AppTable from '@/components/AppTable/AppTable.vue';
 import VerificationsDetail from './components/VerificationsDetail/VerificationsDetail.vue';
+import AppFilterTable from '@/components/AppFilterTable/AppFilterTable.vue';
+import AppTextField from '@/components/AppTextField/AppTextField.vue';
+import AppPickerDate from '@/components/AppPickerDate/AppPickerDate.vue';
+import { parseFromDatePickerDdMmYyyy } from '@/utils/date';
 
 export default {
   components: {
     AppTable,
     VerificationsDetail,
+    AppFilterTable,
+    AppTextField,
+    AppPickerDate,
   },
   props: {},
   data() {
@@ -43,13 +50,15 @@ export default {
       lastPage: 1,
       itemsPerPage: 5,
       itemsLength: 0,
-
       verificationsDetail: {},
       verificationsDetailEdited: false,
       verificationsDetailDialog: false,
       verificationsDetailLoading: false,
       verificationsDetailLoadingSave: false,
       verificationsDetailLoadingApprove: false,
+      filterDate: null,
+      filterEmail: null,
+      filterName: null,
     };
   },
   computed: {},
@@ -118,10 +127,17 @@ export default {
       this.itemsPerPage = e.itemsPerPage;
       await this.fetchUsers();
     },
-    async fetchUsers() {
-      this.items = [];
+    async fetchUsers(lazy = false) {
+      this.items = lazy ? this.items : [];;
       this.loading = true;
-      const usersVerificationsResponse = await usersVerifications({ page: this.page, perPage: this.itemsPerPage });
+      const usersVerificationsResponse = await usersVerifications({
+        page: this.page,
+        perPage: this.itemsPerPage,
+        filterDateFrom: parseFromDatePickerDdMmYyyy(this.filterDate ? this.filterDate[0] : null),
+        filterDateTo: parseFromDatePickerDdMmYyyy(this.filterDate ? this.filterDate[1] : null),
+        filterEmail: this.filterEmail,
+        filterName: this.filterName,
+      });
 
       if (usersVerificationsResponse.status !== 200) {
         alert('Ошибка получения списка'); //FIXME implement with vuetify
@@ -131,6 +147,11 @@ export default {
       this.lastPage = usersVerificationsResponse.data.meta.last_page;
       this.itemsPerPage = usersVerificationsResponse.data.meta.per_page;
       this.itemsLength = usersVerificationsResponse.data.meta.total;
+
+      if (lazy) {
+        this.items = [];
+      }
+
       this.items = usersVerificationsResponse.data.data.map(item => ({
         uuid: item.uuid,
         email: item.email,
@@ -352,6 +373,23 @@ export default {
       this.verificationsDetail.agencyContractFile = value;
       this.verificationsDetail.agencyContract = createUploadedFileUrl(value);
       this.verificationsDetailEdited = true;
+    },
+    async applyFilter() {
+      console.debug('Verifications/applyFilter/filterDate', this.filterDate); //DELETE
+      console.debug('Verifications/applyFilter/filterEmail', this.filterEmail); //DELETE
+      console.debug('Verifications/applyFilter/filterName', this.filterName); //DELETE
+      await this.fetchUsers(true);
+    },
+    async resetFilter() {
+      console.debug('Verifications/resetFilter'); //DELETE
+      this.filterDate = null;
+      this.filterEmail = null;
+      this.filterName = null;
+      await this.fetchUsers(true);
+    },
+    setFilterDate(value) {
+      console.debug('setFilterDate/value', value); //DELETE
+      this.filterDate = value;
     },
   },
   async created() {

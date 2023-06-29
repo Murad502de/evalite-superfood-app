@@ -1,5 +1,9 @@
 .verifications {
-  &--table {
-    
+  &--filter {
+    margin: 24px 0;
+
+    &__field {
+      max-width: 428px;
+    }
   }
 }
