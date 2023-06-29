@@ -1,0 +1,23 @@
+.app-filter-table {
+  border: 1px solid #D5DEE8;
+  box-shadow: 0px 6px 73px rgba(0, 0, 0, 0.07);
+
+  &__title {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  &__actions {
+    margin-top: 16px;
+  }
+
+  &__reset {
+    color: #263043 !important;
+    border: 1px solid #D5DEE8 !important;
+    margin-left: 14px;
+  }
+
+  .v-expansion-panel {
+    background: #F6FBFF !important;
+  }
+}

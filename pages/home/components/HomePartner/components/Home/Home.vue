@@ -32,7 +32,7 @@
 
       v-window.home--window(v-model="tab")
         v-window-item.home--window-item
-          FilterTable.home--sales-filter(@apply="applyFilterSD")
+          AppFilterTable.home--sales-filter(@apply="applyFilterSD")
             .home--sales-filter-directs
               AppPickerDate.home--sales-filter__field(
                 :range="true",
@@ -76,7 +76,7 @@
                 AppStatus(:status="item.status")
 
         v-window-item.home--window-item
-          FilterTable.home--sales-filter(@apply="applyFilterSB")
+          AppFilterTable.home--sales-filter(@apply="applyFilterSB")
             .home--sales-filter-bonusses
               AppPickerDate.home--sales-filter__field(
                 :range="true",
@@ -133,7 +133,7 @@
                 AppStatus(:status="item.status")
 
         v-window-item.home--window-item
-          FilterTable.home--sales-filter(@apply="applyFilterP")
+          AppFilterTable.home--sales-filter(@apply="applyFilterP")
             .home--sales-filter-payouts
               AppPickerDate.home--sales-filter__field(
                 :range="true",

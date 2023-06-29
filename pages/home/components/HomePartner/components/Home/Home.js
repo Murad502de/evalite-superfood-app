@@ -13,7 +13,7 @@ import TheWidgetIncomeReferral from '@/components/TheWidgetIncomeReferral/TheWid
 import AppTable from '@/components/AppTable/AppTable.vue';
 import AppStatus from '@/components/AppStatus/AppStatus.vue';
 import AppAvatar from '@/components/AppAvatar/AppAvatar.vue';
-import FilterTable from './components/FilterTable/FilterTable.vue';
+import AppFilterTable from '@/components/AppFilterTable/AppFilterTable.vue';
 import AppTextField from '@/components/AppTextField/AppTextField.vue';
 import AppSelect from '@/components/AppSelect/AppSelect.vue';
 import AppPickerDate from '@/components/AppPickerDate/AppPickerDate.vue';
@@ -27,7 +27,7 @@ export default {
     AppTable,
     AppStatus,
     AppAvatar,
-    FilterTable,
+    AppFilterTable,
     AppTextField,
     AppSelect,
     AppPickerDate,
