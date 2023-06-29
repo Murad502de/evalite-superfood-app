@@ -32,7 +32,10 @@
 
       v-window.home--window(v-model="tab")
         v-window-item.home--window-item
-          AppFilterTable.home--sales-filter(@apply="applyFilterSD" @reset="resetFilterSD")
+          AppFilterTable.home--sales-filter(
+            @apply="applyFilterSD",
+            @reset="resetFilterSD"
+          )
             .home--sales-filter-directs
               AppPickerDate.home--sales-filter__field(
                 :range="false",
@@ -77,10 +80,14 @@
                 AppStatus(:status="item.status")
 
         v-window-item.home--window-item
-          AppFilterTable.home--sales-filter(@apply="applyFilterSB")
+          AppFilterTable.home--sales-filter(
+            @apply="applyFilterSB",
+            @reset="resetFilterSB"
+          )
             .home--sales-filter-bonusses
               AppPickerDate.home--sales-filter__field(
                 :range="true",
+                :value="filterSBDate",
                 @ok="setFilterSBDate"
               )
 
@@ -134,10 +141,14 @@
                 AppStatus(:status="item.status")
 
         v-window-item.home--window-item
-          AppFilterTable.home--sales-filter(@apply="applyFilterP")
+          AppFilterTable.home--sales-filter(
+            @apply="applyFilterP",
+            @reset="resetFilterP"
+          )
             .home--sales-filter-payouts
               AppPickerDate.home--sales-filter__field(
                 :range="true",
+                :value="filterPDate",
                 @ok="setFilterPDate"
               )
 

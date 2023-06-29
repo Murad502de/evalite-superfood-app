@@ -518,8 +518,9 @@ export default {
       await this.fetchSalesDirects(true);
     },
     async resetFilterSD() {
-      console.debug('resetFilterSD'); //DELETE
       this.filterSDDate = null;
+      this.filterSDName = null;
+      this.filterSDStatus = null;
     },
     async applyFilterSB() {
       console.debug('setFilterSBDate/filterSBDate', this.filterSBDate); //DELETE
@@ -529,10 +530,21 @@ export default {
       console.debug('setFilterSBDate/filterSBStatus', this.filterSBStatus); //DELETE
       await this.fetchSalesBonusses(true);
     },
+    async resetFilterSB() {
+      this.filterSBDate = null;
+      this.filterSBName = null;
+      this.filterSBPartner = null;
+      this.filterSBLevel = null;
+      this.filterSBStatus = null;
+    },
     async applyFilterP() {
       console.debug('applyFilterP/filterPDate', this.filterPDate); //DELETE
       console.debug('applyFilterP/filterPStatus', this.filterPStatus); //DELETE
       await this.fetchPayouts(true);
+    },
+    async resetFilterP() {
+      this.filterPDate = null;
+      this.filterPStatus = null;
     },
   },
   async created() {
