@@ -32,10 +32,11 @@
 
       v-window.home--window(v-model="tab")
         v-window-item.home--window-item
-          AppFilterTable.home--sales-filter(@apply="applyFilterSD")
+          AppFilterTable.home--sales-filter(@apply="applyFilterSD" @reset="resetFilterSD")
             .home--sales-filter-directs
               AppPickerDate.home--sales-filter__field(
-                :range="true",
+                :range="false",
+                :value="filterSDDate",
                 @ok="setFilterSDDate"
               )
 
@@ -68,8 +69,8 @@
               :headers="salesDirectsHeaders",
               :items="salesDirects",
               :loading="SDLoading",
-              :loading-text="'Данные загружаются'"
-              :server-items-length="salesDirectsItemsLength"
+              :loading-text="'Данные загружаются'",
+              :server-items-length="salesDirectsItemsLength",
               @update:options="updateSDOptions"
             )
               template(v-slot:item.status="{ item }")
@@ -126,7 +127,7 @@
               :headers="salesBonussesHeaders",
               :items="salesBonusses",
               :loading="salesBonussesLoading",
-              :loading-text="'Данные загружаются'"
+              :loading-text="'Данные загружаются'",
               @update:options="updateSBOptions"
             )
               template(v-slot:item.status="{ item }")
@@ -162,7 +163,7 @@
               :headers="payoutsHeaders",
               :items="payouts",
               :loading="payoutsLoading",
-              :loading-text="'Данные загружаются'"
+              :loading-text="'Данные загружаются'",
               @update:options="updatePOptions"
             )
               template(v-slot:item.status="{ item }")

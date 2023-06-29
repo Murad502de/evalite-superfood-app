@@ -517,6 +517,10 @@ export default {
       console.debug('applyFilterSD/filterSDStatus', this.filterSDStatus); //DELETE
       await this.fetchSalesDirects(true);
     },
+    async resetFilterSD() {
+      console.debug('resetFilterSD'); //DELETE
+      this.filterSDDate = null;
+    },
     async applyFilterSB() {
       console.debug('setFilterSBDate/filterSBDate', this.filterSBDate); //DELETE
       console.debug('setFilterSBDate/filterSBName', this.filterSBName); //DELETE

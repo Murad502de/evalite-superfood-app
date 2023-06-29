@@ -2,7 +2,7 @@
 export default {
   props: {
     value: {
-      type: String,
+      type: String | Array,
       default: '',
     },
     range: {
@@ -52,7 +52,7 @@ export default {
     dates(newVal) {
       console.debug('AppPickerDate/watch/dates/newVal', newVal); //DELETE
 
-      if (this.range) {
+      if (this.range && !!newVal) {
         if (
           (newVal.length > 1) &&
           (Date.parse(newVal[0]) > Date.parse(newVal[1]))
@@ -65,27 +65,9 @@ export default {
         this.dateFormatted = this.formatDate(this.dates);
       }
     },
-    value(newVal) {
-      console.debug('AppPickerDate/watch/value/newVal', newVal); //DELETE
-      this.dateFormatted = this.formatDate(this.value.substring(0, 10));
-    },
-    dateFormatted(newVal) {
-      // console.debug('AppPickerDate/watch/dateFormatted/newVal', newVal); //DELETE
+    value(newVal, oldVal) {
+      this.dates = newVal;
     },
   },
-  created() {
-    // if (this.range) {
-    //   this.dates = [
-    //     (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
-    //     (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
-    //   ];
-    //   this.dateFormatted = [
-    //     this.formatDate((new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)),
-    //     this.formatDate((new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)),
-    //   ];
-    // } else {
-    //   this.dates = (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10);
-    //   this.dateFormatted = this.formatDate((new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10));
-    // }
-  },
+  created() {},
 }
