@@ -3,6 +3,8 @@ import { api } from '@/api';
 export const usersVerifications = async ({
   page,
   perPage,
+  orderBy,
+  orderingRule,
   filterDateFrom,
   filterDateTo,
   filterEmail,
@@ -12,6 +14,8 @@ export const usersVerifications = async ({
     const params = {
       page,
       per_page: perPage,
+      order_by: orderBy,
+      ordering_rule: orderingRule,
       filter_status: 'waiting',
       filter_date_from: filterDateFrom,
       filter_date_to: filterDateTo,

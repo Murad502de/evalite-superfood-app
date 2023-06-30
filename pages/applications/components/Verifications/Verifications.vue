@@ -27,6 +27,7 @@
     :lastPage="lastPage",
     :itemsPerPage="itemsPerPage",
     :itemsLength="itemsLength",
+    @update:options="updateOptions",
     @click:row="openVerificationsDetailDialog",
     @update:page="updatePage",
     @update:itemsPerPage="updateItemsPerPage"

@@ -57,6 +57,10 @@ export default {
         return;
       }
     },
+    updateTableOptions(data) {
+      // console.debug('AppTable/methods/updateTableOptions/data', data); //DELETE
+      this.$emit('update:options', data);
+    },
     /* HELPERS */
     /* ACTIONS */
   },

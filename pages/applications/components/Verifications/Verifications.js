@@ -59,6 +59,8 @@ export default {
       filterDate: null,
       filterEmail: null,
       filterName: null,
+      sortBy: undefined,
+      sortDesc: false,
     };
   },
   computed: {},
@@ -137,6 +139,8 @@ export default {
         filterDateTo: parseFromDatePickerDdMmYyyy(this.filterDate ? this.filterDate[1] : null),
         filterEmail: this.filterEmail,
         filterName: this.filterName,
+        orderBy: this.sortBy,
+        orderingRule: !!this.sortDesc ? 'desc' : 'asc', //FIXME make with util
       });
 
       if (usersVerificationsResponse.status !== 200) {
@@ -390,6 +394,32 @@ export default {
     setFilterDate(value) {
       console.debug('setFilterDate/value', value); //DELETE
       this.filterDate = value;
+    },
+    async updateOptions(data) {
+      // console.debug('Verifications/methods/updateOptions/data', data); //DELETE
+      this.setSorting(data.sortBy[0], data.sortDesc[0]);
+    },
+    async setSorting(sortBy, sortDesc) {
+      if (sortBy === undefined && this.sortBy === undefined) return;
+      console.debug('setSorting/sortBy', sortBy); //DELETE
+      console.debug('setSorting/sortDesc', sortDesc); //DELETE
+      console.debug('setSorting/this.sortBy', this.sortBy); //DELETE
+      console.debug('setSorting/this.sortDesc', this.sortDesc); //DELETE
+
+      switch (sortBy) {
+        case 'email':
+          this.sortBy = 'email';
+          break;
+        case 'full_name':
+          this.sortBy = 'full_name';
+          break;
+        default:
+          this.sortBy = 'created_at';
+          break;
+      }
+
+      this.sortDesc = sortDesc;
+      await this.fetchUsers(true);
     },
   },
   async created() {

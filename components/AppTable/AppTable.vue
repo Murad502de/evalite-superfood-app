@@ -8,6 +8,8 @@
       :items="items",
       :loading="loading",
       :loading-text="loadingText",
+      :server-items-length="itemsLength"
+      @update:options="updateTableOptions"
       @click:row="onRowClick"
     )
   v-data-footer(
