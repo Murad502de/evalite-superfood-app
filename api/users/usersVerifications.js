@@ -20,7 +20,7 @@ export const usersVerifications = async ({
       filter_date_from: filterDateFrom,
       filter_date_to: filterDateTo,
       filter_email: filterEmail,
-      filter_name: filterName,
+      filter_full_name: filterName,
     };
     const response = await api.get('users', {
       params,
