@@ -130,7 +130,7 @@ export default {
       await this.fetchUsers();
     },
     async fetchUsers(lazy = false) {
-      this.items = lazy ? this.items : [];;
+      this.items = lazy ? this.items : [];
       this.loading = true;
       const usersVerificationsResponse = await usersVerifications({
         page: this.page,

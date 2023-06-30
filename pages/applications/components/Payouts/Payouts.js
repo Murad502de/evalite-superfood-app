@@ -6,12 +6,22 @@ import AppTable from '@/components/AppTable/AppTable.vue';
 import AppButton from '@/components/AppButton/AppButton.vue';
 import PayoutsDetail from './components/PayoutsDetail/PayoutsDetail.vue';
 import { payoutsUuidGetAdapter } from '@/api/adapters/payouts/payoutsUuidGetAdapter';
+import AppFilterTable from '@/components/AppFilterTable/AppFilterTable.vue';
+import AppTextField from '@/components/AppTextField/AppTextField.vue';
+import AppPickerDate from '@/components/AppPickerDate/AppPickerDate.vue';
+import AppSelect from '@/components/AppSelect/AppSelect.vue';
+import { getPayoutStatusByName } from '@/utils/payout';
+import { parseFromDatePickerDdMmYyyy } from '@/utils/date';
 
 export default {
   components: {
     AppTable,
     AppButton,
     PayoutsDetail,
+    AppFilterTable,
+    AppTextField,
+    AppPickerDate,
+    AppSelect,
   },
 
   props: {},
@@ -54,15 +64,19 @@ export default {
       payoutsDetailLoading: false,
       payoutsDetailSaveLoading: false,
       payoutsDetailApproveLoading: false,
+      filterDate: null,
+      filterEmail: null,
+      filterName: null,
+      filterStatus: null,
+      sortBy: undefined,
+      sortDesc: false,
+      payoutsStatuses: ['в обработке', 'выплачено'],
     };
   },
   computed: {},
 
   watch: {},
   methods: {
-    /* GETTERS */
-    /* SETTERS */
-    /* HANDLERS */
     closePayoutsDetailDialog() {
       console.debug('Payouts/methods/closePayoutsDetailDialog'); //DELETE
       this.payoutsDetailDialog = false;
@@ -114,15 +128,19 @@ export default {
       this.itemsPerPage = e.itemsPerPage;
       await this.fetchPayouts();
     },
-    /* HELPERS */
-    /* ACTIONS */
-    async fetchPayouts() {
-      this.items = [];
+    async fetchPayouts(lazy = false) {
+      this.items = lazy ? this.items : [];
       this.loading = true;
       const payoutsGetResponse = await payoutsGet({
         page: this.page,
         perPage: this.itemsPerPage,
-        status: 'processing',
+        filterDateFrom: parseFromDatePickerDdMmYyyy(this.filterDate ? this.filterDate[0] : null),
+        filterDateTo: parseFromDatePickerDdMmYyyy(this.filterDate ? this.filterDate[1] : null),
+        filterEmail: this.filterEmail,
+        filterName: this.filterName,
+        filterStatus: getPayoutStatusByName(this.filterStatus),
+        orderBy: this.sortBy,
+        orderingRule: !!this.sortDesc ? 'desc' : 'asc', //FIXME make with util
       });
 
       console.debug('payoutsGetResponse', payoutsGetResponse); //DELETE
@@ -135,6 +153,11 @@ export default {
       this.lastPage = payoutsGetResponse.data.meta.last_page;
       this.itemsPerPage = payoutsGetResponse.data.meta.per_page;
       this.itemsLength = payoutsGetResponse.data.meta.total;
+
+      if (lazy) {
+        this.items = [];
+      }
+
       this.items = payoutsGetResponse.data.data.map(item => ({
         uuid: item.uuid,
         status: item.status,
@@ -144,6 +167,53 @@ export default {
         date: parseFromISOtoDdMmYyyy(item.created_at),
       }));
       this.loading = false;
+    },
+    async applyFilter() {
+      console.debug('Payouts/applyFilter/filterDate', this.filterDate); //DELETE
+      console.debug('Payouts/applyFilter/filterEmail', this.filterEmail); //DELETE
+      console.debug('Payouts/applyFilter/filterName', this.filterName); //DELETE
+      await this.fetchPayouts(true);
+    },
+    async resetFilter() {
+      console.debug('Payouts/resetFilter'); //DELETE
+      this.filterDate = null;
+      this.filterEmail = null;
+      this.filterName = null;
+      this.filterStatus = null;
+      await this.fetchPayouts(true);
+    },
+    setFilterDate(value) {
+      console.debug('setFilterDate/value', value); //DELETE
+      this.filterDate = value;
+    },
+    async updateOptions(data) {
+      console.debug('Payouts/methods/updateOptions/data', data); //DELETE
+      this.setSorting(data.sortBy[0], data.sortDesc[0]);
+    },
+    async setSorting(sortBy, sortDesc) {
+      if (sortBy === undefined && this.sortBy === undefined) return;
+      console.debug('Payouts/setSorting/sortBy', sortBy); //DELETE
+      console.debug('Payouts/setSorting/sortDesc', sortDesc); //DELETE
+      console.debug('Payouts/setSorting/this.sortBy', this.sortBy); //DELETE
+      console.debug('Payouts/setSorting/this.sortDesc', this.sortDesc); //DELETE
+
+      switch (sortBy) {
+        case 'email':
+          this.sortBy = 'email';
+          break;
+        case 'full_name':
+          this.sortBy = 'full_name';
+          break;
+        case 'status':
+          this.sortBy = 'status';
+          break;
+        default:
+          this.sortBy = 'created_at';
+          break;
+      }
+
+      this.sortDesc = sortDesc;
+      // await this.fetchPayouts(true);
     },
   },
 

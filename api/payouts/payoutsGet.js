@@ -1,11 +1,15 @@
 import { api } from '@/api';
 
-export const payoutsGet = async ({ page, perPage, status, }) => {
+export const payoutsGet = async ({
+  page,
+  perPage,
+  filterStatus,
+}) => {
   try {
     const params = {
       page,
       per_page: perPage,
-      filter_status: status,
+      filter_status: filterStatus,
     };
     const response = await api.get('payouts', {
       params,
