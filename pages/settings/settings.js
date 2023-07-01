@@ -33,6 +33,11 @@ export default {
         validation.required(),
         validation.numbers(),
       ],
+      amocrmProductPriceId: '',
+      amocrmProductPriceIdRules: [
+        validation.required(),
+        validation.numbers(),
+      ],
       personalLinkHost: '',
       personalLinkHostRules: [
         validation.required(),
@@ -73,6 +78,7 @@ export default {
           amocrmRedirectUri: this.amocrmRedirectUri,
           amocrmClientSecret: this.amocrmClientSecret,
           amocrmUtmSourceId: this.amocrmUtmSourceId,
+          amocrmProductPriceId: this.amocrmProductPriceId,
           personalLinkHost: this.personalLinkHost,
           minPayout: this.minPayout,
           percentage: this.percentage,
@@ -102,6 +108,7 @@ export default {
       this.amocrmRedirectUri = data.amocrm_redirect_uri;
       this.amocrmClientSecret = data.amocrm_client_secret;
       this.amocrmUtmSourceId = data.amocrm_utm_source_id;
+      this.amocrmProductPriceId = data.amocrm_utm_product_price_id;
       this.personalLinkHost = data.personal_link_host;
       this.minPayout = data.min_payout;
       this.percentage = data.percentage;

@@ -46,6 +46,15 @@
         )
 
         v-text-field(
+          v-model="amocrmProductPriceId",
+          :rules="amocrmProductPriceIdRules",
+          :disabled="loading || fetching",
+          label="amocrm id поля стоимость продукта",
+          required,
+          outlined
+        )
+
+        v-text-field(
           v-model="personalLinkHost",
           :rules="personalLinkHostRules",
           :disabled="loading || fetching",
