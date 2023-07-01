@@ -12,6 +12,7 @@ import AppPickerDate from '@/components/AppPickerDate/AppPickerDate.vue';
 import AppSelect from '@/components/AppSelect/AppSelect.vue';
 import { getPayoutStatusByName } from '@/utils/payout';
 import { parseFromDatePickerDdMmYyyy } from '@/utils/date';
+import AppStatus from '@/components/AppStatus/AppStatus.vue';
 
 export default {
   components: {
@@ -22,6 +23,7 @@ export default {
     AppTextField,
     AppPickerDate,
     AppSelect,
+    AppStatus,
   },
 
   props: {},
@@ -82,10 +84,11 @@ export default {
       this.payoutsDetailDialog = false;
       this.payoutsDetail = null;
     },
-    async approvePayoutsDetail() {
+    async approvePayoutsDetail(receiptFile) {
       console.debug('Payouts/methods/approvePayoutsDetail/this.payoutsDetail', this.payoutsDetail); //DELETE
+      console.debug('Payouts/methods/approvePayoutsDetail/receiptFile', receiptFile); //DELETE
       this.payoutsDetailApproveLoading = true;
-      // await this.closePayout(this.payoutsDetail);
+      await this.closePayout(this.payoutsDetail, receiptFile);
       this.payoutsDetailApproveLoading = false;
       this.payoutsDetailDialog = false;
       this.payoutsDetail = null;
@@ -104,15 +107,17 @@ export default {
       this.payoutsDetail = await payoutsUuidGetAdapter(payoutsUuidGetResponse.data.data);
       this.payoutsDetailLoading = false;
     },
-    async closePayout(payout) {
+    async closePayout(payout, receiptFile) {
       console.debug('Payouts/methods/closePayout/payout', payout); //DELETE
-      const payoutsUuidPayoutResponse = await payoutsUuidPayout({ uuid: payout.uuid });
+      console.debug('Payouts/methods/closePayout/receiptFile', receiptFile); //DELETE
+      const payoutsUuidPayoutResponse = await payoutsUuidPayout({ uuid: payout.uuid, receiptFile });
 
       if (payoutsUuidPayoutResponse.status !== 200) {
         alert('Ошибка закрытия выплаты'); //FIXME implement with vuetify
       }
 
-      this.deletePayoutFromList(payout);
+      // this.deletePayoutFromList(payout);
+      await this.fetchPayouts();
     },
     deletePayoutFromList(payout) {
       console.debug('Ver/deletePayoutFromList/payout', payout); //DELETE
@@ -136,8 +141,8 @@ export default {
         perPage: this.itemsPerPage,
         filterDateFrom: parseFromDatePickerDdMmYyyy(this.filterDate ? this.filterDate[0] : null),
         filterDateTo: parseFromDatePickerDdMmYyyy(this.filterDate ? this.filterDate[1] : null),
-        filterEmail: this.filterEmail,
-        filterName: this.filterName,
+        filterPartnerEmail: this.filterEmail,
+        filterPartnerFullName: this.filterName,
         filterStatus: getPayoutStatusByName(this.filterStatus),
         orderBy: this.sortBy,
         orderingRule: !!this.sortDesc ? 'desc' : 'asc', //FIXME make with util
@@ -202,18 +207,21 @@ export default {
           this.sortBy = 'email';
           break;
         case 'full_name':
-          this.sortBy = 'full_name';
+          this.sortBy = 'partner_full_name';
+          break;
+        case 'price':
+          this.sortBy = 'price';
           break;
         case 'status':
           this.sortBy = 'status';
           break;
         default:
-          this.sortBy = 'created_at';
+          this.sortBy = 'payouts.created_at';
           break;
       }
 
       this.sortDesc = sortDesc;
-      // await this.fetchPayouts(true);
+      await this.fetchPayouts(true);
     },
   },
 

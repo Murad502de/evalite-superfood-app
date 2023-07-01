@@ -48,7 +48,8 @@ export default {
       date: null,
       fullName: null,
       price: null,
-      receiptDisabled: false,
+      status: null,
+      receiptDisabled: true,
       receiptMediaFile: null,
       receiptMediaName: null,
       receiptMediaUrl: null,
@@ -82,6 +83,7 @@ export default {
       if (this.approveLoading) return;
       this.$emit('close');
       this.tab = 0;
+      this.status = null;
     },
     approve() {
       console.debug('PayoutsDetail/methods/approve/!!receiptMediaUrl', !!this.receiptMediaUrl); //DELETE
@@ -92,8 +94,9 @@ export default {
       }
 
       this.receiptDisabled = true;
-      this.$emit('approve');
-      // this.tab = 0; //FIXME
+      this.$emit('approve', this.receiptMediaFile);
+      this.tab = 0; //FIXME
+      this.status = null;
     },
     init(data) {
       console.debug('PayoutsDetail/methods/init/data', data); //DELETE
@@ -102,6 +105,9 @@ export default {
       this.date = data.date;
       this.fullName = data.user.fullName;
       this.price = data.price;
+      this.receiptMediaUrl = data.receiptUrl
+      this.status = data.status;
+      this.receiptDisabled = this.status === 'completed';
     },
     uploadReceiptMedia(file = null) {
       if (this.loading || this.disabled) return;

@@ -25,10 +25,22 @@
     :itemsPerPage="itemsPerPage",
     :itemsLength="itemsLength",
     @update:options="updateOptions",
-    @click:row="openPayoutsDetailDialog",
     @update:page="updatePage",
     @update:itemsPerPage="updateItemsPerPage"
   )
+    v-data-table.elevation-1.app-table--table(
+      hide-default-footer,
+      mobile-breakpoint="576",
+      :headers="headers",
+      :items="items",
+      :loading="loading",
+      :loading-text="'Данные загружаются'",
+      :server-items-length="itemsLength"
+      @update:options="updateOptions"
+      @click:row="openPayoutsDetailDialog",
+    )
+      template(v-slot:item.status="{ item }")
+        AppStatus(:status="item.status")
 
   PayoutsDetail(
     :payout="payoutsDetail",

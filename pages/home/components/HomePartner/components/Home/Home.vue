@@ -135,6 +135,7 @@
               :items="salesBonusses",
               :loading="salesBonussesLoading",
               :loading-text="'Данные загружаются'",
+              :server-items-length="salesBonussesItemsLength"
               @update:options="updateSBOptions"
             )
               template(v-slot:item.status="{ item }")
@@ -175,6 +176,7 @@
               :items="payouts",
               :loading="payoutsLoading",
               :loading-text="'Данные загружаются'",
+              :server-items-length="payoutsItemsLength"
               @update:options="updatePOptions"
             )
               template(v-slot:item.status="{ item }")
