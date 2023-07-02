@@ -10,5 +10,6 @@ export const usersSalesBonussesGetAdapter = async (data) => {
     status: data.status,
     partner: data.partner_name,
     level: data.level,
+    init_price: data.init_price,
   };
 };

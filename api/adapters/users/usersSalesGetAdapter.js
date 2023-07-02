@@ -8,5 +8,6 @@ export const usersSalesGetAdapter = async (data) => {
     percent: data.percent,
     price: data.price,
     status: data.status,
+    init_price: data.init_price,
   };
 };

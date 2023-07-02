@@ -72,11 +72,23 @@ export default {
           // align: 'start',
           // sortable: false,
         },
+
         {
-          value: 'price',
-          text: 'Бюждет',
+          value: 'init_price',
+          text: 'Сумма сделки',
           // sortable: false,
         },
+        {
+          value: 'percent',
+          text: 'Процент',
+          // sortable: false,
+        },
+        {
+          value: 'price',
+          text: 'Прибыль',
+          // sortable: false,
+        },
+
         {
           value: 'status',
           text: 'Статус',
@@ -110,20 +122,31 @@ export default {
           // align: 'start',
           // sortable: false,
         },
+
+        {
+          value: 'init_price',
+          text: 'Сумма сделки',
+          // sortable: false,
+        },
+        {
+          value: 'level',
+          text: 'Уровень',
+          // sortable: false,
+        },
+        {
+          value: 'percent',
+          text: 'Процент',
+          // sortable: false,
+        },
         {
           value: 'price',
-          text: 'Бюждет',
+          text: 'Прибыль',
           // sortable: false,
         },
 
         {
           value: 'partner',
           text: 'Партнер',
-          // sortable: false,
-        },
-        {
-          value: 'level',
-          text: 'Уровень',
           // sortable: false,
         },
 
@@ -387,6 +410,12 @@ export default {
         case 'price':
           this.sortSDBy = 'price';
           break;
+        case 'init_price':
+          this.sortSDBy = 'init_price';
+          break;
+        case 'percent':
+          this.sortSDBy = 'percent';
+          break;
         case 'status':
           this.sortSDBy = 'status';
           break;
@@ -425,6 +454,12 @@ export default {
           break;
         case 'price':
           this.sortSBBy = 'price';
+          break;
+        case 'init_price':
+          this.sortSBBy = 'init_price';
+          break;
+        case 'percent':
+          this.sortSBBy = 'percent';
           break;
         case 'partner':
           this.sortSBBy = 'partner_name';
