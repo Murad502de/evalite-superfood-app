@@ -106,5 +106,5 @@
           ) Добавить
 </template>
 
-<script src="./settings.js" />
-<style lang="scss" src="./settings.scss" />
+<script src="./Settings.js" />
+<style lang="scss" src="./Settings.scss" />
