@@ -21,5 +21,5 @@
   )
 </template>
 
-<script src="./forgot.js" />
-<style lang="scss" src="./forgot.scss" />
+<script src="./Forgot.js" />
+<style lang="scss" src="./Forgot.scss" />

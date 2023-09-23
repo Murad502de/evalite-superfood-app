@@ -8,6 +8,7 @@ import { usersPasswordUpdate } from '@/api/users/usersPasswordUpdate';
 
 export default {
   layout: "empty",
+
   components: {
     EmailCard,
     ConfirmCard,
