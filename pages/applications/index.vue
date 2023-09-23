@@ -12,5 +12,5 @@
         Payouts
 </template>
 
-<script src="./applications.js" />
-<style lang="scss" src="./applications.scss" />
+<script src="./Applications.js" />
+<style lang="scss" src="./Applications.scss" />
