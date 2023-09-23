@@ -15,5 +15,5 @@
   )
 </template>
 
-<script src="./signup.js" />
-<style lang="scss" src="./signup.scss" />
+<script src="./Signup.js" />
+<style lang="scss" src="./Signup.scss" />
