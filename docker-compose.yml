@@ -19,7 +19,7 @@ services:
     evalite-refsys-app-nuxt:
         build: ./
         ports:
-            - "80:80"
+            - "3001:80"
         # working_dir: /application
         networks:
             - evalite-refsys-network-spa
