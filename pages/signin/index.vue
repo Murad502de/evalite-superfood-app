@@ -48,5 +48,5 @@
     ) Регистрация
 </template>
 
-<script src="./signin.js" />
-<style lang="scss" src="./signin.scss" />
+<script src="./Signin.js" />
+<style lang="scss" src="./Signin.scss" />
