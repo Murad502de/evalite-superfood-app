@@ -26,7 +26,6 @@ export default {
     },
   },
   created() {
-    
     if (this.userData.role === roles.admin) {
       this.$router.push('applications')
     }
