@@ -30,5 +30,6 @@ export default {
       this.$router.push('applications')
     }
   },
+  
   mounted() { },
 };
