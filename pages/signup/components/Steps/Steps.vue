@@ -30,17 +30,17 @@
         v-window-item
           Step3Agreement
 
-        v-window-item
-          Step4Docs(
-            ref="step4_docs"
-            @update:progress="(newValue) => (step4DocsProgress = newValue)"
-          )
+        //- v-window-item
+        //-   Step4Docs(
+        //-     ref="step4_docs"
+        //-     @update:progress="(newValue) => (step4DocsProgress = newValue)"
+        //-   )
 
-        v-window-item
-          Step5PaymentInfo(
-            ref="step5_payment_info"
-            @update:progress="(newValue) => (step5PaymentInfoProgress = newValue)"
-          )
+        //- v-window-item
+        //-   Step5PaymentInfo(
+        //-     ref="step5_payment_info"
+        //-     @update:progress="(newValue) => (step5PaymentInfoProgress = newValue)"
+        //-   )
 
       .steps--actions(
         :class="{ 'signup__steps--actions_step-3': onboarding === 3 }"
@@ -50,7 +50,7 @@
           .steps--actions-step-3__text {{ actionsStep3Text }}
           .steps--actions-step-3__agreement
             Pdf.steps--actions-step-3__agreement-icon
-            .steps--actions-step-3__agreement-title {{ actionsStep3AgreementTitle }}
+            .steps--actions-step-3__agreement-title(@click="openPrivacy") {{ actionsStep3AgreementTitle }}
 
         .steps--actions-btns(
           :class="{ 'signup__steps--actions-btns_step-3': onboarding === 3 }"

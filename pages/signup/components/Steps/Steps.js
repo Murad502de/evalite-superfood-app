@@ -28,9 +28,10 @@ export default {
   props: {},
   data() {
     return {
-      onboardings: 6,
+      onboardings: 4,
       loading: false,
-      onboarding: stepsWindow.step1PersonalData,
+      // onboarding: stepsWindow.step1PersonalData, //FIXME
+      onboarding: stepsWindow.step3Agreement, //FIXME
       confirmTimerCount: 30,
       confirmTimer: null,
       step1PersonalDataProgress: 0,
@@ -146,15 +147,18 @@ export default {
 
       if (this.onboarding + 1 === this.onboardings) {
         this.loading = true;
-        const response = await this.signup();
 
-        if (response.status !== 200) {
-          alert('Ошибка регистрации');
-          this.loading = false;
-          return;
-        }
+        //TODO
+        // const response = await this.signup();
 
-        this.onboarding = stepsWindow.step1PersonalData;
+        // if (response.status !== 200) {
+        //   alert('Ошибка регистрации');
+        //   this.loading = false;
+        //   return;
+        // }
+
+        // this.onboarding = stepsWindow.step1PersonalData;
+
         this.$emit('next');
       } else {
         this.onboarding++;
@@ -259,6 +263,10 @@ export default {
       console.debug('Steps/methods/signup/this.userSignupData', this.userSignupData); //DELETE
       const response = await usersCreate(this.userSignupData);
       return response;
+    },
+
+    openPrivacy() {
+      window.open('https://docs.google.com/document/d/1eVLGZrjkDmQeFUOaXIy8Medu4MFs0C0f/edit?usp=share_link&ouid=109505766751805210972&rtpof=true&sd=true','_blank');
     },
   },
   created() { },
