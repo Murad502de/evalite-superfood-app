@@ -17,16 +17,16 @@ export default [
     progress: 0,
     active: false,
   },
-  {
-    title: 'Шаг 4',
-    name: 'Загрузка документов',
-    progress: 0,
-    active: false,
-  },
-  {
-    title: 'Шаг 5',
-    name: 'Платежные данные',
-    progress: 0,
-    active: false,
-  },
+  // {
+  //   title: 'Шаг 4',
+  //   name: 'Загрузка документов',
+  //   progress: 0,
+  //   active: false,
+  // },
+  // {
+  //   title: 'Шаг 5',
+  //   name: 'Платежные данные',
+  //   progress: 0,
+  //   active: false,
+  // },
 ];
