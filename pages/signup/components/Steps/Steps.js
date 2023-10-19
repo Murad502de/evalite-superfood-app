@@ -9,10 +9,11 @@ import Step1PersonalData from '../Step1PersonalData/Step1PersonalData.vue';
 import Step1Confirm from '../Step1Confirm/Step1Confirm.vue';
 import Step2Pass from '../Step2Pass/Step2Pass.vue';
 import Step3Agreement from '../Step3Agreement/Step3Agreement.vue';
-import Step4Docs from '../Step4Docs/Step4Docs.vue';
-import Step5PaymentInfo from '../Step5PaymentInfo/Step5PaymentInfo.vue';
+// import Step4Docs from '../Step4Docs/Step4Docs.vue';
+// import Step5PaymentInfo from '../Step5PaymentInfo/Step5PaymentInfo.vue';
 import steps from './shared/steps';
 import * as stepsWindow from './shared/stepsWindow';
+import * as links from '@/shared/links';
 
 export default {
   components: {
@@ -21,8 +22,8 @@ export default {
     Step1Confirm,
     Step2Pass,
     Step3Agreement,
-    Step4Docs,
-    Step5PaymentInfo,
+    // Step4Docs,
+    // Step5PaymentInfo,
     Pdf,
   },
   props: {},
@@ -266,7 +267,7 @@ export default {
     },
 
     openPrivacy() {
-      window.open('https://docs.google.com/document/d/1eVLGZrjkDmQeFUOaXIy8Medu4MFs0C0f/edit?usp=share_link&ouid=109505766751805210972&rtpof=true&sd=true','_blank');
+      window.open(links.privacyPolicy,'_blank');
     },
   },
   created() { },
