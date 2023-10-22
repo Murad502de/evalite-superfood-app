@@ -1,5 +1,6 @@
 import { mapGetters } from 'vuex';
 import { usersCreate } from '@/api/users/usersCreate';
+import { signup } from '@/api/auth/signup';
 import { usersCheckEmail } from '@/api/users/usersCheckEmail';
 import { usersEmailConfirm } from '@/api/users/usersEmailConfirm';
 import { usersEmailConfirmCode } from '@/api/users/usersEmailConfirmCode';
@@ -31,8 +32,8 @@ export default {
     return {
       onboardings: 4,
       loading: false,
-      // onboarding: stepsWindow.step1PersonalData, //FIXME
-      onboarding: stepsWindow.step3Agreement, //FIXME
+      onboarding: stepsWindow.step1PersonalData, //FIXME
+      // onboarding: stepsWindow.step3Agreement, //FIXME
       confirmTimerCount: 30,
       confirmTimer: null,
       step1PersonalDataProgress: 0,
@@ -148,9 +149,10 @@ export default {
 
       if (this.onboarding + 1 === this.onboardings) {
         this.loading = true;
+        console.debug("TTTTTTTTTT"); //DELETE
 
         //TODO
-        // const response = await this.signup();
+        const response = await this.signup();
 
         // if (response.status !== 200) {
         //   alert('Ошибка регистрации');
@@ -262,8 +264,9 @@ export default {
     },
     async signup() {
       console.debug('Steps/methods/signup/this.userSignupData', this.userSignupData); //DELETE
-      const response = await usersCreate(this.userSignupData);
-      return response;
+      const response = await signup(this.userSignupData);
+      // const response = await usersCreate(this.userSignupData);
+      // return response;
     },
 
     openPrivacy() {

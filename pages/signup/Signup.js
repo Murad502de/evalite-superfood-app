@@ -42,7 +42,7 @@ export default {
   },
 
   created() {
-    this.setActiveSection(activeSections.steps); //FIXME to start
+    this.setActiveSection(activeSections.start); //FIXME to start
   },
   mounted() { },
 }
