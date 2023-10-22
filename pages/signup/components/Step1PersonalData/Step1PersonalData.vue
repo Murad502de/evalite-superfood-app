@@ -52,14 +52,21 @@
       outlined
     )
 
-    v-text-field(
-      v-model="birthday",
+    //- v-text-field(
+    //-   v-model="birthday",
+    //-   :rules="birthdayRules",
+    //-   :disabled="loading",
+    //-   label="Дата рождения",
+    //-   :placeholder="formPlaceholder.date",
+    //-   required,
+    //-   outlined
+    //- )
+
+    AppPickerDate.home--sales-filter__field(
+      hideActions,
+      prefix="Дата рождения",
       :rules="birthdayRules",
-      :disabled="loading",
-      label="Дата рождения",
-      :placeholder="formPlaceholder.date",
-      required,
-      outlined
+      @change="changeBirthday"
     )
 
     v-text-field(

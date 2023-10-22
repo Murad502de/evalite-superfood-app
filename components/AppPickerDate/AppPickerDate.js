@@ -5,9 +5,21 @@ export default {
       type: String | Array,
       default: '',
     },
+    prefix: {
+      type: String | Array,
+      default: 'Дата:',
+    },
     range: {
       type: Boolean,
       default: false,
+    },
+    'hideActions': {
+      type: Boolean,
+      default: false,
+    },
+    rules: {
+      type: Array,
+      default: () => ([]),
     },
   },
   data() {
@@ -51,6 +63,7 @@ export default {
   watch: {
     dates(newVal) {
       console.debug('AppPickerDate/watch/dates/newVal', newVal); //DELETE
+      console.debug('AppPickerDate/watch/dates/this.range', this.range); //DELETE
 
       if (this.range && !!newVal) {
         if (
@@ -64,10 +77,13 @@ export default {
       } else {
         this.dateFormatted = this.formatDate(this.dates);
       }
+
+      console.debug('AppPickerDate/watch/dates/this.dateFormatted', this.dateFormatted); //DELETE
+      this.$emit('change', this.dateFormatted);
     },
     value(newVal, oldVal) {
       this.dates = newVal;
     },
   },
-  created() {},
+  created() { },
 }

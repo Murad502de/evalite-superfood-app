@@ -3,10 +3,13 @@ import * as validation from "@/services/formValidation";
 import * as formPlaceholder from "@/services/formPlaceholder";
 import { createUploadedFileUrl } from '@/utils/file.js';
 import AppAvatar from '@/components/AppAvatar/AppAvatar.vue';
+import AppPickerDate from '@/components/AppPickerDate/AppPickerDate.vue';
+
 
 export default {
   components: {
     AppAvatar,
+    AppPickerDate,
   },
 
   props: {
@@ -123,6 +126,11 @@ export default {
       this.avatarFile = null;
       this.avatarName = null;
       this.avatarUrl = null;
+    },
+
+    changeBirthday(value) {
+      console.debug('changeBirthday/value', value); //DELETE
+      this.birthday = value;
     },
   },
 

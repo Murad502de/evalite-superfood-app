@@ -17,8 +17,9 @@
         filled,
         single-line,
         outlined,
-        prefix="Дата:",
-        readonly
+        :prefix="prefix",
+        readonly,
+        :rules="rules"
       )
 
     v-date-picker.app-picker-date__picker(
@@ -27,8 +28,8 @@
       :range="range"
     )
       v-spacer
-      v-btn(text, color="primary", @click="cancel") Отмена
-      v-btn(text, color="primary", @click="ok") OK
+      v-btn(v-if="!hideActions", text, color="primary", @click="cancel") Отмена
+      v-btn(v-if="!hideActions", text, color="primary", @click="ok") OK
 </template>
 
 <script src="./AppPickerDate.js" />
