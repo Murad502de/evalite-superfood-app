@@ -32,15 +32,15 @@ export default {
   methods: {
     ...mapActions('userStore', ['setUserData']),
     getComponent() {
-      if (this.userData && this.agencyContract && this.verificationStatus === 'completed') {
-        return 'Home';
-      } else if (this.userData && this.agencyContract) {
-        return 'Verification';
-      } else if (this.userData) {
-        return 'AgencyContract';
-      }
+      // if (this.userData && this.agencyContract && this.verificationStatus === 'completed') {
+      //   return 'Home';
+      // } else if (this.userData && this.agencyContract) {
+      //   return 'Verification';
+      // } else if (this.userData) {
+      //   return 'AgencyContract';
+      // }
 
-      return null;
+      return 'Home';
     },
     async forceRerender() {
       console.debug('HomeReferral/methods/forceRerender'); //DELETE
