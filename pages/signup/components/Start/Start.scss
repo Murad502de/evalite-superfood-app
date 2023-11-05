@@ -30,6 +30,10 @@
       margin-top: 24px;
     }
 
+    &__logo {
+      transform: scale(-1, 1)
+    }
+
     &--form {
       width: 100%;
       max-width: 460px;
