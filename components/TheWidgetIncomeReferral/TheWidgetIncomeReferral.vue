@@ -1,32 +1,32 @@
 <template lang="pug">
-AppCard.the-widget-income-referral
-  .the-widget-income-referral__container
-    .the-widget-income-referral__header
-      .the-widget-income-referral--status(v-show="!loading")
-        StatusSuccess.the-widget-income-referral--status__logo(
+AppCard.the-widget-income-partner
+  .the-widget-income-partner__container
+    .the-widget-income-partner__header
+      .the-widget-income-partner--status(v-show="!loading")
+        StatusSuccess.the-widget-income-partner--status__logo(
           v-if="isSuccess"
         )
-        StatusWarning.the-widget-income-referral--status__logo(v-else)
-        .the-widget-income-referral--status__title {{ getStatusTitle() }}
-      AppSkeleton.the-widget-income-referral__skeleton(
+        StatusWarning.the-widget-income-partner--status__logo(v-else)
+        .the-widget-income-partner--status__title {{ getStatusTitle() }}
+      AppSkeleton.the-widget-income-partner__skeleton(
         v-show="loading",
         height="24"
       )
 
-    .the-widget-income-referral__main
-      InfoBlock.the-widget-income-referral__info-block(
+    .the-widget-income-partner__main
+      InfoBlock.the-widget-income-partner__info-block(
         :title="amountTitle",
         :value="convertToMoneyFormat(amount)",
         :loading="loading"
       )
-      //- InfoBlock.the-widget-income-referral__info-block(
+      //- InfoBlock.the-widget-income-partner__info-block(
       //-   :title="amountTitleResidual",
       //-   :value="convertToMoneyFormat(amountResidual)",
       //-   :loading="loading"
       //- )
 
-    .the-widget-income-referral__footer
-      AppButton.the-widget-income-referral--payout(
+    .the-widget-income-partner__footer
+      AppButton.the-widget-income-partner--payout(
         v-show="!loading",
         color="#FFFFFF",
         :styles="{ color: '#0082DE' }",
@@ -34,7 +34,7 @@ AppCard.the-widget-income-referral
         :disabled="!isSuccess",
         @click="payout"
       ) Вывести
-      AppSkeleton.the-widget-income-referral__skeleton.the-widget-income-referral--payout__skeleton(
+      AppSkeleton.the-widget-income-partner__skeleton.the-widget-income-partner--payout__skeleton(
         v-show="loading",
         height="36"
       )

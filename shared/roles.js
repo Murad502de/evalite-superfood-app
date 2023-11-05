@@ -1,2 +1,2 @@
 export const admin = 'admin';
-export const referral = 'referral';
+export const partner = 'partner';

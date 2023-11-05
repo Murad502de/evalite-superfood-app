@@ -4,7 +4,7 @@ export const getRoleTitleByCode = (code) => {
   switch (code) {
     case roles.admin:
       return 'Администратор';
-    case roles.referral:
+    case roles.partner:
       return 'Реферал';
     default:
       return '';

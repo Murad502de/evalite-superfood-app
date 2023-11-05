@@ -1,5 +1,5 @@
 <template lang="pug">
-.home-referral(:key="key")
+.home-partner(:key="key")
   component(:is="getComponent()", @forceRerender="forceRerender")
 </template>
 

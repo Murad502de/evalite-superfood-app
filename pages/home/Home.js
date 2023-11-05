@@ -18,7 +18,7 @@ export default {
     ...mapActions('userStore', ['setUserData']),
     getComponent(name) {
       switch (name) {
-        case roles.referral:
+        case roles.partner:
           return "HomePartner";
         default:
           return null;
