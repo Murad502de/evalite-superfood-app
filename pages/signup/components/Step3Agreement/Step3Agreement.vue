@@ -3,8 +3,8 @@
   .signup-step1-agreement__logo
     EarthLogo
 
-  .signup-step1-agreement__title Электронный документооборот
-  .signup-step1-agreement__info Система Evalite использует электроный документооборот, это эффективный способ подписывать документы и быстро получать оплату. Мы бесплатно храним ваши документы,которые надежно защищены от взлома.
+  .signup-step1-agreement__title {{ title }}
+  .signup-step1-agreement__info {{ info }}
 
   .signup-step1-agreement__info-blocks
     InfoBlock.signup-step1-agreement__info-block(

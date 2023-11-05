@@ -1,45 +1,29 @@
 import EarthLogo from '@/assets/svg/earth.svg';
 import InfoBlock from './components/InfoBlock';
+import * as content from './shared/content';
 
 export default {
   components: {
     EarthLogo,
     InfoBlock,
   },
-
   props: {},
   data() {
-    return {
-      infoBlocks: [
-        {
-          icon: 'time',
-          title: 'Быстрая оплата',
-          text: 'Система Evalite использует электроный документооборот, это эффективный способ подписывать.',
-        },
-        {
-          icon: 'hand',
-          title: 'Документы всегда доступны?',
-          text: 'Система Evalite использует электроный документооборот, это эффективный способ подписывать.',
-        },
-        {
-          icon: 'docs',
-          title: 'Быстрая оплата',
-          text: 'Система Evalite использует электроный документооборот, это эффективный способ подписывать.',
-        },
-      ],
-    };
+    return {};
   },
-  computed: {},
-
+  computed: {
+    title() {
+      return content.title;
+    },
+    info() {
+      return content.info;
+    },
+    infoBlocks() {
+      return content.infoBlocks;
+    },
+  },
   watch: {},
-  methods: {
-    /* GETTERS */
-    /* SETTERS */
-    /* HANDLERS */
-    /* HELPERS */
-    /* ACTIONS */
-  },
-
+  methods: {},
   created() { },
   mounted() { },
 }

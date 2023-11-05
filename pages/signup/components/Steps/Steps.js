@@ -32,8 +32,7 @@ export default {
     return {
       onboardings: 4,
       loading: false,
-      onboarding: stepsWindow.step1PersonalData, //FIXME
-      // onboarding: stepsWindow.step3Agreement, //FIXME
+      onboarding: stepsWindow.step1PersonalData,
       confirmTimerCount: 30,
       confirmTimer: null,
       step1PersonalDataProgress: 0,
@@ -44,7 +43,7 @@ export default {
       step5PaymentInfoProgress: 0,
       actionsStep3Title: 'Согласие на использование электронного документооборота',
       actionsStep3Text: 'Нажимая кнопку "Принимаю условия", Вы соглашаетесь с условиями использования Ваших данных в обмене документами с системой Evalite.',
-      actionsStep3AgreementTitle: 'Cоглашение на обмен персональными данными и документами посредством ЭЦП',
+      actionsStep3AgreementTitle: 'Cоглашение на обмен персональными данными и документами',
     };
   },
   computed: {

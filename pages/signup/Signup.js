@@ -12,7 +12,6 @@ export default {
     Steps,
     Finish,
   },
-
   props: {},
   data() {
     return {
@@ -24,25 +23,17 @@ export default {
       return activeSections;
     },
   },
-
   watch: {},
   methods: {
-    /* GETTERS */
-    /* SETTERS */
     setActiveSection(section = null) {
       this.activeSection = section;
     },
-    /* HANDLERS */
-    /* HELPERS */
     redirectTo(to) {
       this.$router.push({ name: to });
     },
-
-    /* ACTIONS */
   },
-
   created() {
-    this.setActiveSection(activeSections.start); //FIXME to start
+    this.setActiveSection(activeSections.start);
   },
   mounted() { },
 }

@@ -13,7 +13,7 @@ export default [
   },
   {
     title: 'Шаг 3',
-    name: 'Соглашение ЭДО',
+    name: 'Соглашение',
     progress: 0,
     active: false,
   },
