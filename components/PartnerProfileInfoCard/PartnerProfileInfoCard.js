@@ -4,7 +4,36 @@ export default {
   components: {
     AppAvatar
   },
-  props: {},
+  props: {
+    avatar: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    inviteCode: {
+      type: String,
+      required: true,
+    },
+    status: {
+      type: String,
+      required: true,
+    },
+    birthday: {
+      type: String,
+      required: true,
+    },
+    tel: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {};
   },
@@ -13,15 +42,15 @@ export default {
       return [
         {
           title: 'Дата рождения',
-          value: '26.06.1984', //FIXME
+          value: this.birthday,
         },
         {
           title: 'Номер телефона',
-          value: '+79615554411', //FIXME
+          value: this.tel,
         },
         {
           title: 'Email',
-          value: 'ivanov84@mail.ru', //FIXME
+          value: this.email,
         },
       ];
     }

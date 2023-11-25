@@ -2,7 +2,16 @@
 .partner-profile
   .partner-profile__main
     AppCard.partner-profile-card
-      PartnerProfileInfoCard(@edit="dialog = true")
+      PartnerProfileInfoCard(
+        :avatar="''"
+        :name="''"
+        :inviteCode="''"
+        :status="''"
+        :birthday="'26.06.1984'"
+        :tel="'+79615554411'"
+        :email="'ivanov84@mail.ru'"
+        @edit="dialog = true"
+      )
     .partner-profile-blocks
       AppCard.partner-profile-block(v-for="(i, index) in 5", :key="index") qwerty
 
