@@ -1,3 +1,11 @@
 .profile {
-  &-partner {}
+  &-partner {
+    &__title {
+      color: #263043;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 125%;
+    }
+  }
 }
