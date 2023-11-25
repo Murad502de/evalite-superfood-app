@@ -11,6 +11,14 @@
     :title="'Настройки'",
     @close="close"
   )
+    template(v-slot:actions)
+      v-btn(
+        dark,
+        text,
+        @click="approve",
+        :loading="approveLoading",
+        :disabled="saveLoading"
+      ) Сохранить
 </template>
 
 <script src="./PartnerProfile.js" />
