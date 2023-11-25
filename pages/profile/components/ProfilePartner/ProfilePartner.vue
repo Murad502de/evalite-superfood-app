@@ -1,5 +1,5 @@
 <template lang="pug">
-.profile-partner profile partner page
+.profile-partner {{title}}
 </template>
 
 <script src="./ProfilePartner.js" />
