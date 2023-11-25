@@ -7,7 +7,7 @@ export const protect = (routeName, userRole) => {
     case routeNames.settings:
       return userRole !== roles.admin;
     case routeNames.profile:
-      return true;
+      return userRole === roles.admin;
     default:
       return false;
   }
