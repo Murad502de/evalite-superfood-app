@@ -1,22 +1,7 @@
 <template lang="pug">
-.evalite-profile evalite-profile
+.profile
+  component(:is="getComponent(userData.role)")
 </template>
 
-<script>
-export default {
-  layout: "default",
-  components: {},
-  props: {},
-  data() {
-    return {};
-  },
-  computed: {},
-  watch: {},
-  methods: {},
-  created() {},
-  mounted() {},
-};
-</script>
-
-<style lang="scss">
-</style>
+<script src="./Profile.js" />
+<style lang="scss" src="./Profile.scss" />
