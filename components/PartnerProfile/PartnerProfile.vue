@@ -1,8 +1,8 @@
 <template lang="pug">
 .partner-profile
-  .partner-profile__main(@click="dialog = true")
+  .partner-profile__main
     AppCard.partner-profile-card
-      PartnerProfileInfoCard
+      PartnerProfileInfoCard(@edit="dialog = true")
     .partner-profile-blocks
       AppCard.partner-profile-block(v-for="(i, index) in 5", :key="index") qwerty
 
@@ -15,9 +15,8 @@
       v-btn(
         dark,
         text,
-        @click="approve",
-        :loading="approveLoading",
-        :disabled="saveLoading"
+        @click="save",
+        :loading="saveLoading",
       ) Сохранить
 </template>
 

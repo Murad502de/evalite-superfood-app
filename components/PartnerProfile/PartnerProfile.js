@@ -12,6 +12,7 @@ export default {
   data() {
     return {
       dialog: false,
+      saveLoading: false,
     };
   },
   computed: {},
@@ -19,6 +20,9 @@ export default {
   methods: {
     close() {
       this.dialog = false;
+    },
+    save() {
+      this.dialog = false
     },
   },
   created() { },
