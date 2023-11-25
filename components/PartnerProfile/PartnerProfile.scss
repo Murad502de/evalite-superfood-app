@@ -1,5 +1,25 @@
 .partner-profile {
+  &-card {
+    max-width: 330px;
+    height: 714px;
+    width: 100%;
+  }
+
+  &-blocks {
+    flex: 1;
+  }
+
+  &-block {
+    max-width: 684px;
+    height: 370px;
+    width: 100%;
+  }
+
   &__main {
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    column-gap: 24px;
   }
 }
