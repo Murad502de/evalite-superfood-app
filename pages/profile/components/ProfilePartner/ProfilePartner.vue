@@ -3,7 +3,8 @@
   .profile-partner__header
     .profile-partner__title {{ title }}
 
-  .profile-partner__main content
+  .profile-partner__main
+    PartnerProfileInfoCard
 </template>
 
 <script src="./ProfilePartner.js" />

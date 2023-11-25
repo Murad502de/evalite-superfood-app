@@ -1,7 +1,10 @@
 import * as textContent from './shared/textContent';
+import PartnerProfileInfoCard from '@/components/PartnerProfileInfoCard/PartnerProfileInfoCard.vue';
 
 export default {
-  components: {},
+  components: {
+    PartnerProfileInfoCard,
+  },
   props: {},
   data() {
     return {};
