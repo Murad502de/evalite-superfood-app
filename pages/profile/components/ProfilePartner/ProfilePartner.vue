@@ -2,9 +2,8 @@
 .profile-partner
   .profile-partner__header
     .profile-partner__title {{ title }}
-
   .profile-partner__main
-    PartnerProfileInfoCard
+    PartnerProfile
 </template>
 
 <script src="./ProfilePartner.js" />

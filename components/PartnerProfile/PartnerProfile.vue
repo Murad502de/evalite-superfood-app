@@ -1,5 +1,6 @@
 <template lang="pug">
 .partner-profile PartnerProfile
+  .test PartnerProfileInfoCard
 </template>
 
 <script src="./PartnerProfile.js" />
