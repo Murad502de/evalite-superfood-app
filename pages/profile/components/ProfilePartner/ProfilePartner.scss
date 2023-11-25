@@ -1,11 +1,28 @@
+@import "@/styles/breakpoints.scss";
+
 .profile {
   &-partner {
+    padding: 0 16px 0 16px;
+
     &__title {
       color: #263043;
       font-size: 32px;
       font-style: normal;
       font-weight: 700;
       line-height: 125%;
+      display: none;
+
+      @media screen and (min-width: $screen-sm) {
+        display: block;
+      }
+    }
+
+    &__main {
+      padding-top: 36px;
+    }
+
+    @media screen and (min-width: $screen-sm) {
+      padding: 24px 44px 0 44px;
     }
   }
 }
