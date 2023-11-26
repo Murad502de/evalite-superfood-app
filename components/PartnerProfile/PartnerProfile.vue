@@ -6,7 +6,7 @@
         :avatar="avatar",
         :name="name",
         :inviteCode="inviteCode",
-        :status="''",
+        :verificationStatus="verificationStatus",
         :birthday="birthday",
         :tel="phone",
         :email="email",

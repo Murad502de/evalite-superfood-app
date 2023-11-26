@@ -41,6 +41,9 @@ export default {
     phone() {
       return this.user?.phone;
     },
+    verificationStatus() {
+      return this.user?.verificationStatus;
+    },
   },
   watch: {},
   methods: {

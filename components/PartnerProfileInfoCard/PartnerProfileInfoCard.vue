@@ -12,7 +12,7 @@
 
     .partner-profile-info-card__status
       .partner-profile-info-card__status-icon X
-      .partner-profile-info-card__status-title Документы отклонены
+      .partner-profile-info-card__status-title {{ getVerificationStatusTitle() }}
 
   v-divider.partner-profile-info-card__divider
 
