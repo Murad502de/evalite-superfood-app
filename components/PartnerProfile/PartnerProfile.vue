@@ -3,13 +3,13 @@
   .partner-profile__main
     AppCard.partner-profile-card
       PartnerProfileInfoCard(
-        :avatar="avatar"
-        :name="name"
-        :inviteCode="inviteCode"
-        :status="''"
-        :birthday="birthday"
-        :tel="phone"
-        :email="email"
+        :avatar="avatar",
+        :name="name",
+        :inviteCode="inviteCode",
+        :status="''",
+        :birthday="birthday",
+        :tel="phone",
+        :email="email",
         @edit="dialog = true"
       )
     .partner-profile-blocks
@@ -21,12 +21,22 @@
     @close="close"
   )
     template(v-slot:actions)
-      v-btn(
-        dark,
-        text,
-        @click="save",
-        :loading="saveLoading",
-      ) Сохранить
+      v-btn(dark, text, @click="save", :loading="saveLoading") Сохранить
+
+    //- AppFormPersonalData(
+    //-   ref="personal_data_form",
+    //-   :data="this.user",
+    //-   :loading="loading",
+    //-   :disabled="approveLoading || saveLoading",
+    //-   @update:avatar="updateAvatar",
+    //-   @update:second_name="updateSecondName",
+    //-   @update:first_name="updateFirstName",
+    //-   @update:third_name="updateThirdName",
+    //-   @update:gender="updateGender",
+    //-   @update:birthday="updateBirthday",
+    //-   @update:email="updateEmail",
+    //-   @update:phone="updatePhone"
+    //- )
 </template>
 
 <script src="./PartnerProfile.js" />

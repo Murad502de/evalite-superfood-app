@@ -1,12 +1,14 @@
 import AppCard from '@/components/AppCard/AppCard.vue';
 import AppOverlay from '@/components/AppOverlay/AppOverlay.vue';
 import PartnerProfileInfoCard from '@/components/PartnerProfileInfoCard/PartnerProfileInfoCard.vue';
+// import AppFormPersonalData from '@/components/AppFormPersonalData/AppFormPersonalData.vue';
 
 export default {
   components: {
     AppCard,
     AppOverlay,
     PartnerProfileInfoCard,
+    // AppFormPersonalData,
   },
   props: {
     user: {
