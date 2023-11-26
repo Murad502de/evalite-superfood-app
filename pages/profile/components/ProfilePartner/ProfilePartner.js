@@ -1,3 +1,4 @@
+import { mapGetters, mapActions, } from 'vuex';
 import * as textContent from './shared/textContent';
 import PartnerProfile from '@/components/PartnerProfile/PartnerProfile.vue';
 
@@ -10,6 +11,7 @@ export default {
     return {};
   },
   computed: {
+    ...mapGetters('userStore', ['userData']),
     title() {
       return textContent.title;
     },

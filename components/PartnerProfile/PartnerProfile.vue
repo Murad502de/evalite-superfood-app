@@ -3,13 +3,13 @@
   .partner-profile__main
     AppCard.partner-profile-card
       PartnerProfileInfoCard(
-        :avatar="''"
-        :name="''"
-        :inviteCode="''"
+        :avatar="avatar"
+        :name="name"
+        :inviteCode="inviteCode"
         :status="''"
-        :birthday="'26.06.1984'"
-        :tel="'+79615554411'"
-        :email="'ivanov84@mail.ru'"
+        :birthday="birthday"
+        :tel="phone"
+        :email="email"
         @edit="dialog = true"
       )
     .partner-profile-blocks

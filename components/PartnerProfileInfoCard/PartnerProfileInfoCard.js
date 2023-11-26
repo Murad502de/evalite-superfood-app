@@ -35,7 +35,9 @@ export default {
     },
   },
   data() {
-    return {};
+    return {
+      test: ''
+    };
   },
   computed: {
     infos() {

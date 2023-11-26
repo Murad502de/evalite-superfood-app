@@ -1,9 +1,13 @@
 <template lang="pug">
 .partner-profile-info-card
   .partner-profile-info-card__header
-    AppAvatar.partner-profile-info-card__avatar(disabled, size="64")
-    .partner-profile-info-card__name Худобин Александр Игоревич
-    .partner-profile-info-card__invite-code QWERT#$@!12
+    AppAvatar.partner-profile-info-card__avatar(
+      :url="avatar",
+      disabled,
+      size="64"
+    )
+    .partner-profile-info-card__name {{ name }}
+    .partner-profile-info-card__invite-code {{ inviteCode }}
     .partner-profile-info-card__edit(@click="edit") Изменить профиль
 
     .partner-profile-info-card__status
@@ -11,6 +15,11 @@
       .partner-profile-info-card__status-title Документы отклонены
 
   v-divider.partner-profile-info-card__divider
+
+  //- v-text-field(
+  //-   v-mask="'### ######'"
+  //-   v-model="test"
+  //- )
 
   .partner-profile-info-card__main
     .partner-profile-info-card__infos
