@@ -17,7 +17,32 @@ export default {
     },
   },
   watch: {},
-  methods: {},
+  methods: {
+    updateAvatar(value) {
+      console.debug('update:avatar', value); //DELETE
+    },
+    updateSecondName(value) {
+      console.debug('update:second_name', value); //DELETE
+    },
+    updateFirstName(value) {
+      console.debug('update:first_name', value); //DELETE
+    },
+    updateThirdName(value) {
+      console.debug('update:third_name', value); //DELETE
+    },
+    updateGender(value) {
+      console.debug('update:gender', value); //DELETE
+    },
+    updateBirthday(value) {
+      console.debug('update:birthday', value); //DELETE
+    },
+    updateEmail(value) {
+      console.debug('update:email', value); //DELETE
+    },
+    updatePhone(value) {
+      console.debug('update:phone', value); //DELETE
+    },
+  },
   created() { },
   mounted() { },
 };

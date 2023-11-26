@@ -1,20 +1,19 @@
 import AppCard from '@/components/AppCard/AppCard.vue';
 import AppOverlay from '@/components/AppOverlay/AppOverlay.vue';
 import PartnerProfileInfoCard from '@/components/PartnerProfileInfoCard/PartnerProfileInfoCard.vue';
-// import AppFormPersonalData from '@/components/AppFormPersonalData/AppFormPersonalData.vue';
+import PartnerProfileInfoCardSettings from '@/components/PartnerProfileInfoCardSettings/PartnerProfileInfoCardSettings.vue';
 
 export default {
   components: {
     AppCard,
     AppOverlay,
     PartnerProfileInfoCard,
-    // AppFormPersonalData,
+    PartnerProfileInfoCardSettings,
   },
   props: {
     user: {
       type: Object,
       required: true,
-      default: () => ({}),
     },
   },
   data() {
@@ -28,7 +27,7 @@ export default {
       return this.user?.avatar;
     },
     name() {
-      return `${this.user?.second_name} ${this.user?.first_name} ${this.user?.third_name}`;
+      return `${this.user?.secondName} ${this.user?.firstName} ${this.user?.thirdName}`;
     },
     inviteCode() {
       return this.user?.invite_code;
@@ -50,6 +49,31 @@ export default {
     },
     save() {
       this.dialog = false
+    },
+
+    updateAvatar(value) {
+      this.$emit('update:avatar', value);
+    },
+    updateSecondName(value) {
+      this.$emit('update:second_name', value);
+    },
+    updateFirstName(value) {
+      this.$emit('update:first_name', value);
+    },
+    updateThirdName(value) {
+      this.$emit('update:third_name', value);
+    },
+    updateGender(value) {
+      this.$emit('update:gender', value);
+    },
+    updateBirthday(value) {
+      this.$emit('update:birthday', value);
+    },
+    updateEmail(value) {
+      this.$emit('update:email', value);
+    },
+    updatePhone(value) {
+      this.$emit('update:phone', value);
     },
   },
   created() { },

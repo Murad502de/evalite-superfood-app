@@ -1,1 +1,5 @@
-.partner-profile-info-card-settings {}
+.partner-profile-info-card-settings {
+  &--card {
+    max-width: 800px;
+  }
+}

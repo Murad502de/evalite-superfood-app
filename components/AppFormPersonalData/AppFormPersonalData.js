@@ -87,6 +87,7 @@ export default {
   },
   watch: {
     data(newVal) {
+      console.debug('DATA watch', newVal); //DELETE
       if (newVal === null) {
         this.avatarUrl = null;
         this.firstName = null;
@@ -159,7 +160,38 @@ export default {
     validate() {
       return this.$refs.form.validate();
     },
+    init(data) {
+      console.debug('DATA init', data); //DELETE
+      if (data === null) {
+        this.avatarUrl = null;
+        this.firstName = null;
+        this.secondName = null;
+        this.thirdName = null;
+        this.gender = null;
+        this.birthday = null;
+        this.email = null;
+        this.phone = null;
+        return;
+      }
+
+      this.avatarUrl = data.avatar;
+      this.firstName = data.firstName;
+      this.secondName = data.secondName;
+      this.thirdName = data.thirdName;
+      this.gender = data.gender === 'male' ? 'муж' : 'жен';
+      this.birthday = data.birthday;
+      this.email = data.email;
+      this.phone = data.phone;
+    },
   },
-  created() { },
-  mounted() { },
+  created() {
+    console.debug('DATA created', this.data); //DELETE
+
+    if (this.data) {
+      this.init(this.data);
+    }
+  },
+  mounted() {
+    console.debug('DATA mounted', this.data); //DELETE
+  },
 }

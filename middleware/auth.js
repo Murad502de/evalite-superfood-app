@@ -3,6 +3,7 @@ import { usersMy } from '@/api/users/usersMy';
 import { authSignoutService } from '@/services/authSignoutService';
 import * as routeNames from '@/shared/routeNames';
 import * as httpResponse from '@/shared/httpResponses';
+import { userUuidInAdapter } from '@/api/adapters/users/userUuidInAdapter';
 
 export default async function ({ route, redirect, store, }) {
   if (Cookies.get('token')) {
@@ -13,7 +14,7 @@ export default async function ({ route, redirect, store, }) {
       return redirect(`/${routeNames.signin}`);
     }
 
-    store.dispatch('userStore/setUserData', usersMyResponse.data.data);
+    store.dispatch('userStore/setUserData', await userUuidInAdapter(usersMyResponse.data.data));
 
     if (
       route.name === routeNames.signin ||

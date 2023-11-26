@@ -201,13 +201,13 @@ export default {
       return this.userData.avatar;
     },
     userFullName() {
-      return `${this.userData.second_name} ${this.userData.first_name} ${this.userData.third_name}`;
+      return `${this.userData.secondName} ${this.userData.firstName} ${this.userData.thirdName}`;
     },
     userReferralLink() {
-      return this.userData.referral_link;
+      return this.userData.referralLink;
     },
     userInviteCode() {
-      return this.userData.invite_code;
+      return this.userData.inviteCode;
     },
   },
   watch: {},

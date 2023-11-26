@@ -1,6 +1,8 @@
 import { parseFromISOtoDdMmYyyy } from '@/utils/date';
 
 export const userUuidInAdapter = async (user) => {
+  console.debug('userUuidInAdapter', user); //DELETE
+
   return {
     uuid: user.uuid,
     avatar: user.avatar,
@@ -13,7 +15,10 @@ export const userUuidInAdapter = async (user) => {
     birthday: parseFromISOtoDdMmYyyy(user.birthday),
     email: user.email,
     phone: user.phone,
+    role: user.role,
     employmentType: user.employment_type,
+    referralLink: user.referral_link,
+    inviteCode: user.invite_code,
     // passport: {
     //   uuid: user.passport.uuid,
     //   departmentCode: user.passport.department_code,
