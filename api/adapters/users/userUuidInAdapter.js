@@ -19,6 +19,7 @@ export const userUuidInAdapter = async (user) => {
     employmentType: user.employment_type,
     referralLink: user.referral_link,
     inviteCode: user.invite_code,
+    verificationStatus: user.verification_status,
     // passport: {
     //   uuid: user.passport.uuid,
     //   departmentCode: user.passport.department_code,
