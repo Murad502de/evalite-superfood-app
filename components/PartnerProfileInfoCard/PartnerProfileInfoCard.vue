@@ -11,7 +11,9 @@
     .partner-profile-info-card__edit(@click="edit") Изменить профиль
 
     .partner-profile-info-card__status
-      .partner-profile-info-card__status-icon X
+      component.partner-profile-info-card__status-icon(
+        :is="getVerificationStatusIcon()"
+      )
       .partner-profile-info-card__status-title {{ getVerificationStatusTitle() }}
 
   v-divider.partner-profile-info-card__divider

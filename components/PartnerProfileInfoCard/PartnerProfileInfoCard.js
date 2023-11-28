@@ -1,5 +1,5 @@
 import AppAvatar from '@/components/AppAvatar/AppAvatar.vue';
-import * as verificationStatuses from '@/shared/verificationStatuses.js';
+import { getUserVerificationStatusTitle, getUserVerificationStatusIconName } from '@/helpers/verificationHelper.js';
 
 export default {
   components: {
@@ -63,37 +63,11 @@ export default {
     edit() {
       this.$emit('edit');
     },
-    getVerificationStatusIcon() {
-      switch (this.verificationStatus) {
-        case verificationStatuses.verified:
-          return '';
-        case verificationStatuses.notVerified:
-          return '';
-        case verificationStatuses.waiting:
-          return '';
-        case verificationStatuses.rejected:
-          return '';
-        case verificationStatuses.toUpdate:
-          return '';
-        default:
-          return '';
-      }
-    },
     getVerificationStatusTitle() {
-      switch (this.verificationStatus) {
-        case verificationStatuses.verified:
-          return 'Подтвержден';
-        case verificationStatuses.notVerified:
-          return 'Требуется подтверждение';
-        case verificationStatuses.waiting:
-          return 'В обработке';
-        case verificationStatuses.rejected:
-          return 'Запрос отклонен';
-        case verificationStatuses.toUpdate:
-          return 'Требуется обновление';
-        default:
-          return 'Ошибка';
-      }
+      return getUserVerificationStatusTitle(this.verificationStatus);
+    },
+    getVerificationStatusIcon() {
+      return getUserVerificationStatusIconName(this.verificationStatus);
     },
   },
   created() { },
