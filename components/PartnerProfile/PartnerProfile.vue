@@ -24,7 +24,7 @@
     template(v-slot:actions)
       v-btn(dark, text, @click="save", :loading="saveLoading") Сохранить
 
-    PartnerProfileInfoCardSettings(
+    PersonalCardSettings(
       :user="this.user",
       @update:avatar="updateAvatar",
       @update:second_name="updateSecondName",
