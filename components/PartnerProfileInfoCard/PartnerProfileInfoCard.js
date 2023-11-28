@@ -1,9 +1,11 @@
+import AppCard from '@/components/AppCard/AppCard.vue';
 import AppAvatar from '@/components/AppAvatar/AppAvatar.vue';
 import { getUserVerificationStatusTitle, getUserVerificationStatusIconName } from '@/helpers/verificationHelper.js';
 
 export default {
   components: {
-    AppAvatar
+    AppCard,
+    AppAvatar,
   },
   props: {
     avatar: {

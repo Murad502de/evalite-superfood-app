@@ -1,19 +1,20 @@
 <template lang="pug">
 .partner-profile
   .partner-profile__main
-    AppCard.partner-profile-card
-      PartnerProfileInfoCard(
-        :avatar="avatar",
-        :name="name",
-        :inviteCode="inviteCode",
-        :verificationStatus="verificationStatus",
-        :birthday="birthday",
-        :tel="phone",
-        :email="email",
-        @edit="dialog = true"
-      )
+    PartnerProfileInfoCard.partner-profile-card(
+      :avatar="avatar",
+      :name="name",
+      :inviteCode="inviteCode",
+      :verificationStatus="verificationStatus",
+      :birthday="birthday",
+      :tel="phone",
+      :email="email",
+      @edit="dialog = true"
+    )
     .partner-profile-blocks
-      AppCard.partner-profile-block(v-for="(i, index) in 5", :key="index") qwerty
+      //- PassportCard.partner-profile-block
+      //- PaymentDetailsCard.partner-profile-block
+      //- ContractCard.partner-profile-block
 
   AppOverlay.partner-profile-settings(
     :dialog="dialog",
@@ -32,7 +33,7 @@
       @update:gender="updateGender",
       @update:birthday="updateBirthday",
       @update:email="updateEmail",
-      @update:phone="updatePhone"
+      @update:phone="updatePhone",
       @update:password="updatePassword"
     )
 </template>

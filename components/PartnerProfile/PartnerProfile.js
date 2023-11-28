@@ -3,12 +3,19 @@ import AppOverlay from '@/components/AppOverlay/AppOverlay.vue';
 import PartnerProfileInfoCard from '@/components/PartnerProfileInfoCard/PartnerProfileInfoCard.vue';
 import PartnerProfileInfoCardSettings from '@/components/PartnerProfileInfoCardSettings/PartnerProfileInfoCardSettings.vue';
 
+import PassportCard from './components/PassportCard/PassportCard.vue';
+import PaymentDetailsCard from './components/PaymentDetailsCard/PaymentDetailsCard.vue';
+import ContractCard from './components/ContractCard/ContractCard.vue';
+
 export default {
   components: {
     AppCard,
     AppOverlay,
     PartnerProfileInfoCard,
     PartnerProfileInfoCardSettings,
+    PassportCard,
+    PaymentDetailsCard,
+    ContractCard,
   },
   props: {
     user: {

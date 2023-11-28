@@ -1,5 +1,5 @@
 <template lang="pug">
-.partner-profile-info-card
+AppCard.partner-profile-info-card
   .partner-profile-info-card__header
     AppAvatar.partner-profile-info-card__avatar(
       :url="avatar",
