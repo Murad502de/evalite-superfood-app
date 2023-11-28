@@ -190,13 +190,9 @@ export default {
     },
   },
   created() {
-    console.debug('DATA created', this.data); //DELETE
-
     if (this.data) {
       this.init(this.data);
     }
   },
-  mounted() {
-    console.debug('DATA mounted', this.data); //DELETE
-  },
+  mounted() {},
 }
