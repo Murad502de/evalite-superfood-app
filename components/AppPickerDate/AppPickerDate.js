@@ -85,5 +85,7 @@ export default {
       this.dates = newVal;
     },
   },
-  created() { },
+  created() {
+    this.dates = this.value;
+  },
 }
