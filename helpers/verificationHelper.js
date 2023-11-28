@@ -16,3 +16,20 @@ export const getUserVerificationStatusTitle = (status) => {
       return 'Ошибка';
   }
 };
+
+export const getUserVerificationStatusIconName = (status) => {
+  switch (status) {
+    case verificationStatuses.verified:
+      return '';
+    case verificationStatuses.notVerified:
+      return '';
+    case verificationStatuses.waiting:
+      return '';
+    case verificationStatuses.rejected:
+      return '';
+    case verificationStatuses.toUpdate:
+      return '';
+    default:
+      return '';
+  }
+};
