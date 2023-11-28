@@ -1,0 +1,80 @@
+.partner-profile-info-card {
+  color: #263043;
+
+  &__header {
+    text-align: center;
+  }
+
+  &__avatar {
+    & .v-icon {
+      font-size: 200% !important;
+    }
+  }
+
+  &__name {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 125%;
+    letter-spacing: 0.18px;
+    margin-top: 24px;
+  }
+
+  &__invite-code {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 28px;
+  }
+
+  &__edit {
+    color: #0082DE;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+    cursor: pointer;
+    margin-top: 14px;
+  }
+
+  &__status {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+
+    &-icon {
+      margin-right: 10px;
+    }
+
+    &-title {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 125%
+    }
+  }
+
+  &__info {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 125%;
+    margin-top: 16px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &-title {
+      color: #7A91A9;
+    }
+
+    &-value {
+      font-weight: 600;
+      margin-top: 8px;
+    }
+  }
+
+  &__divider {
+    margin: 24px 0;
+  }
+}
