@@ -1,7 +1,7 @@
 <template lang="pug">
 .partner-profile
   .partner-profile__main
-    PartnerProfileInfoCard.partner-profile-card(
+    PersonalCard.partner-profile-card(
       :avatar="avatar",
       :name="name",
       :inviteCode="inviteCode",
