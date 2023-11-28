@@ -4,12 +4,14 @@ import { createUploadedFileUrl } from '@/utils/file.js';
 import AppAvatar from '@/components/AppAvatar/AppAvatar.vue';
 import AppTextField from '@/components/AppTextField/AppTextField.vue';
 import AppSelect from '@/components/AppSelect/AppSelect.vue';
+import AppPickerDate from '@/components/AppPickerDate/AppPickerDate.vue';
 
 export default {
   components: {
     AppAvatar,
     AppTextField,
     AppSelect,
+    AppPickerDate,
   },
   props: {
     title: {
@@ -182,6 +184,9 @@ export default {
       this.birthday = data.birthday;
       this.email = data.email;
       this.phone = data.phone;
+    },
+    changeBirthday(value) {
+      this.birthday = value;
     },
   },
   created() {

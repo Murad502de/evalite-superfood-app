@@ -56,15 +56,23 @@
       outlined
     )
 
-    AppTextField(
-      v-model="birthday",
+    //- AppTextField(
+    //-   v-model="birthday",
+    //-   :rules="birthdayRules",
+    //-   :loading="loading",
+    //-   :disabled="disabled",
+    //-   label="Дата рождения",
+    //-   :placeholder="formPlaceholder.date",
+    //-   required,
+    //-   outlined
+    //- )
+
+    AppPickerDate(
+      hideActions,
+      prefix="Дата рождения",
+      :value="birthday"
       :rules="birthdayRules",
-      :loading="loading",
-      :disabled="disabled",
-      label="Дата рождения",
-      :placeholder="formPlaceholder.date",
-      required,
-      outlined
+      @change="changeBirthday"
     )
 
     AppTextField(

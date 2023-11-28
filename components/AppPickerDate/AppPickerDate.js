@@ -62,9 +62,6 @@ export default {
   },
   watch: {
     dates(newVal) {
-      console.debug('AppPickerDate/watch/dates/newVal', newVal); //DELETE
-      console.debug('AppPickerDate/watch/dates/this.range', this.range); //DELETE
-
       if (this.range && !!newVal) {
         if (
           (newVal.length > 1) &&
@@ -78,8 +75,11 @@ export default {
         this.dateFormatted = this.formatDate(this.dates);
       }
 
-      console.debug('AppPickerDate/watch/dates/this.dateFormatted', this.dateFormatted); //DELETE
-      this.$emit('change', this.dateFormatted);
+      this.$emit('change', this.dates);
+
+      if (!this.range) {
+        this.menu = false;
+      }
     },
     value(newVal, oldVal) {
       this.dates = newVal;
