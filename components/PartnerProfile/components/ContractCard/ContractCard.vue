@@ -1,5 +1,5 @@
 <template lang="pug">
-.contract-card ContractCard
+AppCard.contract-card ContractCard
 </template>
 
 <script src="./ContractCard.js" />

@@ -12,9 +12,9 @@
       @edit="dialog = true"
     )
     .partner-profile-blocks
-      //- PassportCard.partner-profile-block
-      //- PaymentDetailsCard.partner-profile-block
-      //- ContractCard.partner-profile-block
+      PassportCard.partner-profile-block
+      PaymentDetailsCard.partner-profile-block
+      ContractCard.partner-profile-block
 
   AppOverlay.partner-profile-settings(
     :dialog="dialog",

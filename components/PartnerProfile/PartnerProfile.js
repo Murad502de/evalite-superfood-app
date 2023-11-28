@@ -1,4 +1,3 @@
-import AppCard from '@/components/AppCard/AppCard.vue';
 import AppOverlay from '@/components/AppOverlay/AppOverlay.vue';
 import PartnerProfileInfoCard from '@/components/PartnerProfileInfoCard/PartnerProfileInfoCard.vue';
 import PartnerProfileInfoCardSettings from '@/components/PartnerProfileInfoCardSettings/PartnerProfileInfoCardSettings.vue';
@@ -9,7 +8,6 @@ import ContractCard from './components/ContractCard/ContractCard.vue';
 
 export default {
   components: {
-    AppCard,
     AppOverlay,
     PartnerProfileInfoCard,
     PartnerProfileInfoCardSettings,

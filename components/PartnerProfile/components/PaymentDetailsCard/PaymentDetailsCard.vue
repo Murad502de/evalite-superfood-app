@@ -1,5 +1,5 @@
 <template lang="pug">
-.paymentDetails-card PaymentDetailsCard
+AppCard.paymentDetails-card PaymentDetailsCard
 </template>
 
 <script src="./PaymentDetailsCard.js" />

@@ -1,5 +1,5 @@
 <template lang="pug">
-.passport-card PassportCard
+AppCard.passport-card PassportCard
 </template>
 
 <script src="./PassportCard.js" />
