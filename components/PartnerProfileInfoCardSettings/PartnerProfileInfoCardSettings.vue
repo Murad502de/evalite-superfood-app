@@ -31,7 +31,11 @@
           @update:phone="updatePhone"
         )
 
-      v-window-item.verifications-detail--window-item QWERTYUIOP 1
+      v-window-item.verifications-detail--window-item
+        AppFormPassword(
+          ref="partner_profile_personal_password_form",
+          @update:password="updatePassword"
+        )
 </template>
 
 <script src="./PartnerProfileInfoCardSettings.js" />

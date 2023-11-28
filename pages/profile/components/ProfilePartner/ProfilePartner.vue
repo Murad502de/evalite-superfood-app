@@ -13,6 +13,7 @@
       @update:birthday="updateBirthday",
       @update:email="updateEmail",
       @update:phone="updatePhone"
+      @update:password="updatePassword"
     )
 </template>
 

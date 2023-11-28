@@ -42,6 +42,9 @@ export default {
     updatePhone(value) {
       console.debug('update:phone', value); //DELETE
     },
+    updatePassword(value) {
+      console.debug('update:password', value); //DELETE
+    },
   },
   created() { },
   mounted() { },

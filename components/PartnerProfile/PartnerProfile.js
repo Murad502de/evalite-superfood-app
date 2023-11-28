@@ -78,6 +78,9 @@ export default {
     updatePhone(value) {
       this.$emit('update:phone', value);
     },
+    updatePassword(value) {
+      this.$emit('update:password', value);
+    },
   },
   created() { },
   mounted() { },

@@ -1,10 +1,12 @@
 import AppCard from '@/components/AppCard/AppCard.vue';
 import AppFormPersonalData from '@/components/AppFormPersonalData/AppFormPersonalData.vue';
+import AppFormPassword from '@/components/AppFormPassword/AppFormPassword.vue';
 
 export default {
   components: {
     AppCard,
     AppFormPersonalData,
+    AppFormPassword
   },
   props: {
     user: {
@@ -56,6 +58,9 @@ export default {
     },
     updatePhone(value) {
       this.$emit('update:phone', value);
+    },
+    updatePassword(value) {
+      this.$emit('update:password', value);
     },
   },
   created() { },
