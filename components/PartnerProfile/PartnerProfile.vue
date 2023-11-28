@@ -25,7 +25,7 @@
       v-btn(dark, text, @click="save", :loading="saveLoading") Сохранить
 
     PersonalCardSettings(
-      :user="this.user",
+      :user="user",
       @update:avatar="updateAvatar",
       @update:second_name="updateSecondName",
       @update:first_name="updateFirstName",
