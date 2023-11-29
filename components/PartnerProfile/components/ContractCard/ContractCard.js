@@ -10,7 +10,11 @@ export default {
   },
   computed: {},
   watch: {},
-  methods: {},
+  methods: {
+    edit() {
+      this.$emit('edit');
+    },
+  },
   created() { },
   mounted() { },
 };

@@ -1,6 +1,6 @@
 <template lang="pug">
 .passport-card-settings
-  AppCard.passport-card-settings--card ContractCardSettings
+  AppCard.passport-card-settings--card PassportCardSettings
 </template>
 
 <script src="./PassportCardSettings.js" />

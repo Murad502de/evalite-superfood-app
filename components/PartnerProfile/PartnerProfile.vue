@@ -9,12 +9,18 @@
       :birthday="birthday",
       :tel="phone",
       :email="email",
-      @edit="dialog = true"
+      @edit="openCardSettings(cardNames.personalCard)"
     )
     .partner-profile-blocks
-      PassportCard.partner-profile-block
-      PaymentDetailsCard.partner-profile-block
-      ContractCard.partner-profile-block
+      PassportCard.partner-profile-block(
+        @edit="openCardSettings(cardNames.passportCard)"
+      )
+      PaymentDetailsCard.partner-profile-block(
+        @edit="openCardSettings(cardNames.paymentDetailsCard)"
+      )
+      ContractCard.partner-profile-block(
+        @edit="openCardSettings(cardNames.contractCard)"
+      )
 
   AppOverlay.partner-profile-settings(
     :dialog="dialog",
@@ -25,6 +31,7 @@
       v-btn(dark, text, @click="save", :loading="saveLoading") Сохранить
 
     PersonalCardSettings(
+      v-show="openedSettings === cardNames.personalCard",
       :user="user",
       @update:avatar="updateAvatar",
       @update:second_name="updateSecondName",
@@ -35,6 +42,18 @@
       @update:email="updateEmail",
       @update:phone="updatePhone",
       @update:password="updatePassword"
+    )
+    PassportCardSettings(
+      v-show="openedSettings === cardNames.passportCard",
+      :user="user"
+    )
+    PaymentDetailsCardSettings(
+      v-show="openedSettings === cardNames.paymentDetailsCard",
+      :user="user"
+    )
+    ContractCardSettings(
+      v-show="openedSettings === cardNames.contractCard",
+      :user="user"
     )
 </template>
 

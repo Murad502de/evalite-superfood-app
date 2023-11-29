@@ -1,6 +1,6 @@
 <template lang="pug">
 AppCard.contract-card
-  .contract-card__test ContractCard
+  .contract-card__test(@click="edit") ContractCard
 </template>
 
 <script src="./ContractCard.js" />

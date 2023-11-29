@@ -1,21 +1,25 @@
 import AppOverlay from '@/components/AppOverlay/AppOverlay.vue';
-import PartnerProfileInfoCardSettings from '@/components/PartnerProfileInfoCardSettings/PartnerProfileInfoCardSettings.vue';
-
 import PersonalCard from './components/PersonalCard/PersonalCard.vue';
 import PersonalCardSettings from './components/PersonalCardSettings/PersonalCardSettings.vue';
 import PassportCard from './components/PassportCard/PassportCard.vue';
+import PassportCardSettings from './components/PassportCardSettings/PassportCardSettings.vue';
 import PaymentDetailsCard from './components/PaymentDetailsCard/PaymentDetailsCard.vue';
+import PaymentDetailsCardSettings from './components/PaymentDetailsCardSettings/PaymentDetailsCardSettings.vue';
 import ContractCard from './components/ContractCard/ContractCard.vue';
+import ContractCardSettings from './components/ContractCardSettings/ContractCardSettings.vue';
+import * as cardNames from './shared/cardNames.js';
 
 export default {
   components: {
     AppOverlay,
-    PartnerProfileInfoCardSettings,
     PersonalCard,
     PersonalCardSettings,
     PassportCard,
+    PassportCardSettings,
     PaymentDetailsCard,
+    PaymentDetailsCardSettings,
     ContractCard,
+    ContractCardSettings,
   },
   props: {
     user: {
@@ -27,6 +31,7 @@ export default {
     return {
       dialog: false,
       saveLoading: false,
+      openedSettings: null,
     };
   },
   computed: {
@@ -50,6 +55,9 @@ export default {
     },
     verificationStatus() {
       return this.user?.verificationStatus;
+    },
+    cardNames() {
+      return cardNames;
     },
   },
   watch: {},
@@ -87,6 +95,12 @@ export default {
     },
     updatePassword(value) {
       this.$emit('update:password', value);
+    },
+
+    openCardSettings(cardName) {
+      console.debug('openCardSettings/cardName', cardName); //DELETE
+      this.openedSettings = cardName;
+      this.dialog = true;
     },
   },
   created() { },
