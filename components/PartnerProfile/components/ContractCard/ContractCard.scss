@@ -1,3 +1,27 @@
 .partner-profile {
-  .contract-card {}
+  .contract-card {
+    color: #263043;
+
+    &__header {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__title {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 125%;
+
+      &-edit {
+        color: #0082DE;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 22px;
+        cursor: pointer;
+      }
+    }
+  }
 }
