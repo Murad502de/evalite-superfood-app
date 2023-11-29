@@ -9,7 +9,7 @@ export default {
   },
   props: {
     avatar: {
-      type: String,
+      type: String | null,
       required: true,
     },
     name: {

@@ -37,7 +37,7 @@ AppOverlay.verifications-detail(
       v-window-item.verifications-detail--window-item
         AppFormPersonalData(
           ref="personal_data_form",
-          :data="this.user",
+          :data="user",
           :loading="loading",
           :disabled="approveLoading || saveLoading",
           @update:avatar="updateAvatar",
@@ -53,7 +53,7 @@ AppOverlay.verifications-detail(
       v-window-item.verifications-detail--window-item
         AppFormPassport(
           ref="passport_form",
-          :data="this.user",
+          :data="user",
           :loading="loading",
           :disabled="approveLoading || saveLoading",
           @update:full_name="updateFullNamePass",
@@ -72,7 +72,7 @@ AppOverlay.verifications-detail(
         AppFormPaymentDetailsSE(
           v-if="employmentTypeCrt === employmentTypeSE",
           ref="payment_details_form_se",
-          :data="this.user",
+          :data="user",
           :loading="loading",
           :disabled="approveLoading || saveLoading",
           @update:full_name="updateFullNameSE",
@@ -90,7 +90,7 @@ AppOverlay.verifications-detail(
         AppFormPaymentDetailsIE(
           v-if="employmentTypeCrt === employmentTypeIE",
           ref="payment_details_form_ie",
-          :data="this.user",
+          :data="user",
           :loading="loading",
           :disabled="approveLoading || saveLoading",
           @update:full_name="updateFullNameIE",
