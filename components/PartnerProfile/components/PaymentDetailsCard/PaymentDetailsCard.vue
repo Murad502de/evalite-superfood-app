@@ -1,5 +1,6 @@
 <template lang="pug">
-AppCard.paymentDetails-card PaymentDetailsCard
+AppCard.payment-details-card
+  .payment-details-card__test PaymentDetailsCard
 </template>
 
 <script src="./PaymentDetailsCard.js" />
