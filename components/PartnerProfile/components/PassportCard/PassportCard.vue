@@ -1,6 +1,9 @@
 <template lang="pug">
 AppCard.passport-card
-  .passport-card__test(@click="edit") PassportCard
+  .passport-card__header
+    .passport-card__title Паспорт
+    .passport-card__title-edit(@click="edit") Изменить
+  v-divider
 </template>
 
 <script src="./PassportCard.js" />
