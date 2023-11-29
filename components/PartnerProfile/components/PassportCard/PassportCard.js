@@ -10,18 +10,14 @@ export default {
       required: true,
     },
     series: {
-      type: String,
+      type: String | Number,
       required: true,
     },
     number: {
-      type: String,
+      type: String | Number,
       required: true,
     },
     issueDate: {
-      type: String,
-      required: true,
-    },
-    validity: {
       type: String,
       required: true,
     },
@@ -33,11 +29,7 @@ export default {
       type: String,
       required: true,
     },
-    birthPlace: {
-      type: String,
-      required: true,
-    },
-    birthDate: {
+    registrationAddress: {
       type: String,
       required: true,
     },
@@ -65,10 +57,6 @@ export default {
           value: this.issueDate,
         },
         {
-          title: 'Срок действия',
-          value: this.validity,
-        },
-        {
           title: 'Кем выдан',
           value: this.issuedBy,
         },
@@ -77,12 +65,8 @@ export default {
           value: this.departmentCode,
         },
         {
-          title: 'Место рождения',
-          value: this.birthPlace,
-        },
-        {
-          title: 'Дата рождения',
-          value: this.birthDate,
+          title: 'Адрес регистрации',
+          value: this.registrationAddress,
         },
       ];
     },

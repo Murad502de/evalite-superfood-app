@@ -18,11 +18,9 @@
         :series="passSeries",
         :number="passNumber",
         :issueDate="passIssueDate",
-        :validity="passValidity",
         :issuedBy="passIssuedBy",
         :departmentCode="passDepartmentCode",
-        :birthPlace="passBirthPlace",
-        :birthDate="passBirthDate"
+        :registrationAddress="passRegistrationAddress",
       )
       PaymentDetailsCard.partner-profile-block(
         @edit="openCardSettings(cardNames.paymentDetailsCard)"

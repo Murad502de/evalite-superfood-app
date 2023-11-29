@@ -1,5 +1,3 @@
-import { parseFromISOtoDdMmYyyy } from '@/utils/date';
-
 export const userUuidInAdapter = async (user) => {
   console.debug('userUuidInAdapter', user); //DELETE
 
@@ -12,7 +10,6 @@ export const userUuidInAdapter = async (user) => {
     secondName: user.second_name,
     thirdName: user.third_name,
     gender: user.gender,
-    // birthday: parseFromISOtoDdMmYyyy(user.birthday),
     birthday: user.birthday,
     email: user.email,
     phone: user.phone,
@@ -21,27 +18,33 @@ export const userUuidInAdapter = async (user) => {
     referralLink: user.referral_link,
     inviteCode: user.invite_code,
     verificationStatus: user.verification_status,
-    // passport: {
-    //   uuid: user.passport.uuid,
-    //   departmentCode: user.passport.department_code,
-    //   fullName: user.passport.full_name,
-    //   issueBy: user.passport.issue_by,
-    //   issueDate: parseFromISOtoDdMmYyyy(user.passport.issue_date),
-    //   number: user.passport.number,
-    //   mainSpread: user.passport.passport_main_spread,
-    //   mainSpreadFile: null,
-    //   registrationSpread: user.passport.passport_registration_spread,
-    //   registrationSpreadFile: null,
-    //   verificationSpread: user.passport.passport_verification_spread,
-    //   verificationSpreadFile: null,
-    //   registrationAddress: user.passport.registration_address,
-    //   series: user.passport.series,
-    // },
+    passport: await userUuidPassportInAdapter(user.passport),
     paymentDetailsSelfEmployed: await userUuidPaymentDetailsSelfEmployedInAdapter(user.payment_details_self_employed),
     paymentDetailsIndividualEntrepreneur: await userUuidPaymentDetailsIndividualEntrepreneurInAdapter(user.payment_details_individual_entrepreneur),
     agencyContract: user.agency_contract?.agency_contract_url,
     agencyContractFile: undefined,
   }
+};
+
+const userUuidPassportInAdapter = async (data) => {
+  if (!data) return null;
+
+  return {
+    uuid: data.uuid,
+    departmentCode: data.department_code,
+    fullName: data.full_name,
+    issueBy: data.issue_by,
+    issueDate: data.issue_date,
+    number: data.number,
+    mainSpread: data.passport_main_spread,
+    mainSpreadFile: null,
+    registrationSpread: data.passport_registration_spread,
+    registrationSpreadFile: null,
+    verificationSpread: data.passport_verification_spread,
+    verificationSpreadFile: null,
+    registrationAddress: data.registration_address,
+    series: data.series,
+  };
 };
 
 const userUuidPaymentDetailsSelfEmployedInAdapter = async (data) => {

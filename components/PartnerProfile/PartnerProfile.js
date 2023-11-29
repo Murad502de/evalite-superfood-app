@@ -60,32 +60,27 @@ export default {
     cardNames() {
       return cardNames;
     },
+
     passName() {
-      return 'passName';
+      return this.user.passport?.fullName;
     },
     passSeries() {
-      return 'passSeries';
+      return this.user.passport?.series;
     },
     passNumber() {
-      return 'passNumber';
+      return this.user.passport?.number;
     },
     passIssueDate() {
-      return 'passIssueDate';
-    },
-    passValidity() {
-      return 'passValidity';
+      return this.user.passport?.issueDate;
     },
     passIssuedBy() {
-      return 'passIssuedBy';
+      return this.user.passport?.issueBy;
     },
     passDepartmentCode() {
-      return 'passDepartmentCode';
+      return this.user.passport?.departmentCode;
     },
-    passBirthPlace() {
-      return 'passBirthPlace';
-    },
-    passBirthDate() {
-      return 'passBirthDate';
+    passRegistrationAddress() {
+      return this.user.passport?.registrationAddress;
     },
   },
   watch: {},
