@@ -1,28 +1,22 @@
 import AppOverlay from '@/components/AppOverlay/AppOverlay.vue';
 import PersonalCard from './components/PersonalCard/PersonalCard.vue';
+import BlockCard from './components/BlockCard/BlockCard.vue';
 import PersonalCardSettings from './components/PersonalCardSettings/PersonalCardSettings.vue';
-import PassportCard from './components/PassportCard/PassportCard.vue';
 import PassportCardSettings from './components/PassportCardSettings/PassportCardSettings.vue';
-import PaymentDetailsCard from './components/PaymentDetailsCard/PaymentDetailsCard.vue';
 import PaymentDetailsCardSettings from './components/PaymentDetailsCardSettings/PaymentDetailsCardSettings.vue';
-import ContractCard from './components/ContractCard/ContractCard.vue';
 import ContractCardSettings from './components/ContractCardSettings/ContractCardSettings.vue';
 import * as cardNames from './shared/cardNames.js';
 import { parseFromISOtoDdMmYyyy } from '@/utils/date';
-import BlockCard from './components/BlockCard/BlockCard.vue';
 
 export default {
   components: {
     AppOverlay,
     PersonalCard,
-    PersonalCardSettings,
-    PassportCard,
-    PassportCardSettings,
-    PaymentDetailsCard,
-    PaymentDetailsCardSettings,
-    ContractCard,
-    ContractCardSettings,
     BlockCard,
+    PersonalCardSettings,
+    PassportCardSettings,
+    PaymentDetailsCardSettings,
+    ContractCardSettings,
   },
   props: {
     user: {
@@ -138,7 +132,11 @@ export default {
           value: this.user.paymentDetailsIndividualEntrepreneur?.bankLegalAddress,
         },
       ];
-    }
+    },
+
+    agencyContractLink() {
+      return this.user.agencyContract;
+    },
   },
   watch: {},
   methods: {

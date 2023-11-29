@@ -40,4 +40,15 @@
       align-items: start;
     }
   }
+
+  &-contract {
+    &__link {
+      color: #0082DE;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 22px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
 }

@@ -24,9 +24,12 @@
       )
       BlockCard.partner-profile-block(
         :title="'Договор'",
-        :items="passCardFields",
         @edit="openCardSettings(cardNames.contractCard)"
       )
+        a.partner-profile-contract__link(
+          :href="agencyContractLink",
+          target="_blank"
+        ) Просмотреть договор
 
   AppOverlay.partner-profile-settings(
     :dialog="dialog",
