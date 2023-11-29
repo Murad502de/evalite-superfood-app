@@ -21,8 +21,10 @@
     width: 100%;
     margin-top: 24px;
 
-    &:first-child {
-      margin-top: 0;
+    @media screen and (min-width: $screen-sm) {
+      &:first-child {
+        margin-top: 0;
+      }
     }
   }
 
