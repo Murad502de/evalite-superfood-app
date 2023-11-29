@@ -9,6 +9,7 @@ import ContractCard from './components/ContractCard/ContractCard.vue';
 import ContractCardSettings from './components/ContractCardSettings/ContractCardSettings.vue';
 import * as cardNames from './shared/cardNames.js';
 import { parseFromISOtoDdMmYyyy } from '@/utils/date';
+import BlockCard from './components/BlockCard/BlockCard.vue';
 
 export default {
   components: {
@@ -21,6 +22,7 @@ export default {
     PaymentDetailsCardSettings,
     ContractCard,
     ContractCardSettings,
+    BlockCard,
   },
   props: {
     user: {
@@ -61,27 +63,82 @@ export default {
       return cardNames;
     },
 
-    passName() {
-      return this.user.passport?.fullName;
+    passCardFields() {
+      return [
+        {
+          title: 'ФИО в паспорте',
+          value: this.user.passport?.fullName,
+        },
+        {
+          title: 'Серия ',
+          value: this.user.passport?.series,
+        },
+        {
+          title: 'Номер',
+          value: this.user.passport?.number,
+        },
+        {
+          title: 'Дата выдачи',
+          value: this.user.passport?.issueDate,
+        },
+        {
+          title: 'Кем выдан',
+          value: this.user.passport?.issueBy,
+        },
+        {
+          title: 'Код подразделения',
+          value: this.user.passport?.departmentCode,
+        },
+        {
+          title: 'Адрес регистрации',
+          value: this.user.passport?.registrationAddress,
+        },
+      ];
     },
-    passSeries() {
-      return this.user.passport?.series;
-    },
-    passNumber() {
-      return this.user.passport?.number;
-    },
-    passIssueDate() {
-      return this.user.passport?.issueDate;
-    },
-    passIssuedBy() {
-      return this.user.passport?.issueBy;
-    },
-    passDepartmentCode() {
-      return this.user.passport?.departmentCode;
-    },
-    passRegistrationAddress() {
-      return this.user.passport?.registrationAddress;
-    },
+    paymentDetailsCardFields() {
+      return [
+        {
+          title: 'ФИО ИП',
+          value: this.user.paymentDetailsIndividualEntrepreneur?.fullName,
+        },
+        {
+          title: 'Юридический адрес организации',
+          value: this.user.paymentDetailsIndividualEntrepreneur?.organizationLegalAddress,
+        },
+        {
+          title: 'ИНН',
+          value: this.user.paymentDetailsIndividualEntrepreneur?.inn,
+        },
+        {
+          title: 'ОГРН',
+          value: this.user.paymentDetailsIndividualEntrepreneur?.ogrn,
+        },
+        {
+          title: 'Расчетный счет',
+          value: this.user.paymentDetailsIndividualEntrepreneur?.transactionAccount,
+        },
+        {
+          title: 'Банк',
+          value: this.user.paymentDetailsIndividualEntrepreneur?.bank,
+        },
+        {
+          title: 'ИНН банка',
+          value: this.user.paymentDetailsIndividualEntrepreneur?.bankInn,
+        },
+        {
+          title: 'БИК банка',
+          value: this.user.paymentDetailsIndividualEntrepreneur?.bankBic,
+        },
+        {
+          title: 'Корреспондентский счет банка',
+          value: this.user.paymentDetailsIndividualEntrepreneur?.bankCorrespondentAccount,
+        },
+        {
+          title: 'Юридический адрес банка',
+          value: this.user.paymentDetailsIndividualEntrepreneur?.bankLegalAddress,
+        },
+      ];
+    }
   },
   watch: {},
   methods: {

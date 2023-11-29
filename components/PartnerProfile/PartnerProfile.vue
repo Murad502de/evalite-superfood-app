@@ -12,20 +12,19 @@
       @edit="openCardSettings(cardNames.personalCard)"
     )
     .partner-profile-blocks
-      PassportCard.partner-profile-block(
-        @edit="openCardSettings(cardNames.passportCard)",
-        :name="passName",
-        :series="passSeries",
-        :number="passNumber",
-        :issueDate="passIssueDate",
-        :issuedBy="passIssuedBy",
-        :departmentCode="passDepartmentCode",
-        :registrationAddress="passRegistrationAddress",
+      BlockCard.partner-profile-block(
+        :title="'Паспорт'",
+        :items="passCardFields",
+        @edit="openCardSettings(cardNames.passportCard)"
       )
-      PaymentDetailsCard.partner-profile-block(
+      BlockCard.partner-profile-block(
+        :title="'Платежные данные'",
+        :items="paymentDetailsCardFields",
         @edit="openCardSettings(cardNames.paymentDetailsCard)"
       )
-      ContractCard.partner-profile-block(
+      BlockCard.partner-profile-block(
+        :title="'Договор'",
+        :items="passCardFields",
         @edit="openCardSettings(cardNames.contractCard)"
       )
 
