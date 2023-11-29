@@ -13,7 +13,16 @@
     )
     .partner-profile-blocks
       PassportCard.partner-profile-block(
-        @edit="openCardSettings(cardNames.passportCard)"
+        @edit="openCardSettings(cardNames.passportCard)",
+        :name="passName",
+        :series="passSeries",
+        :number="passNumber",
+        :issueDate="passIssueDate",
+        :validity="passValidity",
+        :issuedBy="passIssuedBy",
+        :departmentCode="passDepartmentCode",
+        :birthPlace="passBirthPlace",
+        :birthDate="passBirthDate"
       )
       PaymentDetailsCard.partner-profile-block(
         @edit="openCardSettings(cardNames.paymentDetailsCard)"

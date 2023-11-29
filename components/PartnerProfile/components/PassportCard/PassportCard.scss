@@ -27,5 +27,27 @@
     &__divider {
       margin: 24px 0;
     }
+
+    &__field {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+      margin-top: 8px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &-title {
+        font-weight: 400;
+      }
+
+      &-value {
+        font-weight: 600;
+      }
+    }
   }
 }

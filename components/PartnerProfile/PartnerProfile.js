@@ -60,6 +60,33 @@ export default {
     cardNames() {
       return cardNames;
     },
+    passName() {
+      return 'passName';
+    },
+    passSeries() {
+      return 'passSeries';
+    },
+    passNumber() {
+      return 'passNumber';
+    },
+    passIssueDate() {
+      return 'passIssueDate';
+    },
+    passValidity() {
+      return 'passValidity';
+    },
+    passIssuedBy() {
+      return 'passIssuedBy';
+    },
+    passDepartmentCode() {
+      return 'passDepartmentCode';
+    },
+    passBirthPlace() {
+      return 'passBirthPlace';
+    },
+    passBirthDate() {
+      return 'passBirthDate';
+    },
   },
   watch: {},
   methods: {
