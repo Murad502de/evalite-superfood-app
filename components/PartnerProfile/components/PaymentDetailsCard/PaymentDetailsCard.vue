@@ -3,7 +3,7 @@ AppCard.payment-details-card
   .payment-details-card__header
     .payment-details-card__title Платежные данные
     .payment-details-card__title-edit(@click="edit") Изменить
-  v-divider
+  v-divider.payment-details-card__divider
 </template>
 
 <script src="./PaymentDetailsCard.js" />
