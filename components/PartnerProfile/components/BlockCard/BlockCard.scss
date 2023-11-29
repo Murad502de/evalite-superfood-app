@@ -35,7 +35,7 @@
       flex-direction: column;
       flex-wrap: nowrap;
       justify-content: space-between;
-      align-items: start;
+      align-items: flex-start;
       font-size: 16px;
       margin-top: 8px;
 
@@ -58,8 +58,8 @@
       }
 
       @media screen and (min-width: $screen-sm) {
-        align-items: center;
         flex-direction: row;
+        align-items: center;
       }
     }
   }
