@@ -8,6 +8,7 @@ import PaymentDetailsCardSettings from './components/PaymentDetailsCardSettings/
 import ContractCard from './components/ContractCard/ContractCard.vue';
 import ContractCardSettings from './components/ContractCardSettings/ContractCardSettings.vue';
 import * as cardNames from './shared/cardNames.js';
+import { parseFromISOtoDdMmYyyy } from '@/utils/date';
 
 export default {
   components: {
@@ -45,7 +46,7 @@ export default {
       return this.user?.invite_code;
     },
     birthday() {
-      return this.user?.birthday;
+      return this.user?.birthday ? parseFromISOtoDdMmYyyy(this.user.birthday) : null;
     },
     email() {
       return this.user?.email;
