@@ -209,7 +209,7 @@ export default {
     init(value) {
       console.debug('AppFormPassport/methods/init/value', value); //DELETE
 
-      if (value === null) {
+      if (value === null || value.passport === null) {
         this.passFullName = null;
         this.passSeries = null;
         this.passNumber = null;
