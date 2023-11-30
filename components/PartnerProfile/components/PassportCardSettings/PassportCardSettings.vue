@@ -1,7 +1,7 @@
 <template lang="pug">
 .passport-card-settings
   AppCard.passport-card-settings--card
-    AppFormPassport(
+    AppFormPassport.passport-card-settings--form(
       ref="passport_card_settings_passport_form",
       :data="user",
       :loading="loading",

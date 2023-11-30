@@ -1,7 +1,9 @@
-.partner-profile {
-  .personal-card-settings {
-    &--card {
-      max-width: 800px;
-    }
+.personal-card-settings {
+  &--card {
+    max-width: 800px;
+  }
+
+  &--window {
+    max-width: 560px;
   }
 }

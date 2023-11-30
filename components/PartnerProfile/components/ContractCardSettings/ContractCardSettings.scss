@@ -1,7 +1,9 @@
-.partner-profile {
-  .contract-card-settings {
-    &--card {
-      max-width: 800px;
-    }
+.contract-card-settings {
+  &--card {
+    max-width: 800px;
+  }
+
+  &--form {
+    max-width: 560px;
   }
 }

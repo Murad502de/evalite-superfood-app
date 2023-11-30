@@ -1,6 +1,9 @@
 .passport-card-settings {
   &--card {
     max-width: 800px;
-    color: red;
+  }
+
+  &--form {
+    max-width: 560px;
   }
 }

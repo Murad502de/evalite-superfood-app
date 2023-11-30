@@ -1,7 +1,9 @@
-.partner-profile {
-  .payment-details-card-settings {
-    &--card {
-      max-width: 800px;
-    }
+.payment-details-card-settings {
+  &--card {
+    max-width: 800px;
+  }
+
+  &--form {
+    max-width: 560px;
   }
 }
