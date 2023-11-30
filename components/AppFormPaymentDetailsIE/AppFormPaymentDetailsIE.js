@@ -195,7 +195,7 @@ export default {
       this.confirmDocUrl = null;
     },
     init(value) {
-      if (value === null) {
+      if (value === null || value.paymentDetailsIndividualEntrepreneur === null) {
         this.fullName = null;
         this.organizationLegalAddress = null;
         this.inn = null;
