@@ -1,8 +1,10 @@
 import AppCard from '@/components/AppCard/AppCard.vue';
+import AppFormDoc from '@/components/AppFormDoc/AppFormDoc.vue';
 
 export default {
   components: {
     AppCard,
+    AppFormDoc,
   },
   props: {
     user: {
@@ -30,7 +32,12 @@ export default {
   },
   computed: {},
   watch: {},
-  methods: {},
+  methods: {
+    updateAgencyContract(value) {
+      console.debug('VerDet/updateAgencyContract/value', value); //DELETE
+      this.$emit('update:agency_contract', value);
+    },
+  },
   created() { },
   mounted() { },
 };
