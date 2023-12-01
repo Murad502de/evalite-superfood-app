@@ -6,7 +6,7 @@ import PassportCardSettings from './components/PassportCardSettings/PassportCard
 import PaymentDetailsCardSettings from './components/PaymentDetailsCardSettings/PaymentDetailsCardSettings.vue';
 import ContractCardSettings from './components/ContractCardSettings/ContractCardSettings.vue';
 import * as cardNames from './shared/cardNames.js';
-import { parseFromISOtoDdMmYyyy } from '@/utils/date';
+import { createUploadedFileUrl } from '@/utils/file.js';
 
 export default {
   components: {
@@ -29,30 +29,19 @@ export default {
       dialog: false,
       saveLoading: false,
       openedSettings: null,
+      secondName: null,
+      firstName: null,
+      thirdName: null,
+      gender: null,
+      birthday: null,
+      email: null,
+      phone: null,
+      avatarFile: null,
+      avatarUrl: null,
+      password: null,
     };
   },
   computed: {
-    avatar() {
-      return this.user?.avatar;
-    },
-    name() {
-      return `${this.user?.secondName} ${this.user?.firstName} ${this.user?.thirdName}`;
-    },
-    inviteCode() {
-      return this.user?.inviteCode;
-    },
-    birthday() {
-      return this.user?.birthday ? parseFromISOtoDdMmYyyy(this.user.birthday) : null;
-    },
-    email() {
-      return this.user?.email;
-    },
-    phone() {
-      return this.user?.phone;
-    },
-    verificationStatus() {
-      return this.user?.verificationStatus;
-    },
     cardNames() {
       return cardNames;
     },
@@ -145,34 +134,53 @@ export default {
     },
     save() {
       this.dialog = false
+      const data = this.getDataToUpdate();
+      console.debug(data); //DELETE
+
+      //TODO validate
+      this.$emit('update:personalData', data);
+    },
+    getDataToUpdate() {
+      let data = {};
+      if (this.secondName) data.secondName = this.secondName;
+      if (this.firstName) data.firstName = this.firstName;
+      if (this.thirdName) data.thirdName = this.thirdName;
+      if (this.gender) data.gender = this.gender;
+      if (this.birthday) data.birthday = this.birthday;
+      if (this.email) data.email = this.email;
+      if (this.phone) data.phone = this.phone;
+      if (this.avatarFile) data.avatarFile = this.avatarFile;
+      if (this.password) data.password = this.password;
+      return data;
     },
 
     updateAvatar(value) {
-      this.$emit('update:avatar', value);
+      this.avatarFile = value;
+      this.avatarUrl = createUploadedFileUrl(value);
     },
     updateSecondName(value) {
-      this.$emit('update:second_name', value);
+      this.secondName = value;
     },
     updateFirstName(value) {
-      this.$emit('update:first_name', value);
+      this.firstName = value;
     },
     updateThirdName(value) {
-      this.$emit('update:third_name', value);
+      this.thirdName = value;
     },
     updateGender(value) {
-      this.$emit('update:gender', value);
+      this.gender = value
     },
     updateBirthday(value) {
-      this.$emit('update:birthday', value);
+      this.birthday = value;
     },
     updateEmail(value) {
-      this.$emit('update:email', value);
+      this.email = value;
     },
     updatePhone(value) {
-      this.$emit('update:phone', value);
+      this.phone = value;
     },
     updatePassword(value) {
-      this.$emit('update:password', value);
+      this.password = value;
     },
 
     openCardSettings(cardName) {

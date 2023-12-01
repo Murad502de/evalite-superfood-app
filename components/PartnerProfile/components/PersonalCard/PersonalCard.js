@@ -2,6 +2,7 @@ import AppCard from '@/components/AppCard/AppCard.vue';
 import AppAvatar from '@/components/AppAvatar/AppAvatar.vue';
 import AppButton from '@/components/AppButton/AppButton.vue';
 import { getUserVerificationStatusTitle, getUserVerificationStatusIconName } from '@/helpers/verificationHelper.js';
+import { parseFromISOtoDdMmYyyy } from '@/utils/date';
 
 export default {
   components: {
@@ -10,32 +11,8 @@ export default {
     AppButton,
   },
   props: {
-    avatar: {
-      type: String | null,
-      required: true,
-    },
-    name: {
-      type: String,
-      required: true,
-    },
-    inviteCode: {
-      type: String,
-      required: true,
-    },
-    verificationStatus: {
-      type: String,
-      required: true,
-    },
-    birthday: {
-      type: String,
-      required: true,
-    },
-    tel: {
-      type: String,
-      required: true,
-    },
-    email: {
-      type: String,
+    user: {
+      type: Object,
       required: true,
     },
   },
@@ -45,6 +22,27 @@ export default {
     };
   },
   computed: {
+    avatar() {
+      return this.user?.avatar;
+    },
+    name() {
+      return `${this.user?.secondName} ${this.user?.firstName} ${this.user?.thirdName}`;
+    },
+    inviteCode() {
+      return this.user?.inviteCode;
+    },
+    birthday() {
+      return this.user?.birthday ? parseFromISOtoDdMmYyyy(this.user.birthday) : null;
+    },
+    email() {
+      return this.user?.email;
+    },
+    phone() {
+      return this.user?.phone;
+    },
+    verificationStatus() {
+      return this.user?.verificationStatus;
+    },
     infos() {
       return [
         {
@@ -53,7 +51,7 @@ export default {
         },
         {
           title: 'Номер телефона',
-          value: this.tel,
+          value: this.phone,
         },
         {
           title: 'Email',

@@ -2,13 +2,7 @@
 .partner-profile
   .partner-profile__main
     PersonalCard.partner-profile-card(
-      :avatar="avatar",
-      :name="name",
-      :inviteCode="inviteCode",
-      :verificationStatus="verificationStatus",
-      :birthday="birthday",
-      :tel="phone",
-      :email="email",
+      :user="user",
       @edit="openCardSettings(cardNames.personalCard)"
     )
     .partner-profile-blocks
@@ -43,7 +37,7 @@
       v-btn(dark, text, @click="save", :loading="saveLoading") Сохранить
 
     PersonalCardSettings(
-      v-show="openedSettings === cardNames.personalCard",
+      v-if="openedSettings === cardNames.personalCard",
       :user="user",
       @update:avatar="updateAvatar",
       @update:second_name="updateSecondName",
@@ -56,15 +50,15 @@
       @update:password="updatePassword"
     )
     PassportCardSettings(
-      v-show="openedSettings === cardNames.passportCard",
+      v-if="openedSettings === cardNames.passportCard",
       :user="user"
     )
     PaymentDetailsCardSettings(
-      v-show="openedSettings === cardNames.paymentDetailsCard",
+      v-if="openedSettings === cardNames.paymentDetailsCard",
       :user="user"
     )
     ContractCardSettings(
-      v-show="openedSettings === cardNames.contractCard",
+      v-if="openedSettings === cardNames.contractCard",
       :user="user"
     )
 </template>
