@@ -2,7 +2,8 @@
   .personal-card {
     color: #263043;
 
-    &__header {
+    &__header,
+    &__footer {
       text-align: center;
     }
 
