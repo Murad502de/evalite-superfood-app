@@ -18,32 +18,37 @@ export default {
   },
   watch: {},
   methods: {
+    ...mapActions('userStore', ['setUserData']),
     updateAvatar(value) {
-      console.debug('update:avatar', value); //DELETE
+      console.debug('ProfilePartner/updateAvatar', value); //DELETE
     },
     updateSecondName(value) {
-      console.debug('update:second_name', value); //DELETE
+      console.debug('ProfilePartner/updateSecondName', value); //DELETE
+      this.setUserData({ secondName: value, });
     },
     updateFirstName(value) {
-      console.debug('update:first_name', value); //DELETE
+      console.debug('ProfilePartner/updateFirstName', value); //DELETE
+      this.setUserData({ firstName: value, });
     },
     updateThirdName(value) {
-      console.debug('update:third_name', value); //DELETE
+      console.debug('ProfilePartner/updateThirdName', value); //DELETE
+      this.setUserData({ thirdName: value, });
     },
     updateGender(value) {
-      console.debug('update:gender', value); //DELETE
+      console.debug('ProfilePartner/updateGender', value); //DELETE
+      this.setUserData({ gender: value, });
     },
     updateBirthday(value) {
-      console.debug('update:birthday', value); //DELETE
+      console.debug('ProfilePartner/updateBirthday', value); //DELETE
     },
     updateEmail(value) {
-      console.debug('update:email', value); //DELETE
+      console.debug('ProfilePartner/updateEmail', value); //DELETE
     },
     updatePhone(value) {
-      console.debug('update:phone', value); //DELETE
+      console.debug('ProfilePartner/updatePhone', value); //DELETE
     },
     updatePassword(value) {
-      console.debug('update:password', value); //DELETE
+      console.debug('ProfilePartner/updatePassword', value); //DELETE
     },
   },
   created() { },

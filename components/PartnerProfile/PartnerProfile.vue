@@ -22,14 +22,17 @@
         :items="paymentDetailsCardFields",
         @edit="openCardSettings(cardNames.paymentDetailsCard)"
       )
-      BlockCard.partner-profile-block(
+      BlockCard.partner-profile-block.partner-profile-contract(
         :title="'Договор'",
         @edit="openCardSettings(cardNames.contractCard)"
       )
         a.partner-profile-contract__link(
+          v-if="agencyContractLink",
           :href="agencyContractLink",
           target="_blank"
         ) Просмотреть договор
+
+        .partner-profile-contract_absent(v-else) Договор отсутствует
 
   AppOverlay.partner-profile-settings(
     :dialog="dialog",

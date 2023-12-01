@@ -39,7 +39,7 @@ export default {
       return `${this.user?.secondName} ${this.user?.firstName} ${this.user?.thirdName}`;
     },
     inviteCode() {
-      return this.user?.invite_code;
+      return this.user?.inviteCode;
     },
     birthday() {
       return this.user?.birthday ? parseFromISOtoDdMmYyyy(this.user.birthday) : null;
