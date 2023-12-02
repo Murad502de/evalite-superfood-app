@@ -103,7 +103,7 @@ export default {
   },
   watch: {
     data(newVal) {
-      console.debug('AppFormPassport/watch/data/newVal', newVal); //DELETE
+      // console.debug('AppFormPassport/watch/data/newVal', newVal); //DELETE
       this.init(newVal);
     },
     computedProgress(newVal) {
@@ -111,54 +111,54 @@ export default {
     },
     passFullName(newVal, oldVal) {
       if (newVal === null || oldVal === null || this.isDataNull()) return;
-      console.debug('PS/watch/passFullName', newVal); //DELETE
+      // console.debug('PS/watch/passFullName', newVal); //DELETE
       this.$emit('update:full_name', newVal);
     },
     passSeries(newVal, oldVal) {
       if (newVal === null || oldVal === null || this.isDataNull()) return;
-      console.debug('PS/watch/passSeries', newVal); //DELETE
+      // console.debug('PS/watch/passSeries', newVal); //DELETE
       this.$emit('update:series', newVal);
     },
     passNumber(newVal, oldVal) {
       if (newVal === null || oldVal === null || this.isDataNull()) return;
-      console.debug('PS/watch/passNumber', newVal); //DELETE
+      // console.debug('PS/watch/passNumber', newVal); //DELETE
       this.$emit('update:number', newVal);
     },
     passIssueDate(newVal, oldVal) {
       if (newVal === null || oldVal === null || this.isDataNull()) return;
-      console.debug('PS/watch/passIssueDate', newVal); //DELETE
+      // console.debug('PS/watch/passIssueDate', newVal); //DELETE
       this.$emit('update:issue_date', newVal);
     },
     passRegistrationAddress(newVal, oldVal) {
       if (newVal === null || oldVal === null || this.isDataNull()) return;
-      console.debug('PS/watch/passRegistrationAddress', newVal); //DELETE
+      // console.debug('PS/watch/passRegistrationAddress', newVal); //DELETE
       this.$emit('update:registration_address', newVal);
     },
     passIssuedBy(newVal, oldVal) {
       if (newVal === null || oldVal === null || this.isDataNull()) return;
-      console.debug('PS/watch/passIssuedBy', newVal); //DELETE
+      // console.debug('PS/watch/passIssuedBy', newVal); //DELETE
       this.$emit('update:issue_by', newVal);
     },
     passDepartmentCode(newVal, oldVal) {
       if (newVal === null || oldVal === null || this.isDataNull()) return;
-      console.debug('PS/watch/passDepartmentCode', newVal); //DELETE
+      // console.debug('PS/watch/passDepartmentCode', newVal); //DELETE
       this.$emit('update:department_code', newVal);
     },
     mainSpreadMediaFile(newVal) {
-      console.debug('PS/watch/mainSpreadMediaFile/BEFORE', newVal); //DELETE
+      // console.debug('PS/watch/mainSpreadMediaFile/BEFORE', newVal); //DELETE
 
       if (this.isDataNull()) return;
-      console.debug('PS/watch/mainSpreadMediaFile', newVal); //DELETE
+      // console.debug('PS/watch/mainSpreadMediaFile', newVal); //DELETE
       this.$emit('update:main_spread', newVal);
     },
     registrationSpreadMediaFile(newVal) {
       if (this.isDataNull()) return;
-      console.debug('PS/watch/registrationSpreadMediaFile', newVal); //DELETE
+      // console.debug('PS/watch/registrationSpreadMediaFile', newVal); //DELETE
       this.$emit('update:registration_spread', newVal);
     },
     verificationSpreadMediaFile(newVal) {
       if (this.isDataNull()) return;
-      console.debug('PS/watch/verificationSpreadMediaFile', newVal); //DELETE
+      // console.debug('PS/watch/verificationSpreadMediaFile', newVal); //DELETE
       this.$emit('update:verification_spread', newVal);
     },
   },
