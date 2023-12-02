@@ -51,7 +51,17 @@
     )
     PassportCardSettings(
       v-show="openedSettings === cardNames.passportCard",
-      :user="user"
+      :user="user",
+      @update:pass_full_name="updatePassFullName",
+      @update:pass_series="updatePassSeries",
+      @update:pass_number="updatePassNumber",
+      @update:pass_issue_date="updatePassIssueDate",
+      @update:pass_registration_address="updatePassRegistrationAddress",
+      @update:pass_issue_by="updatePassIssueBy",
+      @update:pass_department_code="updatePassDepartmentCode",
+      @update:pass_main_spread="updatePassMainSpread",
+      @update:pass_registration_spread="updatePassRegistrationSpread",
+      @update:pass_verification_spread="updatePassVerificationSpread"
     )
     PaymentDetailsCardSettings(
       v-show="openedSettings === cardNames.paymentDetailsCard",

@@ -47,6 +47,9 @@ export default {
       passportIssueBy: null,
       passportDepartmentCode: null,
       passportRegistrationAddress: null,
+      passportMainSpread: null,
+      passportRegistrationSpread: null,
+      passportVerificationSpread: null,
     };
   },
   computed: {
@@ -137,21 +140,38 @@ export default {
   },
   watch: {},
   methods: {
+    openCardSettings(cardName) {
+      console.debug('openCardSettings/cardName', cardName); //DELETE
+      this.openedSettings = cardName;
+      this.dialog = true;
+    },
     close() {
       this.dialog = false;
       this.openedSettings = null;
     },
     savePersonal() {
       console.debug('savePersonal'); //DELETE
+      const data = this.getDataToUpdatePersonal();
+      console.debug('savePersonal/data', data); //DELETE
+      // this.$emit('update:personal', data);
     },
     savePassport() {
       console.debug('savePassport'); //DELETE
+      const data = this.getDataToUpdatePassport();
+      console.debug('savePassport/data', data); //DELETE
+      // this.$emit('update:passport', data);
     },
     savePaymentDetails() {
       console.debug('savePaymentDetails'); //DELETE
+      const data = this.getDataToUpdatePaymentDetails();
+      console.debug('savePaymentDetails/data', data); //DELETE
+      // this.$emit('update:paymentDetails', data);
     },
     saveContract() {
       console.debug('saveContract'); //DELETE
+      const data = this.getDataToUpdateContract();
+      console.debug('saveContract/data', data); //DELETE
+      // this.$emit('update:paymentDetails', data);
     },
     save() {
       console.debug('save/openedSettings', this.openedSettings); //DELETE
@@ -174,13 +194,9 @@ export default {
       }
 
       this.dialog = false
-      // const data = this.getDataToUpdate();
-      // console.debug(data); //DELETE
-
-      // //TODO validate
-      // this.$emit('update:personal', data);
+      this.openedSettings = null;
     },
-    getDataToUpdate() {
+    getDataToUpdatePersonal() {
       let data = {};
       if (this.secondName) data.secondName = this.secondName;
       if (this.firstName) data.firstName = this.firstName;
@@ -191,6 +207,30 @@ export default {
       if (this.phone) data.phone = this.phone;
       if (this.avatarFile) data.avatarFile = this.avatarFile;
       if (this.password) data.password = this.password;
+      return data;
+    },
+    getDataToUpdatePassport() {
+      let data = {};
+      if (this.passportFullName) data.passportFullName = this.passportFullName;
+      if (this.passportSeries) data.passportSeries = this.passportSeries;
+      if (this.passportNumber) data.passportNumber = this.passportNumber;
+      if (this.passportIssueDate) data.passportIssueDate = this.passportIssueDate;
+      if (this.passportIssueBy) data.passportIssueBy = this.passportIssueBy;
+      if (this.passportDepartmentCode) data.passportDepartmentCode = this.passportDepartmentCode;
+      if (this.passportRegistrationAddress) data.passportRegistrationAddress = this.passportRegistrationAddress;
+      if (this.passportMainSpread) data.passportMainSpread = this.passportMainSpread;
+      if (this.passportRegistrationSpread) data.passportRegistrationSpread = this.passportRegistrationSpread;
+      if (this.passportVerificationSpread) data.passportVerificationSpread = this.passportVerificationSpread;
+      return data;
+    },
+    getDataToUpdatePaymentDetails() {
+      let data = {};
+      // if (this.passportFullName) data.passportFullName = this.passportFullName;
+      return data;
+    },
+    getDataToUpdateContract() {
+      let data = {};
+      // if (this.passportFullName) data.passportFullName = this.passportFullName;
       return data;
     },
 
@@ -223,10 +263,35 @@ export default {
       this.password = value;
     },
 
-    openCardSettings(cardName) {
-      console.debug('openCardSettings/cardName', cardName); //DELETE
-      this.openedSettings = cardName;
-      this.dialog = true;
+    updatePassFullName(value) {
+      this.passportFullName = value;
+    },
+    updatePassSeries(value) {
+      this.passportSeries = value;
+    },
+    updatePassNumber(value) {
+      this.passportNumber = value;
+    },
+    updatePassIssueDate(value) {
+      this.passportIssueDate = value;
+    },
+    updatePassIssueBy(value) {
+      this.passportIssueBy = value;
+    },
+    updatePassDepartmentCode(value) {
+      this.passportDepartmentCode = value;
+    },
+    updatePassRegistrationAddress(value) {
+      this.passportRegistrationAddress = value;
+    },
+    updatePassMainSpread(value) {
+      this.passportMainSpread = value;
+    },
+    updatePassRegistrationSpread(value) {
+      this.passportRegistrationSpread = value;
+    },
+    updatePassVerificationSpread(value) {
+      this.passportVerificationSpread = value;
     },
   },
   created() { },
