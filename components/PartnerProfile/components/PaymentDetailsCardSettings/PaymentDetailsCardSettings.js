@@ -33,49 +33,49 @@ export default {
   computed: {},
   watch: {},
   methods: {
-    updateFullNameIE(value) {
-      console.debug('VerDet/updateFullNameIE/value', value); //DELETE
-      this.$emit('update:full_name_ie', value);
+    updateFullName(value) {
+      // console.debug('VerDet/updateFullNameIE/value', value); //DELETE
+      this.$emit('update:full_name', value);
     },
-    updateOrganizationLegalAddressIE(value) {
-      console.debug('VerDet/updateOrganizationLegalAddressIE/value', value); //DELETE
-      this.$emit('update:organization_legal_address_ie', value);
+    updateOrganizationLegalAddress(value) {
+      // console.debug('VerDet/updateOrganizationLegalAddressIE/value', value); //DELETE
+      this.$emit('update:organization_legal_address', value);
     },
-    updateInnIE(value) {
-      console.debug('VerDet/updateInnIE/value', value); //DELETE
-      this.$emit('update:inn_ie', value);
+    updateInn(value) {
+      // console.debug('VerDet/updateInnIE/value', value); //DELETE
+      this.$emit('update:inn', value);
     },
-    updateOgrnIE(value) {
-      console.debug('VerDet/updateOgrnIE/value', value); //DELETE
-      this.$emit('update:ogrn_ie', value);
+    updateOgrn(value) {
+      // console.debug('VerDet/updateOgrnIE/value', value); //DELETE
+      this.$emit('update:ogrn', value);
     },
-    updateTransactionAccountIE(value) {
-      console.debug('VerDet/updateTransactionAccountIE/value', value); //DELETE
-      this.$emit('update:transaction_account_ie', value);
+    updateTransactionAccount(value) {
+      // console.debug('VerDet/updateTransactionAccountIE/value', value); //DELETE
+      this.$emit('update:transaction_account', value);
     },
-    updateBankIE(value) {
-      console.debug('VerDet/updateBankIE/value', value); //DELETE
-      this.$emit('update:bank_ie', value);
+    updateBank(value) {
+      // console.debug('VerDet/updateBankIE/value', value); //DELETE
+      this.$emit('update:bank', value);
     },
-    updateBankInnIE(value) {
-      console.debug('VerDet/updateBankInnIE/value', value); //DELETE
-      this.$emit('update:bank_inn_ie', value);
+    updateBankInn(value) {
+      // console.debug('VerDet/updateBankInnIE/value', value); //DELETE
+      this.$emit('update:bank_inn', value);
     },
-    updateBankBicIE(value) {
-      console.debug('VerDet/updateBankBicIE/value', value); //DELETE
-      this.$emit('update:bank_bic_ie', value);
+    updateBankBic(value) {
+      // console.debug('VerDet/updateBankBicIE/value', value); //DELETE
+      this.$emit('update:bank_bic', value);
     },
-    updateBankCorrespondentAccountIE(value) {
-      console.debug('VerDet/updateBankCorrespondentAccountIE/value', value); //DELETE
-      this.$emit('update:bank_correspondent_account_ie', value);
+    updateBankCorrespondentAccount(value) {
+      // console.debug('VerDet/updateBankCorrespondentAccountIE/value', value); //DELETE
+      this.$emit('update:bank_correspondent_account', value);
     },
-    updateBankLegalAddressIE(value) {
-      console.debug('VerDet/updateBankLegalAddressIE/value', value); //DELETE
-      this.$emit('update:bank_legal_address_ie', value);
+    updateBankLegalAddress(value) {
+      // console.debug('VerDet/updateBankLegalAddressIE/value', value); //DELETE
+      this.$emit('update:bank_legal_address', value);
     },
-    updateConfirmDocIE(value) {
-      console.debug('VerDet/updateConfirmDocIE/value', value); //DELETE
-      this.$emit('update:confirm_doc_ie', value);
+    updateConfirmDoc(value) {
+      // console.debug('VerDet/updateConfirmDocIE/value', value); //DELETE
+      this.$emit('update:confirm_doc', value);
     },
   },
   created() { },

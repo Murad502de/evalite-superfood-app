@@ -61,6 +61,7 @@ export default {
       paymentDetailsBankBic: null,
       paymentDetailsBankCorrespondentAccount: null,
       paymentDetailsBankLegalAddress: null,
+      paymentDetailConfirmDocsFile: null,
     };
   },
   computed: {
@@ -236,7 +237,17 @@ export default {
     },
     getDataToUpdatePaymentDetails() {
       let data = {};
-      // if (this.passportFullName) data.passportFullName = this.passportFullName;
+      if (this.paymentDetailsFullName) data.paymentDetailsFullName = this.paymentDetailsFullName;
+      if (this.paymentDetailsOrganizationLegalAddress) data.paymentDetailsOrganizationLegalAddress = this.paymentDetailsOrganizationLegalAddress;
+      if (this.paymentDetailsInn) data.paymentDetailsInn = this.paymentDetailsInn;
+      if (this.paymentDetailsOgrn) data.paymentDetailsOgrn = this.paymentDetailsOgrn;
+      if (this.paymentDetailsTransactionAccount) data.paymentDetailsTransactionAccount = this.paymentDetailsTransactionAccount;
+      if (this.paymentDetailsBank) data.paymentDetailsBank = this.paymentDetailsBank;
+      if (this.paymentDetailsBankInn) data.paymentDetailsBankInn = this.paymentDetailsBankInn;
+      if (this.paymentDetailsBankBic) data.paymentDetailsBankBic = this.paymentDetailsBankBic;
+      if (this.paymentDetailsBankCorrespondentAccount) data.paymentDetailsBankCorrespondentAccount = this.paymentDetailsBankCorrespondentAccount;
+      if (this.paymentDetailsBankLegalAddress) data.paymentDetailsBankLegalAddress = this.paymentDetailsBankLegalAddress;
+      if (this.paymentDetailConfirmDocsFile) data.paymentDetailConfirmDocsFile = this.paymentDetailConfirmDocsFile;
       return data;
     },
     getDataToUpdateContract() {
@@ -303,6 +314,51 @@ export default {
     },
     updatePassVerificationSpread(value) {
       this.passportVerificationSpread = value;
+    },
+
+    updatePaymentDetailsFullName(value) {
+      console.debug('updatePaymentDetailsFullName', value); //DELETE
+      this.paymentDetailsFullName = value;
+    },
+    updatePaymentDetailsOrganizationLegalAddress(value) {
+      console.debug('updatePaymentDetailsOrganizationLegalAddress', value); //DELETE
+      this.paymentDetailsOrganizationLegalAddress = value;
+    },
+    updatePaymentDetailsInn(value) {
+      console.debug('updatePaymentDetailsInn', value); //DELETE
+      this.paymentDetailsInn = value;
+    },
+    updatePaymentDetailsOgrn(value) {
+      console.debug('updatePaymentDetailsOgrn', value); //DELETE
+      this.paymentDetailsOgrn = value;
+    },
+    updatePaymentDetailsTransactionAccount(value) {
+      console.debug('updatePaymentDetailsTransactionAccount', value); //DELETE
+      this.paymentDetailsTransactionAccount = value;
+    },
+    updatePaymentDetailsBank(value) {
+      console.debug('updatePaymentDetailsBank', value); //DELETE
+      this.paymentDetailsBank = value;
+    },
+    updatePaymentDetailsBankInn(value) {
+      console.debug('updatePaymentDetailsBankInn', value); //DELETE
+      this.paymentDetailsBankInn = value;
+    },
+    updatePaymentDetailsBankBic(value) {
+      console.debug('updatePaymentDetailsBankBic', value); //DELETE
+      this.paymentDetailsBankBic = value;
+    },
+    updatePaymentDetailsBankCorrespondentAccount(value) {
+      console.debug('updatePaymentDetailsBankCorrespondentAccount', value); //DELETE
+      this.paymentDetailsBankCorrespondentAccount = value;
+    },
+    updatePaymentDetailsBankLegalAddress(value) {
+      console.debug('updatePaymentDetailsBankLegalAddress', value); //DELETE
+      this.paymentDetailsBankLegalAddress = value;
+    },
+    updatePaymentDetailConfirmDocs(value) {
+      console.debug('updatePaymentDetailConfirmDocs', value); //DELETE
+      this.paymentDetailConfirmDocsFile = value;
     },
   },
   created() { },

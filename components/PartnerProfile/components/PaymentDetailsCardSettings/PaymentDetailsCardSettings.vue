@@ -6,17 +6,17 @@
       :data="user",
       :loading="loading",
       :disabled="disabled || saveLoading",
-      @update:full_name="updateFullNameIE",
-      @update:organization_legal_address="updateOrganizationLegalAddressIE",
-      @update:inn="updateInnIE",
-      @update:ogrn="updateOgrnIE",
-      @update:transaction_account="updateTransactionAccountIE",
-      @update:bank="updateBankIE",
-      @update:bank_inn="updateBankInnIE",
-      @update:bank_bic="updateBankBicIE",
-      @update:bank_correspondent_account="updateBankCorrespondentAccountIE",
-      @update:bank_legal_address="updateBankLegalAddressIE",
-      @update:confirm_doc="updateConfirmDocIE"
+      @update:full_name="updateFullName",
+      @update:organization_legal_address="updateOrganizationLegalAddress",
+      @update:inn="updateInn",
+      @update:ogrn="updateOgrn",
+      @update:transaction_account="updateTransactionAccount",
+      @update:bank="updateBank",
+      @update:bank_inn="updateBankInn",
+      @update:bank_bic="updateBankBic",
+      @update:bank_correspondent_account="updateBankCorrespondentAccount",
+      @update:bank_legal_address="updateBankLegalAddress",
+      @update:confirm_doc="updateConfirmDoc"
     )
 </template>
 

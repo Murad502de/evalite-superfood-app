@@ -65,7 +65,18 @@
     )
     PaymentDetailsCardSettings(
       v-show="openedSettings === cardNames.paymentDetailsCard",
-      :user="user"
+      :user="user",
+      @update:full_name="updatePaymentDetailsFullName",
+      @update:organization_legal_address="updatePaymentDetailsOrganizationLegalAddress",
+      @update:inn="updatePaymentDetailsInn",
+      @update:ogrn="updatePaymentDetailsOgrn",
+      @update:transaction_account="updatePaymentDetailsTransactionAccount",
+      @update:bank="updatePaymentDetailsBank",
+      @update:bank_inn="updatePaymentDetailsBankInn",
+      @update:bank_bic="updatePaymentDetailsBankBic",
+      @update:bank_correspondent_account="updatePaymentDetailsBankCorrespondentAccount",
+      @update:bank_legal_address="updatePaymentDetailsBankLegalAddress",
+      @update:confirm_doc="updatePaymentDetailConfirmDocs"
     )
     ContractCardSettings(
       v-show="openedSettings === cardNames.contractCard",
