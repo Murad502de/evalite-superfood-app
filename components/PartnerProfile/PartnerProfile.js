@@ -39,6 +39,14 @@ export default {
       avatarFile: null,
       avatarUrl: null,
       password: null,
+
+      passportFullName: null,
+      passportSeries: null,
+      passportNumber: null,
+      passportIssueDate: null,
+      passportIssueBy: null,
+      passportDepartmentCode: null,
+      passportRegistrationAddress: null,
     };
   },
   computed: {
@@ -53,7 +61,7 @@ export default {
           value: this.user.passport?.fullName,
         },
         {
-          title: 'Серия ',
+          title: 'Серия',
           value: this.user.passport?.series,
         },
         {
@@ -133,8 +141,37 @@ export default {
       this.dialog = false;
       this.openedSettings = null;
     },
+    savePersonal() {
+      console.debug('savePersonal'); //DELETE
+    },
+    savePassport() {
+      console.debug('savePassport'); //DELETE
+    },
+    savePaymentDetails() {
+      console.debug('savePaymentDetails'); //DELETE
+    },
+    saveContract() {
+      console.debug('saveContract'); //DELETE
+    },
     save() {
       console.debug('save/openedSettings', this.openedSettings); //DELETE
+
+      switch (this.openedSettings) {
+        case cardNames.personalCard:
+          this.savePersonal();
+          break;
+        case cardNames.passportCard:
+          this.savePassport();
+          break;
+        case cardNames.paymentDetailsCard:
+          this.savePaymentDetails();
+          break;
+        case cardNames.contractCard:
+          this.saveContract();
+          break;
+        default:
+          break;
+      }
 
       this.dialog = false
       // const data = this.getDataToUpdate();
