@@ -62,6 +62,8 @@ export default {
       paymentDetailsBankCorrespondentAccount: null,
       paymentDetailsBankLegalAddress: null,
       paymentDetailConfirmDocsFile: null,
+
+      agencyContractFile: null,
     };
   },
   computed: {
@@ -252,7 +254,7 @@ export default {
     },
     getDataToUpdateContract() {
       let data = {};
-      // if (this.passportFullName) data.passportFullName = this.passportFullName;
+      if (this.agencyContractFile) data.agencyContractFile = this.agencyContractFile;
       return data;
     },
 
@@ -359,6 +361,11 @@ export default {
     updatePaymentDetailConfirmDocs(value) {
       console.debug('updatePaymentDetailConfirmDocs', value); //DELETE
       this.paymentDetailConfirmDocsFile = value;
+    },
+
+    updateAgencyContract(value) {
+      console.debug('updateAgencyContract', value); //DELETE
+      this.agencyContractFile = value;
     },
   },
   created() { },

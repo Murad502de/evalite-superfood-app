@@ -81,6 +81,7 @@
     ContractCardSettings(
       v-show="openedSettings === cardNames.contractCard",
       :user="user"
+      @update:agency_contract="updateAgencyContract"
     )
 </template>
 

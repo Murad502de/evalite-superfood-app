@@ -34,7 +34,6 @@ export default {
   watch: {},
   methods: {
     updateAgencyContract(value) {
-      console.debug('VerDet/updateAgencyContract/value', value); //DELETE
       this.$emit('update:agency_contract', value);
     },
   },
