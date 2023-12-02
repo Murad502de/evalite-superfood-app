@@ -50,6 +50,17 @@ export default {
       passportMainSpread: null,
       passportRegistrationSpread: null,
       passportVerificationSpread: null,
+
+      paymentDetailsFullName: null,
+      paymentDetailsOrganizationLegalAddress: null,
+      paymentDetailsInn: null,
+      paymentDetailsOgrn: null,
+      paymentDetailsTransactionAccount: null,
+      paymentDetailsBank: null,
+      paymentDetailsBankInn: null,
+      paymentDetailsBankBic: null,
+      paymentDetailsBankCorrespondentAccount: null,
+      paymentDetailsBankLegalAddress: null,
     };
   },
   computed: {
