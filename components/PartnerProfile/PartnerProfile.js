@@ -138,7 +138,7 @@ export default {
       console.debug(data); //DELETE
 
       //TODO validate
-      this.$emit('update:personalData', data);
+      this.$emit('update:personal', data);
     },
     getDataToUpdate() {
       let data = {};

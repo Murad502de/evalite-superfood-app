@@ -5,7 +5,7 @@
   .profile-partner__main
     PartnerProfile(
       :user="userData",
-      @update:personalData="updatePersonalData"
+      @update:personal="updatePersonal"
     )
 </template>
 
