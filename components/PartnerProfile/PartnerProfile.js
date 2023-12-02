@@ -131,14 +131,17 @@ export default {
   methods: {
     close() {
       this.dialog = false;
+      this.openedSettings = null;
     },
     save() {
-      this.dialog = false
-      const data = this.getDataToUpdate();
-      console.debug(data); //DELETE
+      console.debug('save/openedSettings', this.openedSettings); //DELETE
 
-      //TODO validate
-      this.$emit('update:personal', data);
+      this.dialog = false
+      // const data = this.getDataToUpdate();
+      // console.debug(data); //DELETE
+
+      // //TODO validate
+      // this.$emit('update:personal', data);
     },
     getDataToUpdate() {
       let data = {};

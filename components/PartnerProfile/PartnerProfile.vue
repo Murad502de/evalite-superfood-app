@@ -37,7 +37,7 @@
       v-btn(dark, text, @click="save", :loading="saveLoading") Сохранить
 
     PersonalCardSettings(
-      v-if="openedSettings === cardNames.personalCard",
+      v-show="openedSettings === cardNames.personalCard",
       :user="user",
       @update:avatar="updateAvatar",
       @update:second_name="updateSecondName",
@@ -50,15 +50,15 @@
       @update:password="updatePassword"
     )
     PassportCardSettings(
-      v-if="openedSettings === cardNames.passportCard",
+      v-show="openedSettings === cardNames.passportCard",
       :user="user"
     )
     PaymentDetailsCardSettings(
-      v-if="openedSettings === cardNames.paymentDetailsCard",
+      v-show="openedSettings === cardNames.paymentDetailsCard",
       :user="user"
     )
     ContractCardSettings(
-      v-if="openedSettings === cardNames.contractCard",
+      v-show="openedSettings === cardNames.contractCard",
       :user="user"
     )
 </template>
