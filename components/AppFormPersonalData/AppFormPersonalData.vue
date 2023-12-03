@@ -56,17 +56,6 @@
       outlined
     )
 
-    //- AppTextField(
-    //-   v-model="birthday",
-    //-   :rules="birthdayRules",
-    //-   :loading="loading",
-    //-   :disabled="disabled",
-    //-   label="Дата рождения",
-    //-   :placeholder="formPlaceholder.date",
-    //-   required,
-    //-   outlined
-    //- )
-
     AppPickerDate(
       hideActions,
       prefix="Дата рождения",
@@ -76,6 +65,7 @@
     )
 
     AppTextField(
+      v-show="!hideEmail"
       v-model="email",
       :rules="emailRules",
       :loading="loading",

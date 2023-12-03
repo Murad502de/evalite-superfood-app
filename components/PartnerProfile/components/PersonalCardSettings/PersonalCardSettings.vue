@@ -7,12 +7,8 @@
       center-active,
       :hide-slider="disabled || saveLoading"
     )
-      v-tab.personal-card-settings--tab(
-        :disabled="disabled || saveLoading"
-      ) Общее
-      v-tab.personal-card-settings--tab(
-        :disabled="disabled || saveLoading"
-      ) Пароль
+      v-tab.personal-card-settings--tab(:disabled="disabled || saveLoading") Общее
+      v-tab.personal-card-settings--tab(:disabled="disabled || saveLoading") Пароль
 
     v-window.personal-card-settings--window(v-model="tab")
       v-window-item.personal-card-settings--window-item
@@ -21,6 +17,7 @@
           :data="user",
           :loading="loading",
           :disabled="disabled || saveLoading",
+          hideEmail,
           @update:avatar="updateAvatar",
           @update:second_name="updateSecondName",
           @update:first_name="updateFirstName",

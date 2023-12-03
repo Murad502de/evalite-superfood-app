@@ -30,6 +30,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    hideEmail: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -194,5 +198,5 @@ export default {
       this.init(this.data);
     }
   },
-  mounted() {},
+  mounted() { },
 }
