@@ -155,41 +155,33 @@ export default {
   watch: {},
   methods: {
     openCardSettings(cardName) {
-      console.debug('openCardSettings/cardName', cardName); //DELETE
       this.openedSettings = cardName;
       this.dialog = true;
     },
     close() {
+      this.closeForce();
+    },
+    closeForce() {
       this.dialog = false;
       this.openedSettings = null;
     },
     savePersonal() {
-      console.debug('savePersonal'); //DELETE
       const data = this.getDataToUpdatePersonal();
-      console.debug('savePersonal/data', data); //DELETE
-      // this.$emit('update:personal', data);
+      this.$emit('save:personal', data);
     },
     savePassport() {
-      console.debug('savePassport'); //DELETE
       const data = this.getDataToUpdatePassport();
-      console.debug('savePassport/data', data); //DELETE
-      // this.$emit('update:passport', data);
+      this.$emit('save:passport', data);
     },
     savePaymentDetails() {
-      console.debug('savePaymentDetails'); //DELETE
       const data = this.getDataToUpdatePaymentDetails();
-      console.debug('savePaymentDetails/data', data); //DELETE
-      // this.$emit('update:paymentDetails', data);
+      this.$emit('save:paymentDetails', data);
     },
     saveContract() {
-      console.debug('saveContract'); //DELETE
       const data = this.getDataToUpdateContract();
-      console.debug('saveContract/data', data); //DELETE
-      // this.$emit('update:paymentDetails', data);
+      this.$emit('save:contract', data);
     },
     save() {
-      console.debug('save/openedSettings', this.openedSettings); //DELETE
-
       switch (this.openedSettings) {
         case cardNames.personalCard:
           this.savePersonal();
@@ -207,8 +199,7 @@ export default {
           break;
       }
 
-      this.dialog = false
-      this.openedSettings = null;
+      this.closeForce();
     },
     getDataToUpdatePersonal() {
       let data = {};
@@ -257,7 +248,6 @@ export default {
       if (this.agencyContractFile) data.agencyContractFile = this.agencyContractFile;
       return data;
     },
-
     updateAvatar(value) {
       this.avatarFile = value;
       this.avatarUrl = createUploadedFileUrl(value);
@@ -286,7 +276,6 @@ export default {
     updatePassword(value) {
       this.password = value;
     },
-
     updatePassFullName(value) {
       this.passportFullName = value;
     },
@@ -317,54 +306,40 @@ export default {
     updatePassVerificationSpread(value) {
       this.passportVerificationSpread = value;
     },
-
     updatePaymentDetailsFullName(value) {
-      console.debug('updatePaymentDetailsFullName', value); //DELETE
       this.paymentDetailsFullName = value;
     },
     updatePaymentDetailsOrganizationLegalAddress(value) {
-      console.debug('updatePaymentDetailsOrganizationLegalAddress', value); //DELETE
       this.paymentDetailsOrganizationLegalAddress = value;
     },
     updatePaymentDetailsInn(value) {
-      console.debug('updatePaymentDetailsInn', value); //DELETE
       this.paymentDetailsInn = value;
     },
     updatePaymentDetailsOgrn(value) {
-      console.debug('updatePaymentDetailsOgrn', value); //DELETE
       this.paymentDetailsOgrn = value;
     },
     updatePaymentDetailsTransactionAccount(value) {
-      console.debug('updatePaymentDetailsTransactionAccount', value); //DELETE
       this.paymentDetailsTransactionAccount = value;
     },
     updatePaymentDetailsBank(value) {
-      console.debug('updatePaymentDetailsBank', value); //DELETE
       this.paymentDetailsBank = value;
     },
     updatePaymentDetailsBankInn(value) {
-      console.debug('updatePaymentDetailsBankInn', value); //DELETE
       this.paymentDetailsBankInn = value;
     },
     updatePaymentDetailsBankBic(value) {
-      console.debug('updatePaymentDetailsBankBic', value); //DELETE
       this.paymentDetailsBankBic = value;
     },
     updatePaymentDetailsBankCorrespondentAccount(value) {
-      console.debug('updatePaymentDetailsBankCorrespondentAccount', value); //DELETE
       this.paymentDetailsBankCorrespondentAccount = value;
     },
     updatePaymentDetailsBankLegalAddress(value) {
-      console.debug('updatePaymentDetailsBankLegalAddress', value); //DELETE
       this.paymentDetailsBankLegalAddress = value;
     },
     updatePaymentDetailConfirmDocs(value) {
-      console.debug('updatePaymentDetailConfirmDocs', value); //DELETE
       this.paymentDetailConfirmDocsFile = value;
     },
-
     updateAgencyContract(value) {
-      console.debug('updateAgencyContract', value); //DELETE
       this.agencyContractFile = value;
     },
   },

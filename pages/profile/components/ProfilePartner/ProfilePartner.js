@@ -19,8 +19,17 @@ export default {
   watch: {},
   methods: {
     ...mapActions('userStore', ['setUserData']),
-    updatePersonal(value) {
-      console.debug('updatePersonal/value', value); //DELETE
+    savePersonal(data) {
+      console.debug('savePersonal/data', data); //DELETE
+    },
+    savePassport(data) {
+      console.debug('savePassport/data', data); //DELETE
+    },
+    savePaymentDetails(data) {
+      console.debug('savePaymentDetails/data', data); //DELETE
+    },
+    saveContract(data) {
+      console.debug('saveContract/data', data); //DELETE
     },
   },
   created() { },

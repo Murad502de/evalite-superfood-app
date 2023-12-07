@@ -5,7 +5,10 @@
   .profile-partner__main
     PartnerProfile(
       :user="userData",
-      @update:personal="updatePersonal"
+      @save:personal="savePersonal",
+      @save:passport="savePassport",
+      @save:paymentDetails="savePaymentDetails",
+      @save:contract="saveContract"
     )
 </template>
 
