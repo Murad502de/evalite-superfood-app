@@ -1,3 +1,4 @@
+import AppButton from '@/components/AppButton/AppButton.vue';
 import AppOverlay from '@/components/AppOverlay/AppOverlay.vue';
 import PersonalCard from './components/PersonalCard/PersonalCard.vue';
 import BlockCard from './components/BlockCard/BlockCard.vue';
@@ -7,9 +8,11 @@ import PaymentDetailsCardSettings from './components/PaymentDetailsCardSettings/
 import ContractCardSettings from './components/ContractCardSettings/ContractCardSettings.vue';
 import * as cardNames from './shared/cardNames.js';
 import { createUploadedFileUrl } from '@/utils/file.js';
+import { usersUuidDocsAgencyContractGet } from '@/api/users/usersUuidDocsAgencyContractGet';
 
 export default {
   components: {
+    AppButton,
     AppOverlay,
     PersonalCard,
     BlockCard,
@@ -64,6 +67,8 @@ export default {
       paymentDetailConfirmDocsFile: null,
 
       agencyContractFile: null,
+      newAgencyContractLink: null,
+      newAgencyContractLoading: false,
     };
   },
   computed: {
@@ -341,6 +346,22 @@ export default {
     },
     updateAgencyContract(value) {
       this.agencyContractFile = value;
+    },
+    async getAgencyContractTemplate() {
+      console.debug('getAgencyContractTemplate', this.$refs.partner_contract_template_download_link); //DELETE
+
+      this.newAgencyContractLoading = true;
+
+      if (this.user?.uuid && !this.agencyContractLink) {
+        const usersUuidDocsAgencyContractGetResponse = await usersUuidDocsAgencyContractGet(this.user.uuid);
+        this.newAgencyContractLink = window.URL.createObjectURL(new Blob([usersUuidDocsAgencyContractGetResponse.data]));
+      }
+
+      setTimeout(() => {
+        this.$refs.partner_contract_template_download_link.click();
+      }, 500);
+
+      this.newAgencyContractLoading = false;
     },
   },
   created() { },

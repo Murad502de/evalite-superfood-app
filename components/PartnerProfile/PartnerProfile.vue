@@ -26,7 +26,17 @@
           target="_blank"
         ) Просмотреть договор
 
-        .partner-profile-contract_absent(v-else) Договор отсутствует
+        AppButton(
+          :loading="newAgencyContractLoading",
+          @click="getAgencyContractTemplate"
+        ) Получить договор
+
+        a.partner-profile-contract__link(
+          v-show="false",
+          ref="partner_contract_template_download_link",
+          :href="newAgencyContractLink",
+          download="Партнерский договор.pdf"
+        )
 
   AppOverlay.partner-profile-settings(
     :dialog="dialog",
@@ -80,7 +90,7 @@
     )
     ContractCardSettings(
       v-show="openedSettings === cardNames.contractCard",
-      :user="user"
+      :user="user",
       @update:agency_contract="updateAgencyContract"
     )
 </template>
