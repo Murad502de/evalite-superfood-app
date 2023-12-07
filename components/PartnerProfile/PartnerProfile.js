@@ -348,20 +348,17 @@ export default {
       this.agencyContractFile = value;
     },
     async getAgencyContractTemplate() {
-      console.debug('getAgencyContractTemplate', this.$refs.partner_contract_template_download_link); //DELETE
-
       this.newAgencyContractLoading = true;
 
       if (this.user?.uuid && !this.agencyContractLink) {
         const usersUuidDocsAgencyContractGetResponse = await usersUuidDocsAgencyContractGet(this.user.uuid);
-        this.newAgencyContractLink = window.URL.createObjectURL(new Blob([usersUuidDocsAgencyContractGetResponse.data]));
+        this.newAgencyContractLink = createUploadedFileUrl(new Blob([usersUuidDocsAgencyContractGetResponse.data]));
       }
 
       setTimeout(() => {
         this.$refs.partner_contract_template_download_link.click();
+        this.newAgencyContractLoading = false;
       }, 500);
-
-      this.newAgencyContractLoading = false;
     },
   },
   created() { },
