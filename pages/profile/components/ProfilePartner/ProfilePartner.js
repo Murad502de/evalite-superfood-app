@@ -1,6 +1,7 @@
 import { mapGetters, mapActions, } from 'vuex';
 import * as textContent from './shared/textContent';
 import PartnerProfile from '@/components/PartnerProfile/PartnerProfile.vue';
+import { updateUserPersonal } from '@/services/userService';
 
 export default {
   components: {
@@ -24,6 +25,10 @@ export default {
     },
     savePersonal(data) {
       console.debug('savePersonal/data', data); //DELETE
+      updateUserPersonal({
+        uuid: this.userData.uuid,
+        ...data,
+      });
     },
     savePassport(data) {
       console.debug('savePassport/data', data); //DELETE

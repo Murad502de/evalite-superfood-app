@@ -4,7 +4,9 @@ export const usersUuidUpdate = async (payload = null) => {
   if (payload === null) return;
   const data = new FormData();
   Object.keys(payload).forEach(key => {
-    data.append(key, payload[key]);
+    if (!!payload[key]) {
+      data.append(key, payload[key]);
+    }
   });
 
   try {
