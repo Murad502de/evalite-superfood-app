@@ -77,6 +77,7 @@
     )
     PaymentDetailsCardSettings(
       v-show="openedSettings === cardNames.paymentDetailsCard",
+      ref="partner_profile_payment_details_card_settings"
       :user="user",
       @update:full_name="updatePaymentDetailsFullName",
       @update:organization_legal_address="updatePaymentDetailsOrganizationLegalAddress",
@@ -91,6 +92,7 @@
       @update:confirm_doc="updatePaymentDetailConfirmDocs"
     )
     ContractCardSettings(
+      ref="partner_profile_contract_card_settings"
       v-show="openedSettings === cardNames.contractCard",
       :user="user",
       @update:agency_contract="updateAgencyContract"
