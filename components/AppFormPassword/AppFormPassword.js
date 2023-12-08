@@ -53,7 +53,18 @@ export default {
       this.$emit('update:password', newVal);
     },
   },
-  methods: {},
+  methods: {
+    validate() {
+      if (!this.password && !this.password1) return true;
+
+      if (this.password !== this.password1) {
+        alert('Пароли должны совпадать'); //FIXME make with vuetify
+        return;
+      }
+
+      return this.$refs.form.validate();
+    },
+  },
   created() { },
   mounted() { },
 }

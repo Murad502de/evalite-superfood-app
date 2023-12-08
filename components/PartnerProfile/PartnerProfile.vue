@@ -48,6 +48,7 @@
 
     PersonalCardSettings(
       v-show="openedSettings === cardNames.personalCard",
+      ref="partner_profile_personal_card_settings"
       :user="user",
       @update:avatar="updateAvatar",
       @update:second_name="updateSecondName",

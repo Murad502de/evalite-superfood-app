@@ -170,9 +170,15 @@ export default {
       this.dialog = false;
       this.openedSettings = null;
     },
+    validatePersonal() {
+      let valid = this.$refs.partner_profile_personal_card_settings.validate();
+      return valid;
+    },
     savePersonal() {
+      if (!this.validatePersonal()) return false;
       const data = this.getDataToUpdatePersonal();
       this.$emit('save:personal', data);
+      return true;
     },
     savePassport() {
       const data = this.getDataToUpdatePassport();
@@ -187,24 +193,26 @@ export default {
       this.$emit('save:contract', data);
     },
     save() {
+      let valid = true;
+
       switch (this.openedSettings) {
         case cardNames.personalCard:
-          this.savePersonal();
+          valid = this.savePersonal();
           break;
         case cardNames.passportCard:
-          this.savePassport();
+          valid = this.savePassport();
           break;
         case cardNames.paymentDetailsCard:
-          this.savePaymentDetails();
+          valid = this.savePaymentDetails();
           break;
         case cardNames.contractCard:
-          this.saveContract();
+          valid = this.saveContract();
           break;
         default:
           break;
       }
 
-      this.closeForce();
+      if (valid) this.closeForce();
     },
     getDataToUpdatePersonal() {
       let data = {};

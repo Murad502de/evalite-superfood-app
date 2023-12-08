@@ -62,6 +62,33 @@ export default {
     updatePassword(value) {
       this.$emit('update:password', value);
     },
+    validateDataForm() {
+      const formRef = this.$refs.partner_profile_personal_data_form;
+
+      if (formRef) {
+        if (!formRef.validate()) {
+          this.tab = 0;
+          return false;
+        }
+      }
+
+      return true;
+    },
+    validatePasswordForm() {
+      const formRef = this.$refs.partner_profile_personal_password_form;
+
+      if (formRef) {
+        if (!formRef.validate()) {
+          this.tab = 1;
+          return false;
+        }
+      }
+
+      return true;
+    },
+    validate() {
+      return this.validateDataForm() && this.validatePasswordForm();
+    },
   },
   created() { },
   mounted() { },
