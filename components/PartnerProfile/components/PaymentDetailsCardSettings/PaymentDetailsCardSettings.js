@@ -77,13 +77,11 @@ export default {
       // console.debug('VerDet/updateConfirmDocIE/value', value); //DELETE
       this.$emit('update:confirm_doc', value);
     },
-
     validatePaymentDetailsForm() {
       const formRef = this.$refs.payment_details_ie_settings_form;
 
       if (formRef) {
         if (!formRef.validate()) {
-          this.tab = 1;
           return false;
         }
       }

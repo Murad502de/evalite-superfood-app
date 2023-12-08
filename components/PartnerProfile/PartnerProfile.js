@@ -200,9 +200,15 @@ export default {
       this.$emit('save:paymentDetails', data);
       return true;
     },
+    validateContract() {
+      let valid = this.$refs.partner_profile_contract_card_settings.validate();
+      return valid;
+    },
     saveContract() {
+      if (!this.validateContract()) return false;
       const data = this.getDataToUpdateContract();
       this.$emit('save:contract', data);
+      return true;
     },
     save() {
       let valid = true;
