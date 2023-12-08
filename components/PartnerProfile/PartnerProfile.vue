@@ -3,6 +3,7 @@
   .partner-profile__main
     PersonalCard.partner-profile-card(
       :user="user",
+      @submit="submit",
       @edit="openCardSettings(cardNames.personalCard)"
     )
     .partner-profile-blocks
@@ -48,7 +49,7 @@
 
     PersonalCardSettings(
       v-show="openedSettings === cardNames.personalCard",
-      ref="partner_profile_personal_card_settings"
+      ref="partner_profile_personal_card_settings",
       :user="user",
       @update:avatar="updateAvatar",
       @update:second_name="updateSecondName",
@@ -62,7 +63,7 @@
     )
     PassportCardSettings(
       v-show="openedSettings === cardNames.passportCard",
-      ref="partner_profile_passport_card_settings"
+      ref="partner_profile_passport_card_settings",
       :user="user",
       @update:pass_full_name="updatePassFullName",
       @update:pass_series="updatePassSeries",
@@ -77,7 +78,7 @@
     )
     PaymentDetailsCardSettings(
       v-show="openedSettings === cardNames.paymentDetailsCard",
-      ref="partner_profile_payment_details_card_settings"
+      ref="partner_profile_payment_details_card_settings",
       :user="user",
       @update:full_name="updatePaymentDetailsFullName",
       @update:organization_legal_address="updatePaymentDetailsOrganizationLegalAddress",
@@ -92,7 +93,7 @@
       @update:confirm_doc="updatePaymentDetailConfirmDocs"
     )
     ContractCardSettings(
-      ref="partner_profile_contract_card_settings"
+      ref="partner_profile_contract_card_settings",
       v-show="openedSettings === cardNames.contractCard",
       :user="user",
       @update:agency_contract="updateAgencyContract"

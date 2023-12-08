@@ -71,6 +71,9 @@ export default {
     getVerificationStatusIcon() {
       return getUserVerificationStatusIconName(this.verificationStatus);
     },
+    submit() {
+      this.$emit('submit');
+    },
   },
   created() { },
   mounted() { },

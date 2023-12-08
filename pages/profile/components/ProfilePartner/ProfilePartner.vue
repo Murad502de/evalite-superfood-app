@@ -9,6 +9,7 @@
       @save:passport="savePassport",
       @save:paymentDetails="savePaymentDetails",
       @save:contract="saveContract"
+      @submit="sendForVerification"
     )
 </template>
 

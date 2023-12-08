@@ -386,6 +386,9 @@ export default {
         this.newAgencyContractLoading = false;
       }, 500);
     },
+    submit() {
+      this.$emit('submit');
+    },
   },
   created() { },
   mounted() { },

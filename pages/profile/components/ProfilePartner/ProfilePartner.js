@@ -37,6 +37,9 @@ export default {
       console.debug('saveContract/data', data); //DELETE
       this.confirm();
     },
+    sendForVerification() {
+      console.debug('sendForVerification'); //DELETE
+    },
   },
   created() { },
   mounted() { },

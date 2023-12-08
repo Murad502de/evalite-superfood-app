@@ -25,7 +25,7 @@ AppCard.personal-card
 
   .personal-card__footer
     v-divider.personal-card__divider
-    AppButton Отправить на проверку
+    AppButton(@click="submit") Отправить на проверку
 </template>
 
 <script src="./PersonalCard.js" />
