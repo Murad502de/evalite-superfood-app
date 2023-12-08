@@ -190,9 +190,15 @@ export default {
       this.$emit('save:passport', data);
       return true;
     },
+    validatePaymentDetails() {
+      let valid = this.$refs.partner_profile_payment_details_card_settings.validate();
+      return valid;
+    },
     savePaymentDetails() {
+      if (!this.validatePaymentDetails()) return false;
       const data = this.getDataToUpdatePaymentDetails();
       this.$emit('save:paymentDetails', data);
+      return true;
     },
     saveContract() {
       const data = this.getDataToUpdateContract();
