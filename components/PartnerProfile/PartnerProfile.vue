@@ -62,6 +62,7 @@
     )
     PassportCardSettings(
       v-show="openedSettings === cardNames.passportCard",
+      ref="partner_profile_passport_card_settings"
       :user="user",
       @update:pass_full_name="updatePassFullName",
       @update:pass_series="updatePassSeries",

@@ -63,6 +63,21 @@ export default {
     updateVerificationSpreadPass(value) {
       this.$emit('update:pass_verification_spread', value);
     },
+    validatePassportForm() {
+      const formRef = this.$refs.passport_card_settings_passport_form;
+
+      if (formRef) {
+        if (!formRef.validate()) {
+          this.tab = 1;
+          return false;
+        }
+      }
+
+      return true;
+    },
+    validate() {
+      return this.validatePassportForm();
+    },
   },
   created() { },
   mounted() { },

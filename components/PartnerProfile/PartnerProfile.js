@@ -180,9 +180,15 @@ export default {
       this.$emit('save:personal', data);
       return true;
     },
+    validatePassport() {
+      let valid = this.$refs.partner_profile_passport_card_settings.validate();
+      return valid;
+    },
     savePassport() {
+      if (!this.validatePassport()) return false;
       const data = this.getDataToUpdatePassport();
       this.$emit('save:passport', data);
+      return true;
     },
     savePaymentDetails() {
       const data = this.getDataToUpdatePaymentDetails();
