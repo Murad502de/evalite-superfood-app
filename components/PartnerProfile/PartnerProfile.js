@@ -28,7 +28,7 @@ export default {
     },
     saveLoading: {
       type: Boolean,
-      default: true,
+      default: false,
     },
   },
   data() {
