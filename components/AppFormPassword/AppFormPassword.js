@@ -2,7 +2,16 @@ import * as validation from "@/services/formValidation";
 
 export default {
   components: {},
-  props: {},
+  props: {
+    loading: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       valid: true,
@@ -19,7 +28,6 @@ export default {
       password1: '',
       showPass: false,
       showPass1: false,
-      loading: false,
       title: 'Введите пароль',
       subTitle: 'Придумайте пароль, соответствующий требованиям ниже.',
       passInputLabel: 'Введите новый пароль',

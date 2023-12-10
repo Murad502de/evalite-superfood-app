@@ -21,6 +21,18 @@ export default {
       type: Array,
       default: () => ([]),
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    readonly: {
+      type: Boolean,
+      default: false,
+    },
+    loading: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {

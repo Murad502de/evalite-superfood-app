@@ -31,6 +31,8 @@
       v-window-item.personal-card-settings--window-item
         AppFormPassword(
           ref="partner_profile_personal_password_form",
+          :loading="loading",
+          :disabled="disabled || saveLoading",
           @update:password="updatePassword"
         )
 </template>

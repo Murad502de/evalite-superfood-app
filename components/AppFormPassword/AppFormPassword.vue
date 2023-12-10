@@ -10,7 +10,8 @@
       :append-icon="showPass ? 'mdi-eye' : 'mdi-eye-off'",
       @click:append="showPass = !showPass",
       :rules="passwordRules",
-      :disabled="loading",
+      :loading="loading",
+      :disabled="disabled",
       :label="passInputLabel",
       required,
       outlined
@@ -22,7 +23,8 @@
       :append-icon="showPass1 ? 'mdi-eye' : 'mdi-eye-off'",
       @click:append="showPass1 = !showPass1",
       :rules="passwordRules",
-      :disabled="loading",
+      :loading="loading",
+      :disabled="disabled",
       :label="passInputAgainLabel",
       required,
       outlined

@@ -59,13 +59,15 @@
     AppPickerDate(
       hideActions,
       prefix="Дата рождения",
-      :value="birthday"
+      :value="birthday",
       :rules="birthdayRules",
+      :loading="loading",
+      :disabled="disabled",
       @change="changeBirthday"
     )
 
     AppTextField(
-      v-show="!hideEmail"
+      v-show="!hideEmail",
       v-model="email",
       :rules="emailRules",
       :loading="loading",

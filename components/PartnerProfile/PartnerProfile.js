@@ -26,11 +26,14 @@ export default {
       type: Object,
       required: true,
     },
+    saveLoading: {
+      type: Boolean,
+      default: true,
+    },
   },
   data() {
     return {
       dialog: false,
-      saveLoading: false,
       openedSettings: null,
       secondName: null,
       firstName: null,
@@ -164,6 +167,8 @@ export default {
       this.dialog = true;
     },
     close() {
+      console.debug('methods/close/saveLoading', this.saveLoading)
+      if (this.saveLoading) return;
       this.closeForce();
     },
     closeForce() {

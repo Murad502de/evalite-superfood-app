@@ -1,7 +1,7 @@
 import { mapGetters, mapActions, } from 'vuex';
 import * as textContent from './shared/textContent';
 import PartnerProfile from '@/components/PartnerProfile/PartnerProfile.vue';
-import { updateUserPersonal } from '@/services/userService';
+import { editPersonal } from '@/UseCases/User/Profile/Partner/EditBySelf/editPersonal';
 
 export default {
   components: {
@@ -23,11 +23,15 @@ export default {
     confirm() {
       return confirm('Применение данных настроек потребует повторной верификации');
     },
-    savePersonal(data) {
+    async savePersonal(data) {
       console.debug('savePersonal/data', data); //DELETE
-      updateUserPersonal({
-        uuid: this.userData.uuid,
-        ...data,
+      console.debug('savePersonal/this', this.$store); //DELETE
+      await editPersonal({
+        data: {
+          uuid: this.userData.uuid,
+          ...data,
+        },
+        store: this.$store,
       });
     },
     savePassport(data) {

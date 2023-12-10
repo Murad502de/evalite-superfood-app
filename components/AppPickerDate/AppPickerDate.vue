@@ -19,7 +19,9 @@
         outlined,
         :prefix="prefix",
         readonly,
-        :rules="rules"
+        :rules="rules",
+        :disabled="disabled",
+        :loading="loading"
       )
 
     v-date-picker.app-picker-date__picker(
