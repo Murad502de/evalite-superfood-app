@@ -66,6 +66,7 @@
       v-show="openedSettings === cardNames.passportCard",
       ref="partner_profile_passport_card_settings",
       :user="user",
+      :saveLoading="saveLoading",
       @update:pass_full_name="updatePassFullName",
       @update:pass_series="updatePassSeries",
       @update:pass_number="updatePassNumber",
@@ -81,6 +82,7 @@
       v-show="openedSettings === cardNames.paymentDetailsCard",
       ref="partner_profile_payment_details_card_settings",
       :user="user",
+      :saveLoading="saveLoading",
       @update:full_name="updatePaymentDetailsFullName",
       @update:organization_legal_address="updatePaymentDetailsOrganizationLegalAddress",
       @update:inn="updatePaymentDetailsInn",
@@ -97,6 +99,7 @@
       ref="partner_profile_contract_card_settings",
       v-show="openedSettings === cardNames.contractCard",
       :user="user",
+      :saveLoading="saveLoading",
       @update:agency_contract="updateAgencyContract"
     )
 </template>

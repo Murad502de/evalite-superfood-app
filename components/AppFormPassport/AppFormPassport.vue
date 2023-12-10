@@ -20,6 +20,7 @@
         .app-form-passport-form-passport__info--row
           AppTextField.app-form-passport-form-passport__info--series(
             v-model="passSeries",
+            v-mask="'####'",
             :rules="passSeriesRules",
             :loading="loading",
             :disabled="disabled",
@@ -30,6 +31,7 @@
 
           AppTextField.app-form-passport-form-passport__info--number(
             v-model="passNumber",
+            v-mask="'######'",
             :rules="passNumberRules",
             :loading="loading",
             :disabled="disabled",
@@ -38,15 +40,25 @@
             outlined
           )
 
-          AppTextField.app-form-passport-form-passport__info--issue-date(
-            v-model="passIssueDate",
+          //- AppTextField.app-form-passport-form-passport__info--issue-date(
+          //-   v-model="passIssueDate",
+          //-   :rules="passIssueDateRules",
+          //-   :loading="loading",
+          //-   :disabled="disabled",
+          //-   label="Дата выдачи",
+          //-   :placeholder="formPlaceholder.date",
+          //-   required,
+          //-   outlined
+          //- )
+
+          AppPickerDate(
+            hideActions,
+            prefix="Дата выдачи",
+            :value="passIssueDate",
             :rules="passIssueDateRules",
             :loading="loading",
             :disabled="disabled",
-            label="Дата выдачи",
-            :placeholder="formPlaceholder.date",
-            required,
-            outlined
+            @change="changePassIssueDate"
           )
 
           AppTextField.app-form-passport-form-passport__info--validity(
@@ -73,6 +85,7 @@
         .app-form-passport-form-passport__info--row
           AppTextField.app-form-passport-form-passport__info--division-code(
             v-model="passDepartmentCode",
+            v-mask="'###-###'",
             :rules="passDepartmentCodeRules",
             :loading="loading",
             :disabled="disabled",

@@ -12,11 +12,6 @@ AppCard.personal-card
 
   v-divider.personal-card__divider
 
-  //- v-text-field(
-  //-   v-mask="'### ######'"
-  //-   v-model="test"
-  //- )
-
   .personal-card__main
     .personal-card__infos
       .personal-card__info(v-for="(info, index) in infos", :key="index")

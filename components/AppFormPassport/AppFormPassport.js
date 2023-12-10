@@ -6,6 +6,7 @@ import PassportSpreadMainSvg from '@/assets/svg/passport_spread_main.svg';
 import PassportSpreadRegistrationSvg from '@/assets/svg/passport_spread_registration.svg';
 import PassportSpreadVerificationSvg from '@/assets/svg/passport_verification.svg';
 import AppTextField from '@/components/AppTextField/AppTextField.vue';
+import AppPickerDate from '@/components/AppPickerDate/AppPickerDate.vue';
 
 export default {
   components: {
@@ -14,6 +15,7 @@ export default {
     PassportSpreadMainSvg,
     PassportSpreadRegistrationSvg,
     PassportSpreadVerificationSvg,
+    AppPickerDate,
   },
   props: {
     title: {
@@ -66,7 +68,7 @@ export default {
       passDepartmentCode: null,
       passDepartmentCodeRules: [
         validation.required(),
-        validation.numbers(),
+        validation.passportDepartmentCode(),
       ],
       mainSpreadMediaFile: null,
       mainSpreadMediaName: null,
@@ -125,7 +127,8 @@ export default {
       this.$emit('update:number', newVal);
     },
     passIssueDate(newVal, oldVal) {
-      if (newVal === null || oldVal === null || this.isDataNull()) return;
+      if (newVal === null || this.isDataNull()) return;
+      // if (newVal === null || oldVal === null || this.isDataNull()) return;
       // console.debug('PS/watch/passIssueDate', newVal); //DELETE
       this.$emit('update:issue_date', newVal);
     },
@@ -245,6 +248,9 @@ export default {
     },
     isDataNull() {
       return this.data === null;
+    },
+    changePassIssueDate(value) {
+      this.passIssueDate = value;
     },
   },
   created() {

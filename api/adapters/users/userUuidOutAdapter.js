@@ -10,13 +10,23 @@ export const userUuidOutAdapter = async (payload = null) => {
     user_birthday: payload.birthday || null,
     user_email: payload.email || null,
     user_phone: payload.phone || null,
-    pass_full_name: payload.passport?.fullName || null,
-    pass_series: payload.passport?.series || null,
-    pass_number: payload.passport?.number || null,
-    pass_issue_date: payload.passport?.issueDate || null,
-    pass_registration_address: payload.passport?.registrationAddress || null,
-    pass_issue_by: payload.passport?.issueBy || null,
-    pass_department_code: payload.passport?.departmentCode || null,
+
+    // pass_full_name: payload.passport?.fullName || null,
+    // pass_series: payload.passport?.series || null,
+    // pass_number: payload.passport?.number || null,
+    // pass_issue_date: payload.passport?.issueDate || null,
+    // pass_registration_address: payload.passport?.registrationAddress ? payload.passport?.registrationAddress.replace(/[^0-9]/g, '') : null,
+    // pass_issue_by: payload.passport?.issueBy || null,
+    // pass_department_code: payload.passport?.departmentCode || null,
+
+    pass_full_name: payload.passportFullName || null,
+    pass_series: payload.passportSeries || null,
+    pass_number: payload.passportNumber || null,
+    pass_issue_date: payload.passportIssueDate || null,
+    pass_department_code: payload.passportDepartmentCode ? payload.passportDepartmentCode.replace(/[^0-9]/g, '') : null,
+    pass_issue_by: payload.passportIssueBy || null,
+    pass_registration_address: payload.passportRegistrationAddress || null,
+
     ie_full_name: payload.paymentDetailsIndividualEntrepreneur?.fullName || null,
     ie_organization_legal_address: payload.paymentDetailsIndividualEntrepreneur?.organizationLegalAddress || null,
     ie_inn: payload.paymentDetailsIndividualEntrepreneur?.inn || null,
@@ -40,9 +50,15 @@ export const userUuidOutAdapter = async (payload = null) => {
   };
 
   if (!!payload.avatarFile) data.user_avatar = payload.avatarFile;
-  if (!!payload.passport?.mainSpreadFile) data.passport_main_spread = payload.passport.mainSpreadFile;
-  if (!!payload.passport?.registrationSpreadFile) data.passport_registration_spread = payload.passport.registrationSpreadFile;
-  if (!!payload.passport?.verificationSpreadFile) data.passport_verification_spread = payload.passport.verificationSpreadFile;
+
+  // if (!!payload.passport?.mainSpreadFile) data.passport_main_spread = payload.passport.mainSpreadFile;
+  // if (!!payload.passport?.registrationSpreadFile) data.passport_registration_spread = payload.passport.registrationSpreadFile;
+  // if (!!payload.passport?.verificationSpreadFile) data.passport_verification_spread = payload.passport.verificationSpreadFile;
+
+  if (!!payload.passportMainSpread) data.passport_main_spread = payload.passportMainSpread;
+  if (!!payload.passportRegistrationSpread) data.passport_registration_spread = payload.passportRegistrationSpread;
+  if (!!payload.passportVerificationSpread) data.passport_verification_spread = payload.passportVerificationSpread;
+
   if (!!payload.paymentDetailsIndividualEntrepreneur?.confirmDocFile) data.ie_confirm_doc = payload.paymentDetailsIndividualEntrepreneur.confirmDocFile;
   if (!!payload.paymentDetailsSelfEmployed?.confirmDocFile) data.se_confirm_doc = payload.paymentDetailsSelfEmployed.confirmDocFile;
   if (payload.agencyContractFile !== undefined) {

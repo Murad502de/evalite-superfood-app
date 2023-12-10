@@ -43,6 +43,7 @@ export default {
       this.$emit('update:pass_number', value);
     },
     updateIssueDatePass(value) {
+      console.debug('updateIssueDatePass/value', value); //DELETE
       this.$emit('update:pass_issue_date', value);
     },
     updateRegistrationAddressPass(value) {

@@ -7,6 +7,6 @@ export const updateUserProfilePersonal = async (data = null) => {
   console.debug('updateUserResponse', updateUserResponse); //DELETE
 
   if (updateUserResponse.status !== 200) {
-    alert('Ошибка сохранения пользователя'); //FIXME implement with vuetify
+    alert('Ошибка сохранения персональных настроек пользователя'); //FIXME implement with vuetify
   }
 }

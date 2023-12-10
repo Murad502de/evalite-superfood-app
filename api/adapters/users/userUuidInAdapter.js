@@ -31,7 +31,7 @@ const userUuidPassportInAdapter = async (data) => {
 
   return {
     uuid: data.uuid,
-    departmentCode: data.department_code,
+    departmentCode: departmentCode(data.department_code),
     fullName: data.full_name,
     issueBy: data.issue_by,
     issueDate: data.issue_date,
@@ -85,4 +85,9 @@ const userUuidPaymentDetailsIndividualEntrepreneurInAdapter = async (data) => {
     organizationLegalAddress: data.organization_legal_address,
     transactionAccount: data.transaction_account,
   };
+};
+
+const departmentCode = (value) => {
+  if (!value.length) return;
+  return `${value[0]}${value[1]}${value[2]}-${value[3]}${value[4]}${value[5]}`;
 };

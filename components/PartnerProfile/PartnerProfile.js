@@ -9,6 +9,7 @@ import ContractCardSettings from './components/ContractCardSettings/ContractCard
 import * as cardNames from './shared/cardNames.js';
 import { createUploadedFileUrl } from '@/utils/file.js';
 import { usersUuidDocsAgencyContractGet } from '@/api/users/usersUuidDocsAgencyContractGet';
+import { parseFromISOtoDdMmYyyy } from '@/utils/date';
 
 export default {
   components: {
@@ -78,7 +79,6 @@ export default {
     cardNames() {
       return cardNames;
     },
-
     passCardFields() {
       return [
         {
@@ -95,7 +95,7 @@ export default {
         },
         {
           title: 'Дата выдачи',
-          value: this.user.passport?.issueDate,
+          value: this.user.passport?.issueDate ? parseFromISOtoDdMmYyyy(this.user.passport?.issueDate) : null,
         },
         {
           title: 'Кем выдан',
@@ -155,7 +155,6 @@ export default {
         },
       ];
     },
-
     agencyContractLink() {
       return this.user.agencyContract;
     },
@@ -321,6 +320,7 @@ export default {
       this.passportNumber = value;
     },
     updatePassIssueDate(value) {
+      console.debug('updatePassIssueDate/value', value); //DELETE
       this.passportIssueDate = value;
     },
     updatePassIssueBy(value) {

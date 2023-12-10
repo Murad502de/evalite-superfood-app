@@ -10,3 +10,4 @@ export const validationPassMsgLength = 'Длина пароля должна б�
 export const validationPassMsgCapitalLetters = 'Пароль должен содержать заглавные буквы';
 export const validationPassMsgLowerCase = 'Пароль должен содержать строчные буквы';
 export const validationPassMsgSpecSymbols = 'Пароль должен содержать цифры или спец. символы';
+export const validationFormatError = 'Недопустимый формат';

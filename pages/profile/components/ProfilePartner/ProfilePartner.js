@@ -2,6 +2,7 @@ import { mapGetters, mapActions, } from 'vuex';
 import * as textContent from './shared/textContent';
 import PartnerProfile from '@/components/PartnerProfile/PartnerProfile.vue';
 import { editPersonal } from '@/UseCases/User/Profile/Partner/EditBySelf/editPersonal';
+import { editPassport } from '@/UseCases/User/Profile/Partner/EditBySelf/editPassport';
 
 export default {
   components: {
@@ -27,7 +28,6 @@ export default {
     },
     async savePersonal(data) {
       console.debug('savePersonal/data', data); //DELETE
-      console.debug('savePersonal/this', this.$store); //DELETE
       this.saveLoading = true;
       await editPersonal({
         data: {
@@ -38,13 +38,21 @@ export default {
       });
       this.saveLoading = false;
     },
-    savePassport(data) {
+    async savePassport(data) {
       console.debug('savePassport/data', data); //DELETE
-      this.confirm();
+      this.saveLoading = true;
+      await editPassport({
+        data: {
+          uuid: this.userData.uuid,
+          ...data,
+        },
+        store: this.$store,
+      });
+      this.saveLoading = false;
     },
     savePaymentDetails(data) {
       console.debug('savePaymentDetails/data', data); //DELETE
-      this.confirm();
+      this.saveLoading = true;
     },
     saveContract(data) {
       console.debug('saveContract/data', data); //DELETE

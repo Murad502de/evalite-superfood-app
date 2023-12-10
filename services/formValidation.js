@@ -12,3 +12,4 @@ export const passLength = (errorMsg = '') => (v => v.length >= 8 || (errorMsg ||
 export const passCapitalLetters = (errorMsg = '') => (v => /[A-Z]+/g.test(v) || (errorMsg || constants.validationPassMsgCapitalLetters));
 export const passLowerCase = (errorMsg = '') => (v => /[a-z]+/g.test(v) || (errorMsg || constants.validationPassMsgLowerCase));
 export const passSpecSymbols = (errorMsg = '') => (v => /[\W\d_]/g.test(v) || (errorMsg || constants.validationPassMsgSpecSymbols));
+export const passportDepartmentCode = (errorMsg = '') => (v => /^\d{3}-\d{3}$/g.test(v) || (errorMsg || constants.validationFormatError));
