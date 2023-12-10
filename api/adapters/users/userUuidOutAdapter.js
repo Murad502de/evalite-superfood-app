@@ -27,16 +27,28 @@ export const userUuidOutAdapter = async (payload = null) => {
     pass_issue_by: payload.passportIssueBy || null,
     pass_registration_address: payload.passportRegistrationAddress || null,
 
-    ie_full_name: payload.paymentDetailsIndividualEntrepreneur?.fullName || null,
-    ie_organization_legal_address: payload.paymentDetailsIndividualEntrepreneur?.organizationLegalAddress || null,
-    ie_inn: payload.paymentDetailsIndividualEntrepreneur?.inn || null,
-    ie_ogrn: payload.paymentDetailsIndividualEntrepreneur?.ogrn || null,
-    ie_transaction_account: payload.paymentDetailsIndividualEntrepreneur?.transactionAccount || null,
-    ie_bank: payload.paymentDetailsIndividualEntrepreneur?.bank || null,
-    ie_bank_inn: payload.paymentDetailsIndividualEntrepreneur?.bankInn || null,
-    ie_bank_bic: payload.paymentDetailsIndividualEntrepreneur?.bankBic || null,
-    ie_bank_correspondent_account: payload.paymentDetailsIndividualEntrepreneur?.bankCorrespondentAccount || null,
-    ie_bank_legal_address: payload.paymentDetailsIndividualEntrepreneur?.bankLegalAddress || null,
+    // ie_full_name: payload.paymentDetailsIndividualEntrepreneur?.fullName || null,
+    // ie_organization_legal_address: payload.paymentDetailsIndividualEntrepreneur?.organizationLegalAddress || null,
+    // ie_inn: payload.paymentDetailsIndividualEntrepreneur?.inn || null,
+    // ie_ogrn: payload.paymentDetailsIndividualEntrepreneur?.ogrn || null,
+    // ie_transaction_account: payload.paymentDetailsIndividualEntrepreneur?.transactionAccount || null,
+    // ie_bank: payload.paymentDetailsIndividualEntrepreneur?.bank || null,
+    // ie_bank_inn: payload.paymentDetailsIndividualEntrepreneur?.bankInn || null,
+    // ie_bank_bic: payload.paymentDetailsIndividualEntrepreneur?.bankBic || null,
+    // ie_bank_correspondent_account: payload.paymentDetailsIndividualEntrepreneur?.bankCorrespondentAccount || null,
+    // ie_bank_legal_address: payload.paymentDetailsIndividualEntrepreneur?.bankLegalAddress || null,
+
+    ie_full_name: payload.paymentDetailsFullName || null,
+    ie_organization_legal_address: payload.paymentDetailsOrganizationLegalAddress || null,
+    ie_inn: payload.paymentDetailsInn || null,
+    ie_ogrn: payload.paymentDetailsOgrn || null,
+    ie_transaction_account: payload.paymentDetailsTransactionAccount || null,
+    ie_bank: payload.paymentDetailsBank || null,
+    ie_bank_inn: payload.paymentDetailsBankInn || null,
+    ie_bank_bic: payload.paymentDetailsBankBic || null,
+    ie_bank_correspondent_account: payload.paymentDetailsBankCorrespondentAccount || null,
+    ie_bank_legal_address: payload.paymentDetailsBankLegalAddress || null,
+
     se_full_name: payload.paymentDetailsSelfEmployed?.fullName || null,
     se_transaction_account: payload.paymentDetailsSelfEmployed?.transactionAccount || null,
     se_inn: payload.paymentDetailsSelfEmployed?.inn || null,
@@ -59,7 +71,10 @@ export const userUuidOutAdapter = async (payload = null) => {
   if (!!payload.passportRegistrationSpread) data.passport_registration_spread = payload.passportRegistrationSpread;
   if (!!payload.passportVerificationSpread) data.passport_verification_spread = payload.passportVerificationSpread;
 
-  if (!!payload.paymentDetailsIndividualEntrepreneur?.confirmDocFile) data.ie_confirm_doc = payload.paymentDetailsIndividualEntrepreneur.confirmDocFile;
+  // if (!!payload.paymentDetailsIndividualEntrepreneur?.confirmDocFile) data.ie_confirm_doc = payload.paymentDetailsIndividualEntrepreneur.confirmDocFile;
+
+  if (!!payload.paymentDetailConfirmDocsFile) data.ie_confirm_doc = payload.paymentDetailConfirmDocsFile;
+
   if (!!payload.paymentDetailsSelfEmployed?.confirmDocFile) data.se_confirm_doc = payload.paymentDetailsSelfEmployed.confirmDocFile;
   if (payload.agencyContractFile !== undefined) {
     console.debug('payload.agencyContractFile', payload.agencyContractFile); //DELETE

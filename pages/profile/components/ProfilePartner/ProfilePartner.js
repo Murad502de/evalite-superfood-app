@@ -3,6 +3,7 @@ import * as textContent from './shared/textContent';
 import PartnerProfile from '@/components/PartnerProfile/PartnerProfile.vue';
 import { editPersonal } from '@/UseCases/User/Profile/Partner/EditBySelf/editPersonal';
 import { editPassport } from '@/UseCases/User/Profile/Partner/EditBySelf/editPassport';
+import { editPaymentDetails } from '@/UseCases/User/Profile/Partner/EditBySelf/editPaymentDetails';
 
 export default {
   components: {
@@ -50,9 +51,17 @@ export default {
       });
       this.saveLoading = false;
     },
-    savePaymentDetails(data) {
+    async savePaymentDetails(data) {
       console.debug('savePaymentDetails/data', data); //DELETE
       this.saveLoading = true;
+      await editPaymentDetails({
+        data: {
+          uuid: this.userData.uuid,
+          ...data,
+        },
+        store: this.$store,
+      });
+      this.saveLoading = false;
     },
     saveContract(data) {
       console.debug('saveContract/data', data); //DELETE
