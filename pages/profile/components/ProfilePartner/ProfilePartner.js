@@ -9,7 +9,9 @@ export default {
   },
   props: {},
   data() {
-    return {};
+    return {
+      saveLoading: false,
+    };
   },
   computed: {
     ...mapGetters('userStore', ['userData']),
@@ -26,6 +28,7 @@ export default {
     async savePersonal(data) {
       console.debug('savePersonal/data', data); //DELETE
       console.debug('savePersonal/this', this.$store); //DELETE
+      this.saveLoading = true;
       await editPersonal({
         data: {
           uuid: this.userData.uuid,
@@ -33,6 +36,7 @@ export default {
         },
         store: this.$store,
       });
+      this.saveLoading = false;
     },
     savePassport(data) {
       console.debug('savePassport/data', data); //DELETE

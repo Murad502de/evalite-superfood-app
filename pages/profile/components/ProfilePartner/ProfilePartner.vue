@@ -5,6 +5,7 @@
   .profile-partner__main
     PartnerProfile(
       :user="userData",
+      :saveLoading="saveLoading"
       @save:personal="savePersonal",
       @save:passport="savePassport",
       @save:paymentDetails="savePaymentDetails",

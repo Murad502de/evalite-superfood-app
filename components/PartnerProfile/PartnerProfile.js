@@ -160,14 +160,17 @@ export default {
       return this.user.agencyContract;
     },
   },
-  watch: {},
+  watch: {
+    saveLoading(value) {
+      if (!value) this.closeForce();
+    },
+  },
   methods: {
     openCardSettings(cardName) {
       this.openedSettings = cardName;
       this.dialog = true;
     },
     close() {
-      console.debug('methods/close/saveLoading', this.saveLoading)
       if (this.saveLoading) return;
       this.closeForce();
     },
@@ -216,26 +219,22 @@ export default {
       return true;
     },
     save() {
-      let valid = true;
-
       switch (this.openedSettings) {
         case cardNames.personalCard:
-          valid = this.savePersonal();
+          this.savePersonal();
           break;
         case cardNames.passportCard:
-          valid = this.savePassport();
+          this.savePassport();
           break;
         case cardNames.paymentDetailsCard:
-          valid = this.savePaymentDetails();
+          this.savePaymentDetails();
           break;
         case cardNames.contractCard:
-          valid = this.saveContract();
+          this.saveContract();
           break;
         default:
           break;
       }
-
-      if (valid) this.closeForce();
     },
     getDataToUpdatePersonal() {
       let data = {};
