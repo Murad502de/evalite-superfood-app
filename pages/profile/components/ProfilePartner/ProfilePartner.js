@@ -14,6 +14,7 @@ export default {
   data() {
     return {
       saveLoading: false,
+      submitLoading: false,
     };
   },
   computed: {
@@ -21,13 +22,13 @@ export default {
     title() {
       return textContent.title;
     },
+    partnerProfileDisabled() {
+      return this.userData.verificationStatus === 'waiting';
+    },
   },
   watch: {},
   methods: {
     ...mapActions('userStore', ['setUserData']),
-    confirm() {
-      return confirm('Применение данных настроек потребует повторной верификации');
-    },
     async savePersonal(data) {
       console.debug('savePersonal/data', data); //DELETE
       this.saveLoading = true;
@@ -76,8 +77,9 @@ export default {
       });
       this.saveLoading = false;
     },
-    sendForVerification() {
+    async sendForVerification() {
       console.debug('sendForVerification'); //DELETE
+      this.submitLoading = true;
     },
   },
   created() { },

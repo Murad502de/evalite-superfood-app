@@ -13,6 +13,10 @@ export default {
       type: Array,
       default: () => ([]),
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
   },
   data() {
     return {};

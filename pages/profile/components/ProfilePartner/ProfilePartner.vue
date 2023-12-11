@@ -5,11 +5,13 @@
   .profile-partner__main
     PartnerProfile(
       :user="userData",
-      :saveLoading="saveLoading"
+      :saveLoading="saveLoading",
+      :submitLoading="submitLoading",
+      :disabled="partnerProfileDisabled",
       @save:personal="savePersonal",
       @save:passport="savePassport",
       @save:paymentDetails="savePaymentDetails",
-      @save:contract="saveContract"
+      @save:contract="saveContract",
       @submit="sendForVerification"
     )
 </template>

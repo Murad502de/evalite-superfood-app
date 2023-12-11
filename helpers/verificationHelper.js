@@ -39,3 +39,7 @@ export const getUserVerificationStatusIconName = (status) => {
       return reportOutlinedSVG;
   }
 };
+
+export const warnVerification = () => {
+  return confirm('Применение данных настроек потребует повторной верификации');
+}

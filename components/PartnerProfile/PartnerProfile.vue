@@ -3,6 +3,8 @@
   .partner-profile__main
     PersonalCard.partner-profile-card(
       :user="user",
+      :disabled="disabled"
+      :submitLoading="submitLoading"
       @submit="submit",
       @edit="openCardSettings(cardNames.personalCard)"
     )
@@ -10,15 +12,18 @@
       BlockCard.partner-profile-block(
         :title="'Паспорт'",
         :items="passCardFields",
+        :disabled="disabled"
         @edit="openCardSettings(cardNames.passportCard)"
       )
       BlockCard.partner-profile-block(
         :title="'Платежные данные'",
         :items="paymentDetailsCardFields",
+        :disabled="disabled"
         @edit="openCardSettings(cardNames.paymentDetailsCard)"
       )
       BlockCard.partner-profile-block.partner-profile-contract(
         :title="'Договор'",
+        :disabled="disabled"
         @edit="openCardSettings(cardNames.contractCard)"
       )
         a.partner-profile-contract__link(
@@ -28,7 +33,7 @@
         ) Просмотреть договор
 
         AppButton(
-          v-if="!agencyContractLink",
+          v-if="!agencyContractLink && !disabled",
           :loading="newAgencyContractLoading",
           @click="getAgencyContractTemplate"
         ) Получить договор

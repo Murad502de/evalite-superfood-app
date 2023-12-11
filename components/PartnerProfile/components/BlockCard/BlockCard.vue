@@ -2,7 +2,7 @@
 AppCard.block-card
   .block-card__header
     .block-card__title {{ title }}
-    .block-card__title-edit(@click="edit") Изменить
+    .block-card__title-edit(v-if="!disabled", @click="edit") Изменить
 
   v-divider.block-card__divider
 

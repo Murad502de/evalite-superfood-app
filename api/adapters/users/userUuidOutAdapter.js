@@ -10,6 +10,7 @@ export const userUuidOutAdapter = async (payload = null) => {
     user_birthday: payload.birthday || null,
     user_email: payload.email || null,
     user_phone: payload.phone || null,
+    user_verification_status: payload.verificationStatus || null,
 
     // pass_full_name: payload.passport?.fullName || null,
     // pass_series: payload.passport?.series || null,

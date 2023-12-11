@@ -31,6 +31,14 @@ export default {
       type: Boolean,
       default: false,
     },
+    submitLoading: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
   },
   data() {
     return {

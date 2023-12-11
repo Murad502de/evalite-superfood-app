@@ -15,6 +15,14 @@ export default {
       type: Object,
       required: true,
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
+    submitLoading: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
