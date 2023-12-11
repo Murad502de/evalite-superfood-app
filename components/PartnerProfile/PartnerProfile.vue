@@ -28,6 +28,7 @@
         ) Просмотреть договор
 
         AppButton(
+          v-if="!agencyContractLink",
           :loading="newAgencyContractLoading",
           @click="getAgencyContractTemplate"
         ) Получить договор

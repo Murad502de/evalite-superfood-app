@@ -4,6 +4,7 @@ import PartnerProfile from '@/components/PartnerProfile/PartnerProfile.vue';
 import { editPersonal } from '@/UseCases/User/Profile/Partner/EditBySelf/editPersonal';
 import { editPassport } from '@/UseCases/User/Profile/Partner/EditBySelf/editPassport';
 import { editPaymentDetails } from '@/UseCases/User/Profile/Partner/EditBySelf/editPaymentDetails';
+import { editContract } from '@/UseCases/User/Profile/Partner/EditBySelf/editContract';
 
 export default {
   components: {
@@ -63,9 +64,17 @@ export default {
       });
       this.saveLoading = false;
     },
-    saveContract(data) {
+    async saveContract(data) {
       console.debug('saveContract/data', data); //DELETE
-      this.confirm();
+      this.saveLoading = true;
+      await editContract({
+        data: {
+          uuid: this.userData.uuid,
+          ...data,
+        },
+        store: this.$store,
+      });
+      this.saveLoading = false;
     },
     sendForVerification() {
       console.debug('sendForVerification'); //DELETE
