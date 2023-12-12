@@ -28,7 +28,10 @@ export default {
     },
     hideProfileSubmitBtn() {
       return this.userData.verificationStatus === 'waiting' ||
-        this.userData.verificationStatus === 'verified';
+        this.userData.verificationStatus === 'verified' ||
+        !this.userData.passport ||
+        !this.userData.paymentDetailsIndividualEntrepreneur ||
+        !this.userData.agencyContract;
     },
   },
   watch: {},
