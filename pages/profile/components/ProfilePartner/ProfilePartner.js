@@ -5,6 +5,7 @@ import { editPersonal } from '@/UseCases/User/Profile/Partner/EditBySelf/editPer
 import { editPassport } from '@/UseCases/User/Profile/Partner/EditBySelf/editPassport';
 import { editPaymentDetails } from '@/UseCases/User/Profile/Partner/EditBySelf/editPaymentDetails';
 import { editContract } from '@/UseCases/User/Profile/Partner/EditBySelf/editContract';
+import { submitForVerification } from '@/UseCases/User/Profile/Partner/EditBySelf/submitForVerification';
 
 export default {
   components: {
@@ -24,6 +25,10 @@ export default {
     },
     partnerProfileDisabled() {
       return this.userData.verificationStatus === 'waiting';
+    },
+    hideProfileSubmitBtn() {
+      return this.userData.verificationStatus === 'waiting' ||
+        this.userData.verificationStatus === 'verified';
     },
   },
   watch: {},
@@ -80,6 +85,13 @@ export default {
     async sendForVerification() {
       console.debug('sendForVerification'); //DELETE
       this.submitLoading = true;
+      await submitForVerification({
+        data: {
+          uuid: this.userData.uuid,
+        },
+        store: this.$store,
+      });
+      this.submitLoading = false;
     },
   },
   created() { },

@@ -25,6 +25,7 @@ export default {
   watch: {},
   methods: {
     edit() {
+      if (this.disabled) return;
       this.$emit('edit');
     },
   },

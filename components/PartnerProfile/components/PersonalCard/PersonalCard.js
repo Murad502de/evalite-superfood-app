@@ -23,6 +23,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    hideSubmitBtn: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -71,6 +75,7 @@ export default {
   watch: {},
   methods: {
     edit() {
+      if (this.disabled || this.submitLoading) return;
       this.$emit('edit');
     },
     getVerificationStatusTitle() {

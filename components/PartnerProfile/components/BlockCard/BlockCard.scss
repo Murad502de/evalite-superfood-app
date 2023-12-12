@@ -23,6 +23,11 @@
         font-weight: 600;
         line-height: 22px;
         cursor: pointer;
+
+        &_disabled {
+          color: #666;
+          cursor: unset;
+        }
       }
     }
 

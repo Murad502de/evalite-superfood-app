@@ -35,6 +35,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    hideSubmitBtn: {
+      type: Boolean,
+      default: false,
+    },
     disabled: {
       type: Boolean,
       required: false,

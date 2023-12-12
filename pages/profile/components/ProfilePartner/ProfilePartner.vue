@@ -7,6 +7,7 @@
       :user="userData",
       :saveLoading="saveLoading",
       :submitLoading="submitLoading",
+      :hideSubmitBtn="hideProfileSubmitBtn",
       :disabled="partnerProfileDisabled",
       @save:personal="savePersonal",
       @save:passport="savePassport",
