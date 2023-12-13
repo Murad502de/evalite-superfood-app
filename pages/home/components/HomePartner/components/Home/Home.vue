@@ -20,6 +20,7 @@
         :amountThreshold="amountThreshold",
         :loading="widgetIncomeReferralLoading",
         :loadingPayout="widgetIncomeReferralLoadingPayout",
+        :hidePayoutBtn="!isVerified",
         @payout="payoutReferralIncome"
       )
 
@@ -135,7 +136,7 @@
               :items="salesBonusses",
               :loading="salesBonussesLoading",
               :loading-text="'Данные загружаются'",
-              :server-items-length="salesBonussesItemsLength"
+              :server-items-length="salesBonussesItemsLength",
               @update:options="updateSBOptions"
             )
               template(v-slot:item.status="{ item }")
@@ -176,7 +177,7 @@
               :items="payouts",
               :loading="payoutsLoading",
               :loading-text="'Данные загружаются'",
-              :server-items-length="payoutsItemsLength"
+              :server-items-length="payoutsItemsLength",
               @update:options="updatePOptions"
             )
               template(v-slot:item.status="{ item }")

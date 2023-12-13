@@ -35,6 +35,10 @@ export default {
       type: Number,
       default: 0,
     },
+    hidePayoutBtn: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {

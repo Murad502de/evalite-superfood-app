@@ -20,6 +20,7 @@ import AppPickerDate from '@/components/AppPickerDate/AppPickerDate.vue';
 import { getSaleStatusByName } from '@/utils/sale';
 import { getPayoutStatusByName } from '@/utils/payout';
 import { parseFromDatePickerDdMmYyyy } from '@/utils/date';
+import { isVerified } from '@/helpers/verificationHelper';
 
 export default {
   components: {
@@ -208,6 +209,9 @@ export default {
     },
     userInviteCode() {
       return this.userData.inviteCode;
+    },
+    isVerified() {
+      return isVerified(this.userData.verificationStatus);
     },
   },
   watch: {},

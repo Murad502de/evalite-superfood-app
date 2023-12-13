@@ -43,3 +43,5 @@ export const getUserVerificationStatusIconName = (status) => {
 export const warnVerification = () => {
   return confirm('Применение данных настроек потребует повторной верификации');
 }
+
+export const isVerified = (status = null) => (status === verificationStatuses.verified);

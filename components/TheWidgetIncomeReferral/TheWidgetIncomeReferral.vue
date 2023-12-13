@@ -3,9 +3,7 @@ AppCard.the-widget-income-partner
   .the-widget-income-partner__container
     .the-widget-income-partner__header
       .the-widget-income-partner--status(v-show="!loading")
-        StatusSuccess.the-widget-income-partner--status__logo(
-          v-if="isSuccess"
-        )
+        StatusSuccess.the-widget-income-partner--status__logo(v-if="isSuccess")
         StatusWarning.the-widget-income-partner--status__logo(v-else)
         .the-widget-income-partner--status__title {{ getStatusTitle() }}
       AppSkeleton.the-widget-income-partner__skeleton(
@@ -27,7 +25,7 @@ AppCard.the-widget-income-partner
 
     .the-widget-income-partner__footer
       AppButton.the-widget-income-partner--payout(
-        v-show="!loading",
+        v-show="!loading && !hidePayoutBtn",
         color="#FFFFFF",
         :styles="{ color: '#0082DE' }",
         :loading="loadingPayout",
