@@ -105,17 +105,41 @@ export default {
     },
     async saveVerificationsDetail() {
       console.debug('saveVerificationsDetail/verificationsDetail', this.verificationsDetail); //DELETE
-      console.debug('saveVerificationsDetail/verificationsDetail/userUuidOutAdapter', await userUuidOutAdapter(this.verificationsDetail)); //DELETE
+      console.debug('saveVerificationsDetail/verificationsDetail/userUuidOutAdapter', await userUuidOutAdapter({
+        ...this.verificationsDetail,
+        passportFullName: this.verificationsDetail.passport.fullName,
+        passportSeries: this.verificationsDetail.passport.series,
+        passportNumber: this.verificationsDetail.passport.number,
+        passportIssueDate: this.verificationsDetail.passport.issueDate,
+        passportDepartmentCode: this.verificationsDetail.passport.departmentCode,
+        passportIssueBy: this.verificationsDetail.passport.issueBy,
+        passportRegistrationAddress: this.verificationsDetail.passport.registrationAddress,
+        passportMainSpread: this.verificationsDetail.passport.mainSpreadFile,
+        passportRegistrationSpread: this.verificationsDetail.passport.registrationSpreadFile,
+        passportVerificationSpread: this.verificationsDetail.passport.verificationSpreadFile,
+
+        paymentDetailsFullName: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.fullName,
+        paymentDetailsOrganizationLegalAddress: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.organizationLegalAddress,
+        paymentDetailsInn: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.inn,
+        paymentDetailsOgrn: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.ogrn,
+        paymentDetailsTransactionAccount: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.transactionAccount,
+        paymentDetailsBank: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.bank,
+        paymentDetailsBankInn: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.bankInn,
+        paymentDetailsBankBic: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.bankBic,
+        paymentDetailsBankCorrespondentAccount: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.bankCorrespondentAccount,
+        paymentDetailsBankLegalAddress: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.bankLegalAddress,
+        paymentDetailConfirmDocsFile: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.confirmDocFile,
+      })); //DELETE
       this.verificationsDetailLoadingSave = true;
-      const usersUuidUpdateResponse = await usersUuidUpdate(
-        await userUuidOutAdapter(this.verificationsDetail)
-      );
+      // const usersUuidUpdateResponse = await usersUuidUpdate(
+      //   await userUuidOutAdapter(this.verificationsDetail)
+      // );
 
-      console.debug('usersUuidUpdateResponse', usersUuidUpdateResponse); //DELETE
+      // console.debug('usersUuidUpdateResponse', usersUuidUpdateResponse); //DELETE
 
-      if (usersUuidUpdateResponse.status !== 200) {
-        alert('Ошибка сохранения пользователя'); //FIXME implement with vuetify
-      }
+      // if (usersUuidUpdateResponse.status !== 200) {
+      //   alert('Ошибка сохранения пользователя'); //FIXME implement with vuetify
+      // }
 
       this.verificationsDetailEdited = false;
       this.verificationsDetailLoadingSave = false;
