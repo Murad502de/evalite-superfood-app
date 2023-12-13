@@ -77,11 +77,14 @@ export const userUuidOutAdapter = async (payload = null) => {
   if (!!payload.paymentDetailConfirmDocsFile) data.ie_confirm_doc = payload.paymentDetailConfirmDocsFile;
 
   if (!!payload.paymentDetailsSelfEmployed?.confirmDocFile) data.se_confirm_doc = payload.paymentDetailsSelfEmployed.confirmDocFile;
-  if (payload.agencyContractFile !== undefined) {
-    console.debug('payload.agencyContractFile', payload.agencyContractFile); //DELETE
 
-    data.agency_contract = payload.agencyContractFile;
-  }
+  if (!!payload.agencyContractFile) data.agency_contract = payload.agencyContractFile;
+
+  // if (payload.agencyContractFile !== undefined) {
+  //   console.debug('payload.agencyContractFile', payload.agencyContractFile); //DELETE
+
+  //   data.agency_contract = payload.agencyContractFile;
+  // }
 
   return data;
 };

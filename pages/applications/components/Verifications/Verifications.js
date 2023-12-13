@@ -90,7 +90,7 @@ export default {
 
       this.verificationsDetailLoadingApprove = true;
 
-      const usersUuidStatusVerificationSetResponse = await usersUuidStatusVerificationSet(this.verificationsDetail.uuid, 'completed');
+      const usersUuidStatusVerificationSetResponse = await usersUuidStatusVerificationSet(this.verificationsDetail.uuid, 'verified');
 
       console.debug('usersUuidStatusVerificationSetResponse', usersUuidStatusVerificationSetResponse); //DELETE
 
@@ -129,17 +129,45 @@ export default {
         paymentDetailsBankCorrespondentAccount: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.bankCorrespondentAccount,
         paymentDetailsBankLegalAddress: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.bankLegalAddress,
         paymentDetailConfirmDocsFile: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.confirmDocFile,
+
+        agencyContractFile: this.verificationsDetail.agencyContractFile === null ? '__null' : this.verificationsDetail.agencyContractFile,
       })); //DELETE
       this.verificationsDetailLoadingSave = true;
-      // const usersUuidUpdateResponse = await usersUuidUpdate(
-      //   await userUuidOutAdapter(this.verificationsDetail)
-      // );
+      const usersUuidUpdateResponse = await usersUuidUpdate(
+        await userUuidOutAdapter({
+          ...this.verificationsDetail,
+          passportFullName: this.verificationsDetail.passport.fullName,
+          passportSeries: this.verificationsDetail.passport.series,
+          passportNumber: this.verificationsDetail.passport.number,
+          passportIssueDate: this.verificationsDetail.passport.issueDate,
+          passportDepartmentCode: this.verificationsDetail.passport.departmentCode,
+          passportIssueBy: this.verificationsDetail.passport.issueBy,
+          passportRegistrationAddress: this.verificationsDetail.passport.registrationAddress,
+          passportMainSpread: this.verificationsDetail.passport.mainSpreadFile,
+          passportRegistrationSpread: this.verificationsDetail.passport.registrationSpreadFile,
+          passportVerificationSpread: this.verificationsDetail.passport.verificationSpreadFile,
 
-      // console.debug('usersUuidUpdateResponse', usersUuidUpdateResponse); //DELETE
+          paymentDetailsFullName: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.fullName,
+          paymentDetailsOrganizationLegalAddress: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.organizationLegalAddress,
+          paymentDetailsInn: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.inn,
+          paymentDetailsOgrn: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.ogrn,
+          paymentDetailsTransactionAccount: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.transactionAccount,
+          paymentDetailsBank: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.bank,
+          paymentDetailsBankInn: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.bankInn,
+          paymentDetailsBankBic: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.bankBic,
+          paymentDetailsBankCorrespondentAccount: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.bankCorrespondentAccount,
+          paymentDetailsBankLegalAddress: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.bankLegalAddress,
+          paymentDetailConfirmDocsFile: this.verificationsDetail.paymentDetailsIndividualEntrepreneur.confirmDocFile,
 
-      // if (usersUuidUpdateResponse.status !== 200) {
-      //   alert('Ошибка сохранения пользователя'); //FIXME implement with vuetify
-      // }
+          agencyContractFile: this.verificationsDetail.agencyContractFile === null ? '__null' : this.verificationsDetail.agencyContractFile,
+        })
+      );
+
+      console.debug('usersUuidUpdateResponse', usersUuidUpdateResponse); //DELETE
+
+      if (usersUuidUpdateResponse.status !== 200) {
+        alert('Ошибка сохранения пользователя'); //FIXME implement with vuetify
+      }
 
       this.verificationsDetailEdited = false;
       this.verificationsDetailLoadingSave = false;
