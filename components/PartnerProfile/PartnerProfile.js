@@ -323,6 +323,7 @@ export default {
       this.password = value;
     },
     updatePassFullName(value) {
+      console.debug('PartnerProfile/methods/updatePassFullName/value', value); //DELETE
       this.passportFullName = value;
     },
     updatePassSeries(value) {

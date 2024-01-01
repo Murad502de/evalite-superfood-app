@@ -120,35 +120,43 @@ export default {
       this.$emit('update:progress', newVal);
     },
     avatarFile(newVal, oldVal) {
+      console.debug('AFPD/watch/avatarFile/newVal/AFTER', newVal); //DELETE
       this.$emit('update:avatar', newVal);
     },
     secondName(newVal, oldVal) {
-      if (newVal === null || oldVal === null) return;
+      // if (newVal === null || oldVal === null) return;
+      console.debug('AFPD/watch/secondName/newVal/AFTER', newVal); //DELETE
       this.$emit('update:second_name', newVal);
     },
     firstName(newVal, oldVal) {
-      if (newVal === null || oldVal === null) return;
+      // if (newVal === null || oldVal === null) return;
+      console.debug('AFPD/watch/firstName/newVal/AFTER', newVal); //DELETE
       this.$emit('update:first_name', newVal);
     },
     thirdName(newVal, oldVal) {
-      if (newVal === null || oldVal === null) return;
+      // if (newVal === null || oldVal === null) return;
+      console.debug('AFPD/watch/thirdName/newVal/AFTER', newVal); //DELETE
       this.$emit('update:third_name', newVal);
     },
     gender(newVal, oldVal) {
-      if (newVal === null || oldVal === null) return;
+      // if (newVal === null || oldVal === null) return;
+      console.debug('AFPD/watch/gender/newVal/AFTER', newVal); //DELETE
       const genderCode = newVal === 'муж' ? 'male' : 'female';
       this.$emit('update:gender', genderCode);
     },
     birthday(newVal, oldVal) {
-      if (newVal === null || oldVal === null) return;
+      // if (newVal === null || oldVal === null) return;
+      console.debug('AFPD/watch/birthday/newVal/AFTER', newVal); //DELETE
       this.$emit('update:birthday', newVal);
     },
     email(newVal, oldVal) {
-      if (newVal === null || oldVal === null) return;
+      // if (newVal === null || oldVal === null) return;
+      console.debug('AFPD/watch/email/newVal/AFTER', newVal); //DELETE
       this.$emit('update:email', newVal);
     },
     phone(newVal, oldVal) {
-      if (newVal === null || oldVal === null) return;
+      // if (newVal === null || oldVal === null) return;
+      console.debug('AFPD/watch/phone/newVal/AFTER', newVal); //DELETE
       this.$emit('update:phone', newVal);
     },
   },

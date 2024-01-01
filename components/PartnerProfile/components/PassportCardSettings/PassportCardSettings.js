@@ -34,6 +34,7 @@ export default {
   watch: {},
   methods: {
     updateFullNamePass(value) {
+      console.debug('PassportCardSettings/methods/updateFullNamePass/value', value); //DELETE
       this.$emit('update:pass_full_name', value);
     },
     updateSeriesPass(value) {

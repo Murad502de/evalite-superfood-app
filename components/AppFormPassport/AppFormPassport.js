@@ -112,56 +112,57 @@ export default {
       this.$emit('update:progress', newVal);
     },
     passFullName(newVal, oldVal) {
-      if (newVal === null || oldVal === null || this.isDataNull()) return;
-      // console.debug('PS/watch/passFullName', newVal); //DELETE
+      // if (newVal === null || oldVal === null || this.isDataNull()) return;
+      console.debug('PS/watch/passFullName/AFTER', newVal); //DELETE
       this.$emit('update:full_name', newVal);
     },
     passSeries(newVal, oldVal) {
-      if (newVal === null || oldVal === null || this.isDataNull()) return;
-      // console.debug('PS/watch/passSeries', newVal); //DELETE
+      // if (newVal === null || oldVal === null || this.isDataNull()) return;
+      console.debug('PS/watch/passSeries/AFTER', newVal); //DELETE
       this.$emit('update:series', newVal);
     },
     passNumber(newVal, oldVal) {
-      if (newVal === null || oldVal === null || this.isDataNull()) return;
-      // console.debug('PS/watch/passNumber', newVal); //DELETE
+      // if (newVal === null || oldVal === null || this.isDataNull()) return;
+      console.debug('PS/watch/passNumber/AFTER', newVal); //DELETE
       this.$emit('update:number', newVal);
     },
     passIssueDate(newVal, oldVal) {
-      if (newVal === null || this.isDataNull()) return;
+      // if (newVal === null || this.isDataNull()) return;
       // if (newVal === null || oldVal === null || this.isDataNull()) return;
-      // console.debug('PS/watch/passIssueDate', newVal); //DELETE
+      console.debug('PS/watch/passIssueDate/AFTER', newVal); //DELETE
       this.$emit('update:issue_date', newVal);
     },
     passRegistrationAddress(newVal, oldVal) {
-      if (newVal === null || oldVal === null || this.isDataNull()) return;
-      // console.debug('PS/watch/passRegistrationAddress', newVal); //DELETE
+      // if (newVal === null || oldVal === null || this.isDataNull()) return;
+      console.debug('PS/watch/passRegistrationAddress/AFTER', newVal); //DELETE
       this.$emit('update:registration_address', newVal);
     },
     passIssuedBy(newVal, oldVal) {
-      if (newVal === null || oldVal === null || this.isDataNull()) return;
-      // console.debug('PS/watch/passIssuedBy', newVal); //DELETE
+      // if (newVal === null || oldVal === null || this.isDataNull()) return;
+      console.debug('PS/watch/passIssuedBy/AFTER', newVal); //DELETE
       this.$emit('update:issue_by', newVal);
     },
     passDepartmentCode(newVal, oldVal) {
-      if (newVal === null || oldVal === null || this.isDataNull()) return;
-      // console.debug('PS/watch/passDepartmentCode', newVal); //DELETE
+      // if (newVal === null || oldVal === null || this.isDataNull()) return;
+      console.debug('PS/watch/passDepartmentCode/AFTER', newVal); //DELETE
       this.$emit('update:department_code', newVal);
     },
     mainSpreadMediaFile(newVal) {
-      // console.debug('PS/watch/mainSpreadMediaFile/BEFORE', newVal); //DELETE
-
+      console.debug('PS/watch/mainSpreadMediaFile/BEFORE', newVal); //DELETE
       if (this.isDataNull()) return;
-      // console.debug('PS/watch/mainSpreadMediaFile', newVal); //DELETE
+      console.debug('PS/watch/mainSpreadMediaFile/AFTER', newVal); //DELETE
       this.$emit('update:main_spread', newVal);
     },
     registrationSpreadMediaFile(newVal) {
+      console.debug('PS/watch/registrationSpreadMediaFile/BEFORE', newVal); //DELETE
       if (this.isDataNull()) return;
-      // console.debug('PS/watch/registrationSpreadMediaFile', newVal); //DELETE
+      console.debug('PS/watch/registrationSpreadMediaFile/AFTER', newVal); //DELETE
       this.$emit('update:registration_spread', newVal);
     },
     verificationSpreadMediaFile(newVal) {
+      console.debug('PS/watch/verificationSpreadMediaFile/BEFORE', newVal); //DELETE
       if (this.isDataNull()) return;
-      // console.debug('PS/watch/verificationSpreadMediaFile', newVal); //DELETE
+      console.debug('PS/watch/verificationSpreadMediaFile/AFTER', newVal); //DELETE
       this.$emit('update:verification_spread', newVal);
     },
   },
