@@ -17,6 +17,10 @@ export default {
       type: Boolean,
       required: false,
     },
+    loading: {
+      type: Boolean,
+      required: false,
+    },
   },
   data() {
     return {};

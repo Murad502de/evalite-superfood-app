@@ -11,12 +11,14 @@
       @edit="openCardSettings(cardNames.personalCard)"
     )
     .partner-profile-blocks
-      BlockCard.partner-profile-block(
+      BlockCard.passport-card.partner-profile-block(
         :title="'Паспорт'",
         :items="passCardFields",
         :disabled="disabled || submitLoading",
+        :loading="loading",
         @edit="openCardSettings(cardNames.passportCard)"
       )
+        PassportCardStub
       BlockCard.partner-profile-block(
         :title="'Платежные данные'",
         :items="paymentDetailsCardFields",

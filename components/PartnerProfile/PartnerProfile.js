@@ -3,6 +3,7 @@ import AppOverlay from '@/components/AppOverlay/AppOverlay.vue';
 import PersonalCard from './components/PersonalCard/PersonalCard.vue';
 import BlockCard from './components/BlockCard/BlockCard.vue';
 import PersonalCardSettings from './components/PersonalCardSettings/PersonalCardSettings.vue';
+import PassportCardStub from './components/PassportCard/components/Stub/Stub.vue';
 import PassportCardSettings from './components/PassportCardSettings/PassportCardSettings.vue';
 import PaymentDetailsCardSettings from './components/PaymentDetailsCardSettings/PaymentDetailsCardSettings.vue';
 import ContractCardSettings from './components/ContractCardSettings/ContractCardSettings.vue';
@@ -18,6 +19,7 @@ export default {
     PersonalCard,
     BlockCard,
     PersonalCardSettings,
+    PassportCardStub,
     PassportCardSettings,
     PaymentDetailsCardSettings,
     ContractCardSettings,
