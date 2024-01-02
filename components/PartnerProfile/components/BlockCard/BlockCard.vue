@@ -10,10 +10,15 @@ AppCard.block-card
   v-divider.block-card__divider
 
   .block-card__main
-    .block-card__field(v-for="(item, index) in items", :key="index")
+    slot(name="stub", v-if="loading")
+    .block-card__field(
+      v-if="!loading",
+      v-for="(item, index) in items",
+      :key="index"
+    )
       .block-card__field-title {{ item.title }}
       .block-card__field-value {{ item.value }}
-    slot
+    slot(v-if="!loading")
 </template>
 
 <script src="./BlockCard.js" />

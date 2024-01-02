@@ -3,7 +3,7 @@
   .partner-profile__main
     PersonalCard.partner-profile-card(
       :user="user",
-      :disabled="disabled || submitLoading",
+      :disabled="disabled || submitLoading || loading",
       :submitLoading="submitLoading",
       :hideSubmitBtn="hideSubmitBtn",
       :loading="loading",
@@ -14,22 +14,25 @@
       BlockCard.passport-card.partner-profile-block(
         :title="'Паспорт'",
         :items="passCardFields",
-        :disabled="disabled || submitLoading",
+        :disabled="disabled || submitLoading || loading",
         :loading="loading",
         @edit="openCardSettings(cardNames.passportCard)"
       )
-        PassportCardStub
-      BlockCard.partner-profile-block(
+        template(v-slot:stub)
+          PassportCardStub
+      BlockCard.payment-details-card.partner-profile-block(
         :title="'Платежные данные'",
         :items="paymentDetailsCardFields",
-        :disabled="disabled || submitLoading",
+        :disabled="disabled || submitLoading || loading",
         :loading="loading",
         @edit="openCardSettings(cardNames.paymentDetailsCard)"
       )
-        PaymentDetailsCardStub
+        template(v-slot:stub)
+          PaymentDetailsCardStub
       BlockCard.partner-profile-block.partner-profile-contract(
         :title="'Договор'",
-        :disabled="disabled || submitLoading",
+        :disabled="disabled || submitLoading || loading",
+        :loading="loading",
         @edit="openCardSettings(cardNames.contractCard)"
       )
         a.partner-profile-contract__link(
