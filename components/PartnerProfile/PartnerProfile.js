@@ -5,6 +5,7 @@ import BlockCard from './components/BlockCard/BlockCard.vue';
 import PersonalCardSettings from './components/PersonalCardSettings/PersonalCardSettings.vue';
 import PassportCardStub from './components/PassportCard/components/Stub/Stub.vue';
 import PassportCardSettings from './components/PassportCardSettings/PassportCardSettings.vue';
+import PaymentDetailsCardStub from './components/PaymentDetailsCard/components/Stub/Stub.vue';
 import PaymentDetailsCardSettings from './components/PaymentDetailsCardSettings/PaymentDetailsCardSettings.vue';
 import ContractCardSettings from './components/ContractCardSettings/ContractCardSettings.vue';
 import * as cardNames from './shared/cardNames.js';
@@ -21,6 +22,7 @@ export default {
     PersonalCardSettings,
     PassportCardStub,
     PassportCardSettings,
+    PaymentDetailsCardStub,
     PaymentDetailsCardSettings,
     ContractCardSettings,
   },

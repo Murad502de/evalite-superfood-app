@@ -23,8 +23,10 @@
         :title="'Платежные данные'",
         :items="paymentDetailsCardFields",
         :disabled="disabled || submitLoading",
+        :loading="loading",
         @edit="openCardSettings(cardNames.paymentDetailsCard)"
       )
+        PaymentDetailsCardStub
       BlockCard.partner-profile-block.partner-profile-contract(
         :title="'Договор'",
         :disabled="disabled || submitLoading",
