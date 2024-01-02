@@ -1,9 +1,5 @@
 <template lang="pug">
-AppOverlay.verifications-detail(
-  :dialog="dialog",
-  :title="title",
-  @close="close"
-)
+AppOverlay.verifications-detail(:dialog="dialog", @close="close")
   template(v-slot:actions)
     v-btn(
       dark,
@@ -16,14 +12,12 @@ AppOverlay.verifications-detail(
   PartnerProfile(
     :user="user",
     :saveLoading="saveLoading",
-    :submitLoading="submitLoading",
-    :hideSubmitBtn="hideProfileSubmitBtn",
+    hideSubmitBtn,
     :disabled="partnerProfileDisabled",
     @save:personal="savePersonal",
     @save:passport="savePassport",
     @save:paymentDetails="savePaymentDetails",
-    @save:contract="saveContract",
-    @submit="sendForVerification"
+    @save:contract="saveContract"
   )
 </template>
 

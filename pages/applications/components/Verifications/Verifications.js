@@ -83,25 +83,30 @@ export default {
     closeVerificationsDetailDialog() {
       console.debug('closeVerificationsDetailDialog/verificationsDetail', this.verificationsDetail); //DELETE
       this.verificationsDetailDialog = false;
-      this.verificationsDetail = null;
+      this.verificationsDetail = {};
     },
     async approveVerificationsDetail() {
       console.debug('approveVerificationsDetail/verificationsDetail', this.verificationsDetail); //DELETE
 
       this.verificationsDetailLoadingApprove = true;
 
-      const usersUuidStatusVerificationSetResponse = await usersUuidStatusVerificationSet(this.verificationsDetail.uuid, 'verified');
+      // const usersUuidStatusVerificationSetResponse = await usersUuidStatusVerificationSet(this.verificationsDetail.uuid, 'verified');
+      // console.debug('usersUuidStatusVerificationSetResponse', usersUuidStatusVerificationSetResponse); //DELETE
 
-      console.debug('usersUuidStatusVerificationSetResponse', usersUuidStatusVerificationSetResponse); //DELETE
+      // if (usersUuidStatusVerificationSetResponse.status !== 200) {
+      //   alert('Ошибка утверждения пользователя'); //FIXME implement with vuetify
+      // }
 
-      if (usersUuidStatusVerificationSetResponse.status !== 200) {
-        alert('Ошибка утверждения пользователя'); //FIXME implement with vuetify
-      }
+      setTimeout(() => {
+        this.verificationsDetailLoadingApprove = false;
+        this.verificationsDetailDialog = false;
+        this.verificationsDetail = {};
+      }, 2000);
 
-      this.verificationsDetailLoadingApprove = false;
-      this.verificationsDetailDialog = false;
-      this.verificationsDetail = null;
-      await this.fetchUsers();
+      // this.verificationsDetailLoadingApprove = false;
+      // this.verificationsDetailDialog = false;
+      // this.verificationsDetail = null;
+      // await this.fetchUsers();
     },
     async saveVerificationsDetail() {
       console.debug('saveVerificationsDetail/verificationsDetail', this.verificationsDetail); //DELETE

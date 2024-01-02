@@ -95,31 +95,31 @@ export default {
       return [
         {
           title: 'ФИО в паспорте',
-          value: this.user.passport?.fullName,
+          value: this.user?.passport?.fullName,
         },
         {
           title: 'Серия',
-          value: this.user.passport?.series,
+          value: this.user?.passport?.series,
         },
         {
           title: 'Номер',
-          value: this.user.passport?.number,
+          value: this.user?.passport?.number,
         },
         {
           title: 'Дата выдачи',
-          value: this.user.passport?.issueDate ? parseFromISOtoDdMmYyyy(this.user.passport?.issueDate) : null,
+          value: this.user?.passport?.issueDate ? parseFromISOtoDdMmYyyy(this.user?.passport?.issueDate) : null,
         },
         {
           title: 'Кем выдан',
-          value: this.user.passport?.issueBy,
+          value: this.user?.passport?.issueBy,
         },
         {
           title: 'Код подразделения',
-          value: this.user.passport?.departmentCode,
+          value: this.user?.passport?.departmentCode,
         },
         {
           title: 'Адрес регистрации',
-          value: this.user.passport?.registrationAddress,
+          value: this.user?.passport?.registrationAddress,
         },
       ];
     },
@@ -127,48 +127,48 @@ export default {
       return [
         {
           title: 'ФИО ИП',
-          value: this.user.paymentDetailsIndividualEntrepreneur?.fullName,
+          value: this.user?.paymentDetailsIndividualEntrepreneur?.fullName,
         },
         {
           title: 'Юридический адрес организации',
-          value: this.user.paymentDetailsIndividualEntrepreneur?.organizationLegalAddress,
+          value: this.user?.paymentDetailsIndividualEntrepreneur?.organizationLegalAddress,
         },
         {
           title: 'ИНН',
-          value: this.user.paymentDetailsIndividualEntrepreneur?.inn,
+          value: this.user?.paymentDetailsIndividualEntrepreneur?.inn,
         },
         {
           title: 'ОГРН',
-          value: this.user.paymentDetailsIndividualEntrepreneur?.ogrn,
+          value: this.user?.paymentDetailsIndividualEntrepreneur?.ogrn,
         },
         {
           title: 'Расчетный счет',
-          value: this.user.paymentDetailsIndividualEntrepreneur?.transactionAccount,
+          value: this.user?.paymentDetailsIndividualEntrepreneur?.transactionAccount,
         },
         {
           title: 'Банк',
-          value: this.user.paymentDetailsIndividualEntrepreneur?.bank,
+          value: this.user?.paymentDetailsIndividualEntrepreneur?.bank,
         },
         {
           title: 'ИНН банка',
-          value: this.user.paymentDetailsIndividualEntrepreneur?.bankInn,
+          value: this.user?.paymentDetailsIndividualEntrepreneur?.bankInn,
         },
         {
           title: 'БИК банка',
-          value: this.user.paymentDetailsIndividualEntrepreneur?.bankBic,
+          value: this.user?.paymentDetailsIndividualEntrepreneur?.bankBic,
         },
         {
           title: 'Корреспондентский счет банка',
-          value: this.user.paymentDetailsIndividualEntrepreneur?.bankCorrespondentAccount,
+          value: this.user?.paymentDetailsIndividualEntrepreneur?.bankCorrespondentAccount,
         },
         {
           title: 'Юридический адрес банка',
-          value: this.user.paymentDetailsIndividualEntrepreneur?.bankLegalAddress,
+          value: this.user?.paymentDetailsIndividualEntrepreneur?.bankLegalAddress,
         },
       ];
     },
     agencyContractLink() {
-      return this.user.agencyContract;
+      return this.user?.agencyContract;
     },
   },
   watch: {
