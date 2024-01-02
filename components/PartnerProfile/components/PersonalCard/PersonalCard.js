@@ -1,6 +1,7 @@
 import AppCard from '@/components/AppCard/AppCard.vue';
 import AppAvatar from '@/components/AppAvatar/AppAvatar.vue';
 import AppButton from '@/components/AppButton/AppButton.vue';
+import Stub from './components/Stub/Stub.vue';
 import { getUserVerificationStatusTitle, getUserVerificationStatusIconName } from '@/helpers/verificationHelper.js';
 import { parseFromISOtoDdMmYyyy } from '@/utils/date';
 
@@ -9,6 +10,7 @@ export default {
     AppCard,
     AppAvatar,
     AppButton,
+    Stub,
   },
   props: {
     user: {
@@ -26,6 +28,10 @@ export default {
     hideSubmitBtn: {
       type: Boolean,
       default: false,
+    },
+    loading: {
+      type: Boolean,
+      required: false,
     },
   },
   data() {

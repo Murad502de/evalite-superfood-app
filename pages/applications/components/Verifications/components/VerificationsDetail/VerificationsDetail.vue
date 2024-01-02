@@ -14,6 +14,7 @@ AppOverlay.verifications-detail(:dialog="dialog", @close="close")
     :saveLoading="saveLoading",
     hideSubmitBtn,
     :disabled="partnerProfileDisabled",
+    :loading="loading",
     @save:personal="savePersonal",
     @save:passport="savePassport",
     @save:paymentDetails="savePaymentDetails",

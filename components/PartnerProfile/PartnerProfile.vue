@@ -6,6 +6,7 @@
       :disabled="disabled || submitLoading",
       :submitLoading="submitLoading",
       :hideSubmitBtn="hideSubmitBtn",
+      :loading="loading",
       @submit="submit",
       @edit="openCardSettings(cardNames.personalCard)"
     )
