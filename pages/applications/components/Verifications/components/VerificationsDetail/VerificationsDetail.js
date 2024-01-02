@@ -10,6 +10,8 @@ import AppFormPaymentDetailsSE from '@/components/AppFormPaymentDetailsSE/AppFor
 import AppFormPaymentDetailsIE from '@/components/AppFormPaymentDetailsIE/AppFormPaymentDetailsIE.vue';
 import AppFormDoc from '@/components/AppFormDoc/AppFormDoc.vue';
 
+import PartnerProfile from '@/components/PartnerProfile/PartnerProfile.vue';
+
 export default {
   components: {
     AppOverlay,
@@ -22,6 +24,8 @@ export default {
     AppFormPaymentDetailsSE,
     AppFormPaymentDetailsIE,
     AppFormDoc,
+
+    PartnerProfile,
   },
   props: {
     dialog: {
