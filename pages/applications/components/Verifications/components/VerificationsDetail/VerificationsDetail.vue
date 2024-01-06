@@ -13,7 +13,6 @@ AppOverlay.verifications-detail(:dialog="dialog", @close="close")
     :user="user",
     :saveLoading="saveLoading",
     hideSubmitBtn,
-    :disabled="partnerProfileDisabled",
     :loading="loading",
     @save:personal="savePersonal",
     @save:passport="savePassport",

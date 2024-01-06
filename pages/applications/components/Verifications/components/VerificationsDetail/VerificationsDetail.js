@@ -315,16 +315,16 @@ export default {
     // },
 
     savePersonal(data) {
-      console.debug('VerDet/savePersonal/data', data); //DELETE
+      console.debug('VerDet/methods/savePersonal/data', data); //DELETE
     },
     savePassport(data) {
-      console.debug('VerDet/savePassport/data', data); //DELETE
+      console.debug('VerDet/methods/savePassport/data', data); //DELETE
     },
     savePaymentDetails(data) {
-      console.debug('VerDet/savePaymentDetails/data', data); //DELETE
+      console.debug('VerDet/methods/savePaymentDetails/data', data); //DELETE
     },
     saveContract(data) {
-      console.debug('VerDet/saveContract/data', data); //DELETE
+      console.debug('VerDet/methods/saveContract/data', data); //DELETE
     },
   },
   created() { },
