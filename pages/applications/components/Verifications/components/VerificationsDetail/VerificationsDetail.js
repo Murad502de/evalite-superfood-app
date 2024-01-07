@@ -319,15 +319,19 @@ export default {
 
     savePersonal(data) {
       console.debug('VerDet/methods/savePersonal/data', data); //DELETE
+      this.$emit('save:personal', data);
     },
     savePassport(data) {
       console.debug('VerDet/methods/savePassport/data', data); //DELETE
+      this.$emit('save:passport', data);
     },
     savePaymentDetails(data) {
       console.debug('VerDet/methods/savePaymentDetails/data', data); //DELETE
+      this.$emit('save:paymentDetails', data);
     },
     saveContract(data) {
       console.debug('VerDet/methods/saveContract/data', data); //DELETE
+      this.$emit('save:contract', data);
     },
   },
   created() { },
