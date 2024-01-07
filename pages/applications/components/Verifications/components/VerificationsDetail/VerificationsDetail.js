@@ -104,6 +104,9 @@ export default {
 
       this.$emit('approve');
     },
+    reject() {
+      this.$emit('reject');
+    },
     // validForms(save = false) {
     //   const personalDataForm = this.$refs.personal_data_form;
     //   const passportForm = this.$refs.passport_form;

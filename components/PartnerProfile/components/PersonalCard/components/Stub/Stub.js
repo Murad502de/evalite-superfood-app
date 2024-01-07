@@ -4,7 +4,12 @@ export default {
   components: {
     AppSkeleton,
   },
-  props: {},
+  props: {
+    hideStatus: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       stubHeightAvatar: 64,

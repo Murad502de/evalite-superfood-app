@@ -4,6 +4,14 @@ AppOverlay.verifications-detail(:dialog="dialog", @close="close")
     v-btn(
       dark,
       text,
+      @click="reject",
+      :loading="approveLoading",
+      :disabled="saveLoading"
+    ) Отклонить
+
+    v-btn(
+      dark,
+      text,
       @click="approve",
       :loading="approveLoading",
       :disabled="saveLoading"
@@ -13,6 +21,7 @@ AppOverlay.verifications-detail(:dialog="dialog", @close="close")
     :user="user",
     :saveLoading="saveLoading",
     hideSubmitBtn,
+    hideStatus,
     :loading="loading",
     @save:personal="savePersonal",
     @save:passport="savePassport",

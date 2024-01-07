@@ -29,6 +29,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    hideStatus: {
+      type: Boolean,
+      default: false,
+    },
     loading: {
       type: Boolean,
       required: false,

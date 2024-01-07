@@ -1,6 +1,6 @@
 <template lang="pug">
 AppCard.personal-card
-  Stub.personal-card__stub(v-if="loading")
+  Stub.personal-card__stub(v-if="loading", hideStatus)
   .personal-card__card(v-else)
     .personal-card__header
       AppAvatar.personal-card__avatar(:url="avatar", disabled, size="64")
@@ -11,7 +11,7 @@ AppCard.personal-card
         @click="edit"
       ) Изменить профиль
 
-      .personal-card__status
+      .personal-card__status(v-if="!hideStatus")
         component.personal-card__status-icon(:is="getVerificationStatusIcon()")
         .personal-card__status-title {{ getVerificationStatusTitle() }}
 

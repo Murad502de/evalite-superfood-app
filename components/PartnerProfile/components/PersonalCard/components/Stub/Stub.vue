@@ -6,7 +6,7 @@
     AppSkeleton.stub__invite-code(:height="stubHeight")
     .stub__edit(:height="stubHeight") Изменить профиль
 
-    AppSkeleton.stub__status(:height="stubHeight")
+    AppSkeleton.stub__status(v-if="!hideStatus", :height="stubHeight")
 
   v-divider.stub__divider
 
