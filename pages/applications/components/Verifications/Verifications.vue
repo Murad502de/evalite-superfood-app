@@ -43,6 +43,10 @@
     @close="closeVerificationsDetailDialog",
     @approve="approveVerificationsDetail",
     @save="saveVerificationsDetail",
+    @save:personal="savePersonal",
+    @save:passport="savePassport",
+    @save:paymentDetails="savePaymentDetails",
+    @save:contract="saveContract"
   )
 </template>
 

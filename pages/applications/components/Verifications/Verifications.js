@@ -478,6 +478,19 @@ export default {
       this.sortDesc = sortDesc;
       await this.fetchUsers(true);
     },
+
+    savePersonal(data) {
+      console.debug('Verifications/methods/savePersonal/data', data); //DELETE
+    },
+    savePassport(data) {
+      console.debug('Verifications/methods/savePassport/data', data); //DELETE
+    },
+    savePaymentDetails(data) {
+      console.debug('Verifications/methods/savePaymentDetails/data', data); //DELETE
+    },
+    saveContract(data) {
+      console.debug('Verifications/methods/saveContract/data', data); //DELETE
+    },
   },
   async created() {
     await this.fetchUsers();
