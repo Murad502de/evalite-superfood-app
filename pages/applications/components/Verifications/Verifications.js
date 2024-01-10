@@ -13,7 +13,9 @@ import AppFilterTable from '@/components/AppFilterTable/AppFilterTable.vue';
 import AppTextField from '@/components/AppTextField/AppTextField.vue';
 import AppPickerDate from '@/components/AppPickerDate/AppPickerDate.vue';
 import { parseFromDatePickerDdMmYyyy } from '@/utils/date';
+
 import { editPersonal } from '@/UseCases/User/Profile/Partner/EditByAdmin/editPersonal';
+import { editPassport } from '@/UseCases/User/Profile/Partner/EditByAdmin/editPassport';
 
 export default {
   components: {
@@ -497,8 +499,21 @@ export default {
 
       this.verificationsDetail = user || this.verificationsDetail;
     },
-    savePassport(data) {
+    async savePassport(data) {
       console.debug('Verifications/methods/savePassport/data', data); //DELETE
+
+      this.verificationsDetailLoadingSave = true;
+      const user = await editPassport({
+        data: {
+          uuid: this.verificationsDetail.uuid,
+          ...data,
+        },
+      });
+      this.verificationsDetailLoadingSave = false;
+
+      console.debug('Verifications/methods/savePassport/user', user); //DELETE
+
+      this.verificationsDetail = user || this.verificationsDetail;
     },
     savePaymentDetails(data) {
       console.debug('Verifications/methods/savePaymentDetails/data', data); //DELETE
