@@ -19,6 +19,9 @@ import { editPassport } from '@/UseCases/User/Profile/Partner/EditByAdmin/editPa
 import { editPaymentDetails } from '@/UseCases/User/Profile/Partner/EditByAdmin/editPaymentDetails';
 import { editContract } from '@/UseCases/User/Profile/Partner/EditByAdmin/editContract';
 
+import { approvePartner } from '@/UseCases/User/Profile/Partner/EditByAdmin/approvePartner';
+import { rejectPartner } from '@/UseCases/User/Profile/Partner/EditByAdmin/rejectPartner';
+
 export default {
   components: {
     AppTable,
@@ -102,16 +105,16 @@ export default {
       //   alert('Ошибка утверждения пользователя'); //FIXME implement with vuetify
       // }
 
-      setTimeout(() => {
-        this.verificationsDetailLoadingApprove = false;
-        this.verificationsDetailDialog = false;
-        this.verificationsDetail = {};
-      }, 2000);
+      await approvePartner({
+        data: {
+          uuid: this.verificationsDetail.uuid,
+        },
+      });
+      await this.fetchUsers();
 
-      // this.verificationsDetailLoadingApprove = false;
-      // this.verificationsDetailDialog = false;
-      // this.verificationsDetail = null;
-      // await this.fetchUsers();
+      this.verificationsDetailLoadingApprove = false;
+      this.verificationsDetailDialog = false;
+      this.verificationsDetail = {};
     },
     async saveVerificationsDetail() {
       console.debug('saveVerificationsDetail/verificationsDetail', this.verificationsDetail); //DELETE
