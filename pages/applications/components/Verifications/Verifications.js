@@ -17,6 +17,7 @@ import { parseFromDatePickerDdMmYyyy } from '@/utils/date';
 import { editPersonal } from '@/UseCases/User/Profile/Partner/EditByAdmin/editPersonal';
 import { editPassport } from '@/UseCases/User/Profile/Partner/EditByAdmin/editPassport';
 import { editPaymentDetails } from '@/UseCases/User/Profile/Partner/EditByAdmin/editPaymentDetails';
+import { editContract } from '@/UseCases/User/Profile/Partner/EditByAdmin/editContract';
 
 export default {
   components: {
@@ -532,8 +533,21 @@ export default {
 
       this.verificationsDetail = user || this.verificationsDetail;
     },
-    saveContract(data) {
+    async saveContract(data) {
       console.debug('Verifications/methods/saveContract/data', data); //DELETE
+
+      this.verificationsDetailLoadingSave = true;
+      const user = await editContract({
+        data: {
+          uuid: this.verificationsDetail.uuid,
+          ...data,
+        },
+      });
+      this.verificationsDetailLoadingSave = false;
+
+      console.debug('Verifications/methods/saveContract/user', user); //DELETE
+
+      this.verificationsDetail = user || this.verificationsDetail;
     },
   },
   async created() {
