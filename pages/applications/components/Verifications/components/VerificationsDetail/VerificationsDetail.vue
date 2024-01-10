@@ -5,8 +5,8 @@ AppOverlay.verifications-detail(:dialog="dialog", @close="close")
       dark,
       text,
       @click="reject",
-      :loading="approveLoading",
-      :disabled="saveLoading"
+      :loading="rejectLoading",
+      :disabled="approveLoading || saveLoading || loading"
     ) Отклонить
 
     v-btn(
@@ -14,7 +14,7 @@ AppOverlay.verifications-detail(:dialog="dialog", @close="close")
       text,
       @click="approve",
       :loading="approveLoading",
-      :disabled="saveLoading"
+      :disabled="rejectLoading || saveLoading || loading"
     ) Утвердить
 
   PartnerProfile(

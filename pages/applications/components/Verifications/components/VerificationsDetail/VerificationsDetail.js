@@ -44,6 +44,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    rejectLoading: {
+      type: Boolean,
+      default: false,
+    },
     edited: {
       type: Boolean,
       default: false,
@@ -82,7 +86,7 @@ export default {
   watch: {},
   methods: {
     close() {
-      if (this.approveLoading || this.saveLoading) return;
+      if (this.rejectLoading || this.approveLoading || this.saveLoading || this.loading) return;
       this.$emit('close');
       // this.tab = 0;
     },

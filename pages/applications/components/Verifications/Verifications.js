@@ -64,6 +64,7 @@ export default {
       verificationsDetailLoading: false,
       verificationsDetailLoadingSave: false,
       verificationsDetailLoadingApprove: false,
+      verificationsDetailLoadingReject: false,
       filterDate: null,
       filterEmail: null,
       filterName: null,
@@ -91,7 +92,9 @@ export default {
     closeVerificationsDetailDialog() {
       console.debug('closeVerificationsDetailDialog/verificationsDetail', this.verificationsDetail); //DELETE
       this.verificationsDetailDialog = false;
-      this.verificationsDetail = {};
+      setTimeout(() => {
+        this.verificationsDetail = {};
+      }, 300);
     },
     async approveVerificationsDetail() {
       console.debug('approveVerificationsDetail/verificationsDetail', this.verificationsDetail); //DELETE
@@ -113,6 +116,21 @@ export default {
       await this.fetchUsers();
 
       this.verificationsDetailLoadingApprove = false;
+      this.verificationsDetailDialog = false;
+      this.verificationsDetail = {};
+    },
+    async rejectVerificationsDetail() {
+      console.debug('approveVerificationsDetail/rejectVerificationsDetail', this.verificationsDetail); //DELETE
+      this.verificationsDetailLoadingReject = true;
+
+      await rejectPartner({
+        data: {
+          uuid: this.verificationsDetail.uuid,
+        },
+      });
+      await this.fetchUsers();
+
+      this.verificationsDetailLoadingReject = false;
       this.verificationsDetailDialog = false;
       this.verificationsDetail = {};
     },
