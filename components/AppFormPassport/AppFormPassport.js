@@ -227,16 +227,16 @@ export default {
         return;
       }
 
-      this.passFullName = value.passport.fullName;
-      this.passSeries = value.passport.series;
-      this.passNumber = value.passport.number;
-      this.passIssueDate = value.passport.issueDate;
-      this.passRegistrationAddress = value.passport.registrationAddress;
-      this.passIssuedBy = value.passport.issueBy;
-      this.passDepartmentCode = value.passport.departmentCode;
-      this.mainSpreadMediaUrl = value.passport.mainSpread;
-      this.registrationSpreadMediaUrl = value.passport.registrationSpread;
-      this.verificationSpreadMediaUrl = value.passport.verificationSpread;
+      this.passFullName = value.passport?.fullName;
+      this.passSeries = value.passport?.series;
+      this.passNumber = value.passport?.number;
+      this.passIssueDate = value.passport?.issueDate;
+      this.passRegistrationAddress = value.passport?.registrationAddress;
+      this.passIssuedBy = value.passport?.issueBy;
+      this.passDepartmentCode = value.passport?.departmentCode;
+      this.mainSpreadMediaUrl = value.passport?.mainSpread;
+      this.registrationSpreadMediaUrl = value.passport?.registrationSpread;
+      this.verificationSpreadMediaUrl = value.passport?.verificationSpread;
     },
     validate() {
       this.mainSpreadMediaError = !this.mainSpreadMediaUrl;

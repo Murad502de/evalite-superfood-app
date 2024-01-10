@@ -214,17 +214,17 @@ export default {
         return;
       }
 
-      this.fullName = value.paymentDetailsIndividualEntrepreneur.fullName;
-      this.organizationLegalAddress = value.paymentDetailsIndividualEntrepreneur.organizationLegalAddress;
-      this.inn = value.paymentDetailsIndividualEntrepreneur.inn;
-      this.ogrn = value.paymentDetailsIndividualEntrepreneur.ogrn;
-      this.transactionAccount = value.paymentDetailsIndividualEntrepreneur.transactionAccount;
-      this.bank = value.paymentDetailsIndividualEntrepreneur.bank;
-      this.bankInn = value.paymentDetailsIndividualEntrepreneur.bankInn;
-      this.bankBic = value.paymentDetailsIndividualEntrepreneur.bankBic;
-      this.bankCorrespondentAccount = value.paymentDetailsIndividualEntrepreneur.bankCorrespondentAccount;
-      this.bankLegalAddress = value.paymentDetailsIndividualEntrepreneur.bankLegalAddress;
-      this.confirmDocUrl = value.paymentDetailsIndividualEntrepreneur.confirmDoc;
+      this.fullName = value.paymentDetailsIndividualEntrepreneur?.fullName;
+      this.organizationLegalAddress = value.paymentDetailsIndividualEntrepreneur?.organizationLegalAddress;
+      this.inn = value.paymentDetailsIndividualEntrepreneur?.inn;
+      this.ogrn = value.paymentDetailsIndividualEntrepreneur?.ogrn;
+      this.transactionAccount = value.paymentDetailsIndividualEntrepreneur?.transactionAccount;
+      this.bank = value.paymentDetailsIndividualEntrepreneur?.bank;
+      this.bankInn = value.paymentDetailsIndividualEntrepreneur?.bankInn;
+      this.bankBic = value.paymentDetailsIndividualEntrepreneur?.bankBic;
+      this.bankCorrespondentAccount = value.paymentDetailsIndividualEntrepreneur?.bankCorrespondentAccount;
+      this.bankLegalAddress = value.paymentDetailsIndividualEntrepreneur?.bankLegalAddress;
+      this.confirmDocUrl = value.paymentDetailsIndividualEntrepreneur?.confirmDoc;
     },
     validate() {
       this.confirmDocError = !this.confirmDocUrl;
