@@ -13,6 +13,7 @@ import AppFilterTable from '@/components/AppFilterTable/AppFilterTable.vue';
 import AppTextField from '@/components/AppTextField/AppTextField.vue';
 import AppPickerDate from '@/components/AppPickerDate/AppPickerDate.vue';
 import { parseFromDatePickerDdMmYyyy } from '@/utils/date';
+import { editPersonal } from '@/UseCases/User/Profile/Partner/EditByAdmin/editPersonal';
 
 export default {
   components: {
@@ -479,8 +480,22 @@ export default {
       await this.fetchUsers(true);
     },
 
-    savePersonal(data) {
+    async savePersonal(data) {
       console.debug('Verifications/methods/savePersonal/data', data); //DELETE
+      console.debug('Verifications/methods/savePersonal/verificationsDetail/uuid', this.verificationsDetail.uuid); //DELETE
+
+      this.verificationsDetailLoadingSave = true;
+      const user = await editPersonal({
+        data: {
+          uuid: this.verificationsDetail.uuid,
+          ...data,
+        },
+      });
+      this.verificationsDetailLoadingSave = false;
+
+      console.debug('Verifications/methods/savePersonal/user', user); //DELETE
+
+      this.verificationsDetail = user || this.verificationsDetail;
     },
     savePassport(data) {
       console.debug('Verifications/methods/savePassport/data', data); //DELETE
