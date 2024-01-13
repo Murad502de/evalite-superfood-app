@@ -3,7 +3,7 @@ import { api } from '@/api';
 export const usersUuidStatusVerificationSet = async (uuid = null, status = null) => {
   if (uuid === null || status === null) return;
   const payload = {
-    'verification_status': status,
+    'user_verification_status': status,
   };
 
   try {
