@@ -1,7 +1,6 @@
 import { usersVerifications } from '@/api/users/usersVerifications';
 import { usersUuid } from '@/api/users/usersUuid';
 import { usersUuidUpdate } from '@/api/users/usersUuidUpdate';
-import { usersUuidStatusVerificationSet } from '@/api/users/usersUuidStatusVerificationSet';
 import { userUuidInAdapter } from '@/api/adapters/users/userUuidInAdapter';
 import { userUuidOutAdapter } from '@/api/adapters/users/userUuidOutAdapter';
 import { parseFromISOtoDdMmYyyy } from '@/utils/date';
@@ -100,13 +99,6 @@ export default {
       console.debug('approveVerificationsDetail/verificationsDetail', this.verificationsDetail); //DELETE
 
       this.verificationsDetailLoadingApprove = true;
-
-      // const usersUuidStatusVerificationSetResponse = await usersUuidStatusVerificationSet(this.verificationsDetail.uuid, 'verified');
-      // console.debug('usersUuidStatusVerificationSetResponse', usersUuidStatusVerificationSetResponse); //DELETE
-
-      // if (usersUuidStatusVerificationSetResponse.status !== 200) {
-      //   alert('Ошибка утверждения пользователя'); //FIXME implement with vuetify
-      // }
 
       await approvePartner({
         data: {
