@@ -71,6 +71,12 @@ export default {
         this.$emit('ok', this.dates);
       }
     },
+
+    onFieldClicked() {
+      console.debug('onFieldClicked'); //DELETE
+
+      this.menu = !this.menu;
+    },
   },
   watch: {
     dates(newVal) {

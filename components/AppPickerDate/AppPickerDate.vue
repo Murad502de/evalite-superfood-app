@@ -9,20 +9,19 @@
     offset-y
   )
     template(v-slot:activator="{ on, attrs }")
-      v-text-field.app-picker-date__field(
-        v-model="dateRangeText",
-        name="name",
-        v-bind="attrs",
-        v-on="on",
-        filled,
-        single-line,
-        outlined,
-        :prefix="prefix",
-        readonly,
-        :rules="rules",
-        :disabled="disabled",
-        :loading="loading"
-      )
+      .app-picker-date__wrapper(@click="onFieldClicked")
+        v-text-field.app-picker-date__field(
+          v-model="dateRangeText",
+          name="name",
+          filled,
+          single-line,
+          outlined,
+          :prefix="prefix",
+          readonly,
+          :rules="rules",
+          :disabled="disabled",
+          :loading="loading"
+        )
 
     v-date-picker.app-picker-date__picker(
       v-model="dates",
